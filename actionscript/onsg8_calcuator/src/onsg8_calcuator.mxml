@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Script>
+		<![CDATA[
+			private function calc():void {
+				var ans:Number;
+				var a:Number = Number(arg1.text);
+				var b:Number = Number(arg2.text);
+				switch(freq.text) {
+				case "+":
+					ans = a + b;
+					break;
+				case "-":
+					ans = a - b;
+					break;
+				case "/":
+					ans = a / b;
+					break;
+				case "*":
+					ans = a * b;
+					break;
+				case "%":
+					ans = a % b;
+					break;
+				}
+				answer.text = String(ans);
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:TextInput id="arg1" x="150" y="50" width="40" />
+	<mx:TextInput id="arg2" x="250" y="50" width="40" />
+	<mx:Text text="=" x="300" y="50" />
+	<mx:Text id="answer" text="" x="320" y="50" />
+	<mx:Button label="submit!" x="400" y="50" click="calc()"/>
+	<mx:ComboBox id="freq" x="200" y="50" width="50">
+		<mx:ArrayCollection>
+			<mx:String>+</mx:String>
+			<mx:String>-</mx:String>
+			<mx:String>*</mx:String>
+			<mx:String>/</mx:String>
+			<mx:String>%</mx:String>
+		</mx:ArrayCollection>
+	</mx:ComboBox>
+</mx:WindowedApplication>

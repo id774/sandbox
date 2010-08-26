@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+	horizontalAlign="center" verticalAlign="middle" creationComplete="onCreationComplete()">
+	<mx:Script>
+		<![CDATA[
+			import flash.utils.getTimer;
+			import mx.controls.Alert;
+		
+			private var timer:Timer;
+			private var startTime:int;
+			private var setTime:int;
+			private const TIMER_INTERVAL:int = 10;
+			
+			private function onCreationComplete():void {
+				timer = new Timer(TIMER_INTERVAL);
+				timer.addEventListener(TimerEvent.TIMER,onTimerTick);
+				timeLabel.text = "00:00";
+			}
+			private function onTimerTick(event:TimerEvent):void {
+				var elasedTime:int = (getTimer()-startTime)/1000;
+				var dispTime:int = 60*setTime - elasedTime;	
+				var min:int, sec:int;
+				if(dispTime >= 60) {
+					min = dispTime / 60;
+					sec = dispTime % 60;
+					timeLabel.text = formatTime(min,sec);
+				}else if(dispTime <= 0) {
+					timeLabel.text = "00:00";
+					mx.controls.Alert.show("pong pong pong pong!");
+				} else {
+					min = 0;
+					sec = dispTime;
+					timeLabel.text = formatTime(min,sec);
+				}
+
+			}
+			private function formatTime(min:int,sec:int):String {
+				var t:String = "";
+				if(min < 10) {
+					t = t + '0' + String(min) + ":";
+				}else{
+					t = t + String(min) + ":";
+				}
+				if(sec < 10) {
+					t = t + '0' + String(sec);
+				}else{
+					t = t + String(sec);
+				}
+				return t;
+			}
+			private function onStartButtonClick():void {
+				startTime = getTimer();
+				timer.start();
+			}
+			private function onStopButtonClick():void {
+				timer.stop();
+				timeLabel.text = "00:00";
+			}
+			private function onResetButtonClick():void {}
+			private function onSetButtonClick():void {
+				timer.stop();
+				if(int(times.text) < 10) {
+					times.text = "0" + times.text;
+				}
+				timeLabel.text = times.text.concat(":").concat("00");
+				setTime = int(times.text);
+			}
+		]]>
+	</mx:Script>
+	<mx:ApplicationControlBar width="640" dock="true">
+		<mx:Button label="start" id="startButton" width="100" click="onStartButtonClick()"/>
+		<mx:Button label="stop" id="stopButton" width="100" click="onStopButtonClick()"/>
+		<mx:Button label="reset" id="resetButton" width="100" click="onResetButtonClick()"/>
+		<mx:TextInput width="156" id="times"/>
+		<mx:Button label="set" id="setButton" click="onSetButtonClick()"/>
+	</mx:ApplicationControlBar>
+	<mx:Label text="--:--" id="timeLabel" fontSize="100"/>
+</mx:WindowedApplication>

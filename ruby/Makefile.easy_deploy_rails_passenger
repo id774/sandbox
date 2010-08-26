@@ -1,0 +1,48 @@
+# Easy deploy makefile for rails+passenger
+# Author:  Sora Harakami <sora134@gmail.com>
+## Licence: MIT licence {{{
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# }}} Licence: MIT licence
+
+remote_name = origin
+remote_branch = master
+remote_dir  = /home/foobar/www/hoge
+remote = example.com
+new_tag = v`date "+%Y%m%d%H%M%S"`
+addtional_commands = echo ""
+rake_cmd = rake
+
+all: release push remote-pull db-migrate-remote restart-remote
+migrate-and-restart: db-migrate-remote restart-remote
+
+release:
+	git tag $(new_tag)
+
+push:
+	git push --tags $(remote_name)
+	git push $(remote_name) $(remote_branch)
+
+remote-pull:
+	ssh $(remote) 'cd $(remote_dir) && $(addtional_commands) && git pull $(remote_name) $(remote_branch)'
+
+restart-remote:
+	ssh $(remote) 'cd $(remote_dir) && $(addtional_commands) && touch tmp/restart.txt'
+
+db-migrate-remote:
+	ssh $(remote) 'cd $(remote_dir) && $(rake_cmd) db:migrate RAILS_ENV=production'

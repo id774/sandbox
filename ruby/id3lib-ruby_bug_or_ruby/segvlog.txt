@@ -1,0 +1,28 @@
+/Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:272: [BUG] Segmentation fault
+ruby 1.9.3dev (2010-06-05 trunk 28178) [x86_64-darwin10.3.0]
+
+-- control frame ----------
+c:0009 p:---- s:0028 b:0028 l:000027 d:000027 CFUNC  :initialize
+c:0008 p:---- s:0026 b:0026 l:000025 d:000025 CFUNC  :new
+c:0007 p:0069 s:0022 b:0022 l:000011 d:000021 BLOCK  /Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:272
+c:0006 p:---- s:0017 b:0017 l:000016 d:000016 FINISH
+c:0005 p:---- s:0015 b:0015 l:000014 d:000014 CFUNC  :delete_if
+c:0004 p:0059 s:0012 b:0012 l:000011 d:000011 METHOD /Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:269
+c:0003 p:0145 s:0007 b:0007 l:001948 d:000730 EVAL   test.rb:11
+c:0002 p:---- s:0004 b:0004 l:000003 d:000003 FINISH
+c:0001 p:0000 s:0002 b:0002 l:001948 d:001948 TOP   
+---------------------------
+-- Ruby level backtrace information ----------------------------------------
+test.rb:11:in `<main>'
+/Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:269:in `update!'
+/Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:269:in `delete_if'
+/Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:272:in `block in update!'
+/Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:272:in `new'
+/Users/sorah/rubies/trunk/lib/ruby/gems/1.9.1/gems/id3lib-ruby-0.6.0/lib/id3lib.rb:272:in `initialize'
+
+-- C level backtrace information -------------------------------------------
+
+[NOTE]
+You may have encountered a bug in the Ruby interpreter or extension libraries.
+Bug reports are welcome.
+For details: http://www.ruby-lang.org/bugreport.html

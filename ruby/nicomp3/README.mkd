@@ -1,0 +1,80 @@
+# Nico MP3 -- Automatic download and convert to mp3 in Top Nicovideo Ranking
+
+__OWN YOUR RISK__
+
+## Infomation
+
+* This tool is optimized for VOCALOID.
+* If video name contains VOCALOID names, this tool will put to artist tag in ID3.
+
+
+## Requirements
+
+* nicovideo gem.
+
+    Nicovideo gem has some problems, so run this:
+
+    `gem install http://github.com/sorah/ruby-nicovideo/raw/master/pkg/nicovideo-0.1.8.gem`
+
+* id3lib-ruby gem.
+
+    `gem install id3lib-ruby`
+
+## License
+
+MIT Licence
+
+(c) Sora Harakami 2010
+
+>  Permission is hereby granted, free of charge, to any person obtaining a copy
+>    of this software and associated documentation files (the "Software"), to deal
+>    in the Software without restriction, including without limitation the rights
+>    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+>    copies of the Software, and to permit persons to whom the Software is
+>    furnished to do so, subject to the following conditions:
+>    The above copyright notice and this permission notice shall be included in
+>    all copies or substantial portions of the Software.
+>    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+>    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+>    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+>      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+>      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+>    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+>      THE SOFTWARE.
+
+## How to use
+
+1. write config (yaml)
+2. run `ruby /path/to/nicomp3.rb /path/to/config_file`
+3. yam! :-)
+
+## Config File (Example)
+
+    mail: your_accounts_mail
+    password: your_accounts_password
+    tmpdir: temporary_directory
+    mp3dir: mp3_directory
+    ffmpeg: path_to_ffmpeg
+    method: ranking_method
+    span: ranking_span
+    category: ranking_category
+
+* mp3 will saved in mp3dir
+* mp3dir will wipe before convert. please move file which you need.
+* tmpdir will delete automatically before exit.
+* tmpdir will created automatically before convert.
+* Niconico ranking url includes method, span and category.
+
+    http://www.nicovideo.jp/ranking/__fav__/__daily__/__vocaloid__
+
+    http://www.nicovideo.jp/ranking/__METHOD__/__SPAN__/__CATEGORY__
+
+### Optional
+
+    proxy:
+      host: proxy_host
+      port: proxy_port
+    max: max_videos # optional
+
+* Proxy can use for nicocache, etc...
+* max can change max videos. default 10.
