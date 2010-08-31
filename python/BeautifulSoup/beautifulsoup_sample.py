@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
  
 import re
-#import urllib2
+import urllib2
 from BeautifulSoup import BeautifulSoup
  
 def main():
-  #html = opener.open('http://localhost/beautifulsoup_sample.html')
-  html = open('beautifulsoup_sample.html').read()
+  html = urllib2.urlopen('http://id774.net/beautifulsoup_sample.html')
+  #html = open('beautifulsoup_sample.html').read()
   soup = BeautifulSoup(html)
  
   # 基本はfindかfindAllでタグ名指定で要素を取得
