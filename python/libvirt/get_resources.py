@@ -11,3 +11,8 @@ for id in ids:
     maxmem = vm.maxMemory()
     print (maxmem)
 
+defined_ids = c.listDefinedDomains()
+for id in defined_ids:
+    vm = c.lookupByName(id)
+    print ("%s (not running)" % vm.name())
+
