@@ -3,10 +3,17 @@ package javaiosample;
 public class JavaIOSampleMain {
 	public static void main(String[] args) {
 		FileHandler f = new FileHandler();
-		f.createNewFile("newfile.txt");
+
+		String filename = "newfile.txt";
+		String dirname = ".";
+
+		f.createNewFile(filename);
 		f.createNewFolder("newfolder");
 		f.createNewFolderTree("newfoldertree");
-		f.fileExistCheck("newfile.txt");
+		f.fileExistCheck(filename);
 		f.printCurrentDir();
+		f.putTextFile(filename, "‚Ù‚°‚Ù‚°");
+		f.readTextFile(filename);
+		f.getListDir(dirname);
 	}
 }

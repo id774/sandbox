@@ -46,4 +46,35 @@ public class FileHandler {
 		} finally {
 		}
 	}
+
+	public void putTextFile(String filename, String text) {
+		try {
+			FileWriter fw = new FileWriter(filename);
+			fw.write(text);
+			fw.close();
+		} catch (IOException e) {
+			System.out.println(e + "èëÇ´çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩ");
+		}
+	}
+
+	public void readTextFile(String filename) {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			String line ="";
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+			br.close();
+		} catch (IOException e) {
+			System.out.println(e + "ì«Ç›çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩ");
+		}
+	}
+
+	public void getListDir(String filename) {
+		File fl = new File(filename);
+		String[] arry = fl.list();
+		for(int i = 0; i < arry.length; i++) {
+			System.out.println(arry[i]);
+		}
+	}
 }
