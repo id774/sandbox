@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-# 特異メソッド方式。
+# 特異メソッド方式
 class Hoge1
   def Hoge1.bar
     p 'hoge1'
@@ -45,8 +45,10 @@ class Hoge5
   extend Foo
 end
 
-Hoge1.bar
-Hoge2.bar
-Hoge3.bar
-Hoge4.bar
-Hoge5.bar
+if __FILE__ == $0
+  Hoge1.bar
+  Hoge2.bar
+  Hoge3.bar
+  Hoge4.bar
+  Hoge5.bar
+end
