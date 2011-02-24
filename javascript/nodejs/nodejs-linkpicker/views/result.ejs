@@ -1,0 +1,16 @@
+<p><a href="/">Back to the top page</a></p>
+
+<p><%= url %> contains <%= links.length %> links</p>
+
+<ul>
+  <% for (var i = 0; i < sorted.hosts.length; ++i) { %>
+    <% var host = sorted.hosts[i]; %>
+    <li><%= host %> - <%= sorted.hostLinks[host].length %> links</td>
+      <ul>
+        <% for (var j = 0; j < sorted.hostLinks[host].length; ++j) { %>
+          <li><%= sorted.hostLinks[host][j].href %></li>
+        <% } %>
+      </ul>
+    </li>
+  <% } %>
+</ul>
