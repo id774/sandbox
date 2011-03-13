@@ -4,14 +4,10 @@
 */
 
 function num($i, $j) {
-    if(is_numeric($i)) {
-        if(is_numeric($j)) {
+    if (is_numeric($i)) {
+        if (is_numeric($j)) {
             return $i + $j;
-        }else{
-            return 0;
         }
-    }else{
-        return 0;
     }
 }
 
@@ -20,16 +16,21 @@ function digit($i) {
     return $i;
 }
 
+function isset_array($base_array, $i) {
+    if (isset($base_array[$i])) {
+        return digit(num($base_array[$i - 1], $base_array[$i]));
+    }
+}
+
 function calc($iname) {
     $base_array = str_split($iname);
     $base_array_size = count($base_array);
     $calc_array = $base_array;
 
-    for ($j = 0; $j <= $base_array_size - 2; $j++) {
-        for ($i = 0; $i <= $calc_array_size - 1; $i++) {
-            $calc_array[$i] = digit(num($base_array[$i], $base_array[$i + 1]));
+    for ($j = 3; $j <= $base_array_size ; $j++) {
+        for ($i = 1; $i <= $base_array_size ; $i++) {
+            $calc_array[$i - 1] = isset_array($base_array, $i);
         }
-        $calc_array_size = count($calc_array);
         $base_array = $calc_array;
     }
     return "$calc_array[0]$calc_array[1]";
