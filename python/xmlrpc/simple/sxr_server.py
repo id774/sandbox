@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import SimpleXMLRPCServer
-
 class StringFunctions(object):
     def __init__(self):
         import string
@@ -13,9 +11,20 @@ class StringFunctions(object):
     def repeat(self, astr, times):
         return astr * times
 
-if __name__ = '__main__':
-    server = SimpleXMLRPCServer.SimpleXMLRPCServer(("localhost", 3000))
+def main():
+    import SimpleXMLRPCServer
+    running = True
+    def finis( ):
+        global running
+        running = False
+        return 1
+    server = SimpleXMLRPCServer.SimpleXMLRPCServer(("127.0.0.1", 3000))
     server.register_instance(StringFunctions( ), allow_dotted_names = True)
     server.register_function(lambda astr: '_' + astr, '_string')
-    server.serve_forever()
+    server.register_function(finis)
+    while running:
+        server.handle_request( )
+
+if __name__ == '__main__':
+    main()
 
