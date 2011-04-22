@@ -97,7 +97,7 @@ def test(HandlerClass = SecureXMLRpcRequestHandler,ServerClass = SecureXMLRPCSer
     server = ServerClass(server_address, HandlerClass)    
     server.register_instance(xmlrpc_registers())    
     sa = server.socket.getsockname()
-    print "Serving HTTPS on", sa[0], "port", sa[1]
+    print("Serving HTTPS on", sa[0], "port", sa[1])
     server.serve_forever()
 
 if __name__ == '__main__':
