@@ -1,0 +1,25 @@
+<%= form_for(@fuga) do |f| %>
+  <% if @fuga.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fuga.errors.count, "error") %> prohibited this fuga from being saved:</h2>
+
+      <ul>
+      <% @fuga.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fuga_name %><br />
+    <%= f.text_field :fuga_name %>
+  </div>
+  <div class="field">
+    <%= f.label :fuga_id %><br />
+    <%= f.text_field :fuga_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
