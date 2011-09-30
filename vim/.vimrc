@@ -1,1 +1,0 @@
-/Users/sorah/.vimrc

@@ -1,3 +1,0 @@
-publish-range: close
-vim is forever
-('.v.') < vim is forever
