@@ -4,15 +4,12 @@
 class FeedParser
   require 'rss'
   require 'uri'
-  require 'feedbag'
 
   def self.get_rss(url)
     target_links = []
     begin
       unless url.nil?
-        feed_url = Feedbag.find(url).first(1).to_s
-        print "[info] Feed URL: #{feed_url}\n"
-        feed = URI.parse(feed_url).normalize
+        feed = URI.parse(url).normalize
         open(feed) do |http|
           response = http.read
           rss_results = RSS::Parser.parse(response, false)

@@ -1,10 +1,13 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
 class HatenaBookmark
   require 'rubygems'
   require 'time'
   require 'digest/sha1'
   require 'net/http'
   require 'uri'
-  require 'nkf'
+  #require 'nkf'
 
   attr_accessor :user
 
@@ -50,9 +53,15 @@ class HatenaBookmark
       # b_comment = NKF.nkf('-w', b_comment)
       res = http.post(uri.path, genXml(b_url, b_comment), header)
       if res.code == "201" then
-        print "Bookmarked:#{b_url} Comment:#{b_comment}\n"
+        fmt = "%Y/%m/%d %X"
+        t = Time.now.strftime(fmt)
+        unless b_comment.nil?
+          print "#{t} [info] Success: #{b_url} Comment: #{b_comment}\n"
+        else
+          print "#{t} [info] Success: #{b_url}\n"
+        end
       else
-        print "#{res.code} Error:#{b_url}\n"
+        print "#{t} [error] #{res.code} Error: #{b_url}\n"
       end
     end
   end
@@ -61,6 +70,6 @@ end
 if __FILE__ == $0
   b_url = ARGV.shift || abort("Usage: hatenabookmark.rb <url> <comment>")
   b_comment = ARGV.shift
-  hatenabookmark = HatenaBookmark.new
-  hatenabookmark.postBookmark(b_url, b_comment)
+  hb = HatenaBookmark.new
+  hb.postBookmark(b_url, b_comment)
 end
