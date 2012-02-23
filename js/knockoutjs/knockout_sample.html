@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script type="text/javascript" src="/jquery-ui/js/jquery-1.6.2.min.js"></script>
+    <script type='text/javascript' src='./knockout-latest.js'></script>
+  </head>
+  <body>
+    <div id="top">
+      <p>
+        お名前: 
+        <span data-bind="text: personName">
+        <input data-bind="value: personName" />
+      </p>
+      <p>
+        <span data-bind="text: personAge">
+        <input data-bind='value: personAge, valueUpdate: "afterkeydown"' size='5'/>
+      </p>
+      <p>
+        bio:  
+        <span data-bind="text: summary">
+      </p>
+    </div>
+
+    <script type='text/javascript'>
+        var myViewModel = {
+            personName: ko.observable('Bob'),
+            personAge: ko.observable(23),
+            testHandler: function() {alert('hi')},
+        }
+
+        myViewModel.summary=ko.dependentObservable(
+            function() {
+                return this.personName() + " (" + this.personAge() + ")";
+            }, 
+            myViewModel
+        );
+        ko.applyBindings(myViewModel);
+    </script>
+
+    <style type="text/css">
+      div#top { 
+          text-align: center; 
+          padding-top: 5em; 
+      }
+    </stile>
+  </body>
+</html>
