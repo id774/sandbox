@@ -31,6 +31,9 @@ window.onload = ->
     baseTag.replaceChild aTag, baseTag.firstChild
   rewriteDailyLinks = ->
     today = new Date()
+    rewriteDailyLink "six_days_before_yesterday", getDateString(computeDateFromDate(today, -7))
+    rewriteDailyLink "five_days_before_yesterday", getDateString(computeDateFromDate(today, -6))
+    rewriteDailyLink "four_days_before_yesterday", getDateString(computeDateFromDate(today, -5))
     rewriteDailyLink "three_days_before_yesterday", getDateString(computeDateFromDate(today, -4))
     rewriteDailyLink "two_days_before_yesterday", getDateString(computeDateFromDate(today, -3))
     rewriteDailyLink "day_before_yesterday", getDateString(computeDateFromDate(today, -2))
