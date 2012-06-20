@@ -25,6 +25,6 @@ plugins:
 
   - module: StoreTarget
     config:
-      path: /Users/YOUR_NAME/tmp
+      path: /Users/YOUR_NAME/Desktop
       interval: 5
 
