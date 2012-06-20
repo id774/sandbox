@@ -1,0 +1,30 @@
+global:
+  timezone: Asia/Tokyo
+  cache:
+    base: /tmp
+  log:
+    level: info
+
+plugins:
+  - module: SubscriptionURI
+    config:
+      urls:
+        - http://alsscan.com/photos.html
+
+  - module: ExtractLink
+
+  - module: FilterImageLink
+
+  - module: FilterAbsoluteURI
+    config:
+      url: http://alsscan.com/
+
+  - module: StoreLink
+    config:
+      db: example.db
+
+  - module: StoreTarget
+    config:
+      path: /Users/YOUR_NAME/tmp
+      interval: 5
+
