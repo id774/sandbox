@@ -3,7 +3,7 @@
 class Reducer
   def self.reduce
     wordhash = {}
-    STDIN.each_line do |line|
+    $stdin.each_line do |line|
       word, count = line.strip.split
       if wordhash.has_key?(word)
         wordhash[word] += count.to_i
