@@ -1,7 +1,9 @@
 #!/bin/sh
 
-sudo /etc/init.d/hadoop-0.20-namenode start
-sudo /etc/init.d/hadoop-0.20-jobtracker start
-sudo /etc/init.d/hadoop-0.20-datanode start
-sudo /etc/init.d/hadoop-0.20-tasktracker start
+test -n "$1" || exit 1
+export HADOOP_VER=0.20
+sudo /etc/init.d/hadoop-$HADOOP_VER-namenode $1
+sudo /etc/init.d/hadoop-$HADOOP_VER-jobtracker $1
+sudo /etc/init.d/hadoop-$HADOOP_VER-datanode $1
+sudo /etc/init.d/hadoop-$HADOOP_VER-tasktracker $1
 
