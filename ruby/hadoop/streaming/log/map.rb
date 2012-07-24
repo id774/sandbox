@@ -3,9 +3,8 @@
 class Mapper
   def self.map
     $stdin.each_line do |line|
-      line.split.each do |word|
-        puts "#{word}\t1"
-      end
+      word = line.split(" ")[10]
+      puts "#{word}\t1"
     end
   end
 end

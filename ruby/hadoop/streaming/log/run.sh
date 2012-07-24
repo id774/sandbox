@@ -2,9 +2,7 @@
 
 hadoop fs -ls
 hadoop dfs -rmr test2
-ruby merge.rb ~/tmp/log201206
-hadoop fs -put tempfile.txt test2/in/file1
-rm tempfile.txt
+hadoop fs -put ~/tmp/log201206 test2/in/
 
 export HADOOP_ROOT=/usr/lib/hadoop
 export HADOOP_JAR=$HADOOP_ROOT/contrib/streaming/hadoop-streaming-0.20.2-cdh3u4.jar

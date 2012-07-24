@@ -12,7 +12,7 @@ end
 
 describe Mapper do
   it 'Map 処理の結果が返る' do
-    expect = "aaa\t1\nbbb\t1\nccc\t1\nddd\t1\neee\t1\nfff\t1\nggg\t1\nhhh\t1\naaa\t1\nbbb\t1\nccc\t1\nddd\t1\n"
+    expect = "100.101.102.103\t1\n100.101.102.105\t1\n100.101.102.103\t1\n"
     Mapper.run.should == expect
   end
 end
