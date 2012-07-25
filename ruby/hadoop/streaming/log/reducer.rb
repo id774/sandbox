@@ -22,7 +22,8 @@ class Reducer
   end
 
   def self.reflesh(f)
-    `hive -e 'load data local inpath "#{f.path}" overwrite into table resolved;'`
+    `hive -e 'load data local inpath "#{f.path}"
+     overwrite into table resolved;'`
   end
 
   def self.update(hosts)
@@ -38,9 +39,8 @@ class Reducer
     begin
       host = Resolv.getname(ip)
     rescue Resolv::ResolvError
-      host = ''
+      host = 'UNKNOWN'
     end
-    host
   end
 
   def self.resolved

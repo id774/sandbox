@@ -12,7 +12,7 @@ end
 
 describe Reducer do
   it 'Reduce 処理の結果が返る' do
-    expect = "100.101.102.103\t2\n100.101.102.105\t1\n"
+    expect = "211.9.48.49\tUNKNOWN\t1\n218.213.26.164\tUNKNOWN\t1\n88.182.29.128\tmar44-5-88-182-29-128.fbx.proxad.net\t2\n88.182.8.57\tbac69-10-88-182-8-57.fbx.proxad.net\t1\n"
     Reducer.run.should == expect
   end
 end
