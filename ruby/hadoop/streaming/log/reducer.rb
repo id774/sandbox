@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'resolv'
+require 'tempfile'
+
 class Reducer
   def self.ipcount
     wordhash = {}
@@ -15,12 +18,56 @@ class Reducer
   end
 
   def self.resolve
-    resolved = `hive -e 'select ip, host from resolved;'`
+    `hive -e 'select ip, host from resolved;'`
+  end
+
+  def self.reflesh(f)
+    `hive -e 'load data local inpath "#{f.path}" overwrite into table resolved;'`
+  end
+
+  def self.update(hosts)
+    f = Tempfile::new("tempfile")
+    hosts.each {|key, value|
+      f << "#{key}\t#{value}\n"
+    }
+    f.close
+    reflesh(f)
+ end
+
+  def self.resolving(ip)
+    begin
+      host = Resolv.getname(ip)
+    rescue Resolv::ResolvError
+      host = ''
+    end
+    host
+  end
+
+  def self.resolved
+    hash = Hash.new
+    hash.default = 'UNKNOWN'
+    resolve.each_line {|line|
+      ip, host = line.split
+      hash[ip] = host
+    }
+    hash
   end
 
   def self.reduce
     wordhash = ipcount
-    wordhash.each {|record, count| puts "#{record}\t#{count}"}
+    hosts = resolved
+    hash = Hash.new
+    wordhash.each {|ip, count|
+      if hosts.key? ip
+        host = hosts[ip]
+      else
+        host = resolving(ip)
+      end
+      hash[ip] = host unless hash.key? ip
+      puts "#{ip}\t#{host}\t#{count}"
+    }
+    hosts = hosts.merge(hash)
+    update(hosts)
   end
 end
 
