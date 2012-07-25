@@ -1,7 +1,8 @@
 #!/bin/sh
 
 hadoop fs -ls
-hadoop dfs -rmr test2
+hadoop dfs -rmr logs/in
+hadoop dfs -rmr logs/out
 hadoop fs -put ~/tmp/log201206 logs/in/
 
 export HADOOP_ROOT=/usr/lib/hadoop
@@ -13,9 +14,4 @@ hadoop jar $HADOOP_JAR \
   -input logs/in/* -output logs/ip
 
 hadoop fs -cat logs/ip/part-00000
-
-#hadoop jar $HADOOP_JAR \
-#  -file dns_mapper.rb -mapper dns_mapper.rb \
-#  -file dns_reducer.rb -reducer dns_reducer.rb \
-#  -input logs/ip/part-00000 -output logs/dns
 

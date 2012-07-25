@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-class IPMapper
+class Mapper
   def self.map
     $stdin.each_line do |line|
       word = line.split(" ")[10]
@@ -9,4 +9,4 @@ class IPMapper
   end
 end
 
-IPMapper.map
+Mapper.map

@@ -6,7 +6,7 @@ require 'rspec'
 
 class Mapper
   def self.run
-    `cat data.txt | ruby ip_mapper.rb`
+    `cat data.txt | ruby mapper.rb`
   end
 end
 
