@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-class Reducer
+class IPReducer
   def self.reduce
     wordhash = {}
     $stdin.each_line do |line|
@@ -15,4 +15,4 @@ class Reducer
   end
 end
 
-Reducer.reduce
+IPReducer.reduce

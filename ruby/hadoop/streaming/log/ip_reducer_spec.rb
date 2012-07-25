@@ -6,7 +6,7 @@ require 'rspec'
 
 class Reducer
   def self.run
-    `cat data.txt | ruby map.rb | sort | ruby reduce.rb`
+    `cat data.txt | ruby ip_mapper.rb | sort | ruby ip_reducer.rb`
   end
 end
 
