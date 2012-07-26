@@ -9,8 +9,8 @@ export HADOOP_ROOT=/usr/lib/hadoop
 export HADOOP_JAR=$HADOOP_ROOT/contrib/streaming/hadoop-streaming-0.20.2-cdh3u4.jar
 
 hadoop jar $HADOOP_JAR \
-  -file ip_mapper.rb -mapper ip_mapper.rb \
-  -file ip_reducer.rb -reducer ip_reducer.rb \
+  -file mapper.rb -mapper mapper.rb \
+  -file reducer.rb -reducer reducer.rb \
   -input logs/in/* -output logs/ip
 
 hadoop fs -cat logs/ip/part-00000
