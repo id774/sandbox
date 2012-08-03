@@ -52,7 +52,7 @@ class Storage
   end
 
   def column_definition
-    return {
+    {
       :ip => :string,
       :host => :string,
     }
