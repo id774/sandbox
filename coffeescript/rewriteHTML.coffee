@@ -40,3 +40,10 @@ window.onload = ->
     rewriteDailyLink "yesterday", getDateString(computeDateFromDate(today, -1))
     rewriteDailyLink "today", getDateString(today)
   rewriteDailyLinks()
+  rewriteBanner = ->
+    banner = document.getElementById("banner")
+    banner.innerHTML = "
+        <p>
+          <a href=\"http://www.saases.jp/\"><img style=\"border:0\;\" src=\"/images/banner_125x125_04.png\" width=\"125\" height=\"125\" alt=\"Supported By SaaSes\"></a>
+        </p>"
+  rewriteBanner()
