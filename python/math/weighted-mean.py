@@ -9,4 +9,4 @@ def weighted_mean(x,w):
     den=sum([w[i] for i in range(len(w))])
     return num,den
 
-print weighted_mean([3,4,5],[4,5,8])
+#print weighted_mean([3,4,5],[4,5,8])

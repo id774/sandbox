@@ -26,4 +26,4 @@ def pearson(x,y):
     r=num/den
     return r
 
-print pearson([3,4,5],[4,5,8])
+#print pearson([3,4,5],[4,5,8])

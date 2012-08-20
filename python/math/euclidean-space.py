@@ -12,4 +12,4 @@ def euclidean(p,q):
     # 平方根
     return (sumSq**0.5)
 
-print euclidean([3,4,5],[4,5,6])
+#print euclidean([3,4,5],[4,5,6])
