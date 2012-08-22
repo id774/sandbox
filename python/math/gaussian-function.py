@@ -4,6 +4,8 @@
 # ガウス関数
 # http://en.wikipedia.org/wiki/Gaussian_function
 
+# 正規分布における確率密度を示す関数
+
 import math
 def gaussian(dist,sigma=10.0):
     exp=math.e**(-dist**2/(2*sigma**2))

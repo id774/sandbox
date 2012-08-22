@@ -4,6 +4,9 @@
 # ピアソン相関関数
 # http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
 
+# 二つの変数にどの程度壮観があるのか計測するための指標
+# 1 と -1 の間の値を取り、完全に相関するなら 1 、相関がないなら 0 、逆相関なら -1
+
 def pearson(x,y):
     n=len(x)
     vals=range(n)

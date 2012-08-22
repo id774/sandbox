@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# ユークリッド空間
+# ユークリッド距離
 # http://en.wikipedia.org/wiki/Euclidean_space
+
+# 多次元空間中での 2 点間の距離を探索する
 
 def euclidean(p,q):
     sumSq=0.0
