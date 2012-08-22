@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import sys
 from PIL import Image,ImageDraw
 
 def getheight(clust):
@@ -48,9 +49,9 @@ def drawnode(draw,clust,x,y,scaling,labels):
         draw.text((x+5,y-7),labels[clust.id],(0,0,0))
 
 def readfile(filename):
-    lines=[lines for line in file(filename)]
+    lines=[line for line in file(filename)]
 
-    columns=lines[0].strip().split('\t')[1:]
+    colnames=lines[0].strip().split('\t')[1:]
     rownames=[]
     data=[]
     for lines in line[1:]:
@@ -134,4 +135,14 @@ def printclust(clust,labels=None,n=0):
     # 左右の枝を表示する
     if clust.left!=None: printclust(clust.left,labels=labels,n=n+1)
     if clust.right!=None: printclust(clust.right,labels=labels,n=n+1)
+
+def main():
+    blognames,words,data=readfile(sys.argv[1])
+    print blognames
+    print words
+    print data
+    #clust=hcluster(data)
+
+if __name__=='__main__':
+    main()
 
