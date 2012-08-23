@@ -1,9 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from PIL import Image,ImageDraw
+from PIL import Image,ImageDraw,ImageFont
+import sys
+#import codecs
 
-mydata=[line.split('\t') for line in file('decision_tree_example.txt')]
-#mydata=[line.split(' ') for line in file('data_format_sample.txt')]
+#mydata=[line.split('\t') for line in file('decision_tree_example.txt')]
+#mydata=[line.split(' ') for line in file('data_format_sample2.txt')]
+fin = file(sys.argv[1])
+mydata=[line.split(' ') for line in fin]
+#mydata=[['slashdot','USA','yes',18,'None'],
+#        ['google','France','yes',23,'Premium'],
+#        ['digg','USA','yes',24,'Basic'],
+#        ['kiwitobes','France','yes',23,'Basic'],
+#        ['google','UK','no',21,'Premium'],
+#        ['(direct)','New Zealand','no',12,'None'],
+#        ['(direct)','UK','no',21,'Basic'],
+#        ['google','USA','no',24,'Premium'],
+#        ['slashdot','France','yes',19,'None'],
+#        ['digg','USA','no',18,'None'],
+#        ['google','UK','no',18,'None'],
+#        ['kiwitobes','UK','no',19,'None'],
+#        ['digg','New Zealand','yes',12,'Basic'],
+#        ['slashdot','UK','no',21,'None'],
+#        ['google','UK','yes',18,'Basic'],
+#        ['kiwitobes','France','yes',19,'Basic']]
 
 class decisionnode:
     def __init__(self,col=-1,value=None,results=None,tb=None,fb=None):
@@ -92,26 +112,23 @@ def classify(observation,tree):
     return classify(observation,branch)
 
 def prune(tree,mingain):
-    # If the branches aren't leaves, then prune them
+    # 葉でない枝に刈り込み
     if tree.tb.results==None:
         prune(tree.tb,mingain)
     if tree.fb.results==None:
         prune(tree.fb,mingain)
-    # If both the subbranches are now leaves, see if they
-    # should merged
+    # 両方を統合するべきか判定
     if tree.tb.results!=None and tree.fb.results!=None:
-        # Build a combined dataset
         tb,fb=[],[]
         for v,c in tree.tb.results.items():
             tb+=[[v]]*c
         for v,c in tree.fb.results.items():
             fb+=[[v]]*c
-    # Test the reduction in entropy
-    delta=entropy(tb+fb)-(entropy(tb)+entropy(fb)/2)
-    if delta<mingain:
-      # Merge the branches
-      tree.tb,tree.fb=None,None
-      tree.results=uniquecounts(tb+fb)
+        # エントロピーの現象を調べる
+        delta=entropy(tb+fb)-(entropy(tb)+entropy(fb)/2)
+        if delta<mingain:
+            tree.tb,tree.fb=None,None
+            tree.results=uniquecounts(tb+fb)
 
 def mdclassify(observation,tree):
     if tree.results!=None:
@@ -135,7 +152,7 @@ def mdclassify(observation,tree):
             else:
                 if v==tree.value: branch=tree.tb
                 else: branch=tree.fb
-        return mdclassify(observation,branch)
+            return mdclassify(observation,branch)
 
 def variance(rows):
     if len(rows)==0: return 0
@@ -157,16 +174,16 @@ def buildtree(rows,scoref=entropy):
         column_values={}
         for row in rows:
             column_values[row[col]]=1
-    # 項目が取るそれぞれの値に振り分け
-    for value in column_values.keys():
-        (set1,set2)=divideset(rows,col,value)
-        # ゲイン
-        p=float(len(set1))/len(rows)
-        gain=current_score-p*scoref(set1)-(1-p)*scoref(set2)
-        if gain>best_gain and len(set1)>0 and len(set2)>0:
-            best_gain=gain
-            best_criteria=(col,value)
-            best_sets=(set1,set2)
+        # 項目が取るそれぞれの値に振り分け
+        for value in column_values.keys():
+            (set1,set2)=divideset(rows,col,value)
+            # ゲイン
+            p=float(len(set1))/len(rows)
+            gain=current_score-p*scoref(set1)-(1-p)*scoref(set2)
+            if gain>best_gain and len(set1)>0 and len(set2)>0:
+                best_gain=gain
+                best_criteria=(col,value)
+                best_sets=(set1,set2)
     # サブブランチの生成
     if best_gain>0:
         trueBranch=buildtree(best_sets[0])
@@ -199,6 +216,7 @@ def drawtree(tree,jpeg='tree.jpg'):
     img.save(jpeg,'JPEG')
 
 def drawnode(draw,tree,x,y):
+    font=ImageFont.truetype('/usr/share/fonts/truetype/vlgothic/VL-Gothic-Regular.ttf',14,encoding='utf-8')
     if tree.results==None:
         # Get the width of each branch
         w1=getwidth(tree.fb)*100
@@ -207,7 +225,10 @@ def drawnode(draw,tree,x,y):
         left=x-(w1+w2)/2
         right=x+(w1+w2)/2
         # Draw the condition string
-        draw.text((x-20,y-10),str(tree.col)+':'+str(tree.value),(0,0,0))
+        txt=str(tree.col)+':'+str(tree.value)
+        utxt = unicode(txt,'utf-8')
+        draw.text((x-20,y-10),utxt,
+                  font=font,fill='#000000')
         # Draw links to the branches
         draw.line((x,y,left+w1/2,y+100),fill=(255,0,0))
         draw.line((x,y,right-w2/2,y+100),fill=(255,0,0))
@@ -216,7 +237,8 @@ def drawnode(draw,tree,x,y):
         drawnode(draw,tree.tb,right-w2/2,y+100)
     else:
         txt=' \n'.join(['%s:%d'%v for v in tree.results.items()])
-        draw.text((x-20,y),txt,(0,0,0))
+        utxt=unicode(txt,'utf-8')
+        draw.text((x-20,y),utxt,font=font,fill='#000000')
 
 def main():
     set1,set2=divideset(mydata,2,'yes')
@@ -245,6 +267,7 @@ def main():
 
     print '決定木の生成'
     tree=buildtree(mydata)
+    #prune(tree,0.1)
     printtree(tree)
 
     print '決定木の画像生成'
