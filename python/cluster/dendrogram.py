@@ -2,6 +2,19 @@
 
 import sys
 from PIL import Image,ImageDraw
+from math import sqrt
+
+def readfile(filename):
+    lines=[line for line in file(filename)]
+
+    colnames=lines[0].strip().split('\t')[1:]
+    rownames=[]
+    data=[]
+    for lines in line[1:]:
+        p=line.strip().split('\t')
+        rownames.append(p[0])
+        data.append([float(x) for x in p[1:]])
+    return rownames,colnames,data
 
 def getheight(clust):
     # 終端であれば高さを 1 に、そうでなければ枝の高さの合計
@@ -14,6 +27,92 @@ def getdepth(clust):
     return max(getdepth(clust.left),
                getdepth(clust.right))+clust.distance
 
+def pearson(v1,v2):
+    # 単純な合計
+    sum1=sum(v1)
+    sum2=sum(v2)
+    # 平方の合計
+    sum1Sq=sum([pow(v,2) for v in v1])
+    sum2Sq=sum([pow(v,2) for v in v2])
+    # 積の合計
+    pSum=sum([v1[i]*v2[i] for i in range(len(v1))])
+    # ピアソンスコア算出
+    num=pSum-(sum1*sum2/len(v1))
+    d=sqrt((sum1Sq-pow(sum1,2)/len(v1))*(sum2Sq-pow(sum2,2)/len(v1)))
+    if d==0: return 0
+    # 逆数を返却
+    r=1.0-num/d
+    return r
+
+# tanimoto 係数
+# 値が 1.0 であれば最初のアイテムを欲しがっている人で 2 つ目のアイテムを
+# 欲しがっている人はいない
+# 値が 0.0 であれば 2 つのアイテムを全く同じ集団が欲しがっている
+def tanamoto(v1,v2):
+    c1,c2,shr=0,0,0
+    for i in range(len(v1)):
+        if v1[i]!=0: c1+=1
+        if v2[i]!=0: c2+=1
+        if v1[i]!=0 and v2[i]!=0: shr+=1
+    return 1.0-(float(shr)/(c1+c2-shr))
+
+def scaledown(data,distance=pearson,rate=0.01):
+    n=len(data)
+    # アイテムのすべての組の実際の距離
+    realdist=[[distance(data[i],data[j]) for j in range(n)]
+              for i in range(0,n)]
+
+    # 2 次元上にランダムに配置するように初期化
+    loc=[[random.random(),random.random()] for i in range(n)]
+    fakedist=[[0.0 for j in range(n)] for i in range(n)]
+    lasterror=None
+    for m in range(0,1000):
+        # 予測距離を計測する
+        for i in range(n):
+            for j in range(n):
+                fakedist[i][j]=sqrt(sum([pow(loc[i][x]-loc[j][x],2)
+                                         for x in range(len(loc[i]))]))
+    # ポイントの移動
+    grad=[[0.0,0.0] for i in range(n)]
+    totalerror=0
+    for k in range(n):
+        for j in range(n):
+            if j==k: continue
+            # 誤差は距離の差の百分率
+            errorterm=(fakedist[j][k]-realdist[j][k])/realdist[j][k]
+            # 他のポイントへの誤差に比例して
+            # それぞれのポイントを調整
+            grad[k][0]+=((loc[k][0]-loc[j][0])/fakedist[j][k])*errorterm
+            grad[k][1]+=((loc[k][1]-loc[j][1])/fakedist[j][k])*errorterm
+            # 誤差の合計を記録
+            totalerror+=abs(errorterm)
+        print totalerror
+        # 誤差が悪化したら終了
+        if lasterror and lasterror<totalerror: break
+        lasterror=totalerror
+        # 学習率と傾斜を乗算してポイントを移動
+        for k in range(n):
+            loc[k][0]-=rate*grad[k][0]
+            loc[k][1]-=rate*grad[k][1]
+
+    return loc
+
+def draw2d(data,labels,jpeg='mds2d.jpg'):
+    img=Image.new('RGB',(2000,2000),(255,255,255))
+    draw=ImageDraw.Draw(img)
+    for i in range(len(data)):
+        x=(data[i][0]+0.5)*1000
+        y=(data[i][1]+0.5)*1000
+        draw.text((x,y),labels[i],(0,0,0))
+    img.save(jpeg,'JPEG')
+
+def rotatematrix(data):
+    newdata=[]
+    for i in range(len(data[0])):
+        newrow=[data[j][i] for j in range(len(data))]
+        newdata.append(newrow)
+    return newdata
+
 def drawdendrogram(clust,labels,jpeg='cluster.jpg'):
     h=getheight(clust)*20
     w=1200
@@ -23,6 +122,7 @@ def drawdendrogram(clust,labels,jpeg='cluster.jpg'):
     # 白を背景に
     img=Image.new('RGB',(w,h),(255,255,255))
     draw=ImageDraw.Draw(img)
+    draw.line((0,h/2,10,h/2),fill=(255,0,0))
     # 最初のノードを描く
     drawnode(draw,clust,10,(h/2),scaling,labels)
     img.save(jpeg,'JPEG')
@@ -48,41 +148,6 @@ def drawnode(draw,clust,x,y,scaling,labels):
         # 終点ならラベルを描く
         draw.text((x+5,y-7),labels[clust.id],(0,0,0))
 
-def readfile(filename):
-    lines=[line for line in file(filename)]
-
-    colnames=lines[0].strip().split('\t')[1:]
-    rownames=[]
-    data=[]
-    for lines in line[1:]:
-        p=line.strip().split('\t')
-        rownames.append(p[0])
-        data.append([float(x) for x in p[1:]])
-    return rownames,colnames,data
-
-def pearson(x,y):
-    n=len(x)
-    vals=range(n)
-
-    # 単純な合計
-    sumx=sum([float(x[i]) for i in vals])
-    sumy=sum([float(y[i]) for i in vals])
-
-    # 平方の合計
-    sumxSq=sum([x[i]**2.0 for i in vals])
-    sumySq=sum([y[i]**2.0 for i in vals])
-
-    # 積の合計
-    pSum=sum([x[i]*y[i] for i in vals])
-
-    # ピアソンスコア算出
-    num=pSum-(sumx*sumy/n)
-    den=((sumxSq-pow(sumx,2)/n)*(sumySq-pow(sumy,2)/n))**.5
-    if den==0: return 0
-    # 逆数を返却
-    r=1.0-num/den
-    return r
-
 class bicluster:
     def __init__(self,vec,left=None,right=None,distance=0.0,id=None):
         self.left=left
@@ -102,6 +167,7 @@ def hcluster(rows,distance=pearson):
     # すべての組をループし、もっとも距離の近い組を探す
     for i in range(len(clust)):
         for j in range(i+1,len(clust)):
+            # キャッシュされていればそれを使う
             if (clust[i].id,clust[j].id) not in distances:
                 distance[(clust[i].id,clust[j].id)]=distance(clust[i].vec,clust[j].vec)
             d=distance[(clust[i].id,clust[j].id)]
@@ -121,7 +187,6 @@ def hcluster(rows,distance=pearson):
     del clust[lowestpair[1]]
     del clust[lowestpair[0]]
     clust.append(newcluster)
-
     return clust[0]
 
 def printclust(clust,labels=None,n=0):

@@ -63,6 +63,17 @@ def entropy(rows):
         ent=ent-p*log2(p)
     return ent
 
+def buildtree(rows,scoref=entropy):
+    if len(rows)==0: return decisionnode()
+    current_score=scoref(rows)
+
+    best_gain=0.0
+    best_value(
+    column_count=len(rows[0])-1
+    
+
+
+
 
 def main():
     print divideset(data,2,'yes')
