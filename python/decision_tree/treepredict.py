@@ -3,6 +3,8 @@
 from PIL import Image,ImageDraw
 
 mydata=[line.split('\t') for line in file('decision_tree_example.txt')]
+#mydata=[line.split(' ') for line in file('data_format_sample.txt')]
+
 class decisionnode:
     def __init__(self,col=-1,value=None,results=None,tb=None,fb=None):
         self.col=col
@@ -74,35 +76,6 @@ def getwidth(tree):
 def getdepth(tree):
     if tree.tb==None and tree.fb==None: return 0
     return max(getdepth(tree.tb),getdepth(tree.fb))+1
-
-# 適切なサイズを判断してキャンバスを用意する
-def drawtree(tree,jpeg='tree.jpg'):
-    w=getwidth(tree)*100
-    h=getdepth(tree)*100+120
-    img=Image.new('RGB',(w,h),(255,255,255))
-    draw=ImageDraw.Draw(img)
-    drawnode(draw,tree,w/2,20)
-    img.save(jpeg,'JPEG')
-
-def drawnode(draw,tree,x,y):
-    if tree.results==None:
-        # Get the width of each branch
-        w1=getwidth(tree.fb)*100
-        w2=getwidth(tree.tb)*100
-        # Determine the total space required by this node
-        left=x-(w1+w2)/2
-        right=x+(w1+w2)/2
-        # Draw the condition string
-        draw.text((x-20,y-10),str(tree.col)+':'+str(tree.value),(0,0,0))
-        # Draw links to the branches
-        draw.line((x,y,left+w1/2,y+100),fill=(255,0,0))
-        draw.line((x,y,right-w2/2,y+100),fill=(255,0,0))
-        # Draw the branch nodes
-        drawnode(draw,tree.fb,left+w1/2,y+100)
-        drawnode(draw,tree.tb,right-w2/2,y+100)
-    else:
-        txt=' \n'.join(['%s:%d'%v for v in tree.results.items()])
-        draw.text((x-20,y),txt,(0,0,0))
 
 def classify(observation,tree):
     if tree.results!=None:
@@ -216,6 +189,35 @@ def printtree(tree,indent=''):
         print indent+'F->',
         printtree(tree.fb,indent+'  ')
 
+# 適切なサイズを判断してキャンバスを用意する
+def drawtree(tree,jpeg='tree.jpg'):
+    w=getwidth(tree)*100
+    h=getdepth(tree)*100+120
+    img=Image.new('RGB',(w,h),(255,255,255))
+    draw=ImageDraw.Draw(img)
+    drawnode(draw,tree,w/2,20)
+    img.save(jpeg,'JPEG')
+
+def drawnode(draw,tree,x,y):
+    if tree.results==None:
+        # Get the width of each branch
+        w1=getwidth(tree.fb)*100
+        w2=getwidth(tree.tb)*100
+        # Determine the total space required by this node
+        left=x-(w1+w2)/2
+        right=x+(w1+w2)/2
+        # Draw the condition string
+        draw.text((x-20,y-10),str(tree.col)+':'+str(tree.value),(0,0,0))
+        # Draw links to the branches
+        draw.line((x,y,left+w1/2,y+100),fill=(255,0,0))
+        draw.line((x,y,right-w2/2,y+100),fill=(255,0,0))
+        # Draw the branch nodes
+        drawnode(draw,tree.fb,left+w1/2,y+100)
+        drawnode(draw,tree.tb,right-w2/2,y+100)
+    else:
+        txt=' \n'.join(['%s:%d'%v for v in tree.results.items()])
+        draw.text((x-20,y),txt,(0,0,0))
+
 def main():
     set1,set2=divideset(mydata,2,'yes')
 
@@ -230,13 +232,23 @@ def main():
     print 'エントロピー = すべての帰結の p(i) x log(p(i)) の合計'
     print entropy(mydata)
 
-    print '集合 1'
-    print set1
-    print '集合 2'
-    print set2
+    print '集合 1 の個数'
+    print len(set1)
+    print '集合 2 の個数'
+    print len(set2)
+    print '集合 1 の値'
+    print giniimpurity(set1)
+    print entropy(set1)
     print '集合 2 の値'
     print giniimpurity(set2)
     print entropy(set2)
+
+    print '決定木の生成'
+    tree=buildtree(mydata)
+    printtree(tree)
+
+    print '決定木の画像生成'
+    drawtree(tree,jpeg='tree.jpg')
 
 if __name__=='__main__':
     main()
