@@ -2,28 +2,17 @@
 
 from PIL import Image,ImageDraw,ImageFont
 import sys
-#import codecs
+import re, pprint
 
 #mydata=[line.split('\t') for line in file('decision_tree_example.txt')]
 #mydata=[line.split(' ') for line in file('data_format_sample2.txt')]
 fin = file(sys.argv[1])
-mydata=[line.split(' ') for line in fin]
-#mydata=[['slashdot','USA','yes',18,'None'],
-#        ['google','France','yes',23,'Premium'],
-#        ['digg','USA','yes',24,'Basic'],
-#        ['kiwitobes','France','yes',23,'Basic'],
-#        ['google','UK','no',21,'Premium'],
-#        ['(direct)','New Zealand','no',12,'None'],
-#        ['(direct)','UK','no',21,'Basic'],
-#        ['google','USA','no',24,'Premium'],
-#        ['slashdot','France','yes',19,'None'],
-#        ['digg','USA','no',18,'None'],
-#        ['google','UK','no',18,'None'],
-#        ['kiwitobes','UK','no',19,'None'],
-#        ['digg','New Zealand','yes',12,'Basic'],
-#        ['slashdot','UK','no',21,'None'],
-#        ['google','UK','yes',18,'Basic'],
-#        ['kiwitobes','France','yes',19,'Basic']]
+mydata=[line.rstrip().split(' ') for line in fin]
+
+def pp(obj):
+    pp=pprint.PrettyPrinter(indent=4,width=160)
+    str=pp.pformat(obj)
+    return re.sub(r"\\u([0-9a-f]{4})",lambda x:unichr(int("0x"+x.group(1),16)),str)
 
 class decisionnode:
     def __init__(self,col=-1,value=None,results=None,tb=None,fb=None):
@@ -180,6 +169,7 @@ def buildtree(rows,scoref=entropy):
             # ゲイン
             p=float(len(set1))/len(rows)
             gain=current_score-p*scoref(set1)-(1-p)*scoref(set2)
+            # print col,value,gain
             if gain>best_gain and len(set1)>0 and len(set2)>0:
                 best_gain=gain
                 best_criteria=(col,value)
@@ -216,7 +206,7 @@ def drawtree(tree,jpeg='tree.jpg'):
     img.save(jpeg,'JPEG')
 
 def drawnode(draw,tree,x,y):
-    font=ImageFont.truetype('/usr/share/fonts/truetype/vlgothic/VL-Gothic-Regular.ttf',14,encoding='utf-8')
+    font=ImageFont.truetype('/usr/share/fonts/truetype/vlgothic/VL-Gothic-Regular.ttf',16,encoding='utf-8')
     if tree.results==None:
         # Get the width of each branch
         w1=getwidth(tree.fb)*100
@@ -246,7 +236,6 @@ def main():
     print 'ジニ不純度'
     print '無作為に置いた要素が間違ったカテゴリーに入る確率'
     print '可能な帰結が 4 種類ありすべて等しく起きるなら誤差率は 0.75'
-    print '低いほうが良い'
     print giniimpurity(mydata)
 
     print 'エントロピー'
@@ -256,8 +245,10 @@ def main():
 
     print '集合 1 の個数'
     print len(set1)
+    print pp(set1)
     print '集合 2 の個数'
     print len(set2)
+    print pp(set2)
     print '集合 1 の値'
     print giniimpurity(set1)
     print entropy(set1)
