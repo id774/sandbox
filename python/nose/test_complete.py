@@ -41,21 +41,16 @@ def test_is_complete2():
     eq_(e,is_complete(i))
 
 def test_is_complete3():
-    i=28
-    e=True
-    eq_(e,is_complete(i))
-
-def test_is_complete4():
     i=4
     e=False
     eq_(e,is_complete(i))
 
-def test_is_complete5():
+def test_is_complete4():
     i=496
     e=True
     eq_(e,is_complete(i))
 
-def test_is_complete6():
+def test_is_complete5():
     i=7
     e=False
     eq_(e,is_complete(i))
