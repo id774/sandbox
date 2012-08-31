@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # - * - coding: utf-8 - * -
 
-import sys
-
 def tag(word):
     try:
         assert isinstance(word, basestring)
