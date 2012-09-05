@@ -9,7 +9,10 @@ def unzip(src)
     a.each do |f|
       tempfile = Tempfile::new(f.name)
       tempfile.print(f.read)
+      puts "Extracting #{f.name}"
       `hadoop fs -put #{tempfile.path} #{ARGV[1]}/#{f.name}`
+      puts "Done"
+      tempfile.close
     end
   end
 end
