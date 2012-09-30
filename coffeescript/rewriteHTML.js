@@ -2,7 +2,7 @@
 (function() {
 
   window.onload = function() {
-    var computeDate, computeDateFromDate, getDateString, rewriteBanner, rewriteDailyLink, rewriteDailyLinks;
+    var computeDate, computeDateFromDate, getDateString, rewriteDailyLink, rewriteDailyLinks;
     computeDate = function(year, month, day, addDays) {
       var addSec, baseSec, dt, targetSec;
       dt = new Date(year, month - 1, day);
@@ -21,7 +21,7 @@
       return dt;
     };
     getDateString = function(date) {
-      var dd, dt, mm, yy;
+      var dd, dd_s, dt, mm, mm_s, yy;
       yy = date.getFullYear();
       mm = date.getMonth() + 1;
       dd = date.getDate();
@@ -29,12 +29,16 @@
         yy += 1900;
       }
       if (mm < 10) {
-        mm = "0" + mm;
+        mm_s = "0" + mm;
+      } else {
+        mm_s = new String(mm);
       }
       if (dd < 10) {
-        dd = "0" + dd;
+        dd_s = "0" + dd;
+      } else {
+        dd_s = new String(dd);
       }
-      dt = yy + mm + dd;
+      dt = yy + mm_s + dd_s;
       return dt;
     };
     rewriteDailyLink = function(linkID, rewriteLink) {
@@ -59,13 +63,7 @@
       rewriteDailyLink("yesterday", getDateString(computeDateFromDate(today, -1)));
       return rewriteDailyLink("today", getDateString(today));
     };
-    rewriteDailyLinks();
-    rewriteBanner = function() {
-      var banner;
-      banner = document.getElementById("banner");
-      return banner.innerHTML = "        <p>          <a href=\"http://www.saases.jp/\"><img style=\"border:0\;\" src=\"/images/banner_125x125_04.png\" width=\"125\" height=\"125\" alt=\"Supported By SaaSes\"></a>        </p>";
-    };
-    return rewriteBanner();
+    return rewriteDailyLinks();
   };
 
 }).call(this);

@@ -17,9 +17,15 @@ window.onload = ->
     mm = date.getMonth() + 1
     dd = date.getDate()
     yy += 1900  if yy < 2000
-    mm = "0" + mm  if mm < 10
-    dd = "0" + dd  if dd < 10
-    dt = (yy + mm + dd)
+    if mm < 10
+      mm_s = "0" + mm
+    else
+      mm_s = new String mm
+    if dd < 10
+      dd_s = "0" + dd
+    else
+      dd_s = new String dd
+    dt = (yy + mm_s + dd_s)
     dt
   rewriteDailyLink = (linkID, rewriteLink) ->
     linkURL = "http://b.hatena.ne.jp/Naruhodius/" + rewriteLink
@@ -40,10 +46,3 @@ window.onload = ->
     rewriteDailyLink "yesterday", getDateString(computeDateFromDate(today, -1))
     rewriteDailyLink "today", getDateString(today)
   rewriteDailyLinks()
-  rewriteBanner = ->
-    banner = document.getElementById("banner")
-    banner.innerHTML = "
-        <p>
-          <a href=\"http://www.saases.jp/\"><img style=\"border:0\;\" src=\"/images/banner_125x125_04.png\" width=\"125\" height=\"125\" alt=\"Supported By SaaSes\"></a>
-        </p>"
-  rewriteBanner()
