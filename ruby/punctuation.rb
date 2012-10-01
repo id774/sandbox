@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-comma = "、"
-period = "。"
-sentence = ""
-
-rand(10).times do
-  if rand(2) == 0
-    sentence << comma
-  else
-    sentence << period
+def yuyu_punctuation
+  comma = "、"
+  period = "。"
+  sentence = ""
+  rand(10).times do
+    rand(2) == 0 ? sentence << comma : sentence << period
   end
+  sentence
 end
 
-puts sentence
+if __FILE__ == $0
+  puts yuyu_punctuation
+end
