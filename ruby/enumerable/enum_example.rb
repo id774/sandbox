@@ -1,4 +1,4 @@
-#!/opt/ruby/1.9.3/bin/ruby
+#!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
 class Enum
