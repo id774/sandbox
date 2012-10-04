@@ -71,19 +71,19 @@ class Clusters
     end
   end
 
-  # 行列の入れ替え
-  def rotatematrix(data)
-    newdata = Array.new
-    # 単語数が多すぎるので100個に制限する
-    for i in 0...[100, data[0].length].min
-      newrow = Array.new
-      for j in 0...data.length
-        newrow.push(data[j][i])
-      end
-      newdata.push(newrow)
-    end
-    return newdata
-  end
+#  # 行列の入れ替え
+#  def rotatematrix(data)
+#    newdata = Array.new
+#    # 単語数が多すぎるので100個に制限する
+#    for i in 0...[100, data[0].length].min
+#      newrow = Array.new
+#      for j in 0...data.length
+#        newrow.push(data[j][i])
+#      end
+#      newdata.push(newrow)
+#    end
+#    return newdata
+#  end
 
   # グラフを描く
   def drawdendrogram(clust, labels, imgfile='clusters.png')
@@ -270,7 +270,6 @@ class Clusters
 
     # 今回は特別に、アイテム同士が似ているほど小さい値を返す様にする
     return 1.0-num/den
-
   end
 
   def readline(filename)
