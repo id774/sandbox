@@ -142,6 +142,25 @@ def blog_data_from(file)
   word_counts
 end
 
-cluster = My::KmeansCluster.new(blog_data_from('../blogdata.txt'), { :centroids => 4 })
+testhash = {
+"test01"=>
+  {"hoge"=>0,
+   "fuga"=>1,
+   "piyo"=>0
+  },
+"test02"=>
+  {"hoge"=>2,
+   "fuga"=>1,
+   "piyo"=>3
+  },
+"test03"=>
+  {"hoge"=>3,
+   "fuga"=>0,
+   "piyo"=>1
+  },
+}
+
+#cluster = My::KmeansCluster.new(blog_data_from('../blogdata.txt'), { :centroids => 4 })
+cluster = My::KmeansCluster.new(testhash, { :centroids => 4 })
 cluster.make_cluster
 pp cluster.cluster
