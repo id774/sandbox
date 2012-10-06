@@ -44,7 +44,10 @@ module My
       pp @cluster.values
     end
 
-    def self.pearson(v1,v2)
+    private
+
+    # ピアソン相関係数を求める
+    def pearson(v1,v2)
       v1 = [v1] if v1.class != Array
       v2 = [v2] if v2.class != Array
       # 単純な合計
@@ -73,14 +76,12 @@ module My
         pSum += v1[i]*v2[i]
       end
 
-      # ピアソンによるスコアを算出
+      # ピアソンスコアを算出
       num = pSum - (sum1*sum2/v1.length)
       den = Math::sqrt( (sum1Sq-sum1*sum1/v1.length)*(sum2Sq-sum2*sum2/v1.length) )
       return 0 if den == 0
       return num/den
     end
-
-    private
 
     # 全てのURLにおいて各単語の出現回数のうち最大と最小のものを算出する
     def min_and_max_in_word_counts
@@ -135,7 +136,7 @@ module My
           centroid_counts << centroid_word_count[word]
         end
         #1 - Pearson.calc(web_counts, centroid_counts)
-        1 - My::KmeansCluster.pearson(web_counts, centroid_counts)
+        1 - pearson(web_counts, centroid_counts)
       }
 
       correlations.rindex(correlations.min { |x, y| x.abs <=> y.abs })
