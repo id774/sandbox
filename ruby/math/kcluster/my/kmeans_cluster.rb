@@ -1,10 +1,17 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
+# ピアソン相関関数
+# http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
+
+# 二つの変数にどの程度壮観があるのか計測するための指標
+# 1 と -1 の間の値を取り、完全に相関するなら 1 、相関がないなら 0 、逆相関なら -1
+
 $:.unshift File.join(File.dirname(__FILE__))
 
 module My
   class KmeansCluster
+
     LOOP_MAX = 10
 
     def initialize(word_counts, user_options = {})
@@ -16,6 +23,8 @@ module My
         :centroids => 4
       }.merge(user_options)
     end
+
+    attr_reader :cluster
 
     # 重心をランダム値で初期化してから，相関の近いURLを所属させる
     # 相関の近いURLの平均値を新たな重心の値とし，再計算する
@@ -37,11 +46,6 @@ module My
           @centroids[centroid] = average_attached(centroid) if @cluster[centroid].any?
         end
       end
-    end
-
-    def print_cluster
-      require 'pp'
-      pp @cluster.values
     end
 
     private
@@ -140,4 +144,4 @@ end
 
 cluster = My::KmeansCluster.new(blog_data_from('../blogdata.txt'), { :centroids => 4 })
 cluster.make_cluster
-cluster.print_cluster
+pp cluster.cluster
