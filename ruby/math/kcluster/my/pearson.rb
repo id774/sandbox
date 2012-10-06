@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
+# ピアソン相関関数
+# http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
+# 二つの変数にどの程度壮観があるのか計測するための指標
+# 1 と -1 の間の値を取り、完全に相関するなら 1 、相関がないなら 0 、逆相関なら -1
+
 module My
   class Pearson
-
-    # ピアソン相関係数を求める
     def self.calc(v1,v2)
       v1 = [v1] if v1.class != Array
       v2 = [v2] if v2.class != Array
@@ -40,6 +43,5 @@ module My
       return 0 if den == 0
       return num/den
     end
-
   end
 end
