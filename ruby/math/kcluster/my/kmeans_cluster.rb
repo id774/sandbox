@@ -6,15 +6,14 @@ $:.unshift File.join(File.dirname(__FILE__))
 module My
   class KmeansCluster
 
-    LOOP_MAX = 10
-
     def initialize(word_counts, user_options = {})
       @word_counts = word_counts
       @min_and_max = {}
       @centroids = {}
       @cluster = Hash.new { |hash, key| hash[key] = [] }
       @options = {
-        :centroids => 4
+        :centroids => 4,
+        :loop_max => 100
       }.merge(user_options)
     end
 
@@ -29,7 +28,7 @@ module My
 
       loop_counter = 0
       old_centroids = nil
-      until (@centroids == old_centroids) or (LOOP_MAX < loop_counter)
+      until (@centroids == old_centroids) or (@options[:loop_max] < loop_counter)
         puts "Iteration #{loop_counter}"
         loop_counter += 1
         attach_urls_to_nearest_centroid
@@ -136,7 +135,7 @@ def blog_data_from(file)
   word_counts
 end
 
-testhash = {
+testdata = {
 "test01"=>
   {"hoge"=>0,
    "fuga"=>1,
@@ -152,9 +151,24 @@ testhash = {
    "fuga"=>0,
    "piyo"=>1
   },
+"test04"=>
+  {"hoge"=>0,
+   "fuga"=>2,
+   "piyo"=>0
+  },
+"test05"=>
+  {"hoge"=>4,
+   "fuga"=>2,
+   "piyo"=>3
+  },
+"test06"=>
+  {"hoge"=>3,
+   "fuga"=>1,
+   "piyo"=>1
+  },
 }
 
 #cluster = My::KmeansCluster.new(blog_data_from('../blogdata.txt'), { :centroids => 4 })
-cluster = My::KmeansCluster.new(testhash, { :centroids => 4 })
+cluster = My::KmeansCluster.new(testdata, { :centroids => 4, :loop_max => 10 })
 cluster.make_cluster
 pp cluster.cluster
