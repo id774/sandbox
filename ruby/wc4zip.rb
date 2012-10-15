@@ -4,37 +4,34 @@ require 'zipruby'
 require 'tempfile'
 require 'sysadmin'
 
+@total = 0
+
 def lineno(path)
-  open(path).each{}.lineno
+  line = open(path).each{}.lineno
+  @total += line
+  return line
 end
 
-def import2hdfs(src, dst)
-  puts "Importing #{src} #{dst}"
-  `hadoop fs -put #{src} #{dst}`
-  puts "Done"
-end
-
-def unzip(src)
+def lineno_zip(src)
   Zip::Archive.open(src) do |a|
     a.each do |f|
       tempfile = Tempfile::new(f.name)
       tempfile.print(f.read)
-      #import2hdfs(tempfile.path, File.join(ARGV[1], f.name))
-      #puts "%d" % lineno(tempfile.path)
-      puts "#{f.name} #{lineno(tempfile.path)}"
-      #tempfile.close
+      puts "#{lineno(tempfile.path)} #{f.name}"
     end
   end
 end
 
-def run
-  Dir.filelist(ARGV[0], true).each {|f|
+def run(subdir=false)
+  subdir = true unless ARGV[1].nil?
+  Dir.filelist(ARGV[0], subdir).each {|f|
     if f =~ /\.zip\Z/
-      unzip(f)
+      lineno_zip(f)
     else
-      puts "#{f} #{lineno(f)}"
+      puts "#{lineno(f)} #{f}"
     end
   }
+  puts "#{@total} Total"
 end
 
 if __FILE__ == $0
