@@ -6,16 +6,19 @@ import CaboCha
 from xml.etree import ElementTree
 from xml.etree.ElementTree import XMLID
 
-def parse_dic(id, dic):
-    print id
-    print dic.keys()
-    print dic.items()
-
 def parse_xml(xml):
     print xml
     tree, id_map = XMLID(xml)
-    for key, value in sorted(id_map.items()):
-        parse_dic(key, value)
+    array = []
+    func = 0
+    for id, dic in sorted(id_map.items()):
+        print dic.text
+        array.append(dic.text)
+        if id == func:
+            print "ok"
+        for k,v in dic.items():
+            print k,v
+    print array
 
 if __name__ == "__main__":
     cabocha = CaboCha.Parser('--charset=UTF8')
