@@ -8,8 +8,8 @@ def hoge2(arg1, arg2 = '', *args)
     puts "args[#{i}]=#{args[i]}"
   }
 end
- 
+
 hoge2('hello', 'my', 'friend', '!')
- 
+
 array = ['hello', 'my', 'friend', '!']
 hoge2(*array)

@@ -9,6 +9,6 @@ def hoge3(arg1, options={})
     puts "#{k}=#{v}"
   }
 end
- 
+
 hoge3('hello', { 'name' => 'Alice' })
 hoge3('hello', 'name' => 'Alice', 'sex' => 'Female', 'age' => 12)

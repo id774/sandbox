@@ -6,5 +6,5 @@ def hoge1(*args)
     puts "args[#{i}]=#{args[i]}"
   }
 end
- 
+
 hoge1('hello', 'my', 'friend')
