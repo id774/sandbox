@@ -27,7 +27,15 @@ class ImportHDFS
         puts "Extracting #{f.name}"
         tempfile = Tempfile::new(f.name)
         tempfile.print(f.read)
-        import2hdfs(tempfile.path, File.join(ARGV[1], File.dirname(src), f.name))
+        retries = 0
+        target_path = File.join(ARGV[1], File.dirname(src), f.name)
+        begin
+          import2hdfs(tempfile.path, target_path)
+        rescue
+          retries += 1
+          puts "ErrorCount: #{retries}, Error found in #{target_path}"
+          retry if retries <= 3
+        end
         tempfile.close
       end
     end
