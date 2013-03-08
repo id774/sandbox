@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 require 'zipruby'
+require 'enumerable/lazy'
 
 class Analyzer
   def parse(date)
     path1="/home/debian/tmp/a.zip"
     path2="/home/debian/tmp/b.log"
-    (parse_path(path1) + parse_path(path2)).each_line {|line|
+    (parse_path(path1) + parse_path(path2)).each_line.map {|line|
       print line
     }
   end
