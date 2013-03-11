@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 require 'zipruby'
-require 'enumerable/lazy'
+require 'enumerable/lazy' unless /^2\.0\./ =~ RUBY_VERSION
 
 class Analyzer
   def parse(date)
