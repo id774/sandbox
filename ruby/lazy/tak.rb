@@ -30,20 +30,27 @@ def tak(x, y, z)
   if x <= y.to_i
     y
   else
-    tak(tak(x-1, y, z), tak(y-1,z,x), tak(z-1,x,y)) end end
+    tak(tak(x-1, y, z), tak(y-1,z,x), tak(z-1,x,y))
+  end
+end
 
 def ltak(x, y, z)
   lazy{
     if x <= y.to_i
       y
     else
-      ltak(ltak(x-1, y, z), ltak(y-1,z,x), ltak(z-1,x,y)) end } end
+      ltak(ltak(x-1, y, z), ltak(y-1,z,x), ltak(z-1,x,y))
+    end
+  }
+end
 
 def btak(x, y, z)
   if x <= y.to_i
     y
   else
-    btak(btak(x-1, y, z), btak(y-1,z,x), lazy{ btak(z-1,x,y) }) end end
+    btak(btak(x-1, y, z), btak(y-1,z,x), lazy{ btak(z-1,x,y) })
+  end
+end
 
 p Benchmark.realtime{ tak(12,6,0).to_i }
 p Benchmark.realtime{ ltak(12,6,0).to_i }
