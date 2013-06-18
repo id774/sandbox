@@ -48,28 +48,28 @@ class Storage
   class << self
     def db_filename
       db_name = 'chatter.db'
-      db_path = File.expand_path(File.join(File.dirname(__FILE__), db_name))
+      File.expand_path(File.join(File.dirname(__FILE__), db_name))
     end
 
     def sql
-      sql = "select
-             feedposts.Id,
-             feedposts.CreatedDate,
-             feedposts.Title,
-             feedposts.Body,
-             feedposts.LinkUrl,
-             feedposts.IsDeleted,
-             users.Id,
-             users.Username,
-             users.FirstName,
-             users.LastName,
-             users.CompanyName,
-             users.Division,
-             users.Department,
-             users.Title,
-             users.IsActive,
-             users.Email
-             from feedposts left join users on (feedposts.CreatedById = users.Id)"
+      "select
+       feedposts.Id,
+       feedposts.CreatedDate,
+       feedposts.Title,
+       feedposts.Body,
+       feedposts.LinkUrl,
+       feedposts.IsDeleted,
+       users.Id,
+       users.Username,
+       users.FirstName,
+       users.LastName,
+       users.CompanyName,
+       users.Division,
+       users.Department,
+       users.Title,
+       users.IsActive,
+       users.Email
+       from feedposts left join users on (feedposts.CreatedById = users.Id)"
     end
   end
 end
