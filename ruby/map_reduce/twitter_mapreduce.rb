@@ -1,18 +1,6 @@
+# -*- coding: utf-8 -*-
 require 'active_record'
 require 'MeCab'
-
-#          "uid"                     => status.uid,
-#          "screen_name"             => status.screen_name,
-#          "text"                    => status.text,
-#          "created_at"              => status.created_at,
-#          "protected"               => status.protected,
-#          "in_reply_to_status_id"   => status.in_reply_to_status_id,
-#          "in_reply_to_user_id"     => status.in_reply_to_user_id,
-#          "in_reply_to_screen_name" => status.in_reply_to_user_id,
-#          "statuses_count"          => status.statuses_count,
-#          "friends_count"           => status.friends_count,
-#          "followers_count"         => status.followers_count,
-#          "source"                  => status.source,
 
 
 class MapReduce
@@ -68,11 +56,12 @@ end
 class Status < ActiveRecord::Base
 end
 
+
 class Storage
   def get
     prepare_database
     # model_class.all
-    model_class.limit(100)
+    model_class.limit(2000)
   end
 
   def drop
@@ -95,8 +84,7 @@ class Storage
   end
 
   def db_dir
-    # File.join(File.dirname(__FILE__), '..', '..', '..', 'db')
-    File.join('/', 'home', 'debian', 'fluent-plugin-termtter-db', 'db')
+    File.dirname(__FILE__)
   end
 
   def column_definition
