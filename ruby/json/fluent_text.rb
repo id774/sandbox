@@ -5,6 +5,10 @@ require 'json'
 
 open("fluent_out.log") do |file|
   file.each do |line|
-    p JSON.parse(line.scan(/\{.*\}/).join)
+    JSON.parse(line.scan(/\{.*\}/).join).each {|k,v|
+      if k == "description"
+        p v
+      end
+    }
   end
 end
