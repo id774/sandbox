@@ -6,7 +6,6 @@ require 'active_record'
 class MapReduce
   def map_reduce
     @mecab = MeCab::Tagger.new("-Ochasen")
-    mapper_hash = {}
     @hits = {}
     statuses = Storage.new.get
     statuses.each {|status|

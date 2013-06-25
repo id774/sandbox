@@ -6,7 +6,6 @@ require 'json'
 class MapReduce
   def map_reduce
     @mecab = MeCab::Tagger.new("-Ochasen")
-    mapper_hash = {}
     @hits = {}
     open("fluent_out.log") do |file|
       file.each do |line|
@@ -27,7 +26,7 @@ class MapReduce
     i = 0
     @hits.sort_by{|k,v| -v}.each {|k, v|
       i = i + 1
-      puts "#{i.to_s}\t#{k}\t#{v}\n" if i <= 100
+      puts "#{i.to_s}\t#{k}\t#{v}\n" if i <= 1000
     }
   end
 

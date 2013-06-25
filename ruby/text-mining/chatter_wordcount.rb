@@ -6,7 +6,6 @@ require 'sqlite3'
 class MapReduce
   def map_reduce
     @mecab = MeCab::Tagger.new("-Ochasen")
-    mapper_hash = {}
     @hits = {}
     db = SQLite3::Database.new(Storage.db_filename)
     db.execute(Storage.sql).each {|row|
