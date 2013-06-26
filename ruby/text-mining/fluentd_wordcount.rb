@@ -10,7 +10,7 @@ class MapReduce
     open("fluent_out.log") do |file|
       file.each do |line|
         JSON.parse(line.scan(/\{.*\}/).join).each {|k,v|
-          if k == "description"
+          if k == "title" or k == "description"
             mapper(v).each {|word|
               if word.length > 1
                 if word =~ /[亜-腕]/
@@ -26,7 +26,7 @@ class MapReduce
     i = 0
     @hits.sort_by{|k,v| -v}.each {|k, v|
       i = i + 1
-      puts "#{i.to_s}\t#{k}\t#{v}\n" if i <= 1000
+      puts "#{i.to_s}\t#{k}\t#{v}\n" if v > 1
     }
   end
 
