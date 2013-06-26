@@ -26,7 +26,7 @@ class MapReduce
     i = 0
     @hits.sort_by{|k,v| -v}.each {|k, v|
       i = i + 1
-      puts "#{i.to_s}\t#{k}\t#{v}\n" if v > 1
+      puts "#{i.to_s}\t#{k}\t#{v}\n" if v >= 1
     }
   end
 
