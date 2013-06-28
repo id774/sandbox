@@ -5,7 +5,7 @@ require 'MeCab'
 
 DB_NAME       = "fulltext.db"
 WORDCOUNT_TXT = "wordcount.txt"
-PICKUP_DATE   = '2013-06-24'
+PICKUP_DATE   = 1.day.ago.strftime("%Y-%m-%d")
 
 class MapReduce
   def map_reduce
