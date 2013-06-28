@@ -1,13 +1,21 @@
 # -*- coding: utf-8 -*-
 
-require 'MeCab'
 require 'json'
+require 'date'
+require 'MeCab'
+
+PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
+LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
+WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
+LOG_PATH      = "~/.fluent/log"
+INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
+OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 
 class MapReduce
   def map_reduce
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
-    open("fluent_out.log") do |file|
+    open(INFILE) do |file|
       file.each do |line|
         JSON.parse(line.scan(/\{.*\}/).join).each {|k,v|
           if k == "title" or k == "description"
@@ -23,10 +31,13 @@ class MapReduce
       end
     end
 
-    i = 0
-    @hits.sort_by{|k,v| -v}.each {|k, v|
-      i = i + 1
-      puts "#{i.to_s}\t#{k}\t#{v}\n" if v >= 1
+    open(OUTFILE, "a"){|f|
+      i = 0
+      @hits.sort_by{|k,v| -v}.each {|k, v|
+        i = i + 1
+        # puts "#{i.to_s}\t#{k}\t#{v}\n" if v >= 1
+        f.write("#{i.to_s}\t#{k}\t#{v}\n") if v >= 1
+      }
     }
   end
 
