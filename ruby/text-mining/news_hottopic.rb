@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
-require 'active_support'
+
 require 'active_record'
+require 'date'
 require 'MeCab'
 
+PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 DB_NAME       = "fulltext.db"
-WORDCOUNT_TXT = "wordcount.txt"
-PICKUP_DATE   = 1.day.ago.strftime("%Y-%m-%d")
+WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
+HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
+LOG_PATH      = "~/.fluent/log"
+INFILE        = File.expand_path(File.join(LOG_PATH, DB_NAME))
+OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
 
 class MapReduce
   def map_reduce
