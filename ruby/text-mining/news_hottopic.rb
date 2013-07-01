@@ -24,14 +24,14 @@ class MapReduce
     @words = 150
     open(WORDCOUNT_TXT) do |file|
       file.each_line do |line|
-        num, word, count = line.strip.split("\t")
+        num, word, count = line.force_encoding("utf-8").strip.split("\t")
         @text_hash[word] = count if count.to_i >= 1
       end
     end
 
     open(INFILE) do |file|
       file.each do |line|
-        blog = JSON.parse(line.scan(/\{.*\}/).join, {:symbolize_names => true})
+        blog = JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join, {:symbolize_names => true})
         pickup_nouns(blog[:title] + blog[:description]).each {|word|
           if word.length > 1
             if word =~ /[亜-腕]/
@@ -54,7 +54,6 @@ class MapReduce
   end
 
   private
-
   def new_wordmap
     wordmap = []
     @words.times do

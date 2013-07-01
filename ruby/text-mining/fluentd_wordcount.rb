@@ -17,7 +17,7 @@ class MapReduce
     @hits = {}
     open(INFILE) do |file|
       file.each do |line|
-        JSON.parse(line.scan(/\{.*\}/).join).each {|k,v|
+        JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join).each {|k,v|
           if k == "title" or k == "description"
             mapper(v).each {|word|
               if word.length > 1
