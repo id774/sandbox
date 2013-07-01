@@ -5,11 +5,11 @@ require 'date'
 require 'MeCab'
 
 PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
-DB_NAME       = "fulltext.db"
+LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
 LOG_PATH      = "~/.fluent/log"
-INFILE        = File.expand_path(File.join(LOG_PATH, DB_NAME))
+INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
 
 class MapReduce

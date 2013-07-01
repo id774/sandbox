@@ -31,7 +31,7 @@ class MapReduce
       end
     end
 
-    open(OUTFILE, "a"){|f|
+    open(OUTFILE, "w"){|f|
       i = 0
       @hits.sort_by{|k,v| -v}.each {|k, v|
         i = i + 1
