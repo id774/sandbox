@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'active_record'
+require 'json'
 require 'date'
 require 'MeCab'
 
@@ -8,7 +8,8 @@ PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
-LOG_PATH      = "~/.fluent/log"
+LOG_PATH      = "/root/.fluent/log"
+WORDCOUNT_TXT = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
 
@@ -28,26 +29,32 @@ class MapReduce
       end
     end
 
-    blogs = Storage.new
-
-    blogs.get.each {|blog|
-      pickup_nouns(blog.title + blog.description).each {|word|
-        if word.length > 1
-          if word =~ /[亜-腕]/
-            if @text_hash.has_key?(word)
-              scoring(blog.id, blog.title, blog.link, @text_hash[word])
+    open(INFILE) do |file|
+      file.each do |line|
+        blog = JSON.parse(line.scan(/\{.*\}/).join, {:symbolize_names => true})
+        pickup_nouns(blog[:title] + blog[:description]).each {|word|
+          if word.length > 1
+            if word =~ /[亜-腕]/
+              if @text_hash.has_key?(word)
+                scoring(blog[:title], blog[:link], @text_hash[word])
+              end
             end
           end
-        end
-      }
-    }
+        }
+      end
+    end
 
-    @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
-      puts "#{v['score'].to_s}\t#{v['title']}\t#{v['link']}\n"
+    open(OUTFILE, "w"){|f|
+      i = 0
+      @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
+        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\n")
+        i = i + 1
+      }
     }
   end
 
   private
+
   def new_wordmap
     wordmap = []
     @words.times do
@@ -56,13 +63,12 @@ class MapReduce
     wordmap
   end
 
-  def scoring(id, title, link, count)
-    if @blog_hash.has_key?(id)
-      @blog_hash[id]['score'] += count.to_i
+  def scoring(title, link, count)
+    if @blog_hash.has_key?(link)
+      @blog_hash[link]['score'] += count.to_i
     else
-      @blog_hash[id]['title'] = title
-      @blog_hash[id]['link'] = link
-      @blog_hash[id]['score'] = count.to_i
+      @blog_hash[link]['title'] = title
+      @blog_hash[link]['score'] = count.to_i
     end
   end
 
@@ -76,72 +82,6 @@ class MapReduce
       node = node.next
     end
     nouns
-  end
-end
-
-
-class Blog < ActiveRecord::Base
-end
-
-class Storage
-
-  def initialize
-    prepare_database
-  end
-
-  def get
-    # model_class.all
-    model_class
-      .where('created_at > ?', PICKUP_DATE)
-  end
-
-  def drop
-    prepare_database
-    drop_table
-  end
-
-  private
-  def prepare_database
-    db = File.join(db_dir, DB_NAME)
-    ActiveRecord::Base.establish_connection(
-      :adapter  => "sqlite3",
-      :database => db
-    )
-    create_table unless model_class.table_exists?
-  end
-
-  def model_class
-    Blog
-  end
-
-  def db_dir
-    File.dirname(__FILE__)
-  end
-
-  def column_definition
-    {
-      :title => :string,
-      :link => :string,
-      :description => :string,
-      :content => :string,
-      :created_at => :datetime,
-    }
-  end
-
-  def unique_key
-    :id
-  end
-
-  def create_table
-    ActiveRecord::Migration.create_table(model_class.table_name){|t|
-      column_definition.each_pair {|column_name, column_type|
-        t.column column_name, column_type
-      }
-    }
-  end
-
-  def drop_table
-    ActiveRecord::Migration.drop_table(model_class.table_name)
   end
 end
 

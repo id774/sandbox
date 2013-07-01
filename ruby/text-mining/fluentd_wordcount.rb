@@ -7,7 +7,7 @@ require 'MeCab'
 PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
-LOG_PATH      = "~/.fluent/log"
+LOG_PATH      = "/root/.fluent/log"
 INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 
@@ -35,7 +35,6 @@ class MapReduce
       i = 0
       @hits.sort_by{|k,v| -v}.each {|k, v|
         i = i + 1
-        # puts "#{i.to_s}\t#{k}\t#{v}\n" if v >= 1
         f.write("#{i.to_s}\t#{k}\t#{v}\n") if v >= 1
       }
     }
