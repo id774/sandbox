@@ -47,8 +47,8 @@ class MapReduce
     open(OUTFILE, "w"){|f|
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
-        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\n")
         i = i + 1
+        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\n")
       }
     }
   end
