@@ -17,6 +17,12 @@ var server = http.createServer(
         response.write(person.sayHello() + '\n');
         person.name = 'hoge';
         response.write(person.sayHello() + '\n');
+        Person.prototype.name = 'fuga';
+        response.write(person.sayHello() + '\n');
+        delete Person.prototype.name;
+        response.write(person.sayHello() + '\n');
+        delete person.name;
+        response.write(person.sayHello() + '\n');
         response.end();
     }
 ).listen(3000);
