@@ -11,12 +11,13 @@ PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
-IMAGEFILE     = "tree_#{PICKUP_DATE}.png"
+IMAGE_FILE    = "tree_#{PICKUP_DATE}.png"
 LOG_PATH      = "/root/.fluent/log"
+IMAGE_PATH    = "/var/www/rails/news_cloud/public/images"
 WORDCOUNT_TXT = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
-OUTIMAGE      = File.expand_path(File.join(LOG_PATH, IMAGEFILE))
+OUTIMAGE      = File.expand_path(File.join(IMAGE_PATH, IMAGE_FILE))
 WORDS         = 150
 
 class MapReduce
