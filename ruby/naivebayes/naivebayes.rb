@@ -1,16 +1,6 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-class Document
-  attr_reader :label
-  attr_reader :attributes
-
-  def initialize(label, attributes)
-    @label = label
-    @attributes = attributes
-  end
-end
-
 class NaiveBayes
   def initialize
     @frequency_table = Hash.new
@@ -19,18 +9,18 @@ class NaiveBayes
     @total_count = 0
   end
 
-  def add_instance(document)
-    unless @frequency_table.has_key?(document.label)
-      @frequency_table[document.label] = Hash.new(0)
+  def train(label, attributes)
+    unless @frequency_table.has_key?(label)
+      @frequency_table[label] = Hash.new(0)
     end
 
-    document.attributes.each{|word, frequency|
-      @frequency_table[document.label][word] += 1   # Multivariate Berounoulli
-      # @frequency_table[document.label][word] += frequency  # Multinomial
+    attributes.each{|word, frequency|
+      @frequency_table[label][word] += 1   # Multivariate Berounoulli
+      # @frequency_table[label][word] += frequency  # Multinomial
       @word_table[word] = 1
     }
 
-    @instance_count_of[document.label] += 1
+    @instance_count_of[label] += 1
     @total_count += 1
   end
 

@@ -9,9 +9,9 @@ require 'naivebayes'
 
 def train_3
   classifier = NaiveBayes.new
-  classifier.add_instance(Document.new("positive", {"aaa" => 2, "bbb" => 1}))
-  classifier.add_instance(Document.new("negative", {"ccc" => 2, "ddd" => 2}))
-  classifier.add_instance(Document.new("neutral",  {"eee" => 3, "fff" => 3}))
+  classifier.train("positive", {"aaa" => 2, "bbb" => 1})
+  classifier.train("negative", {"ccc" => 2, "ddd" => 2})
+  classifier.train("neutral",  {"eee" => 3, "fff" => 3})
   return classifier
 end
 
