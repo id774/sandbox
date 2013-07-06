@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 
 class NaiveBayes
-  def initialize
+  def initialize(type = "berounoulli")
     @frequency_table = Hash.new
     @word_table = Hash.new
     @instance_count_of = Hash.new(0)
     @total_count = 0
+    @type = type
   end
 
   def train(label, attributes)
@@ -15,8 +16,11 @@ class NaiveBayes
     end
 
     attributes.each{|word, frequency|
-      @frequency_table[label][word] += 1   # Multivariate Berounoulli
-      # @frequency_table[label][word] += frequency  # Multinomial
+      if @type == "multinomial"
+        @frequency_table[label][word] += frequency  # Multinomial w
+      else
+        @frequency_table[label][word] += 1   # Multivariate Berounoulli
+      end
       @word_table[word] = 1
     }
 
