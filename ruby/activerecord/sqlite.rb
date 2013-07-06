@@ -6,8 +6,11 @@ class Record < ActiveRecord::Base
 end
 
 class Storage
-  def get
+  def initialize
     prepare_database
+  end
+
+  def get
     records = model_class.find(:all)
     hash = Hash.new
     require 'pp'
@@ -28,7 +31,6 @@ class Storage
   end
 
   def drop
-    prepare_database
     drop_table
   end
 
@@ -75,7 +77,6 @@ class Storage
   end
 
   def for_each_new_record
-    prepare_database
     existing_records = model_class.find(:all)
     @result = {}
     @records.each {|key, value|
