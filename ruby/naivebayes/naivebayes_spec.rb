@@ -7,8 +7,7 @@ require 'rubygems'
 require 'rspec'
 require 'naivebayes'
 
-def train_by_3(type)
-  classifier = NaiveBayes.new(type)
+def train_by_3(classifier)
   classifier.train("positive", {"aaa" => 2, "bbb" => 1})
   classifier.train("negative", {"ccc" => 2, "ddd" => 2})
   classifier.train("neutral",  {"eee" => 3, "fff" => 3})
@@ -19,7 +18,8 @@ describe NaiveBayes, 'ナイーブベイズ' do
   context '多変数ベルヌーイモデルにおいて' do
     describe '3 つの教師データで positive が期待される値を与えると' do
       it 'positive が返る' do
-        classifier = train_by_3("berounoulli")
+        classifier = NaiveBayes.new("berounoulli")
+        classifier = train_by_3(classifier)
         expect = {
           "positive" => 0.7422680412371133,
           "negative" => 0.12886597938144329,
@@ -31,7 +31,8 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで negative が期待される値を与えると' do
       it 'negative が返る' do
-        classifier = train_by_3("berounoulli")
+        classifier = NaiveBayes.new("berounoulli")
+        classifier = train_by_3(classifier)
         expect = {
           "positive" => 0.12886597938144329,
           "negative" => 0.7422680412371133,
@@ -43,7 +44,8 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで neutral が期待される値を与えると' do
       it 'neutral が返る' do
-        classifier = train_by_3("berounoulli")
+        classifier = NaiveBayes.new("berounoulli")
+        classifier = train_by_3(classifier)
         expect = {
           "positive" => 0.2272727272727273,
           "negative" => 0.22727272727272724,
@@ -60,7 +62,8 @@ describe NaiveBayes, 'ナイーブベイズ' do
   context '多項分布モデルにおいて' do
     describe '3 つの教師データで positive が期待される値を与えると' do
       it 'positive が返る' do
-        classifier = train_by_3("multinomial")
+        classifier = NaiveBayes.new("multinomial")
+        classifier = train_by_3(classifier)
         expect = {
           "positive" => 0.896265560165975,
           "negative" => 0.06639004149377592,
@@ -72,7 +75,8 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで negative が期待される値を与えると' do
       it 'negative が返る' do
-        classifier = train_by_3("multinomial")
+        classifier = NaiveBayes.new("multinomial")
+        classifier = train_by_3(classifier)
         expect = {
           "positive" => 0.05665722379603399,
           "negative" => 0.9178470254957508,
@@ -84,7 +88,8 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで neutral が期待される値を与えると' do
       it 'neutral が返る' do
-        classifier = train_by_3("multinomial")
+        classifier = NaiveBayes.new("multinomial")
+        classifier = train_by_3(classifier)
         expect = {
           "positive" => 0.12195121951219513,
           "negative" => 0.09756097560975606,
