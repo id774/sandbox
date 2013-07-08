@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 class NaiveBayes
-  def initialize(type = "berounoulli")
+  def initialize(params)
     @frequency_table = Hash.new
     @word_table = Hash.new
     @instance_count_of = Hash.new(0)
     @total_count = 0
-    @type = type
+    @model = params[:model]
   end
 
   def train(label, attributes)
@@ -15,7 +15,7 @@ class NaiveBayes
       @frequency_table[label] = Hash.new(0)
     end
     attributes.each {|word, frequency|
-      if @type == "multinomial"
+      if @model == "multinomial"
         @frequency_table[label][word] += frequency
       else
         @frequency_table[label][word] += 1
@@ -31,7 +31,7 @@ class NaiveBayes
     likelihood_of = Hash.new(1)
     class_posterior_of = Hash.new(1)
     evidence = 0
-    @instance_count_of.each {|label,freq|
+    @instance_count_of.each {|label ,freq|
       class_prior_of[label] = freq.to_f / @total_count.to_f
     }
     @frequency_table.each_key {|label|

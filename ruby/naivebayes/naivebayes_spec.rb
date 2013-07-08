@@ -7,6 +7,11 @@ require 'rubygems'
 require 'rspec'
 require 'naivebayes'
 
+def train_by_2
+  @classifier.train("positive", {"aaa" => 0, "bbb" => 1})
+  @classifier.train("negative", {"ccc" => 2, "ddd" => 3})
+end
+
 def train_by_3
   @classifier.train("positive", {"aaa" => 2, "bbb" => 1})
   @classifier.train("negative", {"ccc" => 2, "ddd" => 2})
@@ -15,9 +20,67 @@ end
 
 describe NaiveBayes, 'ナイーブベイズ' do
   context '多変数ベルヌーイモデルにおいて' do
+    describe '2 つの教師データで positive が期待される値を与えると' do
+      it 'positive が返る' do
+        @classifier = NaiveBayes.new(:model => "berounoulli")
+        train_by_2
+        expect = {
+          "positive" => 0.8767123287671234,
+          "negative" => 0.12328767123287669
+        }
+        result = @classifier.classify({"aaa" => 1, "bbb" => 1})
+        result.should == expect
+      end
+    end
+    describe '2 つの教師データで negative が期待される値を与えると' do
+      it 'negative が返る' do
+        @classifier = NaiveBayes.new(:model => "berounoulli")
+        train_by_2
+        expect = {
+          "positive" => 0.12328767123287668,
+          "negative" => 0.8767123287671234
+        }
+        result = @classifier.classify({"ccc" => 3, "ddd" => 3})
+        result.should == expect
+      end
+    end
+  end
+end
+
+describe NaiveBayes, 'ナイーブベイズ' do
+  context '多項分布モデルにおいて' do
+    describe '2 つの教師データで positive が期待される値を与えると' do
+      it 'positive が返る' do
+        @classifier = NaiveBayes.new(:model => "multinomial")
+        train_by_2
+        expect = {
+          "positive" => 0.9411764705882353,
+          "negative" => 0.05882352941176469
+        }
+        result = @classifier.classify({"aaa" => 1, "bbb" => 1})
+        result.should == expect
+      end
+    end
+    describe '2 つの教師データで negative が期待される値を与えると' do
+      it 'negative が返る' do
+        @classifier = NaiveBayes.new(:model => "multinomial")
+        train_by_2
+        expect = {
+          "positive" => 0.0588235294117647,
+          "negative" => 0.9411764705882353
+        }
+        result = @classifier.classify({"ccc" => 3, "ddd" => 3})
+        result.should == expect
+      end
+    end
+  end
+end
+
+describe NaiveBayes, 'ナイーブベイズ' do
+  context '多変数ベルヌーイモデルにおいて' do
     describe '3 つの教師データで positive が期待される値を与えると' do
       it 'positive が返る' do
-        @classifier = NaiveBayes.new("berounoulli")
+        @classifier = NaiveBayes.new(:model => "berounoulli")
         train_by_3
         expect = {
           "positive" => 0.7422680412371133,
@@ -30,7 +93,7 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで negative が期待される値を与えると' do
       it 'negative が返る' do
-        @classifier = NaiveBayes.new("berounoulli")
+        @classifier = NaiveBayes.new(:model => "berounoulli")
         train_by_3
         expect = {
           "positive" => 0.12886597938144329,
@@ -43,7 +106,7 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで neutral が期待される値を与えると' do
       it 'neutral が返る' do
-        @classifier = NaiveBayes.new("berounoulli")
+        @classifier = NaiveBayes.new(:model => "berounoulli")
         train_by_3
         expect = {
           "positive" => 0.2272727272727273,
@@ -61,7 +124,7 @@ describe NaiveBayes, 'ナイーブベイズ' do
   context '多項分布モデルにおいて' do
     describe '3 つの教師データで positive が期待される値を与えると' do
       it 'positive が返る' do
-        @classifier = NaiveBayes.new("multinomial")
+        @classifier = NaiveBayes.new(:model => "multinomial")
         train_by_3
         expect = {
           "positive" => 0.896265560165975,
@@ -74,7 +137,7 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで negative が期待される値を与えると' do
       it 'negative が返る' do
-        @classifier = NaiveBayes.new("multinomial")
+        @classifier = NaiveBayes.new(:model => "multinomial")
         train_by_3
         expect = {
           "positive" => 0.05665722379603399,
@@ -87,7 +150,7 @@ describe NaiveBayes, 'ナイーブベイズ' do
     end
     describe '3 つの教師データで neutral が期待される値を与えると' do
       it 'neutral が返る' do
-        @classifier = NaiveBayes.new("multinomial")
+        @classifier = NaiveBayes.new(:model => "multinomial")
         train_by_3
         expect = {
           "positive" => 0.12195121951219513,
