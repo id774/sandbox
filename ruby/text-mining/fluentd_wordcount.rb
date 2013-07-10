@@ -7,7 +7,7 @@ require 'MeCab'
 PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
-LOG_PATH      = "/root/.fluent/log"
+LOG_PATH      = "/home/fluent/.fluent/log"
 INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 
