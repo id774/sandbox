@@ -21,20 +21,24 @@ OUTIMAGE      = File.expand_path(File.join(IMAGE_PATH, IMAGE_FILE))
 WORDS         = 150
 
 class MapReduce
-  def map_reduce
+  def initialize
     @mecab = MeCab::Tagger.new("-Ochasen")
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
-    @hits = {}
+  end
 
-    open(WORDCOUNT_TXT) do |file|
-      file.each_line do |line|
-        num, word, count = line.force_encoding("utf-8").strip.split("\t")
-        @text_hash[word] = count if count.to_i >= 1
-      end
-    end
+  def map_reduce
+    read_from_wordcount
+    read_from_datasource
+    @entry_list = new_entrylist
+    write_hotnews
+    create_wordvector_from_bloghash
+    kmeans_clustering
+  end
 
+  private
+  def read_from_datasource
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
     coll = db.collection('automatic.feed')
@@ -47,16 +51,37 @@ class MapReduce
         if word.length > 1
           if word =~ /[亜-腕]/
             if @text_hash.has_key?(word)
-              scoring(blog['title'],
-                      blog['link'],
-                      blog['description'],
-                      @text_hash[word])
+              mongo_scoring(blog['title'],
+                            blog['link'],
+                            blog['description'],
+                            @text_hash[word])
             end
           end
         end
       }
     }
+  end
 
+  def mongo_scoring(title, link, description, count)
+    if @blog_hash.has_key?(link)
+      @blog_hash[link]['score'] += count.to_i
+    else
+      @blog_hash[link]['title'] = title
+      @blog_hash[link]['score'] = count.to_i
+      @blog_hash[link]['description'] = description
+    end
+  end
+
+  def read_from_wordcount
+    open(WORDCOUNT_TXT) do |file|
+      file.each_line do |line|
+        num, word, count = line.force_encoding("utf-8").strip.split("\t")
+        @text_hash[word] = count if count.to_i >= 1
+      end
+    end
+  end
+
+  def write_hotnews
     open(OUTFILE, "w"){|f|
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
@@ -64,9 +89,10 @@ class MapReduce
         f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\n")
       }
     }
+  end
 
-    entry_list = new_entrylist
-    entry_list.each {|entry|
+  def create_wordvector_from_bloghash
+    @entry_list.each {|entry|
       i = 0
       wordmap = new_wordmap
       @text_hash.keys.each {|word|
@@ -83,15 +109,16 @@ class MapReduce
       }
       @word_vector << wordmap
     }
-
-    cluster = Kmeans::HCluster.new
-    hcluster = cluster.hcluster(@word_vector)
-    # p cluster.printclust(hcluster, entry_list)
-    den = Kmeans::Dendrogram.new(:imagefile => OUTIMAGE)
-    den.drawdendrogram(hcluster, entry_list)
   end
 
-  private
+  def kmeans_clustering
+    cluster = Kmeans::HCluster.new
+    hcluster = cluster.hcluster(@word_vector)
+    # p cluster.printclust(hcluster, @entry_list)
+    den = Kmeans::Dendrogram.new(:imagefile => OUTIMAGE)
+    den.drawdendrogram(hcluster, @entry_list)
+  end
+
   def new_entrylist
     entry_list = Array.new
     @blog_hash.each {|k,v|
@@ -106,16 +133,6 @@ class MapReduce
       wordmap << 0
     end
     wordmap
-  end
-
-  def scoring(title, link, description, count)
-    if @blog_hash.has_key?(link)
-      @blog_hash[link]['score'] += count.to_i
-    else
-      @blog_hash[link]['title'] = title
-      @blog_hash[link]['score'] = count.to_i
-      @blog_hash[link]['description'] = description
-    end
   end
 
   def pickup_nouns(string)
