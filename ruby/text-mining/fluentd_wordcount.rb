@@ -12,9 +12,19 @@ INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 
 class MapReduce
-  def map_reduce
+  def initialize
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
+  end
+
+  def map_reduce
+    read_from_datasource
+    write_result
+  end
+
+  private
+
+  def read_from_datasource
     open(INFILE) do |file|
       file.each do |line|
         JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join).each {|k,v|
@@ -30,7 +40,9 @@ class MapReduce
         }
       end
     end
+  end
 
+  def write_result
     open(OUTFILE, "w"){|f|
       i = 0
       @hits.sort_by{|k,v| -v}.each {|k, v|
@@ -40,7 +52,6 @@ class MapReduce
     }
   end
 
-  private
   def reducer(word)
     @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
   end

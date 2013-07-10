@@ -38,6 +38,7 @@ class MapReduce
   end
 
   private
+
   def read_from_datasource
     open(INFILE) do |file|
       file.each do |line|

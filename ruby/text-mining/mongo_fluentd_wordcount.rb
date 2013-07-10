@@ -12,9 +12,19 @@ LOG_PATH      = "/home/fluent/.fluent/log"
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
 
 class MapReduce
-  def map_reduce
+  def initialize
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
+  end
+
+  def map_reduce
+    read_from_datasource
+    write_result
+  end
+
+  private
+
+  def read_from_datasource
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
     coll = db.collection('automatic.feed')
@@ -33,7 +43,9 @@ class MapReduce
         end
       }
     }
+  end
 
+  def write_result
     open(OUTFILE, "w"){|f|
       i = 0
       @hits.sort_by{|k,v| -v}.each {|k, v|
@@ -43,7 +55,6 @@ class MapReduce
     }
   end
 
-  private
   def reducer(word)
     @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
   end

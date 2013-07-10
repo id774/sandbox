@@ -38,6 +38,7 @@ class MapReduce
   end
 
   private
+
   def read_from_datasource
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
