@@ -45,9 +45,7 @@ class MapReduce
     coll = db.collection('automatic.feed')
     from = Time.parse(PICKUP_DATE)
     to   = Time.parse(TODAY)
-    blog = Hash.new
-    coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
-      blog.merge!(line)
+    coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
       pickup_nouns(blog['title'] + blog['description']).each {|word|
         if word.length > 1
           if word =~ /[亜-腕]/
