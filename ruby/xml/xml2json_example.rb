@@ -10,3 +10,14 @@ hash = Hash.from_xml open(url).read
 json = hash.to_json
 
 puts json
+
+data = ActiveSupport::JSON.decode(json)
+puts data
+
+json2 = ActiveSupport::JSON.encode(data)
+puts json2
+
+data2 = ActiveSupport::JSON.decode(json2)
+puts data2
+
+p "OK" if data == data2
