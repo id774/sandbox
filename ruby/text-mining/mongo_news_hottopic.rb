@@ -12,6 +12,7 @@ require 'naivebayes'
 RUN_DATE      = Date.today
 PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
 TODAY         = RUN_DATE.strftime("%Y%m%d")
+WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
 IMAGE_FILE    = "tree_#{PICKUP_DATE}.png"
 LOG_PATH      = "/home/fluent/.fluent/log"
