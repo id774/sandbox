@@ -7,6 +7,7 @@ require 'MeCab'
 require 'kmeans/pearson'
 require 'kmeans/hcluster'
 require 'kmeans/dendrogram'
+require 'naivebayes'
 
 PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 TODAY         = Date.today.strftime("%Y%m%d")
@@ -26,6 +27,10 @@ class MapReduce
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
+    @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
+    mongo = Mongo::Connection.new('localhost', 27017)
+    @db = mongo.db('fluentd')
+    train_from_datasource
   end
 
   def map_reduce
@@ -39,16 +44,46 @@ class MapReduce
 
   private
 
+  def train(category)
+    hits = {}
+    coll = @db.collection(category)
+    coll.find().each {|line|
+      line.each {|k,v|
+        if k == "title" or k == "description"
+          pickup_nouns(v).each {|word|
+            if word.length > 1
+              if word =~ /[亜-腕]/
+                hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+              end
+            end
+          }
+        end
+      }
+    }
+    return hits
+  end
+
+  def train_from_datasource
+    @classifier.train("social", train('category.social'))
+    @classifier.train("politics", train('category.politics'))
+    @classifier.train("international", train('category.international'))
+    @classifier.train("economics", train('category.economics'))
+    @classifier.train("electro",  train('category.electro'))
+    @classifier.train("sports",  train('category.sports'))
+    @classifier.train("entertainment",  train( 'category.entertainment'))
+    @classifier.train("science",  train('category.science'))
+  end
+
   def read_from_datasource
-    mongo = Mongo::Connection.new('localhost', 27017)
-    db = mongo.db('fluentd')
-    coll = db.collection('automatic.feed')
+    coll = @db.collection('automatic.feed')
     from = Time.parse(PICKUP_DATE)
     to   = Time.parse(TODAY)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
+      hits = {}
       pickup_nouns(blog['title'] + blog['description']).each {|word|
         if word.length > 1
           if word =~ /[亜-腕]/
+            hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
             if @text_hash.has_key?(word)
               mongo_scoring(blog['title'],
                             blog['link'],
@@ -58,6 +93,7 @@ class MapReduce
           end
         end
       }
+      @blog_hash[blog['link']]['category'] = @classifier.classify(hits).max{|a, b| a[1] <=> b[1]}[0] if @blog_hash.has_key?(blog['link'])
     }
   end
 
@@ -85,7 +121,7 @@ class MapReduce
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
         i = i + 1
-        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\n")
+        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\t#{v['category']}\n")
       }
     }
   end
