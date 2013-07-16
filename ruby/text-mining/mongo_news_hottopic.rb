@@ -9,9 +9,9 @@ require 'kmeans/hcluster'
 require 'kmeans/dendrogram'
 require 'naivebayes'
 
-PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
-TODAY         = Date.today.strftime("%Y%m%d")
-WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
+RUN_DATE      = Date.today
+PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
+TODAY         = RUN_DATE.strftime("%Y%m%d")
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
 IMAGE_FILE    = "tree_#{PICKUP_DATE}.png"
 LOG_PATH      = "/home/fluent/.fluent/log"

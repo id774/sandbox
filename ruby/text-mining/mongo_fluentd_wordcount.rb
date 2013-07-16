@@ -5,8 +5,9 @@ require 'time'
 require 'mongo'
 require 'MeCab'
 
-PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
-TODAY         = Date.today.strftime("%Y%m%d")
+RUN_DATE      = Date.today
+PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
+TODAY         = RUN_DATE.strftime("%Y%m%d")
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 LOG_PATH      = "/home/fluent/.fluent/log"
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
