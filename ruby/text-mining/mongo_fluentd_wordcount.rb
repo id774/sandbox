@@ -28,7 +28,7 @@ class MapReduce
   def read_from_datasource
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
-    coll = db.collection('automatic.feed')
+    coll = db.collection('news.feed')
     from = Time.parse(PICKUP_DATE)
     to   = Time.parse(TODAY)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|

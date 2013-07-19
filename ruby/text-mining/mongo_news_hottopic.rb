@@ -76,7 +76,7 @@ class MapReduce
   end
 
   def read_from_datasource
-    coll = @db.collection('automatic.feed')
+    coll = @db.collection('news.feed')
     from = Time.parse(PICKUP_DATE)
     to   = Time.parse(TODAY)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
