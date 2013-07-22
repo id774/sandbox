@@ -6,16 +6,19 @@ require 'MeCab'
 require 'kmeans/pearson'
 require 'kmeans/hcluster'
 require 'kmeans/dendrogram'
+require 'naivebayes'
 
 RUN_DATE      = Date.today
 PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
 LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
+TRAIN         = "train.log.#{PICKUP_DATE}_0.log"
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
 IMAGE_FILE    = "tree_#{PICKUP_DATE}.png"
 LOG_PATH      = "/home/fluent/.fluent/log"
 IMAGE_PATH    = "/var/www/rails/news_cloud/public/images"
 WORDCOUNT_TXT = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
+TRAIN_TXT     = File.expand_path(File.join(LOG_PATH, TRAIN))
 INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
 OUTIMAGE      = File.expand_path(File.join(IMAGE_PATH, IMAGE_FILE))
@@ -27,6 +30,8 @@ class MapReduce
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
+    @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
+    train_from_datasource
   end
 
   def map_reduce
@@ -40,13 +45,49 @@ class MapReduce
 
   private
 
+  def train(category)
+    hits = {}
+    open(TRAIN_TXT) do |file|
+      file.each_line do |line|
+        datetime, tag, json = line.strip.split("\t")
+        if tag == category
+          JSON.parse(json.force_encoding("utf-8"), {:symbolize_names => true}).each {|k,v|
+            if k == :title or k == :description
+              pickup_nouns(v).each {|word|
+                if word.length > 1
+                  if word =~ /[亜-腕]/
+                    hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+                  end
+                end
+              }
+            end
+          }
+        end
+      end
+    end
+    return hits
+  end
+
+  def train_from_datasource
+    @classifier.train("social", train('category.social'))
+    @classifier.train("politics", train('category.politics'))
+    @classifier.train("international", train('category.international'))
+    @classifier.train("economics", train('category.economics'))
+    @classifier.train("electro",  train('category.electro'))
+    @classifier.train("sports",  train('category.sports'))
+    @classifier.train("entertainment",  train( 'category.entertainment'))
+    @classifier.train("science",  train('category.science'))
+  end
+
   def read_from_datasource
     open(INFILE) do |file|
       file.each do |line|
         blog = JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join, {:symbolize_names => true})
+        hits = {}
         pickup_nouns(blog[:title] + blog[:description]).each {|word|
           if word.length > 1
             if word =~ /[亜-腕]/
+              hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
               if @text_hash.has_key?(word)
                 scoring(blog[:title],
                         blog[:link],
@@ -56,6 +97,7 @@ class MapReduce
             end
           end
         }
+        @blog_hash[blog[:link]]['category'] = @classifier.classify(hits).max{|a, b| a[1] <=> b[1]}[0] if @blog_hash.has_key?(blog[:link])
       end
     end
   end
@@ -84,7 +126,7 @@ class MapReduce
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
         i = i + 1
-        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\n")
+        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\t#{v['category']}\n")
       }
     }
   end
