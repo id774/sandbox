@@ -48,7 +48,9 @@ class MapReduce
   def train(category)
     hits = {}
     coll = @db.collection(category)
-    coll.find().each {|line|
+    from = Time.parse(PICKUP_DATE)
+    to   = Time.parse(TODAY)
+    coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
       line.each {|k,v|
         if k == "title" or k == "description"
           pickup_nouns(v).each {|word|
