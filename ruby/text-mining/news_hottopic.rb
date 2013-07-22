@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
+require 'json'
 require 'date'
-require 'time'
-require 'mongo'
 require 'MeCab'
 require 'kmeans/pearson'
 require 'kmeans/hcluster'
@@ -10,13 +9,14 @@ require 'kmeans/dendrogram'
 
 RUN_DATE      = Date.today
 PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
-TODAY         = RUN_DATE.strftime("%Y%m%d")
+LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
 IMAGE_FILE    = "tree_#{PICKUP_DATE}.png"
 LOG_PATH      = "/home/fluent/.fluent/log"
 IMAGE_PATH    = "/var/www/rails/news_cloud/public/images"
 WORDCOUNT_TXT = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
+INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
 OUTIMAGE      = File.expand_path(File.join(IMAGE_PATH, IMAGE_FILE))
 WORDS         = 150
@@ -41,28 +41,26 @@ class MapReduce
   private
 
   def read_from_datasource
-    mongo = Mongo::Connection.new('localhost', 27017)
-    db = mongo.db('fluentd')
-    coll = db.collection('automatic.feed')
-    from = Time.parse(PICKUP_DATE)
-    to   = Time.parse(TODAY)
-    coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
-      pickup_nouns(blog['title'] + blog['description']).each {|word|
-        if word.length > 1
-          if word =~ /[亜-腕]/
-            if @text_hash.has_key?(word)
-              mongo_scoring(blog['title'],
-                            blog['link'],
-                            blog['description'],
-                            @text_hash[word])
+    open(INFILE) do |file|
+      file.each do |line|
+        blog = JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join, {:symbolize_names => true})
+        pickup_nouns(blog[:title] + blog[:description]).each {|word|
+          if word.length > 1
+            if word =~ /[亜-腕]/
+              if @text_hash.has_key?(word)
+                scoring(blog[:title],
+                        blog[:link],
+                        blog[:description],
+                        @text_hash[word])
+              end
             end
           end
-        end
-      }
-    }
+        }
+      end
+    end
   end
 
-  def mongo_scoring(title, link, description, count)
+  def scoring(title, link, description, count)
     if @blog_hash.has_key?(link)
       @blog_hash[link]['score'] += count.to_i
     else

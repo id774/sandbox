@@ -4,8 +4,7 @@ require 'json'
 require 'date'
 require 'MeCab'
 
-RUN_DATE      = Date.today
-PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
+PICKUP_DATE   = (Date.today - 1).strftime("%Y%m%d")
 LOG_NAME      = "news.log.#{PICKUP_DATE}_0.log"
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 LOG_PATH      = "/home/fluent/.fluent/log"
