@@ -49,7 +49,7 @@ class MapReduce
     hits = {}
     open(TRAIN_TXT) do |file|
       file.each_line do |line|
-        datetime, tag, json = line.strip.split("\t")
+        datetime, tag, json = line.force_encoding("utf-8").strip.split("\t")
         if tag == category
           JSON.parse(json.force_encoding("utf-8"), {:symbolize_names => true}).each {|k,v|
             if k == :title or k == :description
