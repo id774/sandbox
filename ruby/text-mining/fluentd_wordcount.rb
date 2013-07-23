@@ -10,11 +10,14 @@ WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 LOG_PATH      = "/home/fluent/.fluent/log"
 INFILE        = File.expand_path(File.join(LOG_PATH, LOG_NAME))
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
+EXCLUDE       = "wordcount_exclude.txt"
+EXCLUDE_TXT   = File.expand_path(File.join(LOG_PATH, EXCLUDE))
 
 class MapReduce
   def initialize
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
+    @exclude = Array.new
   end
 
   def map_reduce
@@ -23,6 +26,14 @@ class MapReduce
   end
 
   private
+
+  def read_from_exclude
+    open(EXCLUDE_TXT) do |file|
+      file.each_line do |word|
+        @exclude << word
+      end
+    end
+  end
 
   def read_from_datasource
     open(INFILE) do |file|
@@ -53,7 +64,7 @@ class MapReduce
   end
 
   def reducer(word)
-    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
+    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1 unless @exclude.include?(word)
   end
 
   def mapper(string)

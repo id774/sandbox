@@ -11,19 +11,31 @@ TODAY         = RUN_DATE.strftime("%Y%m%d")
 WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
 LOG_PATH      = "/home/fluent/.fluent/log"
 OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
+EXCLUDE       = "wordcount_exclude.txt"
+EXCLUDE_TXT   = File.expand_path(File.join(LOG_PATH, EXCLUDE))
 
 class MapReduce
   def initialize
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
+    @exclude = Array.new
   end
 
   def map_reduce
+    read_from_exclude
     read_from_datasource
     write_result
   end
 
   private
+
+  def read_from_exclude
+    open(EXCLUDE_TXT) do |file|
+      file.each_line do |word|
+        @exclude << word
+      end
+    end
+  end
 
   def read_from_datasource
     mongo = Mongo::Connection.new('localhost', 27017)
@@ -57,7 +69,7 @@ class MapReduce
   end
 
   def reducer(word)
-    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
+    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1 unless @exclude.include?(word)
   end
 
   def mapper(string)
