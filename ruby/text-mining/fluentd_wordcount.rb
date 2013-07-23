@@ -21,6 +21,7 @@ class MapReduce
   end
 
   def map_reduce
+    read_from_exclude
     read_from_datasource
     write_result
   end
@@ -29,8 +30,8 @@ class MapReduce
 
   def read_from_exclude
     open(EXCLUDE_TXT) do |file|
-      file.each_line do |word|
-        @exclude << word
+      file.each_line do |line|
+        @exclude << line.chomp
       end
     end
   end
@@ -43,7 +44,9 @@ class MapReduce
             mapper(v).each {|word|
               if word.length > 1
                 if word =~ /[亜-腕]/
-                  reducer(word)
+                  unless @exclude.include?(word)
+                    reducer(word)
+                  end
                 end
               end
             }
@@ -64,7 +67,7 @@ class MapReduce
   end
 
   def reducer(word)
-    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1 unless @exclude.include?(word)
+    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
   end
 
   def mapper(string)
