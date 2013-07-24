@@ -22,19 +22,27 @@ class MapReduce
   end
 
   def map_reduce
+    puts_with_time('Start wordcount')
     read_from_exclude
     read_from_datasource
     write_result
+    puts_with_time('End wordcount')
   end
 
   private
 
+  def puts_with_time(message)
+    fmt = "%Y/%m/%d %X"
+    puts "#{Time.now.strftime(fmt)}: #{message}"
+  end
+
   def read_from_exclude
     open(EXCLUDE_TXT) do |file|
-      file.each_line do |word|
-        @exclude << word.chomp
+      file.each_line do |line|
+        @exclude << line.chomp
       end
     end
+    puts_with_time("Exclude hash is #{@exclude}")
   end
 
   def read_from_datasource
@@ -51,6 +59,8 @@ class MapReduce
               if word =~ /[亜-腕]/
                 unless @exclude.include?(word)
                   reducer(word)
+                else
+                  puts_with_time("Skip word #{word}")
                 end
               end
             end
