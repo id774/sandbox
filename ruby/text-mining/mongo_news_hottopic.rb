@@ -35,15 +35,23 @@ class MapReduce
   end
 
   def map_reduce
+    puts_with_time('Start hotnews')
     read_from_wordcount
     read_from_datasource
     @entry_list = new_entrylist
     write_hotnews
+    puts_with_time('Create vector')
     create_wordvector_from_bloghash
+    puts_with_time('Start kmeans')
     kmeans_clustering
   end
 
   private
+
+  def puts_with_time(message)
+    fmt = "%Y/%m/%d %X"
+    puts "#{Time.now.strftime(fmt)}: #{message}"
+  end
 
   def train(category)
     hits = {}
@@ -63,6 +71,7 @@ class MapReduce
         end
       }
     }
+    puts_with_time("Training classifier #{category} to #{hits}")
     return hits
   end
 
