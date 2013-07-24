@@ -42,7 +42,7 @@ class MapReduce
         @exclude << line.chomp
       end
     end
-    puts_with_time("Exclude hash is #{@exclude}")
+    puts_with_time("Exclude word's array is #{@exclude}")
   end
 
   def read_from_datasource
