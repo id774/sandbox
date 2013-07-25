@@ -5,23 +5,23 @@ require 'time'
 require 'mongo'
 require 'MeCab'
 
-RUN_DATE      = Date.today
-PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
-TODAY         = RUN_DATE.strftime("%Y%m%d")
-WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
-LOG_PATH      = "/home/fluent/.fluent/log"
-OUTFILE       = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
-EXCLUDE       = "wordcount_exclude.txt"
-EXCLUDE_TXT   = File.expand_path(File.join(LOG_PATH, EXCLUDE))
-
-class MapReduce
+class WordCount
   def initialize
+    @run_date      = Date.today
+    @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
+    @today         = @run_date.strftime("%Y%m%d")
+    @wordcount     = "wordcount_#{@pickup_date}.txt"
+    @log_path      = "/home/fluent/.fluent/log"
+    @outfile       = File.expand_path(File.join(@log_path, @wordcount))
+    @exclude       = "wordcount_exclude.txt"
+    @exclude_txt   = File.expand_path(File.join(@log_path, @exclude))
+
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
     @exclude = Array.new
   end
 
-  def map_reduce
+  def run
     puts_with_time('Start wordcount')
     read_from_exclude
     read_from_datasource
@@ -37,7 +37,7 @@ class MapReduce
   end
 
   def read_from_exclude
-    open(EXCLUDE_TXT) do |file|
+    open(@exclude_txt) do |file|
       file.each_line do |line|
         @exclude << line.force_encoding("utf-8").chomp
       end
@@ -49,16 +49,16 @@ class MapReduce
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
     coll = db.collection('news.feed')
-    from = Time.parse(PICKUP_DATE)
-    to   = Time.parse(TODAY)
+    from = Time.parse(@pickup_date)
+    to   = Time.parse(@today)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
       line.each {|k,v|
         if k == "title" or k == "description"
-          mapper(v).each {|word|
+          pickup_nouns(v).each {|word|
             if word.length > 1
               if word =~ /[亜-腕]/
                 unless @exclude.include?(word)
-                  reducer(word)
+                  count_words(word)
                 else
                   puts_with_time("Skip word #{word}")
                 end
@@ -71,7 +71,7 @@ class MapReduce
   end
 
   def write_result
-    open(OUTFILE, "w"){|f|
+    open(@outfile, "w"){|f|
       i = 0
       @hits.sort_by{|k,v| -v}.each {|k, v|
         i = i + 1
@@ -80,11 +80,11 @@ class MapReduce
     }
   end
 
-  def reducer(word)
+  def count_words(word)
     @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
   end
 
-  def mapper(string)
+  def pickup_nouns(string)
     node = @mecab.parseToNode(string)
     nouns = []
     while node
@@ -97,6 +97,6 @@ class MapReduce
   end
 end
 
-map_reduce = MapReduce.new
-map_reduce.map_reduce
+wordcount = WordCount.new
+wordcount.run
 

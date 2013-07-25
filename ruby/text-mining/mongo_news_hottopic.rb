@@ -9,21 +9,21 @@ require 'kmeans/hcluster'
 require 'kmeans/dendrogram'
 require 'naivebayes'
 
-RUN_DATE      = Date.today
-PICKUP_DATE   = (RUN_DATE - 1).strftime("%Y%m%d")
-TODAY         = RUN_DATE.strftime("%Y%m%d")
-WORDCOUNT     = "wordcount_#{PICKUP_DATE}.txt"
-HOT_NEWS      = "hotnews_#{PICKUP_DATE}.txt"
-IMAGE_FILE    = "tree_#{PICKUP_DATE}.png"
-LOG_PATH      = "/home/fluent/.fluent/log"
-IMAGE_PATH    = "/var/www/rails/news_cloud/public/images"
-WORDCOUNT_TXT = File.expand_path(File.join(LOG_PATH, WORDCOUNT))
-OUTFILE       = File.expand_path(File.join(LOG_PATH, HOT_NEWS))
-OUTIMAGE      = File.expand_path(File.join(IMAGE_PATH, IMAGE_FILE))
-WORDS         = 150
-
-class MapReduce
+class HotNews
   def initialize
+    @run_date      = Date.today
+    @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
+    @today         = @run_date.strftime("%Y%m%d")
+    @wordcount     = "wordcount_#{@pickup_date}.txt"
+    @hot_news      = "hotnews_#{@pickup_date}.txt"
+    @image_file    = "tree_#{@pickup_date}.png"
+    @log_path      = "/home/fluent/.fluent/log"
+    @image_path    = "/var/www/rails/news_cloud/public/images"
+    @wordcount_txt = File.expand_path(File.join(@log_path, @wordcount))
+    @outfile       = File.expand_path(File.join(@log_path, @hot_news))
+    @outimage      = File.expand_path(File.join(@image_path, @image_file))
+    @words         = 150
+
     @mecab = MeCab::Tagger.new("-Ochasen")
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
@@ -34,7 +34,7 @@ class MapReduce
     train_from_datasource
   end
 
-  def map_reduce
+  def run
     puts_with_time('Start hotnews')
     read_from_wordcount
     read_from_datasource
@@ -56,12 +56,13 @@ class MapReduce
   def train(category)
     hits = {}
     coll = @db.collection(category)
-    from = Time.parse(PICKUP_DATE)
-    to   = Time.parse(TODAY)
+    from = Time.parse(@pickup_date)
+    to   = Time.parse(@today)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
       line.each {|k,v|
         if k == "title" or k == "description"
-          pickup_nouns(v).each {|word|
+          pickup_nouns(v).each {|word_raw|
+            word = word_raw.force_encoding("utf-8")
             if word.length > 1
               if word =~ /[亜-腕]/
                 hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
@@ -88,8 +89,8 @@ class MapReduce
 
   def read_from_datasource
     coll = @db.collection('news.feed')
-    from = Time.parse(PICKUP_DATE)
-    to   = Time.parse(TODAY)
+    from = Time.parse(@pickup_date)
+    to   = Time.parse(@today)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
       hits = {}
       pickup_nouns(blog['title'] + blog['description']).each {|word|
@@ -120,7 +121,7 @@ class MapReduce
   end
 
   def read_from_wordcount
-    open(WORDCOUNT_TXT) do |file|
+    open(@wordcount_txt) do |file|
       file.each_line do |line|
         num, word, count = line.force_encoding("utf-8").strip.split("\t")
         @text_hash[word] = count if count.to_i >= 1
@@ -129,7 +130,7 @@ class MapReduce
   end
 
   def write_hotnews
-    open(OUTFILE, "w"){|f|
+    open(@outfile, "w"){|f|
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
         i = i + 1
@@ -143,7 +144,7 @@ class MapReduce
       i = 0
       wordmap = new_wordmap
       @text_hash.keys.each {|word|
-        if i < WORDS
+        if i < @words
           @blog_hash.each {|k,v|
             if v['title'] == entry
               if (v['title'] + v['description']).include?(word)
@@ -162,7 +163,7 @@ class MapReduce
     cluster = Kmeans::HCluster.new
     hcluster = cluster.hcluster(@word_vector)
     # p cluster.printclust(hcluster, @entry_list)
-    den = Kmeans::Dendrogram.new(:imagefile => OUTIMAGE)
+    den = Kmeans::Dendrogram.new(:imagefile => @outimage)
     den.drawdendrogram(hcluster, @entry_list)
   end
 
@@ -176,7 +177,7 @@ class MapReduce
 
   def new_wordmap
     wordmap = []
-    WORDS.times do
+    @words.times do
       wordmap << 0
     end
     wordmap
@@ -191,10 +192,10 @@ class MapReduce
       end
       node = node.next
     end
-    nouns.force_encoding("utf-8")
+    nouns
   end
 end
 
-map_reduce = MapReduce.new
-map_reduce.map_reduce
+hot_news = HotNews.new
+hot_news.run
 
