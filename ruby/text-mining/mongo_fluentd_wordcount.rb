@@ -6,8 +6,8 @@ require 'mongo'
 require 'MeCab'
 
 class WordCount
-  def initialize
-    @run_date      = Date.today
+  def initialize(day = 0)
+    @run_date      = Date.today - day
     @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
     @today         = @run_date.strftime("%Y%m%d")
     @wordcount     = "wordcount_#{@pickup_date}.txt"
@@ -99,6 +99,9 @@ class WordCount
   end
 end
 
-wordcount = WordCount.new
-wordcount.run
+if __FILE__ == $0
+  day = ARGV.shift || 0; day = day.to_i
+  wordcount = WordCount.new(day)
+  wordcount.run
+end
 

@@ -5,8 +5,9 @@ require 'date'
 require 'MeCab'
 
 class WordCount
-  def initialize
-    @pickup_date   = (Date.today - 1).strftime("%Y%m%d")
+  def initialize(day = 0)
+    @run_date      = Date.today - day
+    @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
     @log_name      = "news.log.#{@pickup_date}_0.log"
     @wordcount     = "wordcount_#{@pickup_date}.txt"
     @log_path      = "/home/fluent/.fluent/log"
@@ -95,6 +96,9 @@ class WordCount
   end
 end
 
-wordcount = WordCount.new
-wordcount.run
+if __FILE__ == $0
+  day = ARGV.shift || 0; day = day.to_i
+  wordcount = WordCount.new(day)
+  wordcount.run
+end
 
