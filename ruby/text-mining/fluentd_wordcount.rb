@@ -45,6 +45,7 @@ class WordCount
   end
 
   def read_from_datasource
+    exclude_count = 0
     open(@infile) do |file|
       file.each do |line|
         JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join).each {|k,v|
@@ -55,7 +56,7 @@ class WordCount
                   unless @exclude.include?(word)
                     count_words(word)
                   else
-                    puts_with_time("Skip word #{word}")
+                    exclude_count += 1
                   end
                 end
               end
@@ -64,6 +65,7 @@ class WordCount
         }
       end
     end
+    puts_with_time("Excluded words count is #{exclude_count}")
   end
 
   def write_result

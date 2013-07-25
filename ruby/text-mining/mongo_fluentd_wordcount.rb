@@ -46,6 +46,7 @@ class WordCount
   end
 
   def read_from_datasource
+    exclude_count = 0
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
     coll = db.collection('news.feed')
@@ -60,7 +61,7 @@ class WordCount
                 unless @exclude.include?(word)
                   count_words(word)
                 else
-                  puts_with_time("Skip word #{word}")
+                  exclude_count += 1
                 end
               end
             end
@@ -68,6 +69,7 @@ class WordCount
         end
       }
     }
+    puts_with_time("Excluded words count is #{exclude_count}")
   end
 
   def write_result

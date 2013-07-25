@@ -23,11 +23,14 @@ class HotNews
     @outfile       = File.expand_path(File.join(@log_path, @hot_news))
     @outimage      = File.expand_path(File.join(@image_path, @image_file))
     @words         = 150
+    @exclude       = "wordcount_exclude.txt"
+    @exclude_txt   = File.expand_path(File.join(@log_path, @exclude))
 
     @mecab = MeCab::Tagger.new("-Ochasen")
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
+    @exclude = Array.new
     @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
     mongo = Mongo::Connection.new('localhost', 27017)
     @db = mongo.db('fluentd')
@@ -36,6 +39,7 @@ class HotNews
 
   def run
     puts_with_time('Start hotnews')
+    read_from_exclude
     read_from_wordcount
     read_from_datasource
     @entry_list = new_entrylist
@@ -53,8 +57,18 @@ class HotNews
     puts "#{Time.now.strftime(fmt)}: #{message}"
   end
 
+  def read_from_exclude
+    open(@exclude_txt) do |file|
+      file.each_line do |line|
+        @exclude << line.force_encoding("utf-8").chomp
+      end
+    end
+    puts_with_time("Exclude word's array is #{@exclude}")
+  end
+
   def train(category)
     hits = {}
+    exclude_count = 0
     coll = @db.collection(category)
     from = Time.parse(@pickup_date)
     to   = Time.parse(@today)
@@ -65,13 +79,18 @@ class HotNews
             word = word_raw.force_encoding("utf-8")
             if word.length > 1
               if word =~ /[亜-腕]/
-                hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+                unless @exclude.include?(word)
+                  hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+                else
+                  exclude_count += 1
+                end
               end
             end
           }
         end
       }
     }
+    puts_with_time("Excluded words count is #{exclude_count}")
     puts_with_time("Training classifier #{category} to #{hits}")
     return hits
   end
