@@ -34,12 +34,12 @@ class HotNews
     @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
     mongo = Mongo::Connection.new('localhost', 27017)
     @db = mongo.db('fluentd')
+    read_from_exclude
     train_from_datasource
   end
 
   def run
     puts_with_time('Start hotnews')
-    read_from_exclude
     read_from_wordcount
     read_from_datasource
     @entry_list = new_entrylist
