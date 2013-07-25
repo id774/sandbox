@@ -191,7 +191,7 @@ class MapReduce
       end
       node = node.next
     end
-    nouns
+    nouns.force_encoding("utf-8")
   end
 end
 

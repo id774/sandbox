@@ -38,7 +38,7 @@ class MapReduce
   def read_from_exclude
     open(EXCLUDE_TXT) do |file|
       file.each_line do |line|
-        @exclude << line.chomp
+        @exclude << line.force_encoding("utf-8").chomp
       end
     end
     puts_with_time("Exclude word's array is #{@exclude}")
