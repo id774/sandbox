@@ -33,7 +33,7 @@ class WordCount
 
   def puts_with_time(message)
     fmt = "%Y/%m/%d %X"
-    puts "#{Time.now.strftime(fmt)}: #{message}"
+    puts "#{Time.now.strftime(fmt)}: #{message.force_encoding("utf-8")}"
   end
 
   def read_from_exclude
