@@ -31,7 +31,7 @@ class HotNews
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
     @exclude = Array.new
-    @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
+    @classifier = NaiveBayes::Classifier.new(:model => "berounoulli")
     mongo = Mongo::Connection.new('localhost', 27017)
     @db = mongo.db('fluentd')
     read_from_exclude
