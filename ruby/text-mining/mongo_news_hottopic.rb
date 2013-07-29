@@ -70,9 +70,10 @@ class HotNews
     hits = {}
     exclude_count = 0
     coll = @db.collection(category)
-    from = Time.parse(@pickup_date)
-    to   = Time.parse(@today)
-    coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
+    #from = Time.parse(@pickup_date)
+    #to   = Time.parse(@today)
+    #coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
+    coll.find().each {|line|
       line.each {|k,v|
         if k == "title" or k == "description"
           pickup_nouns(v).each {|word_raw|
