@@ -18,7 +18,7 @@ class HotNews
     @hot_news      = "hotnews_#{@pickup_date}.txt"
     @image_file    = "tree_#{@pickup_date}.png"
     @log_path      = "/home/fluent/.fluent/log"
-    @image_path    = "/var/www/sinatra/newscloud-sinatra/public/images"
+    @image_path    = "/var/www/rails/news_cloud/public/images"
     @wordcount_txt = File.expand_path(File.join(@log_path, @wordcount))
     @train_txt     = File.expand_path(File.join(@log_path, @train))
     @infile        = File.expand_path(File.join(@log_path, @log_name))
