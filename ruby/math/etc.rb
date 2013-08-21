@@ -15,6 +15,6 @@ puts " sin(Θ) 正弦関数"
 p Math.sin(rad)
 puts " cos(Θ) 余弦関数"
 p Math.cos(rad)
-puts " cos(Θ) 正接関数"
+puts " tan(Θ) 正接関数"
 p Math.tan(rad)
 
