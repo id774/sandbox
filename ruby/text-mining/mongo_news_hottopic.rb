@@ -15,11 +15,13 @@ class HotNews
     @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
     @today         = @run_date.strftime("%Y%m%d")
     @wordcount     = "wordcount_#{@pickup_date}.txt"
+    @train         = "category_map.txt"
     @hot_news      = "hotnews_#{@pickup_date}.txt"
     @image_file    = "tree_#{@pickup_date}.png"
     @log_path      = "/home/fluent/.fluent/log"
     @image_path    = "/var/www/rails/news_cloud/public/images"
     @wordcount_txt = File.expand_path(File.join(@log_path, @wordcount))
+    @train_txt     = File.expand_path(File.join(@log_path, @train))
     @outfile       = File.expand_path(File.join(@log_path, @hot_news))
     @outimage      = File.expand_path(File.join(@image_path, @image_file))
     @words         = 150
@@ -31,7 +33,7 @@ class HotNews
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
     @exclude = Array.new
-    @classifier = NaiveBayes::Classifier.new(:model => "berounoulli")
+    @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
     mongo = Mongo::Connection.new('localhost', 27017)
     @db = mongo.db('fluentd')
     read_from_exclude
@@ -69,34 +71,31 @@ class HotNews
   def train(category)
     hits = {}
     exclude_count = 0
-    coll = @db.collection(category)
-    #from = Time.parse(@pickup_date)
-    #to   = Time.parse(@today)
-    #coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
-    coll.find().each {|line|
-      line.each {|k,v|
-        if k == "title" or k == "description"
-          pickup_nouns(v).each {|word_raw|
-            word = word_raw.force_encoding("utf-8")
-            if word.length > 1
+    open(@train_txt) do |file|
+      file.each_line do |line|
+        word, counts, social, politics, international, economics, electro, sports, entertainment, science = line.force_encoding("utf-8").strip.split("\t")
+        array = [social.to_i, politics.to_i, international.to_i, economics.to_i, electro.to_i, sports.to_i, entertainment.to_i, science.to_i]
+        if array.max <= 100
+          unless array[@train_num].to_i == 0
+            unless @exclude.include?(word)
               if word =~ /[亜-腕]/
-                unless @exclude.include?(word)
-                  hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
-                else
-                  exclude_count += 1
-                end
+                hits.has_key?(word) ? hits[word] += array[@train_num].to_i * 3 : hits[word] = array[@train_num].to_i * 3
+              else
+                hits.has_key?(word) ? hits[word] += array[@train_num].to_i : hits[word] = array[@train_num].to_i
               end
             end
-          }
+          end
         end
-      }
-    }
+      end
+    end
+    @train_num += 1
     puts_with_time("Excluded words count is #{exclude_count}")
     puts_with_time("Training classifier #{category} to #{hits}")
     return hits
   end
 
   def train_from_datasource
+    @train_num = 0
     @classifier.train("social", train('category.social'))
     @classifier.train("politics", train('category.politics'))
     @classifier.train("international", train('category.international'))
@@ -116,13 +115,15 @@ class HotNews
       pickup_nouns(blog['title'] + blog['description']).each {|word|
         if word.length > 1
           if word =~ /[亜-腕]/
+            hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
+          else
             hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
-            if @text_hash.has_key?(word)
-              mongo_scoring(blog['title'],
-                            blog['link'],
-                            blog['description'],
-                            @text_hash[word])
-            end
+          end
+          if @text_hash.has_key?(word)
+            mongo_scoring(blog['title'],
+                          blog['link'],
+                          blog['description'],
+                          @text_hash[word])
           end
         end
       }
