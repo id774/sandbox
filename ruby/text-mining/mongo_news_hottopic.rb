@@ -13,6 +13,7 @@ class HotNews
   def initialize(day = 0)
     @run_date      = Date.today - day
     @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
+    puts_with_time("The pick up date is #{@pickup_date}")
     @today         = @run_date.strftime("%Y%m%d")
     @wordcount     = "wordcount_#{@pickup_date}.txt"
     @train         = "category_map.txt"
