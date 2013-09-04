@@ -34,7 +34,7 @@ class ToJson
             "followers_count"         => status.followers_count,
             "source"                  => status.source.force_encoding("utf-8"),
           }
-          f.write (status.created_at.iso8601 + "\t" +
+          f.write (Time.now.iso8601 + "\t" +
                    @tag + "\t" +
                    hash.to_json + "\n") unless hash.nil?
         end
