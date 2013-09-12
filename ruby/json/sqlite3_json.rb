@@ -35,7 +35,7 @@ class ToJson
             "source"                  => status.source.force_encoding("utf-8"),
           }
           timestamp = Time.now.instance_eval { '%s.%03d' % [strftime('%Y%m%d%H%M%S'), (usec / 1000.0).round] }
-          id = timestamp + "," + screen_name + "," + uid
+          id = timestamp + "," + status.screen_name + "," + status.uid.to_s
           f.write (id + "\t" +
                    @tag + "\t" +
                    hash.to_json + "\n") unless hash.nil?
