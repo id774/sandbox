@@ -15,7 +15,7 @@ class HotNews
     puts_with_time("The pick up date is #{@pickup_date}")
     @log_name      = "news.log.#{@pickup_date}_0.log"
     @wordcount     = "wordcount_#{@pickup_date}.txt"
-    @train         = "train.log.#{@pickup_date}_0.log"
+    @train         = "category_map.txt"
     @hot_news      = "hotnews_#{@pickup_date}.txt"
     @image_file    = "tree_#{@pickup_date}.png"
     @log_path      = "/home/fluent/.fluent/log"
@@ -72,33 +72,29 @@ class HotNews
     exclude_count = 0
     open(@train_txt) do |file|
       file.each_line do |line|
-        datetime, tag, json = line.force_encoding("utf-8").strip.split("\t")
-        if tag == category
-          JSON.parse(json.force_encoding("utf-8"), {:symbolize_names => true}).each {|k,v|
-            if k == :title or k == :description
-              pickup_nouns(v).each {|word_raw|
-                word = word_raw.force_encoding("utf-8")
-                if word.length > 1
-                  if word =~ /[亜-腕]/
-                    unless @exclude.include?(word)
-                      hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
-                    else
-                      exclude_count += 1
-                    end
-                  end
-                end
-              }
+        word, counts, social, politics, international, economics, electro, sports, entertainment, science = line.force_encoding("utf-8").strip.split("\t")
+        array = [social.to_i, politics.to_i, international.to_i, economics.to_i, electro.to_i, sports.to_i, entertainment.to_i, science.to_i]
+        if array.max <= 100
+          unless array[@train_num].to_i == 0
+            unless @exclude.include?(word)
+              if word =~ /[亜-腕]/
+                hits.has_key?(word) ? hits[word] += array[@train_num].to_i * 3 : hits[word] = array[@train_num].to_i * 3
+              else
+                hits.has_key?(word) ? hits[word] += array[@train_num].to_i : hits[word] = array[@train_num].to_i
+              end
             end
-          }
+          end
         end
       end
     end
+    @train_num += 1
     puts_with_time("Excluded words count is #{exclude_count}")
     puts_with_time("Training classifier #{category} to #{hits}")
     return hits
   end
 
   def train_from_datasource
+    @train_num = 0
     @classifier.train("social", train('category.social'))
     @classifier.train("politics", train('category.politics'))
     @classifier.train("international", train('category.international'))
