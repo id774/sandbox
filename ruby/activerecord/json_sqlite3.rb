@@ -13,10 +13,10 @@ class Converter
   def start
     open(@filename) do |file|
       file.each_line do |line|
-        screen_name, uid, json = line.force_encoding("utf-8").strip.split("\t")
-        Status.create(
-          :screen_name => screen_name,
-          :uid => uid,
+        key, tag, json = line.force_encoding("utf-8").strip.split("\t")
+        Record.create(
+          :key  => key,
+          :tag  => tag,
           :json => json
         )
       end
@@ -35,13 +35,13 @@ class Converter
   end
 
   def model_class
-    Status
+    Record
   end
 
   def column_definition
     {
-      :screen_name => :string,
-      :uid => :string,
+      :key  => :string,
+      :tag  => :string,
       :json => :string
     }
   end
@@ -55,7 +55,7 @@ class Converter
   end
 end
 
-class Status < ActiveRecord::Base
+class Record < ActiveRecord::Base
 end
 
 if __FILE__ == $0
