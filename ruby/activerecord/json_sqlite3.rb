@@ -61,7 +61,7 @@ end
 if __FILE__ == $0
   filename = ARGV.shift || "json.txt"
   db_path  = ARGV.shift || "sqlite3.db"
-  t = Converter.new(filename, db_path)
-  t.start
+  converter = Converter.new(filename, db_path)
+  converter.start
 end
 

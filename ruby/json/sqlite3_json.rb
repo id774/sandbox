@@ -4,7 +4,7 @@ require 'active_record'
 require 'json'
 require 'time'
 
-class ToJson
+class Converter
   def initialize(db_path, filename, tag,
                  load_protected = false)
     @db_path        = db_path
@@ -135,7 +135,7 @@ if __FILE__ == $0
   db_path  = ARGV.shift || "sqlite3.db"
   filename = ARGV.shift || "out.txt"
   tag      = ARGV.shift || "twitter.statuses"
-  t = ToJson.new(db_path, filename, tag, false)
-  t.start
+  converter = Converter.new(db_path, filename, tag, false)
+  converter.start
 end
 
