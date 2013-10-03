@@ -4,6 +4,7 @@
 require 'kmeans/pair'
 require 'kmeans/pearson'
 require 'kmeans/cluster'
+require 'json'
 
 def testdata
   @testdata = {
@@ -36,5 +37,12 @@ if __FILE__ == $0
              :loop_max => 100
            })
   result.make_cluster
-  puts result.cluster
+  result.cluster.values.each {|array|
+  hash = {}
+  array.each {|word|
+    hash[word] = 1
+  }
+  json = JSON.generate(hash)
+  puts json
+}
 end
