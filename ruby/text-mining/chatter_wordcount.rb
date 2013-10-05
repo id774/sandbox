@@ -20,7 +20,7 @@ class MapReduce
     db.close
     i = 0
     @hits.sort_by{|k,v| -v}.each {|k, v|
-      i = i + 1
+      i += 1
       puts "#{i.to_s}\t#{k}\t#{v}\n" if i <= 100
     }
   end

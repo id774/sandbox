@@ -155,7 +155,7 @@ class HotNews
     open(@outfile, "w"){|f|
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
-        i = i + 1
+        i += 1
         f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\t#{v['category']}\n")
       }
     }

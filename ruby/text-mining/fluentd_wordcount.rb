@@ -74,7 +74,7 @@ class WordCount
     open(@outfile, "w"){|f|
       i = 0
       @hits.sort_by{|k,v| -v}.each {|k, v|
-        i = i + 1
+        i += 1
         f.write("#{i.to_s}\t#{k}\t#{v}\n") if v >= 1
       }
     }
