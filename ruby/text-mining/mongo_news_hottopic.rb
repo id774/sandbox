@@ -156,7 +156,7 @@ class HotNews
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
         i += 1
-        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\t#{v['category']}\n")
+        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
       }
     }
   end
@@ -192,7 +192,7 @@ class HotNews
   def new_entrylist
     entry_list = Array.new
     @blog_hash.each {|k,v|
-      entry_list << v['title']
+      entry_list << v['title'] if v['score'] >= 10
     }
     entry_list
   end
