@@ -2,10 +2,10 @@
 
 require 'rubygems'
 require "csv"
-require 'rsruby' 
+require 'rsruby'
 require 'awesome_print'
 
-reader = CSV.open("Book1.csv", "r") 
+reader = CSV.open("Book1.csv", "r")
 header = reader.take(1)[0]
 
 T = Hash::new
@@ -15,11 +15,11 @@ end
 reader.each do |row|
   i = 0
   row.each do |item|
-    T[header[i].strip].push(item.strip) 
+    T[header[i].strip].push(item.strip)
     i = i + 1
   end
 end
- 
+
 r = RSRuby::instance
 r.eval_R(<<-RCOMMAND)
   seq  <- c( #{T["seq"].join(",")} )
@@ -28,6 +28,7 @@ r.eval_R(<<-RCOMMAND)
   EUR  <- c( #{T["EUR"].join(",")} )
   AUD  <- c( #{T["AUD"].join(",")} )
   D = data.frame( cbind( seq = seq, date = date, USD = USD, EUR = EUR, AUD = AUD ) )
-  a = summary(D)
+  result = summary(D)
 RCOMMAND
-ap r.a
+
+ap r.result

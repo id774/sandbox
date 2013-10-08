@@ -25,5 +25,6 @@ r.eval_R(<<-RCOMMAND)
   plot(X, Y)
   lines(lowess( X, Y ), col = "red")
   lines(lowess( X, Y, f=0.2 ), col = "green")
+  legend( 5, 105, c( "f = 2/3", "f = 0.2" ), lty = 1, col = c("red", "green") )
   dev.off()
 RCOMMAND
