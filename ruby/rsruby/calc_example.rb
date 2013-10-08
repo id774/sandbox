@@ -47,7 +47,7 @@ def r_variance
   exam <- c( #{@exam.join(",")} )
   average = mean(exam)
   deviation = exam - average
-  variance = sum(deviation ^ 2) / length(exam)
+  sum(deviation ^ 2) / length(exam)
 RCOMMAND
 end
 
