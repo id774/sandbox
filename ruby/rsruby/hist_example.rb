@@ -4,8 +4,7 @@ require 'rsruby'
 require 'awesome_print'
 
 def r_load
-  @time = [1,3,10,12,6,3,8,4,1,5]
-  @test = [20,40,100,80,50,50,70,50,10,60]
+  @exam = [13,14,7,12,10,6,8,15,4,14,9,6,10,12,5,12,8,8,12,15]
   r_exec
 end
 
@@ -14,13 +13,12 @@ private
 def r_exec
   r = RSRuby::instance
   r.eval_R(<<-RCOMMAND)
-  time <- c( #{@time.join(",")} )
-  test <- c( #{@test.join(",")} )
+  exam <- c( #{@exam.join(",")} )
 
   png(file="out.png")
-  plot(time, test)
+  hist(exam)
   dev.off()
-  time
+  exam
 RCOMMAND
 end
 
