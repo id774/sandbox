@@ -22,14 +22,14 @@ class Calc
             if v.nil?
               @x << 0
             else
-              @x << v.to_i
+              @x << v.to_i / 10000
             end
           end
-          if k == "受注額"
+          if k == "売上額"
             if v.nil?
               @y << 0
             else
-              @y << v.to_i
+              @y << v.to_i / 10000
             end
           end
         }
@@ -46,13 +46,13 @@ class Calc
     x <- c( #{@x.join(",")} )
     y <- c( #{@y.join(",")} )
 
-    png(file="hist_x.png")
+    png(file="#{@outimage}_hist_x.png")
     hist(x)
     dev.off()
-    png(file="hist_y.png")
+    png(file="#{@outimage}_hist_y.png")
     hist(y)
     dev.off()
-    png(file="plot.png")
+    png(file="#{@outimage}_plot.png")
     plot(x, y)
     dev.off()
     RCOMMAND
@@ -62,7 +62,7 @@ end
 
 if __FILE__ == $0
   filename = ARGV.shift || "json.txt"
-  outimage = ARGV.shift || "out.png"
+  outimage = ARGV.shift || "out"
   calc = Calc.new(filename, outimage)
   calc.start
 end
