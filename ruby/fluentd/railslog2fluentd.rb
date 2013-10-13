@@ -61,7 +61,7 @@ if __FILE__ == $0
   hostname = ARGV.shift || "localhost"
   port     = ARGV.shift || "9999"
   prefix   = ARGV.shift || "debug"
-  tag      = ARGV.shift || "test"
-  converter = Converter.new(filename, hostname, port, prefix, tag)
+  suffix   = ARGV.shift || "test"
+  converter = Converter.new(filename, hostname, port, prefix, suffix)
   converter.start
 end
