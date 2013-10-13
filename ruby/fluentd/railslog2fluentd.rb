@@ -7,9 +7,10 @@ require 'fluent-logger'
 
 
 class Converter
-  def initialize(filename, hostname, port, prefix, tag)
+  def initialize(filename, hostname, port, prefix, suffix)
     @filename = filename
-    @tag      = tag
+    @suffix   = suffix
+
     @fluentd = Fluent::Logger::FluentLogger.open(prefix,
       host = hostname, port = port.to_i)
   end
@@ -19,23 +20,37 @@ class Converter
       file.each do |line|
         row = line.force_encoding("utf-8")
         row_time = row.scan(/\[.*\]/)[0]
-        row_time.slice!(0)
-        timestamp = Time.parse(row_time.split(" ")[0]) || Time.now
+        if row_time.nil?
+          timestamp = Time.now
+        else
+          row_time.slice!(0)
+          begin
+            timestamp = Time.parse(row_time.split(" ")[0])
+          rescue ArgumentError
+            timestamp = Time.now
+          end
+        end
 
         values = row.scan(/\{.*\}/)[0].split(",")
         key = values[2]
-        key.slice!(0, 20)
-        key.chop! unless key.empty?
+        unless key.nil?
+          key.slice!(0, 20)
+          key.chop! unless key.empty?
+        end
 
-        tag = values[3]
-        tag.slice!(0, 9)
-        tag.chop!.chop! unless tag.empty?
+        value = values[3]
+        unless value.nil?
+          value.slice!(0, 9)
+          value.chop!.chop! unless value.empty?
+        end
 
-        @fluentd.post(@tag, {
-          :key => key,
-          :tag => tag,
-          :timestamp => timestamp
-        })
+        unless key.nil? and value.nil?
+          @fluentd.post(@suffix, {
+            :key => key,
+            :value => value,
+            :timestamp => timestamp
+          })
+        end
       end
     end
   end
