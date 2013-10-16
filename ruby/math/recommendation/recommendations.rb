@@ -62,62 +62,62 @@ def critics
   }
 end
 
-def my_test_data
+def critics_ja
   {
-    'Lisa Rose' => {
-      'Lady in the Water'  => 2.5,
-      'Snake on the Plane' => 3.5,
-      'Just My Luck'       => 3.0,
-      'Superman Returns'   => 3.5,
-      'You, Me and Dupree' => 2.5,
-      'The Night Listener' => 3.0
+    '山田' => {
+      'カレー'     => 2.5,
+      'ラーメン'   => 3.5,
+      'チャーハン' => 3.0,
+      '寿司'       => 3.5,
+      '牛丼'       => 2.5,
+      'うどん'     => 3.0
     },
 
-    'Gene Seymour' => {
-      'Lady in the Water'  => 3.0,
-      'Snake on the Plane' => 3.5,
-      'Just My Luck'       => 1.5,
-      'Superman Returns'   => 5.0,
-      'The Night Listener' => 3.0,
-      'You, Me and Dupree' => 3.5
+    '田中' => {
+      'カレー'     => 3.0,
+      'ラーメン'   => 3.5,
+      'チャーハン' => 1.5,
+      '寿司'       => 5.0,
+      'うどん'     => 3.0,
+      '牛丼'       => 3.5
     },
 
-    'Michael Phillips' => {
-      'Lady in the Water'  => 2.5,
-      'Snake on the Plane' => 3.0,
-      'Superman Returns'   => 3.5,
-      'The Night Listener' => 4.0
+    '佐藤' => {
+      'カレー'     => 2.5,
+      'ラーメン'   => 3.0,
+      '寿司'       => 3.5,
+      'うどん'     => 4.0
     },
 
-    'Claudia Puig' => {
-      'Snake on the Plane' => 3.5,
-      'Just My Luck'       => 3.0,
-      'The Night Listener' => 4.5,
-      'Superman Returns'   => 4.0,
-      'You, Me and Dupree' => 2.5
+    '中村' => {
+      'ラーメン'   => 3.5,
+      'チャーハン' => 3.0,
+      'うどん'     => 4.5,
+      '寿司'       => 4.0,
+      '牛丼'       => 2.5
     },
 
-    'Mick LaSalle' => {
-      'Lady in the Water'  => 3.0,
-      'Snake on the Plane' => 4.0,
-      'Just My Luck'       => 2.0,
-      'Superman Returns'   => 3.0,
-      'The Night Listener' => 3.0,
-      'You, Me and Dupree' => 2.0
+    '川村' => {
+      'カレー'     => 3.0,
+      'ラーメン'   => 4.0,
+      'チャーハン' => 2.0,
+      '寿司'       => 3.0,
+      'うどん'     => 3.0,
+      '牛丼'       => 2.0
     },
 
-    'Jack Matthews' => {
-      'Lady in the Water'  => 3.0,
-      'Snake on the Plane' => 4.0,
-      'The Night Listener' => 3.0,
-      'Superman Returns'   => 5.0,
-      'You, Me and Dupree' => 3.5
+    '鈴木' => {
+      'カレー'     => 3.0,
+      'ラーメン'   => 4.0,
+      'うどん'     => 3.0,
+      '寿司'       => 5.0,
+      '牛丼'       => 3.5
     },
 
-    'Toby' => {
-      'Snake on the Plane' => 4.5,
-      'You, Me and Dupree' => 1.0,
-      'Superman Returns'   => 4.0
+    '下林' => {
+      'ラーメン'   => 4.5,
+      '牛丼'       => 1.0,
+      '寿司'       => 4.0
     },
   }
 end
@@ -217,7 +217,7 @@ def shared_items_a(prefs, person1, person2)
   prefs[person1].keys & prefs[person2].keys
 end
 
-if $0 == __FILE__ then
+def test_critics
   puts "critics"
   ap critics
 
@@ -235,4 +235,28 @@ if $0 == __FILE__ then
   puts "top matches of 'Superman Returns'"
   movies = transform_prefs(critics)
   ap top_matches(movies, 'Superman Returns')
+end
+
+def test_critics_ja
+  puts "元のテストデータ"
+  ap critics_ja
+
+  puts "'山田', '田中' がどれくらい似ているか (distance)"
+  ap sim_distance(critics_ja, '山田', '田中')
+  puts "'山田', '田中' がどれくらい似ているか (pearson)"
+  ap sim_pearson(critics_ja, '山田', '田中')
+
+  puts "下林に似ているユーザー"
+  ap top_matches(critics_ja, '下林')
+
+  puts "下林におすすめのメニュー"
+  ap get_recommendations(critics_ja, '下林')
+
+  puts "寿司に似ているメニュー"
+  movies = transform_prefs(critics_ja)
+  ap top_matches(movies, '寿司')
+end
+
+if $0 == __FILE__ then
+  test_critics_ja
 end
