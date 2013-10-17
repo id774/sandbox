@@ -16,6 +16,7 @@ p yamada.name
 p tanaka.age
 p yamada
 p tanaka.class
+p Person.ancestors
 p tanaka.methods
 
 struct_person = Struct.new("StructPerson", :name, :age)
@@ -27,6 +28,7 @@ p suzuki.name
 p satou.age
 p suzuki
 p satou.class
+p Struct.ancestors
 p satou.methods
 
 class MyPerson < Struct.new(:name, :age); end
@@ -38,5 +40,6 @@ p katou.name
 p sasaki.age
 p katou
 p sasaki.class
+p MyPerson.ancestors
 p sasaki.methods
 
