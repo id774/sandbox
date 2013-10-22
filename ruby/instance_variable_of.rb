@@ -19,3 +19,11 @@ foo = Foo.new('hi')
 p foo.instance_variable_get( '@message' )
 p foo.hi
 
+Foo.class_eval %q[
+  def greet
+    "#{@message} you!"
+  end
+]
+
+p foo.greet
+p foo.instance_eval { @message }
