@@ -16,23 +16,21 @@ class Analyzer
   def start
     open(@filename) do |file|
       file.each_line do |line|
-        key, json = line.force_encoding("utf-8").strip.split("\t")
+        key, tag, json = line.force_encoding("utf-8").strip.split("\t")
         id, process, result = key.strip.split(",")
-        @hash[id] = JSON.parse(json)
+        @hash[id + ',' + result + ',' + tag] = JSON.parse(json)
       end
     end
     result = Kmeans::Cluster.new(@hash, {
-               :centroids => 30,
+               :centroids => 40,
                :loop_max => 100
              })
     result.make_cluster
+    i = 0
     result.cluster.values.each {|array|
-      hash = {}
-      array.each {|word|
-        hash[word] = 1
-      }
-      json = JSON.generate(hash)
-      ap json
+      i += 1
+      puts i
+      ap array
     }
   end
 end
