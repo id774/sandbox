@@ -166,8 +166,8 @@ def drawnode(draw,tree,x,y):
         right=x+(w1+w2)/2
         # Draw the condition string
         txt=str(tree.col)+':'+str(tree.value)
-        utxt = str(txt,'utf-8')
-        draw.text((x-20,y-10),utxt,
+        #txt = str(txt,'utf-8')
+        draw.text((x-20,y-10),txt,
                   font=font,fill='#000000')
         # Draw links to the branches
         draw.line((x,y,left+w1/2,y+100),fill=(255,0,0))
@@ -177,8 +177,8 @@ def drawnode(draw,tree,x,y):
         drawnode(draw,tree.tb,right-w2/2,y+100)
     else:
         txt=' \n'.join(['%s:%d'%v for v in list(tree.results.items())])
-        utxt=str(txt,'utf-8')
-        draw.text((x-20,y),utxt,font=font,fill='#000000')
+        #txt=str(txt,'utf-8')
+        draw.text((x-20,y),txt,font=font,fill='#000000')
 
 def prune(tree,mingain):
     # 葉でない枝に刈り込み
