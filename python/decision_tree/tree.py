@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 
+# Using "pip install pillow"
 from PIL import Image,ImageDraw,ImageFont
+
 import sys
 import re, pprint
 
 #mydata=[line.split('\t') for line in file('decision_tree_example.txt')]
-#mydata=[line.split(' ') for line in file('data_format_sample2.txt')]
-fin = file(sys.argv[1])
+#mydata=[line.split(' ') for line in file('sample_chaos_rowdata.txt')]
+fin = open(sys.argv[1])
 mydata=[line.rstrip().split(' ') for line in fin]
 
 def print_score(set1,set2,gain,col,value,column_values):
-    print '項目/値: ',col,value
-    print '取りうる値: ',column_values
-    print '集団1: ',pp(set1)
-    print '集団1のジニ不純度: ',giniimpurity(set1)
-    print '集団1のエントロピー: ',entropy(set1)
-    print '集団2: ',pp(set2)
-    print '集団2のジニ不純度: ',giniimpurity(set2)
-    print '集団2のエントロピー: ',entropy(set2)
-    print '情報ゲイン: ',gain
+    print('項目/値: ',col,value)
+    print('取りうる値: ',column_values)
+    print('集団1: ',pp(set1))
+    print('集団1のジニ不純度: ',giniimpurity(set1))
+    print('集団1のエントロピー: ',entropy(set1))
+    print('集団2: ',pp(set2))
+    print('集団2のジニ不純度: ',giniimpurity(set2))
+    print('集団2のエントロピー: ',entropy(set2))
+    print('情報ゲイン: ',gain)
 
 def pp(obj):
     pp=pprint.PrettyPrinter(indent=4,width=160)
     str=pp.pformat(obj)
-    return re.sub(r"\\u([0-9a-f]{4})",lambda x:unichr(int("0x"+x.group(1),16)),str)
+    return re.sub(r"\\u([0-9a-f]{4})",lambda x:chr(int("0x"+x.group(1),16)),str)
 
 class decisionnode:
     def __init__(self,col=-1,value=None,results=None,tb=None,fb=None):
@@ -81,7 +83,7 @@ def entropy(rows):
     log2=lambda x:log(x)/log(2)
     results=uniquecounts(rows)
     ent=0.0
-    for r in results.keys():
+    for r in list(results.keys()):
         p=float(results[r])/len(rows)
         ent=ent-p*log2(p)
     return ent
@@ -111,7 +113,7 @@ def buildtree(rows,scoref=entropy):
         for row in rows:
             column_values[row[col]]=1
         # 項目が取るそれぞれの値に振り分け
-        for value in column_values.keys():
+        for value in list(column_values.keys()):
             (set1,set2)=divideset(rows,col,value)
             # ゲイン
             p=float(len(set1))/len(rows)
@@ -134,14 +136,14 @@ def buildtree(rows,scoref=entropy):
 def printtree(tree,indent=''):
     # リーフノードか
     if tree.results!=None:
-        print str(tree.results)
+        print(str(tree.results))
     else:
         # Criteria (基準) を出力
-        print str(tree.col)+':'+str(tree.value)+'? '
+        print(str(tree.col)+':'+str(tree.value)+'? ')
         # ブランチ (枝) を出力
-        print indent+'T->',
+        print(indent+'T->', end=' ')
         printtree(tree.tb,indent+'  ')
-        print indent+'F->',
+        print(indent+'F->', end=' ')
         printtree(tree.fb,indent+'  ')
 
 # 適切なサイズを判断してキャンバスを用意する
@@ -164,7 +166,7 @@ def drawnode(draw,tree,x,y):
         right=x+(w1+w2)/2
         # Draw the condition string
         txt=str(tree.col)+':'+str(tree.value)
-        utxt = unicode(txt,'utf-8')
+        utxt = str(txt,'utf-8')
         draw.text((x-20,y-10),utxt,
                   font=font,fill='#000000')
         # Draw links to the branches
@@ -174,8 +176,8 @@ def drawnode(draw,tree,x,y):
         drawnode(draw,tree.fb,left+w1/2,y+100)
         drawnode(draw,tree.tb,right-w2/2,y+100)
     else:
-        txt=' \n'.join(['%s:%d'%v for v in tree.results.items()])
-        utxt=unicode(txt,'utf-8')
+        txt=' \n'.join(['%s:%d'%v for v in list(tree.results.items())])
+        utxt=str(txt,'utf-8')
         draw.text((x-20,y),utxt,font=font,fill='#000000')
 
 def prune(tree,mingain):
@@ -187,9 +189,9 @@ def prune(tree,mingain):
     # 両方を統合するべきか判定
     if tree.tb.results!=None and tree.fb.results!=None:
         tb,fb=[],[]
-        for v,c in tree.tb.results.items():
+        for v,c in list(tree.tb.results.items()):
             tb+=[[v]]*c
-        for v,c in tree.fb.results.items():
+        for v,c in list(tree.fb.results.items()):
             fb+=[[v]]*c
         # エントロピーの現象を調べる
         delta=entropy(tb+fb)-(entropy(tb)+entropy(fb)/2)
@@ -232,8 +234,8 @@ def mdclassify(observation,tree):
             result={}
             #for k,v in tr.items(): result[k]=v*tw
             #for k,v in fr.items(): result[k]=v*fw
-            for k,v in tr.items(): result[k]=tw
-            for k,v in fr.items(): result[k]=fw
+            for k,v in list(tr.items()): result[k]=tw
+            for k,v in list(fr.items()): result[k]=fw
             return result
         else:
             if isinstance(v,int) or isinstance(v,float):
@@ -245,24 +247,24 @@ def mdclassify(observation,tree):
             return mdclassify(observation,branch)
 
 def main():
-    print '決定木の生成'
+    print('決定木の生成')
     tree=buildtree(mydata)
     #prune(tree,0.8)
     printtree(tree)
 
-    print '決定木の画像生成'
+    print('決定木の画像生成')
     drawtree(tree,jpeg='tree.jpg')
 
-    print '決定木による予測'
+    print('決定木による予測')
     for row in mydata:
-        print mdclassify(row,tree)
+        print(mdclassify(row,tree))
 
-    print '決定木による予測'
-    print mdclassify(['yes','no',39],tree)
-    print mdclassify(['no','yes',28],tree)
-    print mdclassify([None,'yes',10],tree)
-    print mdclassify(['yes',None,33],tree)
-    print mdclassify(['no','yes',None],tree)
+    print('決定木による予測')
+    print(mdclassify(['yes','no',39],tree))
+    print(mdclassify(['no','yes',28],tree))
+    print(mdclassify([None,'yes',10],tree))
+    print(mdclassify(['yes',None,33],tree))
+    print(mdclassify(['no','yes',None],tree))
 
 if __name__=='__main__':
     main()
