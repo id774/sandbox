@@ -4,7 +4,8 @@ require 'CaboCha'
 
 cabocha = CaboCha::Parser.new('--charset=UTF8')
 
-sent = "サッカーワールドカップで、日本はデンマークに快勝した。"
+#sent = "サッカーワールドカップで、日本はデンマークに快勝した。"
+sent = "太郎はこの本を二郎を見た女性に渡した。"
 
 puts "puts sent"
 puts sent
