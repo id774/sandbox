@@ -16,7 +16,6 @@ class MyClass
 
 end
 
-
 obj = MyClass.new
 obj.my_method
 p local_variables
