@@ -15,7 +15,7 @@ def depgraph(sent)
     unless words[x]["word"].nil?
       sentence << words[x]["word"]
       link = words[x]["link"].to_i
-      chank_words.call(link) unless words[x]["link"] == 0
+      chank_words.call(link) unless link == 0
     end
   }
 
