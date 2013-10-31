@@ -18,65 +18,74 @@ sent = "フリーソフトウェアに初めてふれたばかりの人の多く
 
     独占的なソフトウェアの中での、自分のコードの使用を禁止したい。 作者はみんなに使ってもらうために公開したのであって、他の人がそれを盗む ような事態を望んでいないのです。 この場合、コードの利用は信頼とみなせます。同じルールにしたがっている限 り、そのコードを使うことができるのです。
     コードの原作者の表示を守りたい。 人は自分の作品に大きなプライドを持っているので、他の人がやってきて作者の名前の表示を取ってしまったり、自分が書いたと偽る事はして欲しくないのです。
-    ソースコードの配布。 商用のほとんどのコードの問題の一つは、ソースコードが無いのでバグを自分で直したり、カスタマイズする事ができない事です。 それに、企業があなたの使っているハードウェアのサポートを止めてしまう事もあります。 多くのフリーライセンスはソースコードの配布を義務づけてます。 これは、ユーザが自分のニーズで、ソフトウェアをカスタマイズできる事を守ります。
-    作品の一部を含む作品 (コピーライトの議論で言う派生された作品/二次的著作物)、にも同じライセンスを使って欲しい。 
+    ソースコードの配布。 商用のほとんどのコードの問題の一つは、ソースコードが無いのでバグを自分で直したり、カスタマイズする事ができない事です。 それに、企業があなたの使っているハードウェアのサポートを止めてしまう事もあります。 多くのフリーライセンスはソースコードの配布を義務づけてます。 これは、ユーザが自分のニーズで、ソフトウェアをカスタマイズできる事を守ります。作品の一部を含む作品 (コピーライトの議論で言う派生された作品/二次的著作物)、にも同じライセンスを使って欲しい。 
 
 いろいろな人が、自分自身のライセンスを書いています。 自分自身の望んでいるようなライセンスを作成するというのは非常に難しいこと であるため、このような事はあまり奨励されません。 多くの場合、使われている言葉が不明確だったり、他の人の物と相容れなかったりします。 法廷で引き合いに出されるライセンスを書く事は、もっとむずかしいでしょう。 幸運な事に、すでに書かれているものの中で、たぶんあなたの要求に合う幾つかのライセンスがあります。 "
 
-def depgraph(sent)
-  cabocha = CaboCha::Parser.new('--charset=UTF8')
-  tree = cabocha.parse(sent)
-  sentence = []
-  words = [{"id" => "0", "link" => 0}]
-
-  chank_words = lambda {|x|
-    unless words[x]["word"].nil?
-      sentence << words[x]["word"]
-      link = words[x]["link"].to_i
-      chank_words.call(link) unless link == 0
-    end
-  }
-
-  tree.toString(4).force_encoding("utf-8").split("\n").each {|phrase|
-    element = phrase.strip.split("\t")
-    hash = {}
-    hash["id"] = element[0]
-    hash["word"] = element[1]
-    hash["feature"] = element[3]
-    hash["link"] = element[6]
-    hash["rel"] = element[7]
-    words << hash
-  }
-
-  i = 0
-  return_sentence = []
-  before_noun = false
-  while (i < words.length)
-    sentence = []
-    if before_noun
-      if words[i]["feature"] == "動詞" or
-         words[i]["feature"] == "連体詞"
-        chank_words.call(i)
-      end
-    else
-      if words[i]["feature"] == "名詞" or
-         words[i]["feature"] == "動詞" or
-         words[i]["feature"] == "連体詞"
-        chank_words.call(i)
-      end
-    end
-    words[i]["feature"] == "名詞" ? before_noun = true : before_noun = false
-    return_sentence << sentence.join if sentence.length > 0
-    i += 1
+class DepParser
+  def initialize
+    @cabocha = CaboCha::Parser.new('--charset=UTF8')
   end
 
-  return_sentence
+  def depgraph(sent)
+    tree = @cabocha.parse(sent)
+    sentence = []
+    words = [{"id" => "0", "link" => 0}]
+
+    chank_words = lambda {|x|
+      unless words[x]["word"].nil?
+        sentence << words[x]["word"]
+        link = words[x]["link"].to_i
+        chank_words.call(link) unless link == 0
+      end
+    }
+
+    tree.toString(4).force_encoding("utf-8").split("\n").each {|phrase|
+      element = phrase.strip.split("\t")
+      hash = {}
+      hash["id"] = element[0]
+      hash["word"] = element[1]
+      hash["feature"] = element[3]
+      hash["link"] = element[6]
+      hash["rel"] = element[7]
+      words << hash
+    }
+
+    i = 0
+    return_sentence = []
+    before_noun = false
+    while (i < words.length)
+      sentence = []
+      if before_noun
+        if words[i]["feature"] == "動詞" or
+           words[i]["feature"] == "連体詞"
+          chank_words.call(i)
+        end
+      else
+        if words[i]["feature"] == "名詞" or
+           words[i]["feature"] == "動詞" or
+           words[i]["feature"] == "連体詞"
+          chank_words.call(i)
+        end
+      end
+      words[i]["feature"] == "名詞" ? before_noun = true : before_noun = false
+      return_sentence << sentence.join if sentence.length > 0
+      i += 1
+    end
+
+    return_sentence
+  end
 end
 
 if __FILE__ == $0
+  depparser = DepParser.new
+  i = 0
+  hash = {}
   sent_array = sent.rstrip.split("。")
   sent_array.each do |s|
-    ap depgraph(s)
+    hash[i] = depparser.depgraph(s)
+    i += 1
   end
+  ap hash
 end
 
