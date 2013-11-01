@@ -21,13 +21,13 @@ class Analyzer
         @hash[id + ',' + result + ',' + tag] = JSON.parse(json)
       end
     end
-    result = Kmeans::Cluster.new(@hash, {
+    kmeans = Kmeans::Cluster.new(@hash, {
                :centroids => 40,
                :loop_max => 100
              })
-    result.make_cluster
+    kmeans.make_cluster
     i = 0
-    result.cluster.values.each {|array|
+    kmeans.cluster.values.each {|array|
       i += 1
       puts i
       ap array
