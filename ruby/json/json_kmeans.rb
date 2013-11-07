@@ -8,8 +8,10 @@ require 'kmeans/cluster'
 require 'awesome_print'
 
 class Analyzer
-  def initialize(filename)
-    @filename = filename
+  def initialize(args)
+    @filename  = args.shift || "json.txt"
+    @centroids = args.shift.to_i || 40
+    @loop_max  = args.shift.to_i || 100
     @hash = Hash.new
   end
 
@@ -22,15 +24,17 @@ class Analyzer
       end
     end
     kmeans = Kmeans::Cluster.new(@hash, {
-               :centroids => 40,
-               :loop_max => 100
+               :centroids => @centroids,
+               :loop_max  => @loop_max
              })
     kmeans.make_cluster
     i = 0
-    kmeans.cluster.values.each {|hash|
-      i += 1
-      hash.each {|k, v|
-        output(i, k, v)
+    j = 0
+    kmeans.cluster.values.each {|array|
+      j += 1
+      array.each {|elem|
+        i += 1
+        output(i, j, elem)
       }
     }
   end
@@ -43,7 +47,6 @@ class Analyzer
 end
 
 if __FILE__ == $0
-  filename = ARGV.shift || "json.txt"
-  analyzer = Analyzer.new(filename)
+  analyzer = Analyzer.new(ARGV)
   analyzer.start
 end
