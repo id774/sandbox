@@ -27,11 +27,18 @@ class Analyzer
              })
     kmeans.make_cluster
     i = 0
-    kmeans.cluster.values.each {|array|
+    kmeans.cluster.values.each {|hash|
       i += 1
-      puts i
-      ap array
+      hash.each {|k, v|
+        output(i, k, v)
+      }
     }
+  end
+
+  private
+
+  def output(key, tag, value)
+    puts "#{key}\t#{tag}\t#{value}"
   end
 end
 
