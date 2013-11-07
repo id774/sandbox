@@ -19,7 +19,18 @@ class Analyzer
         }
       end
     end
-    ap Hash[@hash.sort_by{|k, v| -v}]
+
+    i = 0
+    @hash.sort_by{|k, v| -v}.each {|k, v|
+      i += 1
+      output(i, k, v)
+    }
+  end
+
+  private
+
+  def output(key, tag, value)
+    puts "#{key}\t#{tag}\t#{value}"
   end
 end
 
