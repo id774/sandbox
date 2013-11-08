@@ -4,8 +4,8 @@ require 'json'
 require 'awesome_print'
 
 class Analyzer
-  def initialize(filename)
-    @filename = filename
+  def initialize(args)
+    @filename = args.shift || "json.txt"
     @hash = Hash.new
   end
 
@@ -35,8 +35,7 @@ class Analyzer
 end
 
 if __FILE__ == $0
-  filename = ARGV.shift || "json.txt"
-  analyzer = Analyzer.new(filename)
+  analyzer = Analyzer.new(ARGV)
   analyzer.start
 end
 

@@ -5,9 +5,9 @@ require 'rsruby'
 #require 'awesome_print'
 
 class Calc
-  def initialize(filename, outimage)
-    @filename = filename
-    @outimage = outimage
+  def initialize(args)
+    @filename = args.shift || "json.txt"
+    @outimage = args.shift || "out"
   end
 
   def start
@@ -61,9 +61,7 @@ class Calc
 end
 
 if __FILE__ == $0
-  filename = ARGV.shift || "json.txt"
-  outimage = ARGV.shift || "out"
-  calc = Calc.new(filename, outimage)
+  calc = Calc.new(ARGV)
   calc.start
 end
 

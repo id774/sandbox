@@ -7,12 +7,15 @@ require 'fluent-logger'
 
 
 class Converter
-  def initialize(filename, hostname, port, prefix, suffix)
-    @filename = filename
-    @suffix   = suffix
+  def initialize(args)
+    @filename = args.shift || "param.txt"
+    @hostname = args.shift || "localhost"
+    @port     = args.shift || "9999"
+    @prefix   = args.shift || "debug"
+    @suffix   = args.shift || "test"
 
-    @fluentd = Fluent::Logger::FluentLogger.open(prefix,
-      host = hostname, port = port.to_i)
+    @fluentd = Fluent::Logger::FluentLogger.open(@prefix,
+      host = @hostname, port = @port.to_i)
   end
 
   def start

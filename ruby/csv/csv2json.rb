@@ -5,9 +5,9 @@ require 'csv'
 require 'json'
 
 class Converter
-  def initialize(csv_path, filename)
-    @csv_path = csv_path
-    @filename = filename
+  def initialize(args)
+    @csv_path = args.shift || "data.csv"
+    @filename = args.shift || "out.txt"
   end
 
   def start
@@ -32,8 +32,6 @@ class Converter
 end
 
 if __FILE__ == $0
-  csv_path = ARGV.shift || "data.csv"
-  filename = ARGV.shift || "out.txt"
-  converter = Converter.new(csv_path, filename)
+  converter = Converter.new(ARGV)
   converter.start
 end

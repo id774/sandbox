@@ -5,11 +5,11 @@ require 'json'
 require 'time'
 
 class Converter
-  def initialize(db_path, filename, tag,
-                 load_protected = false)
-    @db_path        = db_path
-    @tag            = tag
-    @load_protected = load_protected
+  def initialize(args)
+    @db_path  = args.shift || "sqlite3.db"
+    @filename = args.shift || "out.txt"
+    @tag      = args.shift || "twitter.statuses"
+    @load_protected = false
     @filename       = filename
   end
 
@@ -132,10 +132,7 @@ class Storage
 end
 
 if __FILE__ == $0
-  db_path  = ARGV.shift || "sqlite3.db"
-  filename = ARGV.shift || "out.txt"
-  tag      = ARGV.shift || "twitter.statuses"
-  converter = Converter.new(db_path, filename, tag, false)
+  converter = Converter.new(ARGV)
   converter.start
 end
 
