@@ -25,9 +25,7 @@ describe Analyzer do
     describe 'クラスに空の引数を与えると' do
       it 'json.txt の JSON が配列が返る' do
         analyzer = Analyzer.new([])
-        result = Output.dump do
-          analyzer.start
-        end
+        result = Output.dump { analyzer.start }
         result.length.should be_eql 46
         result.class.should be_eql Array
         result[44].should be_eql "23\t状況\t1"
