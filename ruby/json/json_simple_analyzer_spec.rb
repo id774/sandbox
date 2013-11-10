@@ -26,7 +26,6 @@ describe Analyzer do
       it 'json.txt の JSON が配列が返る' do
         analyzer = Analyzer.new([])
         result = Output.dump { analyzer.start }
-        p result
         result.length.should be_eql 46
         result.class.should be_eql Array
         result[42].should be_eql "22\t注文\t2"
@@ -46,7 +45,6 @@ describe Analyzer do
         result[43].should be_eql "\n"
         result[44].should be_eql "23\tほげ\t1"
         result[45].should be_eql "\n"
-        p result
       end
     end
   end
