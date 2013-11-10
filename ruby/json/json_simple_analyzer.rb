@@ -15,7 +15,7 @@ class Analyzer
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
         id, process, result = key.strip.split(",")
         JSON.parse(json).each {|word, count|
-          @hash.has_key?(word) ? @hash[word] += 1 : @hash[word] = 1
+          @hash.has_key?(word) ? @hash[word] += count : @hash[word] = count
         }
       end
     end
