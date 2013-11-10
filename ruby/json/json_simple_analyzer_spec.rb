@@ -32,5 +32,16 @@ describe Analyzer do
         result[45].should be_eql "\n"
       end
     end
+
+    describe 'クラスにファイル名を引数として与えると' do
+      it 'ファイル内容の JSON が配列が返る' do
+        analyzer = Analyzer.new(['json2.txt'])
+        result = Output.dump { analyzer.start }
+        result.length.should be_eql 46
+        result.class.should be_eql Array
+        result[44].should be_eql "23\tふが\t1"
+        result[45].should be_eql "\n"
+      end
+    end
   end
 end
