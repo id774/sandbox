@@ -60,7 +60,7 @@ describe Analyzer do
         ]
         result.length.should be_eql 23
         result.class.should be_eql Array
-        result.should be_eql expected
+        result.should eq expected
       end
     end
 
@@ -96,7 +96,7 @@ describe Analyzer do
         ]
         result.length.should be_eql 23
         result.class.should be_eql Array
-        result.should be_eql expected
+        result.should eq expected
       end
     end
   end
