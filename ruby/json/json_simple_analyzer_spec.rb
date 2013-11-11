@@ -5,34 +5,15 @@ $:.unshift File.join(File.dirname(__FILE__))
 
 require 'rubygems'
 require 'rspec'
+require 'stdout'
 require 'json_simple_analyzer'
-
-class Output
-  attr_accessor :print, :dump
-
-  def initialize
-    @print = []
-    @dump  = []
-  end
-
-  def write(msg); @print.push(msg); end
-
-  def self.dump(separator = $/)
-    output = self.new
-    $stdout = output
-    yield
-    $stdout = STDOUT
-    output.print.join.each_line(separator = separator) {|line| output.dump << line }
-    return output.dump
-  end
-end
 
 describe Analyzer do
   context 'の start メソッドにおいて' do
     describe 'クラスに空の引数を与えると' do
       it 'json.txt の JSON が配列が返る' do
         analyzer = Analyzer.new([])
-        result = Output.dump { analyzer.start }
+        result = Stdout::Output.capture { analyzer.start }
         expected = [
           "1\t実施\t6\n",
           "2\t藤原\t4\n",
@@ -67,7 +48,7 @@ describe Analyzer do
     describe 'クラスにファイル名を引数として与えると' do
       it 'ファイル内容の JSON が配列が返る' do
         analyzer = Analyzer.new( ['json2.txt'] )
-        result = Output.dump { analyzer.start }
+        result = Stdout::Output.capture { analyzer.start }
         result.length.should be_eql 23
         expected = [
           "1\t実施\t6\n",
