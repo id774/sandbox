@@ -8,8 +8,13 @@ require 'rspec'
 require 'json_simple_analyzer'
 
 class Output
-  attr_accessor :print
-  def initialize; @print = []; end
+  attr_accessor :print, :dump
+
+  def initialize
+    @print = []
+    @dump  = []
+  end
+
   def write(msg); @print.push(msg); end
 
   def self.dump(separator = $/)
@@ -17,9 +22,8 @@ class Output
     $stdout = output
     yield
     $stdout = STDOUT
-    dump = []
-    output.print.join.each_line(separator = separator) {|line| dump << line }
-    return dump
+    output.print.join.each_line(separator = separator) {|line| output.dump << line }
+    return output.dump
   end
 end
 
