@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# For after python3 (print, dic).
-
 import sys, os
 import json
 
@@ -32,7 +30,12 @@ class Analyzer:
         print(key, tag, value, sep="\t")
 
 if __name__=='__main__':
-    if len(sys.argv) > 1:
-        analyzer = Analyzer(sys.argv)
-        analyzer.start()
+    if sys.version_info > (3,0):
+        if len(sys.argv) > 1:
+            analyzer = Analyzer(sys.argv)
+            analyzer.start()
+        else:
+            print("Invalid arguments")
+    else:
+        print("This program require python > 3.0")
 
