@@ -13,7 +13,6 @@ class Analyzer
     open(@filename) do |file|
       file.each_line do |line|
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
-        id, process, result = key.strip.split(",")
         JSON.parse(json).each {|word, count|
           @hash.has_key?(word) ? @hash[word] += count : @hash[word] = count
         }
