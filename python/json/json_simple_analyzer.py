@@ -3,11 +3,12 @@
 
 import sys, os
 import json
+from collections import OrderedDict
 
 class Analyzer:
     def __init__(self, args):
         self.filename = args[1]
-        self.dic = {}
+        self.dic = OrderedDict()
 
     def start(self):
         file = open(self.filename, 'r')
@@ -25,6 +26,7 @@ class Analyzer:
             i += 1
             self.output(i, k, v)
         file.close
+        return self.dic
 
     def output(self, key, tag, value):
         print(key, tag, value, sep="\t")
