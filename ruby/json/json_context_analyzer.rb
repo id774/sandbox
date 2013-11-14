@@ -26,17 +26,17 @@ class Analyzer
         new_key = "#{sales_code},#{sales_name}"
         new_tag = "#{sales_result},#{sales_class}"
 
-        word_vector = []
+        words = []
 
         conditionally_pickup = lambda {|x|
           pickup_nouns(x).map {|word|
-            word_vector.push(word) if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
+            words.push(word) if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
           }
         }
 
         conditionally_pickup.call(sales_comment) unless sales_comment.nil?
 
-        hash["word_vector"] = word_vector
+        hash["words"] = words
         hash["deps"] = depgraph(sales_comment)
 
         output(new_key, new_tag, JSON.generate(hash))
