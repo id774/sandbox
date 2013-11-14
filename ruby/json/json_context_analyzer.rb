@@ -25,15 +25,14 @@ class Analyzer
         new_key = "#{hash["引合コード"]},#{hash["案件名"]}"
         new_tag = result_class
 
+        conditionally_pickup = lambda {|x|
+          pickup_nouns(x).map {|word|
+            word if word =~ /[亜-腕]/ or word =~ /^[A-Za-z].*/
+          }
+        }
+
         extract_word = lambda {|x|
-          if x.nil?
-            []
-          else
-            result = pickup_nouns(x).map {|word|
-              word if word =~ /[亜-腕]/ or word =~ /^[A-Za-z].*/
-            }
-            result.compact
-          end
+          x.nil? ? [] : conditionally_pickup.call(x).compact
         }
 
         hash["word_vector"] = extract_word.call(project_summary)
