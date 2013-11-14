@@ -25,17 +25,20 @@ class Analyzer
         new_key = "#{hash["引合コード"]},#{hash["案件名"]}"
         new_tag = result_class
 
-        word_vector = []
-        pickup_nouns(project_summary).each {|word|
-          if word =~ /[亜-腕]/
-            word_vector.push word
-          end
-          if word =~ /^[A-Za-z].*/
-            word_vector.push word
-          end
-        } unless project_summary.nil?
+        extract_word = lambda {|x|
+          word_vector = []
+          pickup_nouns(x).each {|word|
+            if word =~ /[亜-腕]/
+              word_vector.push word
+            end
+            if word =~ /^[A-Za-z].*/
+              word_vector.push word
+            end
+          } unless x.nil?
+          word_vector
+        }
 
-        hash["word_vector"] = word_vector
+        hash["word_vector"] = extract_word.call(project_summary)
 
         hash["deps"] = depgraph(result_comment)
 
