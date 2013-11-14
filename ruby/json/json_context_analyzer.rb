@@ -17,12 +17,14 @@ class Analyzer
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
         hash = JSON.parse(json)
 
-        result_reason = hash["受失注要因"]
-        result_class = hash["受失注結果"]
-        result_comment = hash["受失注コメント"]
+        sales_code    = hash["引合コード"]
+        sales_name    = hash["案件名"]
+        sales_class   = hash["受失注要因"]
+        sales_result  = hash["受失注結果"]
+        sales_comment = hash["受失注コメント"]
 
-        new_key = "#{hash["引合コード"]},#{hash["案件名"]}"
-        new_tag = result_class
+        new_key = "#{sales_code},#{sales_name}"
+        new_tag = "#{sales_result},#{sales_class}"
 
         word_vector = []
 
@@ -32,10 +34,10 @@ class Analyzer
           }
         }
 
-        conditionally_pickup.call(result_comment) unless result_comment.nil?
+        conditionally_pickup.call(sales_comment) unless sales_comment.nil?
 
         hash["word_vector"] = word_vector
-        hash["deps"] = depgraph(result_comment)
+        hash["deps"] = depgraph(sales_comment)
 
         output(new_key, new_tag, JSON.generate(hash))
       end
