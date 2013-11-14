@@ -26,16 +26,14 @@ class Analyzer
         new_tag = result_class
 
         extract_word = lambda {|x|
-          word_vector = []
-          pickup_nouns(x).each {|word|
-            if word =~ /[亜-腕]/
-              word_vector.push word
-            end
-            if word =~ /^[A-Za-z].*/
-              word_vector.push word
-            end
-          } unless x.nil?
-          word_vector
+          if x.nil?
+            []
+          else
+            result = pickup_nouns(x).map {|word|
+              word if word =~ /[亜-腕]/ or word =~ /^[A-Za-z].*/
+            }
+            result.compact
+          end
         }
 
         hash["word_vector"] = extract_word.call(project_summary)
