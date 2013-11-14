@@ -25,18 +25,17 @@ class Analyzer
         new_key = "#{hash["引合コード"]},#{hash["案件名"]}"
         new_tag = result_class
 
+        word_vector = []
+
         conditionally_pickup = lambda {|x|
           pickup_nouns(x).map {|word|
-            word if word =~ /[亜-腕]/ or word =~ /^[A-Za-z].*/
+            word_vector.push(word) if word =~ /[亜-腕]/ or word =~ /^[A-Za-z].*/
           }
         }
 
-        extract_word = lambda {|x|
-          x.nil? ? [] : conditionally_pickup.call(x).compact
-        }
+        conditionally_pickup.call(project_summary) unless project_summary.nil?
 
-        hash["word_vector"] = extract_word.call(project_summary)
-
+        hash["word_vector"] = word_vector
         hash["deps"] = depgraph(result_comment)
 
         output(new_key, new_tag, JSON.generate(hash))
