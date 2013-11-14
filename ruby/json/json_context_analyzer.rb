@@ -20,7 +20,6 @@ class Analyzer
         result_reason = hash["受失注要因"]
         result_class = hash["受失注結果"]
         result_comment = hash["受失注コメント"]
-        project_summary = hash["案件概要"]
 
         new_key = "#{hash["引合コード"]},#{hash["案件名"]}"
         new_tag = result_class
@@ -29,11 +28,11 @@ class Analyzer
 
         conditionally_pickup = lambda {|x|
           pickup_nouns(x).map {|word|
-            word_vector.push(word) if word =~ /[亜-腕]/ or word =~ /^[A-Za-z].*/
+            word_vector.push(word) if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
           }
         }
 
-        conditionally_pickup.call(project_summary) unless project_summary.nil?
+        conditionally_pickup.call(result_comment) unless result_comment.nil?
 
         hash["word_vector"] = word_vector
         hash["deps"] = depgraph(result_comment)
