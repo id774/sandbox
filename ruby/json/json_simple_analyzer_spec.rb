@@ -39,8 +39,8 @@ describe Analyzer do
           "22\t注文\t2\n",
           "23\t担当\t1\n"
         ]
-        result.length.should be_eql 23
-        result.class.should be_eql Array
+        result.length.should eql 23
+        result.class.should eql Array
         result.should eq expected
       end
     end
@@ -49,7 +49,6 @@ describe Analyzer do
       it 'ファイル内容の JSON が配列が返る' do
         analyzer = Analyzer.new( ['json2.txt'] )
         result = Stdout::Output.capture { analyzer.start }
-        result.length.should be_eql 23
         expected = [
           "1\t実施\t6\n",
           "2\t藤原\t4\n",
@@ -75,8 +74,8 @@ describe Analyzer do
           "22\t注文\t2\n",
           "23\tほげ\t1\n"
         ]
-        result.length.should be_eql 23
-        result.class.should be_eql Array
+        result.length.should eql 23
+        result.class.should eql Array
         result.should eq expected
       end
     end
