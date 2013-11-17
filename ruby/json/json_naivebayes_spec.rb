@@ -6,7 +6,7 @@ $:.unshift File.join(File.dirname(__FILE__))
 require 'rubygems'
 require 'rspec'
 require 'stdout'
-require 'json_naivebayes_train'
+require 'json_naivebayes'
 
 describe Analyzer do
   context 'の train メソッドにおいて' do
