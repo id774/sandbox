@@ -30,15 +30,14 @@ describe Analyzer do
   context 'の classify メソッドにおいて' do
     describe 'クラスに教師データと分類対象のファイルを引数として与えると' do
       it 'クラスとその数値が出力される' do
-        analyzer = Analyzer.new( ['train.txt','json.txt'] )
+        analyzer = Analyzer.new( ['train.txt', 'classify.txt'] )
         Stdout::Output.capture { analyzer.train }
         result = Stdout::Output.capture { analyzer.classify }
         expected = [
-          "1101\tああああ\t{\"価格\":0.4419727781201878,\"要員不在\":0.5580272218798122}\n",
-          "2202\tいいい\t{\"価格\":0.4419727781201878,\"要員不在\":0.5580272218798122}\n",
-          "3303\tううううう\t{\"価格\":0.4419727781201878,\"要員不在\":0.5580272218798122}\n"
+          "1111,情報収集,受注\txxxx銀行センター運用\t{\"価格\":0.4419727781201878,\"要員不在\":0.5580272218798122}\n",
+          "2222,情報収集,失注\tyyyy銀行センター運用\t{\"価格\":0.4419727781201878,\"要員不在\":0.5580272218798122}\n"
         ]
-        result.length.should eql 3
+        result.length.should eql 2
         result.class.should eql Array
         result.should eq expected
       end

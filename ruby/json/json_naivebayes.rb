@@ -5,7 +5,7 @@ require 'naivebayes'
 
 class Analyzer
   def initialize(args)
-    @train_txt = args.shift || "json.txt"
+    @train_txt = args.shift || "train.txt"
     @classify_txt = args.shift || "classify.txt"
     @classifier = NaiveBayes::Classifier.new(:model => "multinomial")
   end
@@ -18,21 +18,13 @@ class Analyzer
         result, class_name = tag.strip.split(",")
         hash = JSON.parse(json)
 
-        train = lambda {|x, model|
-          train_hash = {}
-          x.each {|elm|
-            if model == "multinomial"
-              train_hash.has_key?(elm) ? train_hash[elm] += 1 : train_hash[elm] = 1
-            else
-              train_hash[elm] = 1
-            end
-          }
-          @classifier.train(class_name, train_hash)
-          output(code, class_name, JSON.generate(train_hash))
-        }
+        train_data = word_count(hash['words'], 'multinomial')
+        output(code, class_name, train_data)
+        @classifier.train(class_name, train_data)
 
-        train.call(hash['words'], 'multinomial')
-        train.call(hash['deps'],  'berounoulli')
+        train_data = word_count(hash['deps'],  'berounoulli')
+        output(code, class_name, train_data)
+        @classifier.train(class_name, train_data)
       end
     end
   end
@@ -42,16 +34,31 @@ class Analyzer
       file.each_line do |line|
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
         hash = JSON.parse(json)
-        result = @classifier.classify(hash)
-        output(key, tag, JSON.generate(result))
+
+        classify_hash = word_count(hash['words'].concat(hash['deps']), 'berounoulli')
+
+        result = @classifier.classify(classify_hash)
+        output(key, tag, result)
       end
     end
   end
 
   private
 
+  def word_count(array, model = 'multinomial')
+    hash = {}
+    array.each {|elm|
+      if model == "multinomial"
+        hash.has_key?(elm) ? hash[elm] += 1 : hash[elm] = 1
+      else
+        hash[elm] = 1
+      end
+    } unless array.nil?
+    hash
+  end
+
   def output(key, tag, value)
-    puts "#{key}\t#{tag}\t#{value}"
+    puts "#{key}\t#{tag}\t#{JSON.generate(value)}"
   end
 
 end
