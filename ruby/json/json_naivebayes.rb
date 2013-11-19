@@ -18,13 +18,21 @@ class Analyzer
         result, class_name = tag.strip.split(",")
         hash = JSON.parse(json)
 
-        train_data = word_count(hash['words'], 'multinomial')
-        output(code, class_name, train_data)
-        @classifier.train(class_name, train_data)
+        train = lambda {|x, model|
+          train_hash = {}
+          x.each {|elm|
+            if model == "multinomial"
+              train_hash.has_key?(elm) ? train_hash[elm] += 1 : train_hash[elm] = 1
+            else
+              train_hash[elm] = 1
+            end
+          }
+          @classifier.train(class_name, train_hash)
+          output(code, class_name, train_hash)
+        }
 
-        train_data = word_count(hash['deps'],  'berounoulli')
-        output(code, class_name, train_data)
-        @classifier.train(class_name, train_data)
+        train.call(hash['words'], 'multinomial')
+        train.call(hash['deps'],  'berounoulli')
       end
     end
   end
