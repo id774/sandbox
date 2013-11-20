@@ -41,6 +41,9 @@ class Analyzer
     open(@classify_txt) do |file|
       file.each_line do |line|
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
+
+        code, type, project_name = key.strip.split(",")
+        action, result = tag.strip.split(",")
         hash = JSON.parse(json)
 
         classify_hash = word_count(hash['words'].concat(hash['deps']), 'berounoulli')
