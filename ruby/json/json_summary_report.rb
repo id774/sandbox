@@ -12,6 +12,8 @@ class Analyzer
     @activity_failure_count = 0
     @activity_success_wordhash = {}
     @activity_failure_wordhash = {}
+    @action_success = {}
+    @action_failure = {}
   end
 
   def start
@@ -27,6 +29,12 @@ class Analyzer
         @project_failure_count += 1 if result == "失注" and type == "_project"
         @activity_success_count += 1 if result == "受注" and type == "activity"
         @activity_failure_count += 1 if result == "失注" and type == "activity"
+        if result == "受注" and type == "activity"
+          @action_success.has_key?(action) ? @action_success[action] += 1 : @action_success[action] = 1
+        end
+        if result == "失注" and type == "activity"
+          @action_failure.has_key?(action) ? @action_failure[action] += 1 : @action_failure[action] = 1
+        end
 
       end
     end
@@ -35,6 +43,8 @@ class Analyzer
     output("2", "失注案件", @project_failure_count)
     output("3", "受注案件の活動実績", @activity_success_count)
     output("4", "失注案件の活動実績", @activity_failure_count)
+    output("5", "受注案件の活動実績の種別", JSON.generate(@action_success))
+    output("6", "失注案件の活動実績の種別", JSON.generate(@action_failure))
   end
 
   private
