@@ -20,13 +20,13 @@ class Analyzer
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
 
         keyid, type, project_name = key.strip.split(",")
-        tagid, action, success = tag.strip.split(",")
+        tagid, action, result = tag.strip.split(",")
         hash = JSON.parse(json)
 
-        @project_success_count += 1 if action == "受注" and type == "_project"
-        @project_failure_count += 1 if action == "失注" and type == "_project"
-        @activity_success_count += 1 if success == "受注" and type == "activity"
-        @activity_failure_count += 1 if success == "失注" and type == "activity"
+        @project_success_count += 1 if result == "受注" and type == "_project"
+        @project_failure_count += 1 if result == "失注" and type == "_project"
+        @activity_success_count += 1 if result == "受注" and type == "activity"
+        @activity_failure_count += 1 if result == "失注" and type == "activity"
 
       end
     end
