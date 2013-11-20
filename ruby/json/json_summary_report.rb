@@ -19,8 +19,8 @@ class Analyzer
       file.each_line do |line|
         key, tag, json = line.force_encoding("utf-8").strip.split("\t")
 
-        keyid, type, project_name = key.strip.split(",")
-        tagid, action, result = tag.strip.split(",")
+        code, type, project_name = key.strip.split(",")
+        action, result = tag.strip.split(",")
         hash = JSON.parse(json)
 
         @project_success_count += 1 if result == "受注" and type == "_project"
