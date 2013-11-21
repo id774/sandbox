@@ -33,8 +33,11 @@ class Analyzer
         if type == "activity"
           hash = JSON.parse(json)
           classify_hash = word_count(hash['words'].concat(hash['deps']), 'berounoulli')
-          result = @classifier.classify(classify_hash)
-          output(key, tag, result)
+          h = {}
+          @classifier.classify(classify_hash).each {|k, v|
+            h[k] = (v / 1.0 * 100).round(2)
+          }
+          output(key, tag, JSON.generate(h))
         end
       end
     end
