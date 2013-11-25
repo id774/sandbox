@@ -11,10 +11,13 @@ require 'json_simple_analyzer'
 describe Analyzer do
   context 'の start メソッドにおいて' do
     describe 'クラスに空の引数を与えると' do
-      it 'json.txt の JSON が配列が返る' do
+      subject {
         analyzer = Analyzer.new([])
-        result = Stdout::Output.capture { analyzer.start }
-        expected = [
+        Stdout::Output.capture { analyzer.start }
+      }
+
+      let(:expected) {
+        [
           "1\t実施\t6\n",
           "2\t藤原\t4\n",
           "3\t案件\t4\n",
@@ -39,17 +42,21 @@ describe Analyzer do
           "22\t注文\t2\n",
           "23\t担当\t1\n"
         ]
-        result.length.should eql 23
-        result.class.should eql Array
-        result.should eq expected
+      }
+
+      it 'json.txt の JSON が配列が返る' do
+        expect(subject).to eq expected
       end
     end
 
     describe 'クラスにファイル名を引数として与えると' do
-      it 'ファイル内容の JSON が配列が返る' do
+      subject {
         analyzer = Analyzer.new( ['json2.txt'] )
-        result = Stdout::Output.capture { analyzer.start }
-        expected = [
+        Stdout::Output.capture { analyzer.start }
+      }
+
+      let(:expected) {
+        [
           "1\t実施\t6\n",
           "2\t藤原\t4\n",
           "3\t案件\t4\n",
@@ -74,9 +81,10 @@ describe Analyzer do
           "22\t注文\t2\n",
           "23\tほげ\t1\n"
         ]
-        result.length.should eql 23
-        result.class.should eql Array
-        result.should eq expected
+      }
+
+      it 'ファイル内容の JSON が配列が返る' do
+        expect(subject).to eq expected
       end
     end
   end

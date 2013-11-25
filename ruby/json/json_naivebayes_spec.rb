@@ -11,10 +11,13 @@ require 'json_naivebayes'
 describe Analyzer do
   context 'の train メソッドにおいて' do
     describe 'クラスにファイル名を引数として与えると' do
-      it 'クラスとその素性が出力される' do
+      subject {
         analyzer = Analyzer.new( ['train.txt'] )
-        result = Stdout::Output.capture { analyzer.train }
-        expected = [
+        Stdout::Output.capture { analyzer.train }
+      }
+
+      let(:expected) {
+        [
           "1\t要望未達\t{\"調整\"=>1, \"機能\"=>1, \"点\"=>1, \"為\"=>1, \"希望\"=>1, \"期間\"=>1, \"提案\"=>1}\n",
           "2\t要員不在\t{\"適任\"=>1, \"者\"=>1, \"不在\"=>1, \"謝絶\"=>1}\n",
           "8\t要員不在\t{\"適任者不在の謝絶\"=>1, \"ため謝絶\"=>1}\n",
@@ -36,26 +39,31 @@ describe Analyzer do
           "9\tリスキー\t{\"個人\"=>1, \"情報\"=>1, \"提供\"=>1, \"必要\"=>1, \"拒絶\"=>1}\n",
           "4\tリスキー\t{\"将来\"=>1, \"体制\"=>1, \"増\"=>1, \"顧客\"=>1, \"側\"=>1, \"増員\"=>1, \"保障\"=>1}\n", "2\t価格\t{\"当該\"=>2, \"案件\"=>4, \"指定\"=>1, \"価格\"=>1, \"DHCP\"=>1, \"巻き\"=>1, \"取り\"=>1, \"注力\"=>1, \"辞退\"=>1}\n"
         ]
-        result.length.should eql 21
-        result.class.should eql Array
-        result.should eq expected
+      }
+
+      it 'クラスとその素性が出力される' do
+        expect(subject).to eq expected
       end
     end
   end
 
   context 'の classify メソッドにおいて' do
     describe 'クラスに教師データと分類対象のファイルを引数として与えると' do
-      it 'クラスとその数値が出力される' do
+      subject {
         analyzer = Analyzer.new( ['train.txt', 'classify.txt'] )
         Stdout::Output.capture { analyzer.train }
-        result = Stdout::Output.capture { analyzer.classify }
-        expected = [
+        Stdout::Output.capture { analyzer.classify }
+      }
+
+      let(:expected) {
+        [
           "1111,activity,xxxx銀行センター運用\t情報収集,受注\t{\"要望未達\":0.86,\"要員不在\":0.61,\"価格\":66.66,\"経験値\":0.39,\"顧客都合\":27.68,\"提案不足\":1.06,\"リスキー\":2.74}\n",
           "2222,activity,yyyy銀行センター運用\t情報収集,失注\t{\"要望未達\":1.17,\"要員不在\":13.13,\"価格\":44.16,\"経験値\":0.27,\"顧客都合\":36.42,\"提案不足\":2.97,\"リスキー\":1.87}\n"
         ]
-        result.length.should eql 2
-        result.class.should eql Array
-        result.should eq expected
+      }
+
+      it 'クラスとその数値が出力される' do
+        expect(subject).to eq expected
       end
     end
   end
