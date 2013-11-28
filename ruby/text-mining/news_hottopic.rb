@@ -77,7 +77,7 @@ class HotNews
         if array.max <= 100
           unless array[@train_num].to_i == 0
             unless @exclude.include?(word)
-              if word =~ /[亜-腕]/
+              if word =~ /[一-龠]/
                 hits.has_key?(word) ? hits[word] += array[@train_num].to_i * 3 : hits[word] = array[@train_num].to_i * 3
               else
                 hits.has_key?(word) ? hits[word] += array[@train_num].to_i : hits[word] = array[@train_num].to_i
