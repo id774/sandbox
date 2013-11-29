@@ -20,7 +20,7 @@ class MapReduce
     db.execute(Storage.select_body).each {|row|
       pickup_nouns(row[0]).each {|word|
         if word.length > 1
-          if word =~ /[亜-腕]/
+          if word =~ /[一-龠]/
             word_count(word)
           end
         end

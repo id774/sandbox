@@ -115,7 +115,7 @@ class HotNews
       hits = {}
       pickup_nouns(blog['title'] + blog['description']).each {|word|
         if word.length > 1
-          if word =~ /[亜-腕]/
+          if word =~ /[一-龠]/
             hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
           else
             hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1

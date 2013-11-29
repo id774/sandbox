@@ -112,7 +112,7 @@ class HotNews
         hits = {}
         pickup_nouns(blog[:title] + blog[:description]).each {|word|
           if word.length > 1
-            if word =~ /[亜-腕]/
+            if word =~ /[一-龠]/
               hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
               if @text_hash.has_key?(word)
                 scoring(blog[:title],

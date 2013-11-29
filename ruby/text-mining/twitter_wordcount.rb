@@ -11,7 +11,7 @@ class MapReduce
     statuses.each {|status|
       mapper(status.text).each {|word|
         if word.length > 1
-          if word =~ /[亜-腕]/
+          if word =~ /[一-龠]/
             reducer(word)
           end
         end

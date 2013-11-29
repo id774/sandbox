@@ -11,7 +11,7 @@ class MapReduce
     db.execute(Storage.sql).each {|row|
       mapper(row[3]).each {|word|
         if word.length > 1
-          if word =~ /[亜-腕]/
+          if word =~ /[一-龠]/
             reducer(word)
           end
         end

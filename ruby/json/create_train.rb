@@ -28,14 +28,6 @@ class Analyzer
             end
             output(@id_count, result, JSON.generate(words)) if words.length > 0
           end
-
-          unless hash['deps'].nil?
-            deps = {}
-            hash['deps'].each do |dep|
-              deps.has_key?(dep) ? deps[dep] += 1 : deps[dep] = 1
-            end
-            output(@id_count, result, JSON.generate(deps)) if deps.length > 0
-          end
         end
       end
     end

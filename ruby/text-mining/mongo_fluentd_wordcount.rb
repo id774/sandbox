@@ -58,7 +58,7 @@ class WordCount
         if k == "title" or k == "description"
           pickup_nouns(v).each {|word|
             if word.length > 1
-              if word =~ /[亜-腕]/
+              if word =~ /[一-龠]/
                 unless @exclude.include?(word)
                   count_words(word)
                 else
