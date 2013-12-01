@@ -34,6 +34,7 @@ window.onload = ->
     aTag = document.createElement("a")
     aTag.href = linkURL
     aTag.appendChild document.createTextNode(link1)
+    aTag.target = "_blank"
     baseTag.replaceChild aTag, baseTag.firstChild
   rewriteDailyLinks = ->
     today = new Date()
