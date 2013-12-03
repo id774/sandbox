@@ -49,12 +49,6 @@ class Analyzer
     puts "#{key}\t#{tag}\t#{JSON.generate(value)}"
   end
 
-  private
-
-  def output(key, tag, value)
-    puts "#{key}\t#{tag}\t#{value}"
-  end
-
   def pickup_nouns(string)
     node = @mecab.parseToNode(string)
     nouns = []
