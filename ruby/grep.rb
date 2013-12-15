@@ -8,8 +8,11 @@ OptionParser.new {|opt|
   opt.on('-e VAL', '--regexp VAL') {|v| regexp = v.toutf8}
   opt.parse!(ARGV)
 }
-rule = Regexp.new(regexp)
+
+rule = Regexp.new(regexp, Regexp::IGNORECASE)
+
 dispFilename = (ARGV.size > 1)
+
 while line = ARGF.gets
   next unless rule =~ line.toutf8
   print ARGF.filename + ':' if dispFilename
