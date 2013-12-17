@@ -72,10 +72,12 @@ class HotNews
     exclude_count = 0
     open(@train_txt) do |file|
       file.each_line do |line|
-        word, counts, social, politics, international, economics, electro, sports, entertainment, science = line.force_encoding("utf-8").strip.split("\t")
+        word, counts, social, politics, international, economics, electro, sports, entertainment, science, standard_deviation = line.force_encoding("utf-8").strip.split("\t")
         array = [social.to_i, politics.to_i, international.to_i, economics.to_i, electro.to_i, sports.to_i, entertainment.to_i, science.to_i]
-        if array.max <= 100
-          unless array[@train_num].to_i == 0
+        unless array[@train_num].to_i == 0
+          #if array.max < 100
+          #if counts.to_i == array.max or standard_deviation.to_f < 0.4
+          if standard_deviation.to_f < 30.0
             unless @exclude.include?(word)
               if word =~ /[一-龠]/
                 hits.has_key?(word) ? hits[word] += array[@train_num].to_i * 3 : hits[word] = array[@train_num].to_i * 3
