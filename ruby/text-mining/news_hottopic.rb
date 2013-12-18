@@ -77,7 +77,7 @@ class HotNews
         unless array[@train_num].to_i == 0
           #if array.max < 100
           #if counts.to_i == array.max or standard_deviation.to_f < 0.4
-          if standard_deviation.to_f < 30.0
+          if standard_deviation.to_f < 10.0
             unless @exclude.include?(word)
               if word =~ /[一-龠]/
                 hits.has_key?(word) ? hits[word] += array[@train_num].to_i * 3 : hits[word] = array[@train_num].to_i * 3
