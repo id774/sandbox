@@ -83,7 +83,7 @@ class HotNews
             unless @exclude.include?(word)
               if word =~ /[一-龠]/
                 hits.has_key?(word) ? hits[word] += array[@train_num].to_i * 3 : hits[word] = array[@train_num].to_i * 3
-              else
+              elsif word =~ /^[A-Za-z].*/
                 hits.has_key?(word) ? hits[word] += array[@train_num].to_i : hits[word] = array[@train_num].to_i
               end
             end
@@ -119,7 +119,7 @@ class HotNews
         if word.length > 1
           if word =~ /[一-龠]/
             hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
-          else
+          elsif word =~ /^[A-Za-z].*/
             hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
           end
           if @text_hash.has_key?(word)
