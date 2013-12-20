@@ -5,7 +5,7 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 
-url       = 'http://133.242.144.202/post'
+url       = 'http://157.7.155.117/post'
 auth      = HTTPBasicAuth("your_username", "your_password")
 headers   = {'content-type': 'application/json'}
 
