@@ -9,7 +9,8 @@ search_string = "hotnews"
 begin
   rule = Regexp.new(search_string, Regexp::IGNORECASE)
   filelists.each do |infile|
-    p infile if rule =~ infile
+    filename = File::basename(infile)
+    p filename if rule =~ filename
   end
 rescue RegexpError
 end
