@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import sys, os
+import json
 import math
 from collections import defaultdict
 
@@ -10,7 +12,9 @@ class NB(object):
     training_data = [(1, {'a': 2, 'b': 2}), (2, {'a': 1, 'c': 4})]
     nb.train(training_data)
     testing_data = {'a': 1, 'b': 2}
-    result = nb.classify(testing_data)
+    scores = nb.classify(testing_data)
+    best = max(scores, key=scores.get)
+    print(best)
     """
 
     def __init__(self):
@@ -41,8 +45,7 @@ class NB(object):
         """
         scores = {category: self._calc_score(document, category)
                   for category in self.all_categories}
-        best = max(scores, key=scores.get)
-        return best
+        return scores
 
     def _calc_score(self, document, category):
         """documentがcategoryに属するスコアを算出する
@@ -59,14 +62,29 @@ class NB(object):
         numerator = self.category_word_count[category][word] + 1.0
         return 1.0 * numerator / self.denominators[category]
 
-def main():
+def main(args):
+    filename = args[1]
+    training_data = []
+
+    file = open(filename, 'r')
+    for line in file:
+        key, tag, value = line.rstrip().split("\t")
+        json_obj = json.loads(value)
+        training_data.append((tag, json_obj))
+    file.close()
+
     nb = NB()
-    training_data = [(1, {'a': 2, 'b': 2}), (2, {'a': 1, 'c': 4})]
     nb.train(training_data)
-    testing_data = {'a': 1, 'b': 2}
-    result = nb.classify(testing_data)
-    print(result)
+    print(json_obj)
+    testing_data = json_obj
+    scores = nb.classify(testing_data)
+    print(scores)
+    best = max(scores, key=scores.get)
+    print(best)
 
 if __name__=='__main__':
-    main()
+    if len(sys.argv) > 1:
+        main(sys.argv)
+    else:
+        print("Invalid arguments")
 
