@@ -63,10 +63,11 @@ class NB(object):
         return 1.0 * numerator / self.denominators[category]
 
 def main(args):
-    filename = args[1]
-    training_data = []
+    train_txt = args[1]
+    classify_txt = args[2]
 
-    file = open(filename, 'r')
+    file = open(train_txt, 'r')
+    training_data = []
     for line in file:
         key, tag, value = line.rstrip().split("\t")
         json_obj = json.loads(value)
@@ -75,15 +76,22 @@ def main(args):
 
     nb = NB()
     nb.train(training_data)
-    print(json_obj)
-    testing_data = json_obj
-    scores = nb.classify(testing_data)
-    print(scores)
-    best = max(scores, key=scores.get)
-    print(best)
+
+    file = open(classify_txt, 'r')
+    for line in file:
+        key, tag, value = line.rstrip().split("\t")
+        json_obj = json.loads(value)
+        words = defaultdict(int)
+        for word in json_obj['words']:
+            words[word] = words.get(word, 0) + 1
+        scores = nb.classify(words)
+        json_dump = json.dumps(scores,ensure_ascii=False)
+        best = max(scores, key=scores.get)
+        print(key + ',' + tag + "\t" + best + "\t" + json_dump)
+    file.close()
 
 if __name__=='__main__':
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         main(sys.argv)
     else:
         print("Invalid arguments")
