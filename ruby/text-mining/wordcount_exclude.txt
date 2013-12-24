@@ -15,6 +15,10 @@
 日経
 産経
 毎日
+GINZA
+WIRED
+AFPBB
+SEO
 users
 Yahoo
 Japan
