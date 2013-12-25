@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import sys, os
+import json
 from collections import defaultdict
 from itertools import permutations
 
@@ -10,7 +12,9 @@ class AODE(object):
     training_data = [(1, {'a': 2, 'b': 2}), (2, {'a': 1, 'c': 4})]
     aode.train(training_data)
     testing_data = {'a': 1, 'b': 2}
-    result = aode.classify(testing_data)
+    scores = aode.classify(testing_data)
+    best = max(scores, key=scores.get)
+    print(best)
     """
 
     def __init__(self, minimum_word_count=30):
@@ -37,8 +41,7 @@ class AODE(object):
         """
         scores = {category: self._calc_score(document, category)
                   for category in self.all_categories}
-        best = max(scores, key=scores.get)
-        return best
+        return scores
 
     def _calc_score(self, document, category):
         """documentがcategoryに属するスコアを算出する
@@ -77,4 +80,38 @@ def main():
 
 if __name__=='__main__':
     main()
+
+def main(args):
+    train_txt = args[1]
+    classify_txt = args[2]
+
+    file = open(train_txt, 'r')
+    training_data = []
+    for line in file:
+        key, tag, value = line.rstrip().split("\t")
+        json_obj = json.loads(value)
+        training_data.append((tag, json_obj))
+    file.close()
+
+    aode = AODE()
+    aode.train(training_data)
+
+    file = open(classify_txt, 'r')
+    for line in file:
+        key, tag, value = line.rstrip().split("\t")
+        json_obj = json.loads(value)
+        words = defaultdict(int)
+        for word in json_obj['words']:
+            words[word] = words.get(word, 0) + 1
+        scores = aode.classify(words)
+        json_dump = json.dumps(scores,ensure_ascii=False)
+        best = max(scores, key=scores.get)
+        print(key + ',' + tag + "\t" + best + "\t" + json_dump)
+    file.close()
+
+if __name__=='__main__':
+    if len(sys.argv) > 2:
+        main(sys.argv)
+    else:
+        print("Invalid arguments")
 
