@@ -70,17 +70,6 @@ class AODE(object):
         denominator = self.category_word_count[category][word] + len(self.word_count)
         return 1.0 * numerator / denominator
 
-def main():
-    aode = AODE()
-    training_data = [(1, {'a': 2, 'b': 2}), (2, {'a': 1, 'c': 4})]
-    aode.train(training_data)
-    testing_data = {'a': 1, 'b': 2}
-    result = aode.classify(testing_data)
-    print(result)
-
-if __name__=='__main__':
-    main()
-
 def main(args):
     train_txt = args[1]
     classify_txt = args[2]
