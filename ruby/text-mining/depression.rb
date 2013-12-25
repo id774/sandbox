@@ -21,7 +21,6 @@ class Depression
 
   def depression(string)
     score = 0.0
-    total_score = 0.0
     word_count = 0
     parse_to_node(string).each {|word|
       if i = @pn_ja.assoc(word)
@@ -30,8 +29,7 @@ class Depression
         score += i[3].to_f
       end
     }
-    total_score += score
-    p (total_score / word_count) ** 3
+    p (score / word_count) ** 3
   end
 
   def puts_with_time(message)
