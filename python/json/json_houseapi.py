@@ -6,10 +6,10 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 url       = 'http://157.7.155.117/post'
-auth      = HTTPBasicAuth("your_username", "your_password")
+auth      = HTTPBasicAuth("houseapi", "kogaidan")
 headers   = {'content-type': 'application/json', 'content-length': '0'}
 
-json_data = {"test":"test"}
+json_data = {"aaa":"bbb"}
 tag       = "debug.forward"
 
 data      = json.dumps(json_data)
