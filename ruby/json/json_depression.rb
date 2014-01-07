@@ -55,7 +55,7 @@ class Analyzer
     score = 0.0
     word_count = 0
 
-    scoring.text = string
+    scoring.text = string unless string.nil?
 
     if scoring.text.length > 0
       parse_to_node(scoring.text).each {|word|
