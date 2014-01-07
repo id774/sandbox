@@ -69,7 +69,7 @@ class Analyzer
 
     if word_count > 1
       scoring.total_score = (score / word_count) ** 3
-      scoring.classify = scoring.total_score > 0 ? 'Positive' : 'Negative'
+      scoring.classify = scoring.total_score > -0.10 ? 'Positive' : 'Negative'
     else
       scoring.total_score = 0.0
       scoring.classify = '判定不能'
