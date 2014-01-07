@@ -36,6 +36,7 @@ class Analyzer
         json = JSON.parse(value)
         scoring = depression(json["報告内容"])
         output([key,tag].join(','), [scoring.classify,scoring.total_score].join(','), JSON.generate(scoring.scores))
+        #output([key,tag].join(','), [scoring.classify,scoring.total_score].join(','), scoring.text)
       end
     end
   end
@@ -54,13 +55,15 @@ class Analyzer
 
     scoring.text = string
 
-    parse_to_node(scoring.text).each {|word|
-      if i = @dic.assoc(word)
-        word_count += 1
-        scoring.scores << i
-        score += i[3].to_f
-      end
-    }
+    if scoring.text.length > 0
+      parse_to_node(scoring.text).each {|word|
+        if i = @dic.assoc(word)
+          word_count += 1
+          scoring.scores << i
+          score += i[3].to_f
+        end
+      }
+    end
 
     if word_count > 1
       scoring.total_score = (score / word_count) ** 3
