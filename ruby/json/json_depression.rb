@@ -30,12 +30,14 @@ class Analyzer
   end
 
   def start
+    id = 0
     open(@filename) do |file|
       file.each_line do |line|
+        id += 1
         key, tag, value = line.force_encoding("utf-8").strip.split("\t")
         json = JSON.parse(value)
         scoring = depression(json["報告内容"])
-        output([key,tag].join(','), [scoring.classify,scoring.total_score].join(','), JSON.generate(scoring.scores))
+        output([id,key,tag].join(','), [scoring.classify,scoring.total_score].join(','), JSON.generate(scoring.scores))
         #output([key,tag].join(','), [scoring.classify,scoring.total_score].join(','), scoring.text)
       end
     end
