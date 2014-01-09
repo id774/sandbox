@@ -99,8 +99,8 @@ def main(args):
         json_dump = json.dumps(json_obj,ensure_ascii=False)
         print(key + "\t" + tag + "\t" + json_dump)
 
-    print("Correct:" + str(correct))
-    print("Wrong:"   + str(wrong))
+    print("Correct:"  + str(correct))
+    print("Wrong:"    + str(wrong))
     print("Accuracy:" + str(correct / (correct + wrong)))
 
     file.close()

@@ -128,16 +128,31 @@ def main(args):
     twcnb.train(training_data)
 
     file = open(classify_txt, 'r')
+
+    correct = 0
+    wrong   = 0
+
     for line in file:
         key, tag, value = line.rstrip().split("\t")
         json_obj = json.loads(value)
         words = defaultdict(int)
         for word in json_obj['words']:
             words[word] = words.get(word, 0) + 1
-        scores = twcnb.classify(words)
-        json_dump = json.dumps(scores,ensure_ascii=False)
-        best = min(scores, key=scores.get)
-        print(key + ',' + tag + "\t" + best + "\t" + json_dump)
+        json_obj['scores'] = twcnb.classify(words)
+        json_obj['best'] = min(json_obj['scores'], key=json_obj['scores'].get)
+        if json_obj['key'] == json_obj['best']:
+            json_obj['evaluate'] = True
+            correct += 1
+        else:
+            json_obj['evaluate'] = False
+            wrong += 1
+        json_dump = json.dumps(json_obj,ensure_ascii=False)
+        print(key + "\t" + tag + "\t" + json_dump)
+
+    print("Correct:"  + str(correct))
+    print("Wrong:"    + str(wrong))
+    print("Accuracy:" + str(correct / (correct + wrong)))
+
     file.close()
 
 if __name__=='__main__':
