@@ -31,7 +31,7 @@ class CNB
   def classifier(feature)
     all_class = @frequency_of_word_by_class.keys
     all_training_data = @number_of_training_data_of_class.values.inject(0) {|s, v| s + v}
-    all_class.map {|c|
+    class_array = all_class.map {|c|
       n_c = total_number_of_word_in_other_class(c)
       alpha = @smoothing_parameter*feature.length
       term2nd = feature.to_a.map {|e|
@@ -42,7 +42,8 @@ class CNB
 
       theta_c = @number_of_training_data_of_class[c].to_f/all_training_data
       [c, Math.log(theta_c) - term2nd]
-    }.sort {|x, y| x[1] <=> y[1]}.last.first
+    }.sort {|x, y| x[1] <=> y[1]}.flatten
+    Hash[*class_array]
   end
 end
 
@@ -59,3 +60,5 @@ feature = {"aaa" => 2, "bbb" => 3, "ccc" => 5}
 cnb.training(label, feature)
 
 puts cnb.classifier({"aaa" => 4, "bbb" => 3, "ccc" => 3})
+puts cnb.classifier({"aaa" => 3, "bbb" => 4, "ccc" => 3})
+puts cnb.classifier({"aaa" => 3, "bbb" => 3, "ccc" => 5})
