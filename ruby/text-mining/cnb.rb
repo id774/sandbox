@@ -1,37 +1,39 @@
 class CNB
   def initialize(smoothing_parameter = 1)
-    @frequency_of_word_by_class = {}
-    @number_of_training_data_of_class = Hash.new(0)
+    @frequency_table = {}
+    @instance_count_of = Hash.new(0)
     @smoothing_parameter = smoothing_parameter
   end
 
-  def training(label, feature)
-    @frequency_of_word_by_class[label] = Hash.new(0) unless @frequency_of_word_by_class.has_key?(label)
-    feature.each {|k, v|
-      @frequency_of_word_by_class[label][k] += v
+  def train(label, feature)
+    unless @frequency_table.has_key?(label)
+      @frequency_table[label] = Hash.new(0)
+    end
+    feature.each {|word, frequency|
+      @frequency_table[label][word] += frequency
     }
-    @number_of_training_data_of_class[label] += 1
+    @instance_count_of[label] += 1
   end
 
   def total_number_of_word_in_other_class(c)
-    all_words = @frequency_of_word_by_class.values.map {|h| h.keys}.flatten.sort.uniq
-    other_classes = @frequency_of_word_by_class.keys - [c]
+    all_words = @frequency_table.values.map {|h| h.keys}.flatten.sort.uniq
+    other_classes = @frequency_table.keys - [c]
     other_classes.map {|c|
       all_words.map {|w|
-        @frequency_of_word_by_class[c][w]
+        @frequency_table[c][w]
       }
     }.flatten.inject(0) {|s, v| s + v}
   end
 
   def number_of_word_in_other_class(c, i)
-    other_classes = @frequency_of_word_by_class.keys - [c]
-    other_classes.map {|c| @frequency_of_word_by_class[c][i]}.inject(0) {|s, v| s + v}
+    other_classes = @frequency_table.keys - [c]
+    other_classes.map {|c| @frequency_table[c][i]}.inject(0) {|s, v| s + v}
   end
 
-  def classifier(feature)
-    all_class = @frequency_of_word_by_class.keys
-    all_training_data = @number_of_training_data_of_class.values.inject(0) {|s, v| s + v}
-    class_array = all_class.map {|c|
+  def classify(feature)
+    all_class = @frequency_table.keys
+    all_train_data = @instance_count_of.values.inject(0) {|s, v| s + v}
+    class_posterior_of = all_class.map {|c|
       n_c = total_number_of_word_in_other_class(c)
       alpha = @smoothing_parameter*feature.length
       term2nd = feature.to_a.map {|e|
@@ -40,10 +42,10 @@ class CNB
         v*Math.log((number_of_word_in_other_class(c, k) + @smoothing_parameter).to_f/(n_c + alpha))
       }.inject(0) {|s, v| s + v}
 
-      theta_c = @number_of_training_data_of_class[c].to_f/all_training_data
+      theta_c = @instance_count_of[c].to_f/all_train_data
       [c, Math.log(theta_c) - term2nd]
     }.sort {|x, y| x[1] <=> y[1]}.flatten
-    Hash[*class_array]
+    Hash[*class_posterior_of]
   end
 end
 
@@ -51,14 +53,14 @@ cnb = CNB.new
 
 label = "A"
 feature = {"aaa" => 3, "bbb" => 1, "ccc" => 2}
-cnb.training(label, feature)
+cnb.train(label, feature)
 label = "B"
 feature = {"aaa" => 1, "bbb" => 4, "ccc" => 2}
-cnb.training(label, feature)
+cnb.train(label, feature)
 label = "C"
 feature = {"aaa" => 2, "bbb" => 3, "ccc" => 5}
-cnb.training(label, feature)
+cnb.train(label, feature)
 
-puts cnb.classifier({"aaa" => 4, "bbb" => 3, "ccc" => 3})
-puts cnb.classifier({"aaa" => 3, "bbb" => 4, "ccc" => 3})
-puts cnb.classifier({"aaa" => 3, "bbb" => 3, "ccc" => 5})
+puts cnb.classify({"aaa" => 4, "bbb" => 3, "ccc" => 3})
+puts cnb.classify({"aaa" => 3, "bbb" => 4, "ccc" => 3})
+puts cnb.classify({"aaa" => 3, "bbb" => 3, "ccc" => 5})
