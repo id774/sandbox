@@ -7,6 +7,7 @@ class Analyzer
     @filename = args.shift || "category_map.txt"
     @exclude  = args.shift || "wordcount_exclude.txt"
     @hash = Hash.new
+    @category_num = 0
   end
 
   def extract_map(category)
@@ -32,12 +33,11 @@ class Analyzer
       end
     end
     @category_num += 1
-    puts "#{@category_num}\t#{category}\t#{hits}"
+    output(@category_num, category, hits)
     return hits
   end
 
   def start
-    @category_num = 0
     extract_map('category.social')
     extract_map('category.politics')
     extract_map('category.international')
@@ -49,11 +49,6 @@ class Analyzer
   end
 
   private
-
-  def puts_with_time(message)
-    fmt = "%Y/%m/%d %X"
-    puts "#{Time.now.strftime(fmt)}: #{message.force_encoding("utf-8")}"
-  end
 
   def output(key, tag, value)
     puts "#{key}\t#{tag}\t#{value}"
