@@ -105,7 +105,7 @@ class HotNews
     @classifier.train("economics", train('category.economics'))
     @classifier.train("electro",  train('category.electro'))
     @classifier.train("sports",  train('category.sports'))
-    @classifier.train("entertainment",  train( 'category.entertainment'))
+    @classifier.train("entertainment",  train('category.entertainment'))
     @classifier.train("science",  train('category.science'))
   end
 
