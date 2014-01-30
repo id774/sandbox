@@ -8,6 +8,7 @@ class Analyzer
     @exclude  = args.shift || "wordcount_exclude.txt"
     @hash = Hash.new
     @category_num = 0
+    read_from_exclude
   end
 
   def extract_map(category)
@@ -21,7 +22,7 @@ class Analyzer
           #if array.max < 100
           #if counts.to_i == array.max or standard_deviation.to_f < 0.4
           if standard_deviation.to_f < 10.0
-            unless @exclude.include?(word)
+            unless @exclude_words.include?(word)
               if word =~ /[一-龠]/
                 hits.has_key?(word) ? hits[word] += array[@category_num].to_i * 3 : hits[word] = array[@category_num].to_i * 3
               elsif word =~ /^[A-Za-z].*/
@@ -49,6 +50,15 @@ class Analyzer
   end
 
   private
+
+  def read_from_exclude
+    @exclude_words = Array.new
+    open(@exclude) do |file|
+      file.each_line do |line|
+        @exclude_words << line.force_encoding("utf-8").chomp
+      end
+    end
+  end
 
   def output(key, tag, value)
     puts "#{key}\t#{tag}\t#{value}"
