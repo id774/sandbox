@@ -24,11 +24,11 @@ class Analyzer:
         i = 0
         for k, v in sorted(self.dic.items(), key=lambda x:int(x[1]), reverse=True):
             i += 1
-            self.__output__(i, k, v)
+            self.__output(i, k, v)
         file.close
         return self.dic
 
-    def __output__(self, key, tag, value):
+    def __output(self, key, tag, value):
         print(key, tag, value, sep="\t")
 
 if __name__=='__main__':
