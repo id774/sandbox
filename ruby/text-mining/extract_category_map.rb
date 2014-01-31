@@ -6,7 +6,6 @@ class Analyzer
   def initialize(args)
     @filename = args.shift || "category_map.txt"
     @exclude  = args.shift || "wordcount_exclude.txt"
-    @hash = Hash.new
     @category_num = 0
     read_from_exclude
   end
@@ -61,7 +60,7 @@ class Analyzer
   end
 
   def output(key, tag, value)
-    puts "#{key}\t#{tag}\t#{value}"
+    puts "#{key}\t#{tag}\t#{JSON.generate(value, opts = {:space => ' ', :indent => ' '})}"
   end
 end
 
