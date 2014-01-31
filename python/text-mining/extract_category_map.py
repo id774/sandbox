@@ -12,9 +12,9 @@ class Analyzer:
         self.exclude  = args[2]
         self.exclude_list = []
         self.category_num = 0
-        self.__read_from_exclude()
 
     def start(self):
+        self.__read_from_exclude()
         self.__extract_map('category.social')
         self.__extract_map('category.politics')
         self.__extract_map('category.international')
@@ -56,8 +56,7 @@ class Analyzer:
     def __read_from_exclude(self):
         file = open(self.exclude, 'r')
         for line in file:
-            exclude_word = line.rstrip().split("\t")
-            self.exclude_list.append(exclude_word)
+            self.exclude_list.append(line.rstrip())
         file.close
         return self.exclude_list
 
