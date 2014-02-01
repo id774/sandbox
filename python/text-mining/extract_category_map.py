@@ -24,7 +24,7 @@ class Analyzer:
         self.__extract_map('category.entertainment')
         self.__extract_map('category.science')
 
-    def __output__(self, key, tag, value):
+    def __output(self, key, tag, value):
         print(key, tag, json.dumps(value, ensure_ascii=False), sep="\t")
 
     def __extract_map(self, category):
@@ -44,7 +44,7 @@ class Analyzer:
 
         file.close
         self.category_num += 1
-        self.__output__(self.category_num, category, self.dic)
+        self.__output(self.category_num, category, self.dic)
         return self.dic
 
     def __add_dic(self, word, count):
