@@ -16,9 +16,13 @@
 産経
 毎日
 新聞
+社会
+科学
+日記
 デジタル
 ニコニコ
 ニュース
+ブログ
 GINZA
 WIRED
 AFPBB
@@ -43,6 +47,7 @@ AKB
 co
 Twitter
 the
+THE
 to
 WEB
 nikkansports
@@ -85,3 +90,4 @@ PC
 ID
 JBpress
 nifty
+SPA
