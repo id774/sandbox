@@ -1,6 +1,8 @@
 AFPBB
 AKB
 Annex
+BLOG
+Blog
 CNET
 CNN
 GIGAZINE
