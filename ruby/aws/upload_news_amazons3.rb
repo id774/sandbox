@@ -12,12 +12,14 @@ class HotNews
 
     @log_name      = "news.log.#{@pickup_date}_0.log"
     @wordcount     = "wordcount_#{@pickup_date}.txt"
+    @train         = "train.log.#{@pickup_date}_0.log"
     @hot_news      = "hotnews_#{@pickup_date}.txt"
 
     @log_path      = "/home/fluent/.fluent/log"
 
     @log_file      = File.expand_path(File.join(@log_path, @log_name))
     @wordcount_txt = File.expand_path(File.join(@log_path, @wordcount))
+    @train_txt     = File.expand_path(File.join(@log_path, @train))
     @news_file     = File.expand_path(File.join(@log_path, @hot_news))
 
     @s3 = AWS::S3.new(
@@ -30,6 +32,7 @@ class HotNews
   def run
     upload(@log_file, "news/log/#{@log_name}")
     upload(@wordcount_txt, "news/log/#{@wordcount}")
+    upload(@train_txt, "news/log/#{@train}")
     upload(@news_file, "news/log/#{@hot_news}")
   end
 
