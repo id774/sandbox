@@ -8,3 +8,6 @@ p na.class
 p na[true, 1]
 
 p na[true, 1].sum
+
+p na[0, true]
+p na[0, true].sum
