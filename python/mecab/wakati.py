@@ -4,4 +4,4 @@
 import MeCab
 
 wakati = MeCab.Tagger("-O wakati")
-print wakati.parse('最近の夜は寒い')
+print(wakati.parse('最近の夜は寒い'))
