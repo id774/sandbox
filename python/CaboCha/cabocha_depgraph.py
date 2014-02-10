@@ -59,13 +59,13 @@ def set_head_form(dg):
         # extract bhead (主辞) and bform (語形)
         bhead = -1
         bform = -1
-        for i in xrange(num_morphs-1, -1, -1):
-            if tags[i][0] == u"記号":
+        for i in range(num_morphs-1, -1, -1):
+            if tags[i][0] == "記号":
                 continue
             else:
                 if bform == -1: bform = i
-                if not (tags[i][0] == u"助詞"
-                    or (tags[i][0] == u"動詞" and tags[i][1] == u"非自立")
+                if not (tags[i][0] == "助詞"
+                    or (tags[i][0] == "動詞" and tags[i][1] == "非自立")
                     or tags[i][0] == "助動詞"):
                     if bhead == -1: bhead = i
 
@@ -74,16 +74,16 @@ def set_head_form(dg):
 
 def get_dep_type(node):
     bform_tag = node['tag'][node['bform']]
-    if bform_tag[0] == u"助詞" and bform_tag[1] == u"格助詞":
+    if bform_tag[0] == "助詞" and bform_tag[1] == "格助詞":
         return NEXT_VERB_NODE
-    elif bform_tag[0] == u"助動詞" and bform_tag[-1] == u"タ":
+    elif bform_tag[0] == "助動詞" and bform_tag[-1] == "タ":
         return NEXT_NOUN_NODE
     else:
         return NEXT_NODE
 
 def analyze_dependency(dg):
     num_nodes = len(dg.nodelist)
-    for i in xrange(num_nodes-1, 0, -1):
+    for i in range(num_nodes-1, 0, -1):
         node = dg.nodelist[i]
         if i == num_nodes - 1:                        # ... (1)
             # last node -> to_node = 0
@@ -98,19 +98,19 @@ def analyze_dependency(dg):
                 to_node = i + 1
             elif (dep_type == NEXT_VERB_NODE or
                 dep_type == NEXT_NOUN_NODE):          # ... (4)
-                for j in xrange(i+1, num_nodes):
+                for j in range(i+1, num_nodes):
                     node_j = dg.nodelist[j]
                     node_j_headtag = node_j['tag'][node_j['bhead']]
                     if (node_j['closed'] == False and
-                        (dep_type == NEXT_VERB_NODE and node_j_headtag[0] == u"動詞") or
-                        (dep_type == NEXT_NOUN_NODE and node_j_headtag[0] == u"名詞" and
-                        node_j_headtag[1] != u"形容動詞語幹")):
+                        (dep_type == NEXT_VERB_NODE and node_j_headtag[0] == "動詞") or
+                        (dep_type == NEXT_NOUN_NODE and node_j_headtag[0] == "名詞" and
+                        node_j_headtag[1] != "形容動詞語幹")):
                         to_node = j
                         break
 
             node['head'] = to_node
             dg.nodelist[to_node]['deps'].append(i)    # ... (5)
-            for j in xrange(i+1, to_node):
+            for j in range(i+1, to_node):
                 dg.nodelist[j]['closed'] = True       # ... (6)
 
 def _node_map(node):
@@ -119,10 +119,10 @@ def _node_map(node):
 
 if __name__ == "__main__":
     cabocha = CaboCha.Parser('--charset=UTF8')
-    sent = u"太郎はこの本を二郎を見た女性に渡した。".encode('utf-8')
+    sent = "太郎はこの本を二郎を見た女性に渡した。".encode('utf-8')
     tree = cabocha.parse(sent)
     cabocha_result = tree.toString(CaboCha.FORMAT_LATTICE)
-    print cabocha_result
+    print(cabocha_result)
 
     dg = cabocha2depgraph(cabocha_result)
     reset_deps(dg)
@@ -130,5 +130,5 @@ if __name__ == "__main__":
 
     dg.nodelist = [_node_map(n) for n in dg.nodelist]
     analyze_dependency(dg)
-    print str(dg.tree()).decode('utf-8')
+    print(str(dg.tree()).decode('utf-8'))
 
