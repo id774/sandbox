@@ -14,20 +14,20 @@ class Analyzer:
         self.category_num = 0
 
     def start(self):
-        self.__read_from_exclude()
-        self.__extract_map('category.social')
-        self.__extract_map('category.politics')
-        self.__extract_map('category.international')
-        self.__extract_map('category.economics')
-        self.__extract_map('category.electro')
-        self.__extract_map('category.sports')
-        self.__extract_map('category.entertainment')
-        self.__extract_map('category.science')
+        self._read_from_exclude()
+        self._extract_map('category.social')
+        self._extract_map('category.politics')
+        self._extract_map('category.international')
+        self._extract_map('category.economics')
+        self._extract_map('category.electro')
+        self._extract_map('category.sports')
+        self._extract_map('category.entertainment')
+        self._extract_map('category.science')
 
-    def __output(self, key, tag, value):
+    def _output(self, key, tag, value):
         print(key, tag, json.dumps(value, ensure_ascii=False), sep="\t")
 
-    def __extract_map(self, category):
+    def _extract_map(self, category):
         self.dic = OrderedDict()
         file = open(self.filename, 'r')
         for line in file:
@@ -38,22 +38,22 @@ class Analyzer:
                     if not word in self.exclude_list:
                         r = re.compile("[一-龠]")
                         if r.match(word):
-                            self.__add_dic(word, array[self.category_num] * 3)
+                            self._add_dic(word, array[self.category_num] * 3)
                         else:
-                            self.__add_dic(word, array[self.category_num])
+                            self._add_dic(word, array[self.category_num])
 
         file.close
         self.category_num += 1
-        self.__output(self.category_num, category, self.dic)
+        self._output(self.category_num, category, self.dic)
         return self.dic
 
-    def __add_dic(self, word, count):
+    def _add_dic(self, word, count):
         if word in self.dic:
             self.dic[word] += count
         else:
             self.dic[word] = count
 
-    def __read_from_exclude(self):
+    def _read_from_exclude(self):
         file = open(self.exclude, 'r')
         for line in file:
             self.exclude_list.append(line.rstrip())
