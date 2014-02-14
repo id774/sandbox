@@ -5,13 +5,14 @@ import numpy as np
 import math
 
 def comb(n, r):
-   return math.factorial(n) / (math.factorial(n - r) * math.factorial(r))
+    return math.factorial(n) / (math.factorial(n - r) * math.factorial(r))
 
 def binomial(p):
-   def f(n, x):
-       prob = comb(n, x) * p ** x * (1 - p) ** (n - x)
-       return prob
-   return f
+    def f(n, x):
+        prob = comb(n, x) * p ** x * (1 - p) ** (n - x)
+        return prob
+    return f
+
 
 p = 0.5
 L = []
@@ -20,10 +21,10 @@ colors = ["r", "g", "b", "c", "y"]
 f = binomial(p)
 
 for n in trial_count :
-   L.append([f(n, x) for x in range(n)])
+    L.append([f(n, x) for x in range(n)])
 
 for prob, color in zip(L, colors) :
-   plt.plot(prob, color)
+    plt.plot(prob, color)
 
 ax = plt.axes()
 ax.set_xlim(0, 50)
