@@ -12,12 +12,14 @@ def phi(x):
 PHI = np.array([phi(x) for x in X])
 w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, t))
 
+print("w の中身は %(w)s" %locals() )
+
 xlist = np.arange(0, 1, 0.01)
 ylist = [np.dot(w, phi(x)) for x in xlist]
 
 plt.plot(xlist, ylist)
 
-print("線形回帰の値は %(xlist)s と %(ylist)s" %locals() )
+print("線形回帰の値は \n xlist = %(xlist)s と\n ylist = %(ylist)s" %locals() )
 
 plt.plot(X, t, 'o')
 plt.show()
