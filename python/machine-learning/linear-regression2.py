@@ -9,13 +9,16 @@ t = np.array([0.05, 0.87, 0.94, 0.92, 0.54, -0.11, -0.78, -0.79, -0.89, -0.04])
 def phi(x):
     return [1, x, x**2, x**3]
 
-PHI = np.array([phi(x) for x in X])
+def phi2(x):
+    return [1, x, x**2, x**3, x**4, x**5, x**6, x**7]
+
+PHI = np.array([phi2(x) for x in X])
 w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, t))
 
 print("w の中身は %(w)s" %locals() )
 
 xlist = np.arange(0, 1, 0.01)
-ylist = [np.dot(w, phi(x)) for x in xlist]
+ylist = [np.dot(w, phi2(x)) for x in xlist]
 
 plt.plot(xlist, ylist)
 
