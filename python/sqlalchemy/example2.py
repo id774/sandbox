@@ -6,13 +6,13 @@ from sqlalchemy import *
 def run():
     engine = create_engine("sqlite:///test.db")
     metadata = MetaData(bind=engine, reflect=True)
-    blogs = metadata.tables['blogs']
+    statuses = metadata.tables['statuses']
 
-    stmt = blogs.select()
+    stmt = statuses.select()
     result = engine.execute(stmt)
-    print stmt
+    print(stmt)
     for row in result:
-        print row.title
+        print(row.screen_name, row.text, sep="\t")
 
 if __name__ == "__main__":
     run()

@@ -42,13 +42,13 @@ def run():
     sql = status.delete()
     result = engine.execute(sql)
 
-    sql = status.insert().values(id=1,screen_name="hoge",text=u"ほげ")
+    sql = status.insert().values(id=1,screen_name="hoge",text="ほげ")
     result = engine.execute(sql)
 
-    sql = status.insert().values(id=2,screen_name="fuga",text=u"ふが")
+    sql = status.insert().values(id=2,screen_name="fuga",text="ふが")
     result = engine.execute(sql)
 
-    sql = status.insert().values(id=3,screen_name="piyo",text=u"ぴよ")
+    sql = status.insert().values(id=3,screen_name="piyo",text="ぴよ")
     result = engine.execute(sql)
 
     sql = status.update().where(status.c.screen_name=="piyo").values(screen_name="taro")
@@ -60,7 +60,7 @@ def run():
     sql = status.select()
     result = engine.execute(sql)
     for row in result:
-        print row
+        print(row)
 
 if __name__ == "__main__":
     run()
