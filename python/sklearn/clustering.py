@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import sys, os
-import csv
 import codecs
 import numpy as np
-import MeCab
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans, MiniBatchKMeans
@@ -22,16 +20,6 @@ class Analyzer:
         self.max_features = 10000
         self.minibatch = True
 
-    def analyzer(self, text):
-        ret = []
-        tagger = MeCab.Tagger('-Ochasen')
-        node = tagger.parseToNode(text.encode('utf-8'))
-        node = node.next
-        while node.next:
-            ret.append(node.feature.split(',')[-3].decode('utf-8'))
-            node = node.next
-        return ret
-
     def _read_from_file(self):
         list = []
         file = open(self.infile, 'r')
@@ -46,7 +34,7 @@ class Analyzer:
 
         vectorizer = TfidfVectorizer(max_df=self.max_df, max_features=self.max_features, stop_words='english')
         X = vectorizer.fit_transform(texts)
-        print("X values is %(X)s" %locals() )
+        print("X values are %(X)s" %locals() )
 
         if self.minibatch:
             km = MiniBatchKMeans(n_clusters=self.num_clusters, init='k-means++', batch_size=1000, n_init=10, max_no_improvement=10, verbose=True)
@@ -84,7 +72,7 @@ if __name__ == '__main__':
         if len(sys.argv) > 2:
             analyzer = Analyzer(sys.argv)
             clusters = analyzer.make_cluster()
-            print("Result clusters is %(clusters)s" %locals() )
+            print("Result clusters are %(clusters)s" %locals() )
             analyzer.write_cluster(clusters)
 
         else:
