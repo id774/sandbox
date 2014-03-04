@@ -36,10 +36,10 @@ print("X の標準偏差は %(std)s" %locals() )
 xlist = np.arange(200, 600, 10)
 ylist = [f(w, x) for x in xlist]
 
-plt.plot(xlist, ylist, color="blue")
+plt.plot(xlist, ylist, color="red")
 plt.xlim(200, 600)
 plt.ylim(20, 55)
-plt.plot(X, t, 'o', color="green")
+plt.plot(X, t, 'o', color="blue")
 plt.show()
 plt.savefig("image2.png")
 
