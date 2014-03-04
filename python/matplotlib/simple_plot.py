@@ -12,13 +12,14 @@ def phi(x):
 def f(w, x):
     return np.dot(w, phi(x))
 
-plt.plot(X, t, 'o')
+PHI = np.array([phi(x) for x in X])
+w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, t))
+
+plt.xlim(200, 600)
+plt.ylim(20, 55)
+plt.plot(X, t, 'o', color="blue")
 plt.show()
 plt.savefig("image.png")
-
-PHI = np.array([phi(x) for x in X])
-
-w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, t))
 
 print("w の中身は %(w)s" %locals() )
 print("PHI の中身は %(PHI)s" %locals() )
@@ -35,9 +36,10 @@ print("X の標準偏差は %(std)s" %locals() )
 xlist = np.arange(200, 600, 10)
 ylist = [f(w, x) for x in xlist]
 
-plt.plot(xlist, ylist)
-
-plt.plot(X, t, 'o')
+plt.plot(xlist, ylist, color="blue")
+plt.xlim(200, 600)
+plt.ylim(20, 55)
+plt.plot(X, t, 'o', color="green")
 plt.show()
-plt.savefig("image3.png")
+plt.savefig("image2.png")
 
