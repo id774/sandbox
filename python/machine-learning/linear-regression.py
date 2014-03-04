@@ -15,6 +15,14 @@ w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, t))
 
 print("線形回帰の値は %(w)s" %locals() )
 
+xlist = np.arange(0, 1, 0.01)
+ylist = [np.dot(w, phi(x)) for x in xlist]
+
+#plt.plot(xlist, ylist)
+plt.plot(X, t, 'o')
+plt.show()
+plt.savefig("image.png")
+
 alpha = 0.1
 beta = 9.0
 
