@@ -229,11 +229,11 @@ def plot2data(v1, v2, filename):
     def f(w, x):
         return np.dot(w, phi(x))
 
-    PHI = np.array([phi(x) for x in v2])
-    w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, v1))
+    PHI = np.array([phi(x) for x in v1])
+    w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, v2))
 
-    ylist = np.arange(10, 20, 0.1)
-    xlist = [f(w, x) for x in ylist]
+    xlist = np.arange(0, 35, 0.1)
+    ylist = [f(w, x) for x in xlist]
     plt.plot(xlist, ylist, color="red")
 
     plt.xlabel('X')
