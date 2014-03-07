@@ -3,6 +3,7 @@
 
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 def split_array(data):
     v1 = []
@@ -216,4 +217,30 @@ v1, v2 = split_array(data)
 print (v1)
 print (v2)
 print ( np.corrcoef(v1, v2) )
+
+
+def plot2data(v1, v2, filename):
+    plt.xlim(0, 35)
+    plt.ylim(14.5, 17.5)
+
+    def phi(x):
+        return [1, x, x**2, x**3]
+
+    def f(w, x):
+        return np.dot(w, phi(x))
+
+    PHI = np.array([phi(x) for x in v2])
+    w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, v1))
+
+    ylist = np.arange(10, 20, 0.1)
+    xlist = [f(w, x) for x in ylist]
+    plt.plot(xlist, ylist, color="red")
+
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.plot(v1, v2, 'o', color="blue")
+    plt.savefig(filename)
+
+v1, v2 = split_array(data)
+plot2data(v1, v2, "image.png")
 
