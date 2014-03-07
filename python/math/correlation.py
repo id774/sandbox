@@ -192,24 +192,13 @@ data = [
     (30, 16.2), (31, 16.4)
 ]
 
-print ( correlation(data1) )
-print ( correlation2(data1) )
-print ( correlation(rank1) )
-print ( correlation(rank2) )
-print ( correlation(rank3) )
-print ( correlation(rank4) )
-print ( rank_correlation(rank1) )
-print ( rank_correlation(rank2) )
-print ( rank_correlation(rank3) )
-print ( rank_correlation(rank4) )
-print ( regression(data1) )
-print ( regression(data2) )
-print ( regression(data3) )
-print ( regression(data4) )
-print ( regression2(data1) )
-print ( regression2(data2) )
-print ( regression2(data3) )
-print ( regression2(data4) )
+data = data1
+
+print ( correlation(data) )
+print ( correlation2(data) )
+print ( rank_correlation(data) )
+print ( regression(data) )
+print ( regression2(data) )
 print ( correlation(data) )
 print ( regression(data) )
 
@@ -218,10 +207,9 @@ print (v1)
 print (v2)
 print ( np.corrcoef(v1, v2) )
 
-
 def plot2data(v1, v2, filename):
-    plt.xlim(0, 35)
-    plt.ylim(14.5, 17.5)
+    plt.xlim(0, 12)
+    plt.ylim(0, 20)
 
     def phi(x):
         return [1, x, x**2, x**3]
@@ -232,7 +220,7 @@ def plot2data(v1, v2, filename):
     PHI = np.array([phi(x) for x in v1])
     w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, v2))
 
-    xlist = np.arange(0, 35, 0.1)
+    xlist = np.arange(0, 20, 0.1)
     ylist = [f(w, x) for x in xlist]
     plt.plot(xlist, ylist, color="red")
 
@@ -242,5 +230,7 @@ def plot2data(v1, v2, filename):
     plt.savefig(filename)
 
 v1, v2 = split_array(data)
+print (v1)
+print (v2)
 plot2data(v1, v2, "image.png")
 
