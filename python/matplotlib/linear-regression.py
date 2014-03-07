@@ -47,3 +47,6 @@ print("v2 の分散は %(var)s" %locals() )
 std = np.std(v2)
 print("v2 の標準偏差は %(std)s" %locals() )
 
+corr = np.corrcoef(v1, v2)
+print("v1 と v2 の相関係数は %(corr)s" %locals() )
+
