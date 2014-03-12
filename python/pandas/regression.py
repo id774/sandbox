@@ -41,6 +41,7 @@ result_3 = stock_by_year.apply(regression, 'AAPL', ['SPX'])
 print(result_3)
 
 plt.figure()
-result_3.plot()plt.show()
+result_3.plot()
+plt.show()
 plt.savefig("image3.png")
 
