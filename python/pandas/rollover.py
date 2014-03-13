@@ -21,7 +21,7 @@ expiry = pd.Series(expiries).order()
 print( px.tail(5) )
 print( expiry )
 
-def random_walk(px):
+def random_walk(px, n, f):
     np.random.seed(34567)
     N = 200
     _walk = (np.random.randint(0, 200, size=N) - 100) * 0.25
@@ -30,10 +30,10 @@ def random_walk(px):
     rng = pd.date_range(px.index[0], periods=len(px) + N, freq='B')
     near = np.concatenate([px.values, px.values[-1] + walk])
     far = np.concatenate([px.values, px.values[-1] + walk + perturb])
-    prices = pd.DataFrame({'GCJ14': near, 'GCM14': far}, index=rng)
+    prices = pd.DataFrame({n: near, f: far}, index=rng)
     return prices
 
-prices = random_walk(px)
+prices = random_walk(px, 'GCJ14', 'GCM14')
 print( prices.tail(5) )
 
 def get_roll_weights(start, expiry, items, roll_periods=5):
@@ -55,8 +55,17 @@ def get_roll_weights(start, expiry, items, roll_periods=5):
     return weights
 
 weights = get_roll_weights('3/11/2014', expiry, prices.columns)
-print( weights.ix['2014-04-17' : '2014-04-28'] )
 
-rolled_returns = (prices.pct_change() * weights).sum(1)
-print( rolled_returns )
+sample_prices  = prices.ix['2014-04-17' : '2014-04-28']
+sample_weights = weights.ix['2014-04-17' : '2014-04-28']
+
+sample = sample_prices * sample_weights
+result = pd.DataFrame({'GCJ14': sample['GCJ14'], 'GCM14': sample['GCM14'], 'GOLD': sample['GCJ14'] + sample['GCM14'] })
+
+print( result )
+
+plt.figure()
+result.plot()
+plt.show()
+plt.savefig("image.png")
 
