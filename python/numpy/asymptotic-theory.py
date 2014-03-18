@@ -11,7 +11,7 @@ def coin_toss(lim):
 
 X = []
 Y = []
-lim = 100
+lim = 10000
 
 for i in range(lim):
     X.append(i)
@@ -21,9 +21,11 @@ print (X)
 print (Y)
 _over_lim = [i for i in Y if i >= 24000]
 print( len(_over_lim) )
+_under_lim = [i for i in Y if i >= 16000]
+print( len(_under_lim) )
 
 plt.xlim(0, lim)
-plt.ylim(19400, 21600)
+plt.ylim(19200, 20800)
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.plot(X, Y, 'o', color="blue")
