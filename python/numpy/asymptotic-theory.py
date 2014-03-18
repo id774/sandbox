@@ -19,9 +19,9 @@ for i in range(lim):
 
 print (X)
 print (Y)
-_over_lim = [i for i in Y if i >= 24000]
+_over_lim = [i for i in Y if i >= 20400]
 print( len(_over_lim) )
-_under_lim = [i for i in Y if i >= 16000]
+_under_lim = [i for i in Y if i <= 19600]
 print( len(_under_lim) )
 
 plt.xlim(0, lim)
