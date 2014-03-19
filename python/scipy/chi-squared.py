@@ -3,8 +3,8 @@
 import numpy as np
 import scipy.stats
 
-s = 20040
-f = 19960
+s = 20100
+f = 19900
 e = 20000
 
 observed = np.array([s,f])
