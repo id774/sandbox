@@ -1,8 +1,12 @@
+import numpy as np
 import scipy as sp
 from scipy import stats
 
-X = sp.array([90, 75, 75, 75, 80, 65, 75, 80])
-Y  = sp.array([95, 80, 80, 80, 75, 75, 80, 85])
+X = np.random.randint(65, 90, size=8)
+Y = np.random.randint(75, 95, size=8)
+
+print(X)
+print(Y)
 
 t, p = stats.ttest_rel(X, Y)
 
