@@ -3,9 +3,9 @@
 import numpy as np
 import scipy.stats
 
-s = 20100
-f = 19900
-e = 20000
+s = 55
+f = 45
+e = 50
 
 observed = np.array([s,f])
 expected = np.array([e,e])
