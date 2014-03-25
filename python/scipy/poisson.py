@@ -1,8 +1,5 @@
 from pylab import *
 import scipy.misc
-from pylab import *
-import matplotlib.pyplot as plt
-
 
 def poisson_pmf_gen(mu):
   e_mu = e ** mu
