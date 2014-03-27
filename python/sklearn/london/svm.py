@@ -37,5 +37,5 @@ def write_prediction(prediction, outfile):
         f.write('%s\n' % (x))
 
 test_model()
-save_predictions('output.txt')
+save_predictions('svm.txt')
 
