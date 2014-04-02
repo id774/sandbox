@@ -24,8 +24,8 @@ x2, p = stats.chisquare(rvs1, rvs2)
 print("カイ二乗値は %(x2)s" %locals() )
 print("確率は %(p)s" %locals() )
 
-if p > 0.05:
-    print("有意です")
+if p < 0.05:
+    print("有意な差があります")
 else:
-    print("有意ではありません")
+    print("有意な差がありません")
 
