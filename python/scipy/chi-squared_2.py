@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import numpy as np
 import scipy as sp
@@ -18,13 +18,14 @@ rvs2ave = np.average(rvs2)
 print( "rvs1 の平均は %(rvs1ave)s" %locals() )
 print( "rvs2 の平均は %(rvs2ave)s" %locals() )
 
-t, p = stats.ttest_rel(rvs1, rvs2)
+# Chi-squared test
+x2, p = stats.chisquare(rvs1, rvs2)
 
-print( "t 値は %(t)s" %locals() )
-print( "確率は %(p)s" %locals() )
+print("カイ二乗値は %(x2)s" %locals() )
+print("確率は %(p)s" %locals() )
 
-if p < 0.05:
-    print("有意な差があります")
+if p > 0.05:
+    print("有意です")
 else:
-    print("有意な差がありません")
+    print("有意ではありません")
 
