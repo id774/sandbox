@@ -10,9 +10,9 @@ y = np.array([1, 2, 3])
 
 print(X)
 
-clf = MultinomialNB()
+# clf = MultinomialNB()
+clf = MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True)
 clf.fit(X, y)
-MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True)
 
 _t = np.array([2,2,4,5,6,8,8,8])
 
