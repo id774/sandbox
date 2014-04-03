@@ -2,8 +2,8 @@ import numpy as np
 import scipy as sp
 from scipy import stats
 
-rvs1 = stats.norm.rvs(loc=1273,scale=29.5,size=10)
-rvs2 = stats.norm.rvs(loc=1286,scale=35.4,size=10)
+rvs1 = stats.norm.rvs(loc=1294,scale=34.5,size=50)
+rvs2 = stats.norm.rvs(loc=1311,scale=28.3,size=50)
 
 print( rvs1 )
 print( rvs2 )
