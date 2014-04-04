@@ -53,10 +53,12 @@ print(crossed_per)
 #f  0.120000    0.520000    0.360000
 #m  0.461538    0.153846    0.384615
 
-res = sp.stats.chi2_contingency(crossed)
-#p-value
-print(res[1])
+x2, p, dof, expected = sp.stats.chi2_contingency(crossed)
+print(x2)
+print(p)
 #=> 0.028280095
+print(dof)
+print(expected)
 
 def chi_sq_test(df):
     res = {}
