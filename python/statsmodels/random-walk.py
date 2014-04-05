@@ -19,7 +19,7 @@ plt.bar(range(len(acf)), acf, width = 0.01)
 plt.savefig("image.png")
 
 pcf = stattools.pacf(np.array(ts), 50)
-plt.bar(range(len(pcf)), pcf, width = 0.01) 
+plt.bar(range(len(pcf)), pcf, width = 0.01)
 plt.show()
 plt.savefig("image2.png")
 
