@@ -1,0 +1,29 @@
+# [Install]
+# sudo apt-get install graphviz
+# [Run]
+# dot -Tpng -o choose.png choose.dot
+#
+# http://blog.monophile.net/2014/02/blog-post_19.html
+
+digraph{                           
+        node       [fontname="IPAPGothic"]
+        edge       [fontname="IPAPGothic"]
+        node       [shape = box3d]; end iphone android wp gala ;
+        node       [shape = octagon];
+        start      [shape=doubleoctagon,label=スマートフォン持ってる？];
+        end        [label=<終わり>]
+        wp         [label="Windows Phone"]
+        gala       [label=ガラケー]
+        favapple   [label=Apple好き？]
+        programmer [label=あなたはプログラマ？]
+        english    [label=英語読める？]
+        start      -> end [ label = "YES" ];
+        start      -> favapple [ label = "NO" ];
+        favapple   -> iphone[label = "YES"]
+        favapple   -> programmer[ label= "NO" ]
+        programmer -> android [label="YES"]
+        programmer -> english[label="NO"]
+        english    -> wp[label="YES"]
+        english    -> gala[label="NO"]
+        gala       -> start
+}
