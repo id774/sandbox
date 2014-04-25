@@ -1,0 +1,12 @@
+auth:
+  consumer_key: YOUR_APP_KEY
+  consumer_secret: YOUR_APP_SECRET_KEY
+  oauth_token: YOUR_OAUTH_TOKEN
+  oauth_token_secret: YOUR_OAUTH_SECRET_TOKEN
+env:
+  source_screen_names: akazunoma
+  screen_name: akazunomabot
+  lince_last_updated: 30
+  interval: 10
+  await: 2
+
