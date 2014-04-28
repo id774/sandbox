@@ -6,7 +6,7 @@ auth:
 env:
   source_screen_names: akazunoma
   screen_name: akazunomabot
-  lince_last_updated: 30
+  since_last_updated: 30
   interval: 10
   await: 2
 
