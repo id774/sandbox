@@ -11,13 +11,15 @@ class Converter
 
   def start
     open(@filename) do |file|
+      headers = []
       file.each_line do |line|
         json = line.force_encoding("utf-8").strip
         hash = JSON.parse(json)
 
-        headers = []
-        headers.concat(hash.keys)
-        output(headers)
+        if headers.length == 0
+          headers.concat(hash.keys)
+          output(headers)
+        end
 
         row = []
         row.concat(hash.values)
