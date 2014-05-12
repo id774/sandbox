@@ -17,7 +17,7 @@ class Mapper
         tar_file = v if k == "tar_file"
       }
       if event_type == "location"
-        puts "#{mac_str},#{tar_file}\t#{json}\n" unless mac_str == ""
+        puts "#{mac_str},#{tar_file}\t1\n" unless mac_str == ""
       end
       event_type = mac_str = tar_file = ""
     }

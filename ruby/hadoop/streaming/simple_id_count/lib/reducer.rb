@@ -11,14 +11,14 @@ class Reducer
     key = newkey = ""
 
     stdin.each_line {|line|
-      newkey, json = line.strip.split("\t")
+      newkey, num = line.strip.split("\t")
       unless key == newkey
         puts "#{key}\t#{count}\n"
         key = newkey
         count = 0
         newkey = ""
       end
-      count += 1
+      count += num.to_i
     }
     puts "#{key}\t#{count}\n" unless key == ""
   end
