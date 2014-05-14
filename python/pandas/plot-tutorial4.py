@@ -5,7 +5,7 @@ import numpy as np
 from pandas import *
 import matplotlib.pyplot as plt
 
-tips = read_csv('tips.csv')
+tips = read_csv('tips.csv', sep=',')
 
 party_counts = crosstab(tips.day, tips.size)
 print( party_counts )
