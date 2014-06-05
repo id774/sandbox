@@ -16,8 +16,8 @@ class Mapper
         mac_str = v if k == "mac_str"
         tar_file = v if k == "tar_file"
       }
-      if event_type == "location"
-        puts "#{mac_str},#{tar_file}\t1\n" unless mac_str == ""
+      if event_type == "rssi"
+        puts "#{tar_file},#{mac_str}\t1\n" unless mac_str == ""
       end
       event_type = mac_str = tar_file = ""
     }

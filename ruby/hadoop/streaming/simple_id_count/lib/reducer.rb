@@ -13,14 +13,14 @@ class Reducer
     stdin.each_line {|line|
       newkey, num = line.strip.split("\t")
       unless key == newkey
-        puts "#{key}\t#{count}\n"
+        puts "#{key}\t#{count}\n" if count > 0
         key = newkey
         count = 0
         newkey = ""
       end
       count += num.to_i
     }
-    puts "#{key}\t#{count}\n" unless key == ""
+    puts "#{key}\t#{count}\n" if count > 0
   end
 end
 
