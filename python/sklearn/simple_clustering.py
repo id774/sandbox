@@ -14,4 +14,3 @@ ranks.sort(key=lambda x:(-x[2]))
 
 for rank in ranks:
     print(rank)
-
