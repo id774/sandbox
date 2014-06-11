@@ -31,12 +31,14 @@ class Analyzer:
         self._read_from_file()
 
 if __name__=='__main__':
-    if sys.version_info > (3,0):
-        if len(sys.argv) > 1:
+    argsmin = 1
+    version = (3,0)
+    if sys.version_info > (version):
+        if len(sys.argv) > argsmin:
             analyzer = Analyzer(sys.argv)
             analyzer.start()
         else:
-            print("Invalid arguments")
+            print("This program needs at least %(argsmin)s arguments" %locals())
     else:
-        print("This program require python > 3.0")
+        print("This program require python > %(version)s" %locals() )
 

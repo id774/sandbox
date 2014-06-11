@@ -81,16 +81,17 @@ class Analyzer:
             for text in texts:
                 f.write('%d: %s\n' % (i, text.replace('/n', '')))
 
-if __name__ == '__main__':
-    if sys.version_info > (3,0):
-        if len(sys.argv) > 2:
+if __name__=='__main__':
+    argsmin = 2
+    version = (3,0)
+    if sys.version_info > (version):
+        if len(sys.argv) > argsmin:
             analyzer = Analyzer(sys.argv)
             clusters = analyzer.make_cluster()
             print("Result clusters are %(clusters)s" %locals() )
             analyzer.write_cluster(clusters)
-
         else:
-            print("Invalid arguments")
+            print("This program needs at least %(argsmin)s arguments" %locals())
     else:
-        print("This program require python > 3.0")
+        print("This program require python > %(version)s" %locals() )
 

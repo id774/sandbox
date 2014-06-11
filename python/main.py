@@ -1,6 +1,6 @@
 import sys
 
-class Analyzer:
+class MainClass:
     def __init__(self, args):
         self.args1 = args[1]
         self.args2 = args[2]
@@ -14,8 +14,8 @@ if __name__ == '__main__':
     version = (3,0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
-            analyzer = Analyzer(sys.argv)
-            analyzer.main()
+            main_instance = MainClass(sys.argv)
+            main_instance.main()
         else:
             print("This program needs at least %(argsmin)s arguments" %locals())
     else:
