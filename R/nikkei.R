@@ -1,5 +1,3 @@
-
-# あ
 nikkei225 <- read.csv('nikkei_stock_average_daily_jp.csv')
 colnames(nikkei225) <- c("date","close", "open", "high", "low")
 attach(nikkei225)
