@@ -1,4 +1,4 @@
-import numpy as np
+import sys
 
 def is_prime(q):
     q = abs(q)
@@ -6,6 +6,6 @@ def is_prime(q):
     if q < 2 or q&1 == 0: return False
     return pow(2, q-1, q) == 1
 
-for x in range(30100):
+for x in range(int(sys.argv[1])):
     print(x,is_prime(x))
 
