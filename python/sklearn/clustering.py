@@ -93,5 +93,5 @@ if __name__=='__main__':
         else:
             print("This program needs at least %(argsmin)s arguments" %locals())
     else:
-        print("This program require python > %(version)s" %locals() )
+        print("This program requires python > %(version)s" %locals() )
 
