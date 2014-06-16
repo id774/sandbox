@@ -8,6 +8,7 @@ class MainClass:
     def main(self):
         print(self.args1)
         print(self.args2)
+        print(len(sys.argv))
 
 if __name__ == '__main__':
     argsmin = 2
