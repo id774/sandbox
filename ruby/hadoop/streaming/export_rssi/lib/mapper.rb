@@ -11,12 +11,20 @@ class Mapper
 
     stdin.each_line {|line|
       json = line.force_encoding("utf-8").strip
+
       JSON.parse(json).each {|k,v|
-        event_type = v if k == "event_type"
-        mac_str = v if k == "mac_str"
-        tar_file = v if k == "tar_file"
-        timestamp = format("%010d", v) if k == "timestamp"
-        rmac_str = v if k == "rmac_str"
+        case k
+        when "event_type"
+          event_type = v
+        when "mac_str"
+          mac_str = v
+        when "tar_file"
+          tar_file = v
+        when "timestamp"
+          timestamp = format("%010d", v)
+        when "rmac_str"
+          rmac_str = v
+        end
       }
       if event_type == "rssi"
         puts "#{tar_file},#{mac_str},#{timestamp}\t#{rmac_str}\n" unless mac_str == ""
