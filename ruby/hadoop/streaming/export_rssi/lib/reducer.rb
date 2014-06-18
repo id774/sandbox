@@ -28,7 +28,6 @@ class Reducer
         newkey = ""
       end
     }
-    puts "#{tar_file}\t#{mac_str}\t#{rmac_str}\t#{timestamp}\t#{humantime}\t#{time_diff}\n"
   end
 end
 
