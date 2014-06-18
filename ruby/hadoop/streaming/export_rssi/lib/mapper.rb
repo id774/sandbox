@@ -26,9 +26,11 @@ class Mapper
           rmac_str = v
         end
       }
+
       if event_type == "rssi"
         puts "#{tar_file},#{mac_str},#{timestamp}\t#{rmac_str}\n" unless mac_str == ""
       end
+
       event_type = mac_str = tar_file = timestamp = rmac_str = ""
     }
   end
