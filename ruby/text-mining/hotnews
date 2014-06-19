@@ -2,14 +2,14 @@
 
 JOBLOG=/var/log/fluent/hotnews.log
 
-echo -n "*** $0: Job start at `/bin/hostname` on ">>$JOBLOG 2>&1
+echo -n "*** $0: Job started on `/bin/hostname` at ">>$JOBLOG 2>&1
 date "+%Y/%m/%d %T">>$JOBLOG 2>&1
 
 /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/fluentd_wordcount.rb>>$JOBLOG 2>&1
 /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/news_hottopic.rb>>$JOBLOG 2>&1
 cd /home/fluent/.fluent && /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/upload_news_amazons3.rb>>$JOBLOG 2>&1
 
-echo -n "*** $0: End of Job at `/bin/hostname` on ">>$JOBLOG 2>&1
+echo -n "*** $0: Job ended on `/bin/hostname` at ">>$JOBLOG 2>&1
 date "+%Y/%m/%d %T">>$JOBLOG 2>&1
 echo>>$JOBLOG 2>&1
 
