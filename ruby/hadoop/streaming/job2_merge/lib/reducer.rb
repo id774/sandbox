@@ -8,19 +8,32 @@ class Reducer
     key = newkey = ""
     rmacs = []
     rvals = []
+    line_buffer = ""
 
     stdin.each_line {|line|
       tar_file, mac_str, rmac_str, rssi_val, timestamp, humantime, time_diff, merge_flag = line.strip.split("\t")
 
-      rmacs.push(rmac_str)
-      rvals.push(rssi_val)
-
-      unless merge_flag == "+"
-        puts "#{tar_file}\t#{mac_str}\t#{rmacs.join(',')}\t#{rvals.join(',')}\t#{timestamp}\t#{humantime}\t#{time_diff}\n"
+      if merge_flag == "-"
+        unless line_buffer == ""
+          tar_file, mac_str, rmac_str, rssi_val, timestamp, humantime, time_diff, merge_flag = line_buffer.strip.split("\t")
+          rmacs.push(rmac_str)
+          rvals.push(rssi_val)
+          puts "#{tar_file}\t#{mac_str}\t#{rmacs.join(',')}\t#{rvals.join(',')}\t#{timestamp}\t#{humantime}\t#{time_diff}\n"
+        end
+        line_buffer = line
         rmacs = []
         rvals = []
+      else
+        rmacs.push(rmac_str)
+        rvals.push(rssi_val)
       end
     }
+    unless line_buffer == ""
+      tar_file, mac_str, rmac_str, rssi_val, timestamp, humantime, time_diff, merge_flag = line_buffer.strip.split("\t")
+      rmacs.push(rmac_str)
+      rvals.push(rssi_val)
+      puts "#{tar_file}\t#{mac_str}\t#{rmacs.join(',')}\t#{rvals.join(',')}\t#{timestamp}\t#{humantime}\t#{time_diff}\n"
+    end
   end
 end
 
