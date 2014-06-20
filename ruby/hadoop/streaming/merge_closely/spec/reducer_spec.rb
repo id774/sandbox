@@ -23,7 +23,7 @@ describe Reducer do
       "20140312.tar.gz\tCCDDEEAA2233\tShop14\t26\t1394559946\t2014-03-12 02:45:46 +0900\t-1\n"
     }
 
-    it 'Mapper の出力のうち一定時間感覚以内のレコードについてはまとめて出力される' do
+    it 'Mapper の出力のうち一定間隔以内のレコードについてはまとめて出力される' do
       expect(subject).to eq expected
     end
   end
