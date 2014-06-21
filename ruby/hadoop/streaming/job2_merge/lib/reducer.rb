@@ -6,34 +6,12 @@ $:.unshift File.join(File.dirname(__FILE__))
 class Reducer
   def self.reduce(stdin)
     key = newkey = ""
-    rmacs = []
-    rvals = []
-    line_buffer = ""
 
     stdin.each_line {|line|
-      tar_file, mac_str, rmac_str, rssi_val, timestamp, humantime, time_diff, merge_flag = line.strip.split("\t")
-
-      if merge_flag == "-"
-        unless line_buffer == ""
-          tar_file, mac_str, rmac_str, rssi_val, timestamp, humantime, time_diff, merge_flag = line_buffer.strip.split("\t")
-          rmacs.push(rmac_str)
-          rvals.push(rssi_val)
-          puts "#{tar_file}\t#{mac_str}\t#{rmacs.join(',')}\t#{rvals.join(',')}\t#{timestamp}\t#{humantime}\t#{time_diff}\n"
-        end
-        line_buffer = line
-        rmacs = []
-        rvals = []
-      else
-        rmacs.push(rmac_str)
-        rvals.push(rssi_val)
-      end
+      key, mac_str, rmac_str, rssi_val, humantime, time_diff = line.strip.split("\t")
+      tar_file, timestamp = key.split(",")
+      puts "#{tar_file}\t#{timestamp}\t#{mac_str}\t#{rmac_str}\t#{rssi_val}\t#{humantime}\t#{time_diff}\n"
     }
-    unless line_buffer == ""
-      tar_file, mac_str, rmac_str, rssi_val, timestamp, humantime, time_diff, merge_flag = line_buffer.strip.split("\t")
-      rmacs.push(rmac_str)
-      rvals.push(rssi_val)
-      puts "#{tar_file}\t#{mac_str}\t#{rmacs.join(',')}\t#{rvals.join(',')}\t#{timestamp}\t#{humantime}\t#{time_diff}\n"
-    end
   end
 end
 
