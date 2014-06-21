@@ -27,7 +27,7 @@ describe Mapper do
       "20140312.tar.gz,1394560109\tECDDEEAA2234\tShop10\t33\t2014-03-12 02:48:29 +0900\t60\n"
     }
 
-    it '一定時間間隔以内の同一キーの場合は + を付与、そうでない場合は - を付与する' do
+    it '一定時間間隔以内の同一キーの場合を除去してデータを出力する' do
       expect(subject).to eq expected
     end
   end
