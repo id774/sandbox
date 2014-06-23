@@ -6,7 +6,7 @@ import MeCab
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-home = os.environ['HOME']
+home = os.path.expanduser('~')
 target_dir = os.path.join(home, 'tmp', 'doc')
 token_dict = {}
 
