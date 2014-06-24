@@ -6,16 +6,17 @@ class Analyzer:
     def __init__(self, args):
         self.infile = args[1]
         self.prefix = args[2]
+        self.file_prefix = self.prefix.replace(' ','_')
         self.dic = {}
 
     def _plot_dic(self):
         s = pd.Series(self.dic)
-        print(s)
+        s.to_csv(self.file_prefix + '.csv')
         fig = plt.figure()
         ax = fig.add_subplot(1,1,1)
         s.plot(kind='bar')
         plt.show()
-        plt.savefig(self.prefix.replace(' ','_') + '.png')
+        plt.savefig(self.file_prefix + '.png')
 
     def _read_from_file(self):
         file = open(self.infile, 'r')
