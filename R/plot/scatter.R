@@ -21,5 +21,15 @@ text(population[kenmei=="東京都"]/1000,
 text(population[kenmei=="北海道"]/1000,
      area[kenmei=="北海道"]/10000,
      "北海道", pos=1)
+text(population[kenmei=="埼玉県"]/1000,
+     area[kenmei=="埼玉県"]/10000,
+     "埼玉", pos=3)
+text(population[kenmei=="千葉県"]/1000,
+     area[kenmei=="千葉県"]/10000,
+     "千葉", pos=3)
+text(population[kenmei=="神奈川県"]/1000,
+     area[kenmei=="神奈川県"]/10000,
+     "神奈川", pos=3)
+
 title("都道府県の人口と面積")
 title(ylab=expression(paste("面積（万", km^2, "）")), line=2.5)
