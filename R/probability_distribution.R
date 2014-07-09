@@ -15,7 +15,7 @@ draw <- function (x, image) {
 }
 
 x = runif(n, min=0, max=1)
-draw(x, 'unif.png')
+draw(x, 'runif.png')
 x = rnorm(n, mean=0, sd=1)
 draw(x, 'rnorm.png')
 x = rlnorm(n, meanlog = 0, sdlog = 1)
