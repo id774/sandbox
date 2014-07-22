@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3.js</title>
+    <script type="text/javascript" src="/d3/d3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>D3.js</h1>
+    <script type="text/javascript">
+      var dataset = [
+        25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+        14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+        24, 18, 25, 9, 3
+      ];
+      var da = function(d) { return d; };
+      var hi = function(d) {
+        var barHeight = d * 5;
+        return barHeight + "px";
+      };
+      var rb = function(d) {
+        if (d >= 15) {
+          return "red";
+        } else {
+          return "black";
+        };
+      };
+      d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("div")
+        .attr("class", "bar")
+        .style("height", hi);
+    </script>
+  </body>
+</html>
