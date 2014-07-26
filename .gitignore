@@ -25,3 +25,4 @@ tags
 *.out
 *.png
 Rplots.pdf
+.Rhistory
