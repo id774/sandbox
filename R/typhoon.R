@@ -11,7 +11,7 @@ bst <- readLines('http://www.jma.go.jp/jma/jma-eng/jma-center/rsmc-hp-pub-eg/Bes
 # ヘッダー（はじめが 66666 ）を抜き出す
 header <- read.table(textConnection(bst[grep("^66666", bst)]))
 
- レコード部分（それ以外）を抜き出す
+# レコード部分（それ以外）を抜き出す
 record<-read.table(textConnection(bst[-grep("^66666", bst)]),fill=TRUE)
 
 # 行の長さが違うので、入らないところカット
