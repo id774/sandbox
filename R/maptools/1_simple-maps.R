@@ -19,14 +19,28 @@ orstations.shp <- readShapePoints('orstations.shp',
 # browse to orcounty.shp
 orcounty.shp <- readShapePoly('orcounty.shp',
     proj4string=CRS("+proj=longlat"))
+
+# Read CSV
 orstationc <- read.csv("orstationc.csv")
 orcountyp <- read.csv("orcountyp.csv")
 cities <- read.csv("cities2.csv")
 
+# View Data
 summary(orcounty.shp)
 attributes(orcounty.shp)
 attributes(orcounty.shp@data)
 attr(orcounty.shp,"polygons")
+
+# Empty plot
+png("image0-1.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+plot(orotl.shp, xlim=c(-124.5, -115), ylim=c(42,47))
+dev.off()
+png("image0-2.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+plot(orcounty.shp, xlim=c(-124.5, -115), ylim=c(42,47))
+dev.off()
+png("image0-3.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+plot(orstations.shp, xlim=c(-124.5, -115), ylim=c(42,47))
+dev.off()
 
 # Oregon county census data -- attribute data in the orcounty.shp shape file
 png("image1-1.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)

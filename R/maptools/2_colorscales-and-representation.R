@@ -19,6 +19,8 @@ orstations.shp <- readShapePoints('orstations.shp',
 # browse to orcounty.shp
 orcounty.shp <- readShapePoly('orcounty.shp',
     proj4string=CRS("+proj=longlat"))
+
+# Read CSV
 orstationc <- read.csv("orstationc.csv")
 orcountyp <- read.csv("orcountyp.csv")
 cities <- read.csv("cities2.csv")
