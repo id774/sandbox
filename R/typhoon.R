@@ -7,7 +7,7 @@ map(xlim=c(121, 155), ylim=c(20, 50))
 
 # データ取り込み
 #bst <- readLines('http://www.jma.go.jp/jma/jma-eng/jma-center/rsmc-hp-pub-eg/Besttracks/bst2013.txt')
-bst <- read.Lines('bst2013.txt')
+bst <- readLines('bst2013.txt')
 
 # ヘッダー（はじめが 66666 ）を抜き出す
 header <- read.table(textConnection(bst[grep("^66666", bst)]))
