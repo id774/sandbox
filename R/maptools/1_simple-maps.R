@@ -1,8 +1,9 @@
-# http://geog.uoregon.edu/geogr/topics/maps.htm
 library(gpclib)
 library(maptools)     # loads sp library too
 library(RColorBrewer) # creates nice color schemes
 library(classInt)     # finds class intervals for continuous variables
+
+gpclibPermit()
 
 # outlines of Oregon counties (lines)
 # browse to orotl.shp
@@ -27,7 +28,7 @@ attributes(orcounty.shp)
 attributes(orcounty.shp@data)
 attr(orcounty.shp,"polygons")
 
-png("image1.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+png("image1-1.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 plotvar <- orcounty.shp@data$POP1990
 nclr <- 8
 plotclr <- brewer.pal(nclr,"BuPu")
@@ -42,7 +43,7 @@ legend(-117, 44, legend=names(attr(colcode, "table")),
     fill=attr(colcode, "palette"), cex=0.6, bty="n")
 dev.off()
 
-png("image2.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+png("image1-2.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 plotvar <- orstationc$tann
 nclr <- 8
 plotclr <- brewer.pal(nclr,"PuOr")
@@ -59,7 +60,7 @@ legend(-117, 44, legend=names(attr(colcode, "table")),
     fill=attr(colcode, "palette"), cex=0.6, bty="n")
 dev.off()
 
-png("image3.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+png("image1-3.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 plotvar <- orstations.shp@data$pann
 nclr <- 5
 plotclr <- brewer.pal(nclr,"BuPu")
