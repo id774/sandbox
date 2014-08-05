@@ -11,14 +11,14 @@ int main()
     std::sort(s.begin(), s.end());
     for (int a : s) {
         std::cout << a << " ";
-    }   
+    }
     std::cout << '\n';
 
     // sort using a standard library compare function object
     std::sort(s.begin(), s.end(), std::greater<int>());
     for (int a : s) {
         std::cout << a << " ";
-    }   
+    }
     std::cout << '\n';
 
     // sort using a custom function object
@@ -31,7 +31,7 @@ int main()
     std::sort(s.begin(), s.end(), customLess);
     for (int a : s) {
         std::cout << a << " ";
-    }   
+    }
     std::cout << '\n';
 
     // sort using a lambda expression

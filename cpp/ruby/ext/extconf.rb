@@ -2,4 +2,4 @@ require 'mkmf'
 
 have_library("stdc++")
 
-create_makefile("hello") 
+create_makefile("hello")
