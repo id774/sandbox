@@ -7,12 +7,12 @@
 using namespace std;
 
 Sort::Sort(const char* values) {
-  this->_sig  = _signature;
-  this->_values = values;
+    this->_sig  = _signature;
+    this->_values = values;
 }
 
 std::string Sort::greet() const {
-  std::ostringstream ret;
+    std::ostringstream ret;
 
     ret << "My name is "
         << this->_values
@@ -57,5 +57,5 @@ std::string Sort::greet() const {
     }
     ret << '\n';
 
-  return ret.str();
+    return ret.str();
 }
