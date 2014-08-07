@@ -4,12 +4,12 @@
 import sys, os
 import codecs
 
-class Analyzer:
+class FileSplitter:
     def __init__(self, args):
         self.infile = args[1]
         self.key = ""
 
-    def _read_from_file(self):
+    def split(self):
         file = open(self.infile, 'r')
         for line in file:
             tarfile, timestamp, mac_str, area, rssi_val, humandate, interval = line.rstrip().split("\t")
@@ -26,15 +26,15 @@ class Analyzer:
         file.close
 
     def main(self):
-        self._read_from_file()
+        self.split()
 
 if __name__ == '__main__':
     argsmin = 1
     version = (3,0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
-            analyzer = Analyzer(sys.argv)
-            analyzer.main()
+            splitter = FileSplitter(sys.argv)
+            splitter.main()
         else:
             print("This program needs at least %(argsmin)s arguments" %locals())
     else:
