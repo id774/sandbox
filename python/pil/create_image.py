@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
-from PIL import Image,ImageDraw
+import os
+import sys
+from PIL import Image, ImageDraw
 
 for infile in sys.argv[1:]:
     f, e = os.path.splitext(infile)
@@ -11,4 +12,3 @@ for infile in sys.argv[1:]:
             Image.open(infile).save(outfile)
         except IOError:
             print "cannot convert", infile
-

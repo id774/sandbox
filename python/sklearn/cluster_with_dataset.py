@@ -1,7 +1,8 @@
 import numpy as np
 from sklearn.cluster import KMeans
 
-import sys, os
+import sys
+import os
 import codecs
 import numpy as np
 
@@ -17,7 +18,7 @@ x = dataset.data
 
 kmeans_model = KMeans(n_clusters=3, random_state=1).fit(x)
 labels = kmeans_model.labels_
-print ( metrics.silhouette_score(x, labels, metric='euclidean') )
+print(metrics.silhouette_score(x, labels, metric='euclidean'))
 
 def make_cluster(datasets):
     num_clusters = 5
@@ -25,9 +26,10 @@ def make_cluster(datasets):
     max_df = 0.8
     max_features = 10000
     minibatch = True
-    print("datasets are %(datasets)s" %locals() )
+    print("datasets are %(datasets)s" % locals())
 
-    km = MiniBatchKMeans(n_clusters=num_clusters, init='k-means++', batch_size=1000, n_init=10, max_no_improvement=10, verbose=True)
+    km = MiniBatchKMeans(n_clusters=num_clusters, init='k-means++',
+                         batch_size=1000, n_init=10, max_no_improvement=10, verbose=True)
     km.fit(datasets)
     labels = km.labels_
 
@@ -39,9 +41,9 @@ def make_cluster(datasets):
     clusters = []
     for i in range(num_clusters):
         cluster = []
-        ii = np.where(labels==i)[0]
+        ii = np.where(labels == i)[0]
         dd = dists[ii]
-        di = np.vstack([dd,ii]).transpose().tolist()
+        di = np.vstack([dd, ii]).transpose().tolist()
         di.sort()
         for d, j in di:
             cluster.append(datasets[int(j)])
@@ -57,4 +59,4 @@ def write_cluster(clusters, outfile):
 
 clusters = make_cluster(x)
 write_cluster(clusters, 'out.txt')
-print ( clusters )
+print(clusters)

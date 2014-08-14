@@ -11,7 +11,7 @@ sample = np.array([
     [4, 0, 0],
     [3, 2, 0],
     [3, 0, 2]
-    ])
+])
 
 tfidf = transformer.fit_transform(sample)
 print(tfidf.toarray())

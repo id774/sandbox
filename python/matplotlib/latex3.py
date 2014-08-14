@@ -6,7 +6,7 @@ import matplotlib.pyplot as mpl
 
 # Let's create a function to model and create data
 def func(x, a, x0, sigma):
-    return a*np.exp(-(x-x0)**2/(2*sigma**2))
+    return a * np.exp(-(x - x0) ** 2 / (2 * sigma ** 2))
 
 # Generating clean data
 x = np.linspace(0, 20, 200)
@@ -28,7 +28,7 @@ fig.savefig('model_and_noise_multiple.png')
 # Executing curve_fit on noisy data
 popt, pcov = curve_fit(func, x, yn)
 
-#popt returns the best fit values for parameters of the given model (func)
+# popt returns the best fit values for parameters of the given model (func)
 print(popt)
 
 ym = func(x, popt[0], popt[1], popt[2])

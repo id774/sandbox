@@ -7,12 +7,12 @@
 # 正規分布における確率密度を示す関数
 
 import math
-def gaussian(dist,sigma=10.0):
-    exp=math.e**(-dist**2/(2*sigma**2))
-    return (1/(sigma*(2*math.pi)**.5))*exp
+def gaussian(dist, sigma=10.0):
+    exp = math.e ** (-dist ** 2 / (2 * sigma ** 2))
+    return (1 / (sigma * (2 * math.pi) ** .5)) * exp
 
-#print gaussian(0.1)
-#print gaussian(1.0)
-#print gaussian(5.0)
-#print gaussian(0.0)
-#print gaussian(3.0)
+# print gaussian(0.1)
+# print gaussian(1.0)
+# print gaussian(5.0)
+# print gaussian(0.0)
+# print gaussian(3.0)

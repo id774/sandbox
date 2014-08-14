@@ -8,4 +8,3 @@ def test_factorial():
     i = 10
     e = 3628800
     eq_(e, factorial(i))
-

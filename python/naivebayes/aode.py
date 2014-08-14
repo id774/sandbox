@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys, os
+import sys
+import os
 import json
 from collections import defaultdict
 from itertools import permutations
 
 class AODE(object):
+
     """
     aode = AODE()
     training_data = [(1, {'a': 2, 'b': 2}), (2, {'a': 1, 'c': 4})]
@@ -58,16 +60,21 @@ class AODE(object):
         """attributeがペアレントの時に、documentがcategoryに属するスコアを算出する
         P(category, attribute) * ΠP(word|category, attribute)
         """
-        score = (self.category_word_count[category][attribute] + 1.0) / len(self.word_count) + len(self.all_categories)
+        score = (self.category_word_count[category][
+                 attribute] + 1.0) / len(self.word_count) + len(self.all_categories)
         for word, count in document.items():
-            score *= count * self._calc_one_dependence_probability(word, category, attribute)
+            score *= count * \
+                self._calc_one_dependence_probability(
+                    word, category, attribute)
         return score
 
     def _calc_one_dependence_probability(self, word, category, attribute):
         """P(word|category, attribute)
         """
-        numerator = self.category_word_pair_count[category][(word, attribute)] + 1.0
-        denominator = self.category_word_count[category][word] + len(self.word_count)
+        numerator = self.category_word_pair_count[
+            category][(word, attribute)] + 1.0
+        denominator = self.category_word_count[
+            category][word] + len(self.word_count)
         return 1.0 * numerator / denominator
 
 def main(args):
@@ -88,7 +95,7 @@ def main(args):
     file = open(classify_txt, 'r')
 
     correct = 0
-    wrong   = 0
+    wrong = 0
 
     for line in file:
         key, tag, value = line.rstrip().split("\t")
@@ -104,18 +111,17 @@ def main(args):
         else:
             json_obj['evaluate'] = False
             wrong += 1
-        json_dump = json.dumps(json_obj,ensure_ascii=False)
+        json_dump = json.dumps(json_obj, ensure_ascii=False)
         print(key + "\t" + tag + "\t" + json_dump)
 
-    print("Correct:"  + str(correct))
-    print("Wrong:"    + str(wrong))
+    print("Correct:" + str(correct))
+    print("Wrong:" + str(wrong))
     print("Accuracy:" + str(correct / (correct + wrong)))
 
     file.close()
 
-if __name__=='__main__':
+if __name__ == '__main__':
     if len(sys.argv) > 2:
         main(sys.argv)
     else:
         print("Invalid arguments")
-

@@ -14,7 +14,7 @@ data = macro[['cpi', 'm1', 'tbilrate', 'unemp']]
 trans_data = np.log(data).diff().dropna()
 
 # trans_data の最後の 5 行を表示
-print( trans_data[-5:] )
+print(trans_data[-5:])
 
 # 2 つの列から散布図をプロッティング
 plt.scatter(trans_data['m1'], trans_data['unemp'])
@@ -27,4 +27,3 @@ scatter_matrix(trans_data, diagonal='kde', color='k', alpha=0.3)
 
 plt.show()
 plt.savefig("image2.png")
-

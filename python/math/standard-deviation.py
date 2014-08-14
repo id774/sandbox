@@ -18,4 +18,3 @@ if __name__ == '__main__':
     b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for x in [a, b]:
         print "MEAN = %g, SD = %g" % mean_sd(x)
-

@@ -33,4 +33,3 @@ pylab.boxplot(score_y)
 
 pylab.show()
 pylab.savefig("image.png")
-

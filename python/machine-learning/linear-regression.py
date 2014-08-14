@@ -13,7 +13,7 @@ def phi(x):
 PHI = np.array([phi(x) for x in X])
 w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, t))
 
-print("線形回帰の値は %(w)s" %locals() )
+print("線形回帰の値は %(w)s" % locals())
 
 xlist = np.arange(0, 1, 0.01)
 ylist = [np.dot(w, phi(x)) for x in xlist]
@@ -26,7 +26,8 @@ plt.savefig("image.png")
 alpha = 0.1
 beta = 9.0
 
-Sigma_N = np.linalg.inv(alpha * np.identity(PHI.shape[1]) + beta * np.dot(PHI.T, PHI))
+Sigma_N = np.linalg.inv(
+    alpha * np.identity(PHI.shape[1]) + beta * np.dot(PHI.T, PHI))
 mu_N = beta * np.dot(Sigma_N, np.dot(PHI.T, t))
 
-print("ベイズ線形回帰の値は %(mu_N)s" %locals() )
+print("ベイズ線形回帰の値は %(mu_N)s" % locals())

@@ -62,4 +62,3 @@ pylab.plot(new_x, confidence[2], 'c', linewidth=1)
 
 pylab.show()
 pylab.savefig("image.png")
-

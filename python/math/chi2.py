@@ -33,4 +33,3 @@ if __name__ == '__main__':
     array[3][1] = 3
     print(array)
     print(chi2(array))
-

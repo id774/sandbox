@@ -13,16 +13,16 @@ def call_func():
     return add_and_sum(x, y)
 
 def main(args):
-    print( call_func() )
+    print(call_func())
 
 if __name__ == '__main__':
     argsmin = 0
-    version = (3,0)
+    version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
             sys.exit(main(sys.argv))
         else:
-            print("This program needs at least %(argsmin)s arguments" %locals())
+            print("This program needs at least %(argsmin)s arguments" %
+                  locals())
     else:
-        print("This program requires python > %(version)s" %locals())
-
+        print("This program requires python > %(version)s" % locals())

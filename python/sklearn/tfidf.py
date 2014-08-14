@@ -27,4 +27,3 @@ tfs = tfidf.fit_transform(token_dict.values())
 
 print(token_dict)
 print(tfs.toarray())
-

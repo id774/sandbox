@@ -14,4 +14,3 @@ import time
 for f in calc_fibonacci():
     print(f)
     time.sleep(0.1)
-

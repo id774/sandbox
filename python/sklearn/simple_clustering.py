@@ -10,7 +10,7 @@ ranks = []
 for label, feature in zip(labels, features):
     ranks.append([label, feature, feature.sum()])
 
-ranks.sort(key=lambda x:(-x[2]))
+ranks.sort(key=lambda x: (-x[2]))
 
 for rank in ranks:
     print(rank)

@@ -183,8 +183,8 @@ data4 = [
 ]
 
 data = [
-    (0, 15.6),  (1, 15.0),  (2, 15.8),  (3, 16.1), (4, 16.9),
-    (5, 15.4),  (6, 15.0),  (7, 16.0),  (8, 15.7), (9, 14.9),
+    (0, 15.6), (1, 15.0), (2, 15.8), (3, 16.1), (4, 16.9),
+    (5, 15.4), (6, 15.0), (7, 16.0), (8, 15.7), (9, 14.9),
     (10, 15.7), (11, 15.2), (12, 16.3), (13, 15.4), (14, 16.4),
     (15, 17.0), (16, 16.4), (17, 16.0), (18, 15.5), (19, 16.9),
     (20, 16.3), (21, 15.8), (22, 16.7), (23, 16.7), (24, 17.0),
@@ -194,25 +194,25 @@ data = [
 
 data = data1
 
-print ( correlation(data) )
-print ( correlation2(data) )
-print ( rank_correlation(data) )
-print ( regression(data) )
-print ( regression2(data) )
-print ( correlation(data) )
-print ( regression(data) )
+print(correlation(data))
+print(correlation2(data))
+print(rank_correlation(data))
+print(regression(data))
+print(regression2(data))
+print(correlation(data))
+print(regression(data))
 
 v1, v2 = split_array(data)
-print (v1)
-print (v2)
-print ( np.corrcoef(v1, v2) )
+print(v1)
+print(v2)
+print(np.corrcoef(v1, v2))
 
 def plot2data(v1, v2, filename):
     plt.xlim(0, 12)
     plt.ylim(0, 20)
 
     def phi(x):
-        return [1, x, x**2, x**3]
+        return [1, x, x ** 2, x ** 3]
 
     def f(w, x):
         return np.dot(w, phi(x))
@@ -230,7 +230,6 @@ def plot2data(v1, v2, filename):
     plt.savefig(filename)
 
 v1, v2 = split_array(data)
-print (v1)
-print (v2)
+print(v1)
+print(v2)
 plot2data(v1, v2, "image.png")
-

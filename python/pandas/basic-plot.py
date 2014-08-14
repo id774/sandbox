@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import font_manager
 
-fontprop = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+fontprop = matplotlib.font_manager.FontProperties(
+    fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
 ts = Series(randn(1000), index=date_range('1/1/2000', periods=1000))
 ts = ts.cumsum()
@@ -26,39 +27,45 @@ df.plot()
 plt.legend(loc='best')
 
 ax = df.plot(secondary_y=['A', 'B'])
-ax.set_ylabel('CD の売上', fontdict = {"fontproperties": fontprop})
-ax.right_ax.set_ylabel('AB スケール', fontdict = {"fontproperties": fontprop})
+ax.set_ylabel('CD の売上', fontdict={"fontproperties": fontprop})
+ax.right_ax.set_ylabel('AB スケール', fontdict={"fontproperties": fontprop})
 
 plt.show()
 plt.savefig("image2.png")
 
-df.plot(subplots=True, figsize=(6, 6)); plt.legend(loc='best')
+df.plot(subplots=True, figsize=(6, 6))
+plt.legend(loc='best')
 
 plt.show()
 plt.savefig("image3.png")
 
 fig, axes = plt.subplots(nrows=2, ncols=2)
-df['A'].plot(ax=axes[0,0]); axes[0,0].set_title('A')
-df['B'].plot(ax=axes[0,1]); axes[0,1].set_title('B')
-df['C'].plot(ax=axes[1,0]); axes[1,0].set_title('C')
-df['D'].plot(ax=axes[1,1]); axes[1,1].set_title('D')
+df['A'].plot(ax=axes[0, 0])
+axes[0, 0].set_title('A')
+df['B'].plot(ax=axes[0, 1])
+axes[0, 1].set_title('B')
+df['C'].plot(ax=axes[1, 0])
+axes[1, 0].set_title('C')
+df['D'].plot(ax=axes[1, 1])
+axes[1, 1].set_title('D')
 
 plt.show()
 plt.savefig("image4.png")
 
-plt.figure();
-df.ix[5].plot(kind='bar'); plt.axhline(0, color='k')
+plt.figure()
+df.ix[5].plot(kind='bar')
+plt.axhline(0, color='k')
 
 plt.show()
 plt.savefig("image5.png")
 
 df2 = DataFrame(rand(10, 4), columns=['a', 'b', 'c', 'd'])
-df2.plot(kind='bar');
+df2.plot(kind='bar')
 
 plt.show()
 plt.savefig("image6.png")
 
-df2.plot(kind='barh', stacked=True);
+df2.plot(kind='barh', stacked=True)
 plt.figure()
 df['A'].diff().hist()
 
@@ -100,4 +107,3 @@ plt.figure()
 dd.plot(kind='bar', colormap='Greens')
 plt.show()
 plt.savefig("image14.png")
-

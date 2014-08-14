@@ -23,4 +23,3 @@ ax.plot([s1, s2, s3], marker='.', linestyle='None', )
 
 plt.show()
 plt.savefig("image.png")
-

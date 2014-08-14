@@ -4,7 +4,7 @@ import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import numpy as np
 
-img = np.random.rand(32,32)
+img = np.random.rand(32, 32)
 plt.imshow(img)
 
 plt.show()

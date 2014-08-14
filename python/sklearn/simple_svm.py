@@ -20,8 +20,7 @@ ranks = []
 for result, feature in zip(results, test_X):
     ranks.append([result, feature, feature.sum()])
 
-ranks.sort(key=lambda x:(-x[2]))
+ranks.sort(key=lambda x: (-x[2]))
 
 for rank in ranks:
     print(rank)
-

@@ -6,6 +6,7 @@ h = hpy()
 N = 100000
 
 class Hoge(object):
+
     def __init__(self):
         self.x = 1
         self.y = 1

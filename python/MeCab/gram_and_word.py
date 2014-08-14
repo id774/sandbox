@@ -12,11 +12,10 @@ while m:
         continue
     feat = m.feature
     arr = feat.split(',')
-    gram = arr[0] #品詞
-    word = arr[6] #原形
+    gram = arr[0]  # 品詞
+    word = arr[6]  # 原形
     if gram in ('名詞', '動詞', '形容詞'):
         print(gram, word)
 
     cnt = cnt + 1
     m = m.__next__
-

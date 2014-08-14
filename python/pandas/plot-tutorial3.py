@@ -15,7 +15,7 @@ plt.show()
 plt.savefig("image.png")
 
 df = DataFrame(np.random.randn(10, 4).cumsum(0),
-               columns=['A','B','C','D'],
+               columns=['A', 'B', 'C', 'D'],
                index=np.arange(0, 100, 10))
 df.plot()
 plt.show()
@@ -31,9 +31,9 @@ plt.show()
 plt.savefig("image3.png")
 
 df = DataFrame(np.random.randn(6, 4),
-               index=['1','2','3','4','5','6'],
-               columns=Index(['A','B','C','D'], name='Genus'))
-print( df )
+               index=['1', '2', '3', '4', '5', '6'],
+               columns=Index(['A', 'B', 'C', 'D'], name='Genus'))
+print(df)
 
 df.plot()
 plt.show()
@@ -48,8 +48,7 @@ plt.show()
 plt.savefig("image6.png")
 
 df = read_csv('stock_px.csv')
-print( df.head(10) )
+print(df.head(10))
 df.plot()
 plt.show()
 plt.savefig("image7.png")
-

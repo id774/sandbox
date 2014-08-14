@@ -7,7 +7,7 @@ import random
 def randomize(items):
     randomized = []
     while 0 < len(items):
-        idx = random.randint(0, len(items)-1)
+        idx = random.randint(0, len(items) - 1)
         popped = items[idx]
         del items[idx]
         randomized.append(popped)

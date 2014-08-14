@@ -17,7 +17,7 @@ f = poisson(score_mean)
 L.append([f(k) for k in range(N + 1)])
 
 for prob in L:
-   plt.plot(range(N + 1), prob, 'r')
+    plt.plot(range(N + 1), prob, 'r')
 
 ax = plt.axes()
 

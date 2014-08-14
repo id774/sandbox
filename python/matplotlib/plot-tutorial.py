@@ -8,19 +8,20 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager
 from numpy.random import randn
 
-fontprop = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+fontprop = matplotlib.font_manager.FontProperties(
+    fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
 fig = plt.figure()
 
-ax1 = fig.add_subplot(2,2,1)
-ax2 = fig.add_subplot(2,2,2)
-ax3 = fig.add_subplot(2,2,3)
+ax1 = fig.add_subplot(2, 2, 1)
+ax2 = fig.add_subplot(2, 2, 2)
+ax3 = fig.add_subplot(2, 2, 3)
 
 plt.show()
 plt.savefig("image.png")
 
 ran = randn(50).cumsum()
-print( ran )
+print(ran)
 plt.plot(ran, 'k--')
 
 plt.show()
@@ -36,8 +37,8 @@ fig, axes = plt.subplots(2, 2, sharex=True, sharey=True)
 for i in range(2):
     for j in range(2):
         axes[i, j].hist(randn(500), bins=50, color='k', alpha=0.5)
-plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=0, hspace=0)
+plt.subplots_adjust(
+    left=None, bottom=None, right=None, top=None, wspace=0, hspace=0)
 
 plt.show()
 plt.savefig("image4.png")
-

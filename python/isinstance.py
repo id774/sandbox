@@ -16,6 +16,5 @@ def main():
     print tag('knight')
     print tag(['but', 'a', 'branch'])
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()
-

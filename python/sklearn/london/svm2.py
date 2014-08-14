@@ -6,7 +6,7 @@ import codecs
 
 train_X = np.genfromtxt('train.csv', delimiter=',')
 train_y = np.genfromtxt('trainLabels.csv', delimiter=',')
-test_X  = np.genfromtxt('test.csv', delimiter=',')
+test_X = np.genfromtxt('test.csv', delimiter=',')
 
 clf = svm.SVC(kernel='rbf', C=1)
 clf.fit(train_X, train_y)
@@ -19,4 +19,3 @@ def write_prediction(prediction, outfile):
         f.write('%s\n' % (x))
 
 write_prediction(result, 'svm.txt')
-

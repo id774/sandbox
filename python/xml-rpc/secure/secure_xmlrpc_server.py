@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 # Configure below
-LISTEN_HOST='127.0.0.1' # You should not use '' here, unless you have a real FQDN.
-LISTEN_PORT=443
+# You should not use '' here, unless you have a real FQDN.
+LISTEN_HOST = '127.0.0.1'
+LISTEN_PORT = 443
 
-KEYFILE='certs/saturnus.msnet.key.pem'    # Replace with your PEM formatted key file
-CERTFILE='certs/saturnus.msnet.cert.pem'  # Replace with your PEM formatted certificate file
+# Replace with your PEM formatted key file
+KEYFILE = 'certs/saturnus.msnet.key.pem'
+# Replace with your PEM formatted certificate file
+CERTFILE = 'certs/saturnus.msnet.cert.pem'
 # Configure above
 
 import SocketServer
@@ -13,10 +16,12 @@ import BaseHTTPServer
 import SimpleHTTPServer
 import SimpleXMLRPCServer
 
-import socket, os
+import socket
+import os
 from OpenSSL import SSL
 
-class SecureXMLRPCServer(BaseHTTPServer.HTTPServer,SimpleXMLRPCServer.SimpleXMLRPCDispatcher):
+class SecureXMLRPCServer(BaseHTTPServer.HTTPServer, SimpleXMLRPCServer.SimpleXMLRPCDispatcher):
+
     def __init__(self, server_address, HandlerClass, logRequests=True):
         """Secure XML-RPC server.
 
@@ -27,7 +32,7 @@ class SecureXMLRPCServer(BaseHTTPServer.HTTPServer,SimpleXMLRPCServer.SimpleXMLR
         SimpleXMLRPCServer.SimpleXMLRPCDispatcher.__init__(self)
         SocketServer.BaseServer.__init__(self, server_address, HandlerClass)
         ctx = SSL.Context(SSL.SSLv23_METHOD)
-        ctx.use_privatekey_file (KEYFILE)
+        ctx.use_privatekey_file(KEYFILE)
         ctx.use_certificate_file(CERTFILE)
         self.socket = SSL.Connection(ctx, socket.socket(self.address_family,
                                                         self.socket_type))
@@ -35,15 +40,17 @@ class SecureXMLRPCServer(BaseHTTPServer.HTTPServer,SimpleXMLRPCServer.SimpleXMLR
         self.server_activate()
 
 class SecureXMLRpcRequestHandler(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler):
+
     """Secure XML-RPC request handler class.
 
     It it very similar to SimpleXMLRPCRequestHandler but it uses HTTPS for transporting XML data.
     """
+
     def setup(self):
         self.connection = self.request
         self.rfile = socket._fileobject(self.request, "rb", self.rbufsize)
         self.wfile = socket._fileobject(self.request, "wb", self.wbufsize)
-        
+
     def do_POST(self):
         """Handles the HTTPS POST request.
 
@@ -59,9 +66,9 @@ class SecureXMLRpcRequestHandler(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler):
             # check to see if a subclass implements _dispatch and dispatch
             # using that method if present.
             response = self.server._marshaled_dispatch(
-                    data, getattr(self, '_dispatch', None)
-                )
-        except: # This should only happen if the module is buggy
+                data, getattr(self, '_dispatch', None)
+            )
+        except:  # This should only happen if the module is buggy
             # internal error, report as HTTP server error
             self.send_response(500)
             self.end_headers()
@@ -75,31 +82,31 @@ class SecureXMLRpcRequestHandler(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler):
 
             # shut down the connection
             self.wfile.flush()
-            self.connection.shutdown() # Modified here!
-    
-def test(HandlerClass = SecureXMLRpcRequestHandler,ServerClass = SecureXMLRPCServer):
+            self.connection.shutdown()  # Modified here!
+
+def test(HandlerClass=SecureXMLRpcRequestHandler, ServerClass=SecureXMLRPCServer):
     """Test xml rpc over https server"""
     class xmlrpc_registers:
+
         def __init__(self):
             import string
             self.python_string = string
-            
+
         def add(self, x, y):
             return x + y
-    
-        def mult(self,x,y):
-            return x*y
-    
-        def div(self,x,y):
-            return x//y
-        
-    server_address = (LISTEN_HOST, LISTEN_PORT) # (address, port)
-    server = ServerClass(server_address, HandlerClass)    
-    server.register_instance(xmlrpc_registers())    
+
+        def mult(self, x, y):
+            return x * y
+
+        def div(self, x, y):
+            return x // y
+
+    server_address = (LISTEN_HOST, LISTEN_PORT)  # (address, port)
+    server = ServerClass(server_address, HandlerClass)
+    server.register_instance(xmlrpc_registers())
     sa = server.socket.getsockname()
     print("Serving HTTPS on", sa[0], "port", sa[1])
     server.serve_forever()
 
 if __name__ == '__main__':
     test()
-

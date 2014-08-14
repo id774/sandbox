@@ -15,11 +15,11 @@ clf.fit(train_X, labels)
 test_X = np.genfromtxt('CodeIQ_mycoins.txt', delimiter=' ')
 
 fig = plt.figure()
-ax1 = fig.add_subplot(2,1,1)
-ax2 = fig.add_subplot(2,1,2)
+ax1 = fig.add_subplot(2, 1, 1)
+ax2 = fig.add_subplot(2, 1, 2)
 
 correct = np.array([[x[0], x[1]] for x in auth if x[2] == 1]).T
-wrong   = np.array([[x[0], x[1]] for x in auth if x[2] == 0]).T
+wrong = np.array([[x[0], x[1]] for x in auth if x[2] == 0]).T
 
 ax1.scatter(correct[0], correct[1], color='g')
 ax1.scatter(wrong[0], wrong[1], color='r')
@@ -35,4 +35,3 @@ results = clf.predict(test_X)
 
 for result, feature in zip(results, test_X):
     print(result, feature)
-

@@ -7,7 +7,7 @@ v1 = np.array([24, 27, 29, 34, 42, 43, 51])
 v2 = np.array([236, 330, 375, 392, 460, 525, 578])
 
 def phi(x):
-    return [1, x, x**2, x**3]
+    return [1, x, x ** 2, x ** 3]
 
 def f(w, x):
     return np.dot(w, phi(x))
@@ -35,18 +35,17 @@ plt.plot(v1, v2, 'o', color="blue")
 plt.show()
 plt.savefig("image2.png")
 
-print("w の中身は %(w)s" %locals() )
-print("PHI の中身は %(PHI)s" %locals() )
+print("w の中身は %(w)s" % locals())
+print("PHI の中身は %(PHI)s" % locals())
 
 ave = np.average(v2)
-print("v2 の平均は %(ave)s" %locals() )
+print("v2 の平均は %(ave)s" % locals())
 
 var = np.var(v2)
-print("v2 の分散は %(var)s" %locals() )
+print("v2 の分散は %(var)s" % locals())
 
 std = np.std(v2)
-print("v2 の標準偏差は %(std)s" %locals() )
+print("v2 の標準偏差は %(std)s" % locals())
 
 corr = np.corrcoef(v1, v2)
-print("v1 と v2 の相関係数は %(corr)s" %locals() )
-
+print("v1 と v2 の相関係数は %(corr)s" % locals())

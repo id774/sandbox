@@ -11,7 +11,8 @@ def create_engine():
     engine = sqlalchemy.engine_from_config(config)
 
     from sqlalchemy.orm import scoped_session, sessionmaker
-    db_session = scoped_session(sessionmaker(autoflush=True, transactional=True, bind=engine))
+    db_session = scoped_session(
+        sessionmaker(autoflush=True, transactional=True, bind=engine))
     return engine
 
 def statuses():
@@ -42,19 +43,20 @@ def run():
     sql = status.delete()
     result = engine.execute(sql)
 
-    sql = status.insert().values(id=1,screen_name="hoge",text="ほげ")
+    sql = status.insert().values(id=1, screen_name="hoge", text="ほげ")
     result = engine.execute(sql)
 
-    sql = status.insert().values(id=2,screen_name="fuga",text="ふが")
+    sql = status.insert().values(id=2, screen_name="fuga", text="ふが")
     result = engine.execute(sql)
 
-    sql = status.insert().values(id=3,screen_name="piyo",text="ぴよ")
+    sql = status.insert().values(id=3, screen_name="piyo", text="ぴよ")
     result = engine.execute(sql)
 
-    sql = status.update().where(status.c.screen_name=="piyo").values(screen_name="taro")
+    sql = status.update().where(
+        status.c.screen_name == "piyo").values(screen_name="taro")
     result = engine.execute(sql)
 
-    sql = status.delete().where(status.c.screen_name=="fuga")
+    sql = status.delete().where(status.c.screen_name == "fuga")
     result = engine.execute(sql)
 
     sql = status.select()

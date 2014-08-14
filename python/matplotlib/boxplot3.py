@@ -14,4 +14,3 @@ def arrays_from_file(filename):
 plt.boxplot(arrays_from_file("data.csv"))
 plt.show()
 plt.savefig("image.png")
-

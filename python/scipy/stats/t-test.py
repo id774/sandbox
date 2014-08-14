@@ -10,11 +10,10 @@ print(Y)
 
 t, p = stats.ttest_rel(X, Y)
 
-print( "t 値は %(t)s" %locals() )
-print( "確率は %(p)s" %locals() )
+print("t 値は %(t)s" % locals())
+print("確率は %(p)s" % locals())
 
 if p < 0.05:
     print("有意な差があります")
 else:
     print("有意な差がありません")
-

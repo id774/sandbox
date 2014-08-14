@@ -18,4 +18,3 @@ plt.plot(bins, y, 'r-', linewidth=1)
 
 plt.show()
 plt.savefig("image.png")
-

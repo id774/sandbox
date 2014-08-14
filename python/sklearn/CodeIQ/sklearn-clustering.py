@@ -14,7 +14,7 @@ def kmeans(features):
 
 def plot(data, eaten):
     fig = plt.figure()
-    ax = fig.add_subplot(1,1,1)
+    ax = fig.add_subplot(1, 1, 1)
     x1, y1 = np.array([[x[0], x[1]] for x in data]).T
     ax.scatter(x1, y1, color='b')
     x2, y2 = np.array([[x[0], x[1]] for x in eaten if x[2] == 1]).T
@@ -30,4 +30,3 @@ labels = kmeans(data)
 
 for label, feature in zip(labels, data):
     print(label, feature)
-

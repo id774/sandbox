@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys, os
+import sys
+import os
 import json
 from collections import OrderedDict
 
 class Analyzer:
+
     def __init__(self, args):
         self.filename = args[1]
         self.dic = OrderedDict()
@@ -22,7 +24,7 @@ class Analyzer:
                     self.dic[word] = count
 
         i = 0
-        for k, v in sorted(self.dic.items(), key=lambda x:int(x[1]), reverse=True):
+        for k, v in sorted(self.dic.items(), key=lambda x: int(x[1]), reverse=True):
             i += 1
             self.__output(i, k, v)
         file.close
@@ -31,15 +33,15 @@ class Analyzer:
     def __output(self, key, tag, value):
         print(key, tag, value, sep="\t")
 
-if __name__=='__main__':
+if __name__ == '__main__':
     argsmin = 1
-    version = (3,0)
+    version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
             analyzer = Analyzer(sys.argv)
             analyzer.start()
         else:
-            print("This program needs at least %(argsmin)s arguments" %locals())
+            print("This program needs at least %(argsmin)s arguments" %
+                  locals())
     else:
-        print("This program requires python > %(version)s" %locals() )
-
+        print("This program requires python > %(version)s" % locals())

@@ -26,7 +26,7 @@ if __name__ == '__main__':
               (0.5, 2.), (1., 2.), (2., 2.), (3., 2.), (4., 2.),
               (0.5, 3.), (1., 3.), (2., 3.), (3., 3.), (4., 3.),
               (0.5, 4.), (1., 4.), (3., 4.), (3., 4.), (4., 4.)
-             ]
+              ]
 
     axisnum = 0
     for (a, b) in params:
@@ -37,9 +37,8 @@ if __name__ == '__main__':
         xlim(0, 1.)
         ylim(0, 3.)
         text(0.5, 2.7, 'a=%.1f b=%.1f' % (a, b),
-                horizontalalignment='center', verticalalignment='center')
+             horizontalalignment='center', verticalalignment='center')
         xlabel('theta')
         ylabel('p(theta)')
     show()
     plt.savefig("image.png")
-

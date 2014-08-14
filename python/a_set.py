@@ -4,8 +4,7 @@
 a = set("pecan")
 b = set("pie")
 
-print (a | b)
-print (a & b)
-print (a - b)
-print (a ^ b)
-
+print(a | b)
+print(a & b)
+print(a - b)
+print(a ^ b)

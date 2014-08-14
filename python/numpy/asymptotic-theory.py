@@ -15,14 +15,14 @@ lim = 10000
 
 for i in range(lim):
     X.append(i)
-    Y.append(coin_toss(lim = 40000))
+    Y.append(coin_toss(lim=40000))
 
-print (X)
-print (Y)
+print(X)
+print(Y)
 _over_lim = [i for i in Y if i >= 20400]
-print( len(_over_lim) )
+print(len(_over_lim))
 _under_lim = [i for i in Y if i <= 19600]
-print( len(_under_lim) )
+print(len(_under_lim))
 
 plt.xlim(0, lim)
 plt.ylim(19200, 20800)

@@ -24,16 +24,18 @@ print("Min x: " + str(numpy.min(score_x)) + " y: " + str(numpy.min(score_y)))
 # 平均値
 print("Avg x: " + str(numpy.mean(score_x)) + " y: " + str(numpy.mean(score_y)))
 # 第 1 四分位
-print("1Q x:" + str(stats.scoreatpercentile(score_x, 25)) + " y: " + str(stats.scoreatpercentile(score_y, 25)))
+print("1Q x:" + str(stats.scoreatpercentile(score_x, 25)) +
+      " y: " + str(stats.scoreatpercentile(score_y, 25)))
 # 中央値
-print("Med x: " + str(numpy.median(score_x)) + " y: " + str(numpy.median(score_y)))
+print("Med x: " + str(numpy.median(score_x)) +
+      " y: " + str(numpy.median(score_y)))
 # 第 3 四分位
-print("3Q x:" + str(stats.scoreatpercentile(score_x, 75)) + " y: " + str(stats.scoreatpercentile(score_y, 75)))
+print("3Q x:" + str(stats.scoreatpercentile(score_x, 75)) +
+      " y: " + str(stats.scoreatpercentile(score_y, 75)))
 # 分散
 print("Var x: " + str(numpy.var(score_x)) + " y: " + str(numpy.var(score_y)))
 # 標準偏差
 print("S.D. x: " + str(numpy.std(score_x)) + " y:" + str(numpy.std(score_y)))
 # 相関係数
 cor = numpy.corrcoef(score_x, score_y)
-print("Correlation Coefficient : " + str(cor[0,1]))
-
+print("Correlation Coefficient : " + str(cor[0, 1]))

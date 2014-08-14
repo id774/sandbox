@@ -6,13 +6,14 @@
 import web
 
 class index:
+
     def GET(self, name):
         i = web.input(name=None)
         return render.index(i.name)
 
 urls = (
-        '/(.*)', 'index'
-        )
+    '/(.*)', 'index'
+)
 
 #application = web.application(urls, globals())
 application = web.application(urls, globals()).wsgifunc()
@@ -21,4 +22,3 @@ render = web.template.render('/var/www/webpy/sample/templates/')
 
 if __name__ == "__main__":
     application.run()
-

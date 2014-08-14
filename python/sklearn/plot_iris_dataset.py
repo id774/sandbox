@@ -26,8 +26,8 @@ iris = datasets.load_iris()
 X = iris.data[:, :2]  # we only take the first two features.
 Y = iris.target
 
-print( iris.target[[10, 25, 50]] )
-print( list(iris.target_names) )
+print(iris.target[[10, 25, 50]])
+print(list(iris.target_names))
 
 x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
 y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5

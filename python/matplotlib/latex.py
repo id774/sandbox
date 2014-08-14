@@ -1,8 +1,8 @@
 from matplotlib import rc
 
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-## for Palatino and other serif fonts use:
-#rc('font',**{'family':'serif','serif':['Palatino']})
+rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
+# for Palatino and other serif fonts use:
+# rc('font',**{'family':'serif','serif':['Palatino']})
 rc('text', usetex=True)
 
 """
@@ -31,7 +31,7 @@ plt.rc('font', family='serif')
 plt.plot(t, s)
 
 plt.xlabel(r'\textbf{time} (s)')
-plt.ylabel(r'\textit{voltage} (mV)',fontsize=16)
+plt.ylabel(r'\textit{voltage} (mV)', fontsize=16)
 plt.title(r"\TeX\ is Number "
           r"$\displaystyle\sum_{n=1}^\infty\frac{-e^{i\pi}}{2^n}$!",
           fontsize=16, color='gray')
@@ -40,4 +40,3 @@ plt.subplots_adjust(top=0.8)
 
 plt.show()
 plt.savefig("image.png")
-

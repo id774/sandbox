@@ -2,7 +2,8 @@
 
 # Data Science London + Scikit-learn
 # DataSet: https://www.kaggle.com/c/data-science-london-scikit-learn/data?test.csv
-# Code: http://codiply.com/blog/data-science-london-scikit-learn-kaggle-competition-part-i
+# Code:
+# http://codiply.com/blog/data-science-london-scikit-learn-kaggle-competition-part-i
 
 import numpy as np
 from sklearn import svm, cross_validation
@@ -10,7 +11,7 @@ import codecs
 
 train_X = np.genfromtxt('train.csv', delimiter=',')
 train_y = np.genfromtxt('trainLabels.csv', delimiter=',')
-test_X  = np.genfromtxt('test.csv', delimiter=',')
+test_X = np.genfromtxt('test.csv', delimiter=',')
 
 def get_model(tr_X, tr_y):
     svc = svm.SVC(C=1, kernel='rbf')
@@ -24,11 +25,11 @@ def test_model():
         model = get_model(train_X[train_indices], train_y[train_indices])
         score = model.score(train_X[test_indices], train_y[test_indices])
         scores.append(score)
-    print(min(scores), sum(scores)/len(scores), max(scores))
+    print(min(scores), sum(scores) / len(scores), max(scores))
 
 def save_predictions(filename):
     model = get_model(train_X, train_y)
-    prediction = [ int(x) for x in model.predict(test_X) ]
+    prediction = [int(x) for x in model.predict(test_X)]
     write_prediction(prediction, filename)
 
 def write_prediction(prediction, outfile):
@@ -38,4 +39,3 @@ def write_prediction(prediction, outfile):
 
 test_model()
 save_predictions('svm.txt')
-

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys, os
+import sys
+import os
 import json
 import math
 from collections import defaultdict
 
 class NB(object):
+
     """
     nb = NB()
     training_data = [(1, {'a': 2, 'b': 2}), (2, {'a': 1, 'c': 4})]
@@ -37,8 +39,10 @@ class NB(object):
                 all_words.add(word)
                 self.category_word_count[category][word] += count
         for category in self.all_categories:
-            self.denominators[category] = sum(self.category_word_count[category].values()) + len(all_words)
-            self.category_probability[category] = 1.0 * category_count[category] / len(data)
+            self.denominators[category] = sum(
+                self.category_word_count[category].values()) + len(all_words)
+            self.category_probability[
+                category] = 1.0 * category_count[category] / len(data)
 
     def classify(self, document):
         """documentが分類されるcategoryを返す
@@ -80,7 +84,7 @@ def main(args):
     file = open(classify_txt, 'r')
 
     correct = 0
-    wrong   = 0
+    wrong = 0
 
     for line in file:
         key, tag, value = line.rstrip().split("\t")
@@ -96,18 +100,17 @@ def main(args):
         else:
             json_obj['evaluate'] = False
             wrong += 1
-        json_dump = json.dumps(json_obj,ensure_ascii=False)
+        json_dump = json.dumps(json_obj, ensure_ascii=False)
         print(key + "\t" + tag + "\t" + json_dump)
 
-    print("Correct:"  + str(correct))
-    print("Wrong:"    + str(wrong))
+    print("Correct:" + str(correct))
+    print("Wrong:" + str(wrong))
     print("Accuracy:" + str(correct / (correct + wrong)))
 
     file.close()
 
-if __name__=='__main__':
+if __name__ == '__main__':
     if len(sys.argv) > 2:
         main(sys.argv)
     else:
         print("Invalid arguments")
-

@@ -1,6 +1,6 @@
 from numpy import *
 
-a = array([1,2,3])
+a = array([1, 2, 3])
 print(a)
 
 f = array([1, 2, 3], dtype=float)
@@ -15,6 +15,5 @@ print(len(a))
 
 data = loadtxt("data.txt")
 print(data)
-print(data[1,:])
-print(data[:,1])
-
+print(data[1, :])
+print(data[:, 1])

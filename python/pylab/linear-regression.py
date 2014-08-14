@@ -41,4 +41,3 @@ pylab.plot(predict_x, predict_y, 'r', linewidth=2)
 
 pylab.show()
 pylab.savefig("image.png")
-

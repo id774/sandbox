@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys, os
+import sys
+import os
 import json
 import re
 from collections import OrderedDict
 
 class Analyzer:
+
     def __init__(self, args):
         self.filename = args[1]
-        self.exclude  = args[2]
+        self.exclude = args[2]
         self.exclude_list = []
         self.category_num = 0
 
@@ -31,8 +33,10 @@ class Analyzer:
         self.dic = OrderedDict()
         file = open(self.filename, 'r')
         for line in file:
-            word, counts, social, politics, international, economics, electro, sports, entertainment, science, standard_deviation = line.rstrip().split("\t")
-            array = [int(social), int(politics), int(international), int(economics), int(electro), int(sports), int(entertainment), int(science)]
+            word, counts, social, politics, international, economics, electro, sports, entertainment, science, standard_deviation = line.rstrip(
+            ).split("\t")
+            array = [int(social), int(politics), int(international), int(
+                economics), int(electro), int(sports), int(entertainment), int(science)]
             if not array[self.category_num] == 0:
                 if float(standard_deviation) < 10.0:
                     if not word in self.exclude_list:
@@ -60,15 +64,15 @@ class Analyzer:
         file.close
         return self.exclude_list
 
-if __name__=='__main__':
+if __name__ == '__main__':
     argsmin = 2
-    version = (3,0)
+    version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
             analyzer = Analyzer(sys.argv)
             analyzer.start()
         else:
-            print("This program needs at least %(argsmin)s arguments" %locals())
+            print("This program needs at least %(argsmin)s arguments" %
+                  locals())
     else:
-        print("This program requires python > %(version)s" %locals() )
-
+        print("This program requires python > %(version)s" % locals())

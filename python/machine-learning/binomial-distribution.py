@@ -20,10 +20,10 @@ trial_count = (10, 20, 30, 40, 50)
 colors = ["r", "g", "b", "c", "y"]
 f = binomial(p)
 
-for n in trial_count :
+for n in trial_count:
     L.append([f(n, x) for x in range(n)])
 
-for prob, color in zip(L, colors) :
+for prob, color in zip(L, colors):
     plt.plot(prob, color)
 
 ax = plt.axes()

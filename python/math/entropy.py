@@ -13,13 +13,12 @@ import math
 def entropy(labels):
     freqdist = nltk.FreqDist(labels)
     probs = [freqdist.freq(l) for l in nltk.FreqDist(labels)]
-    return -sum([p * math.log(p,2) for p in probs])
+    return -sum([p * math.log(p, 2) for p in probs])
 
 def main():
     print entropy(['male', 'male', 'female', 'male'])
 
-if __name__=='__main__':
+if __name__ == '__main__':
     import doctest
     doctest.testmod()
     main()
-

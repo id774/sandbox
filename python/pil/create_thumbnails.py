@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
-from PIL import Image,ImageDraw
+import os
+import sys
+from PIL import Image, ImageDraw
 
 size = 128, 128
 
@@ -14,4 +15,3 @@ for infile in sys.argv[1:]:
             im.save(outfile, "JPEG")
         except IOError:
             print "cannot create thumbnail for", infile
-
