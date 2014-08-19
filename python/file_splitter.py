@@ -14,7 +14,8 @@ class FileSplitter:
     def split(self):
         file = open(self.infile, 'r')
         for line in file:
-            tarfile, timestamp, mac_str, area, rssi_val, humandate, interval = line.rstrip(
+            (tarfile, timestamp, mac_str, area,
+                rssi_val, humandate, interval) = line.rstrip(
             ).split("\t")
             if self.key == tarfile:
                 self.f.write(line)

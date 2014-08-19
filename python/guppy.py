@@ -17,4 +17,4 @@ class Hoge(object):
 
 x = [Hoge() for x in range(N)]
 
-print h.heap()
+print(h.heap())

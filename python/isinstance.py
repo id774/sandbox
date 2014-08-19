@@ -3,7 +3,7 @@
 
 def tag(word):
     try:
-        assert isinstance(word, basestring)
+        assert isinstance(word, str)
         if word in ['a', 'the', 'all']:
             return 'det'
         else:
@@ -12,9 +12,9 @@ def tag(word):
         return "argument to tag() must be a string"
 
 def main():
-    print tag('the')
-    print tag('knight')
-    print tag(['but', 'a', 'branch'])
+    print(tag('the'))
+    print(tag('knight'))
+    print(tag(['but', 'a', 'branch']))
 
 if __name__ == '__main__':
     main()

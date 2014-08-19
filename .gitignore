@@ -24,7 +24,9 @@ tags
 *.so
 *.out
 *.png
+.cache/
 Rplots.pdf
 .Rhistory
 ipython_log.py
 Untitled0.ipynb
+.ipynb_checkpoints

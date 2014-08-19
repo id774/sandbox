@@ -15,7 +15,7 @@ def permutations(seq):
                 yield perm[:i] + seq[0:1] + perm[i:]
 
 def main():
-    print list(permutations(['a', 'b', 'c', 'd']))
+    print(list(permutations(['a', 'b', 'c', 'd'])))
 
 if __name__ == '__main__':
     main()

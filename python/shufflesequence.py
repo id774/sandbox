@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from pprint import pprint, pformat
-import random
 
+from pprint import pformat
+import random
 
 def randomize(items):
     randomized = []

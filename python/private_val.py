@@ -11,10 +11,10 @@ class Klass:
 
 instance = Klass("ahaha")
 
-print("member1=", instance.member1)
-print("member2=", instance._member2)
-print("member3=", instance._Klass__x)
-print("member3=", instance._Klass__member3)
+print(("member1=", instance.member1))
+print(("member2=", instance._member2))
+print(("member3=", instance._Klass__x))
+print(("member3=", instance._Klass__member3))
 
 class ABC:
 
@@ -24,6 +24,6 @@ class ABC:
 
 abc = ABC()
 
-print "_x =", abc._x
-print "__y =", abc._ABC__y
-print dir(abc)
+print("_x =", abc._x)
+print("__y =", abc._ABC__y)
+print(dir(abc))

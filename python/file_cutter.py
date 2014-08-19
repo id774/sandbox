@@ -17,7 +17,8 @@ class FileCutter:
         file = open(self.infile, 'r')
         f = codecs.open('%s' % self.outfile, 'w', 'utf-8')
         for line in file:
-            tarfile, timestamp, mac_str, area, rssi_val, humandate, interval = line.rstrip(
+            (tarfile, timestamp, mac_str,
+                area, rssi_val, humandate, interval) = line.rstrip(
             ).split("\t")
             if tarfile.startswith(self.keydate):
                 f.write(line)
