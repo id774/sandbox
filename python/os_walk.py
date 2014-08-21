@@ -14,11 +14,6 @@ def main(args):
     path = args[1]
     list_files(path)
 
-    homedir = os.environ['HOME']
-    indir = os.path.join(homedir + '/tmp')
-    print(indir)
-    list_files(indir)
-
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         main(sys.argv)
