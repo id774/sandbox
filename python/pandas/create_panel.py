@@ -25,7 +25,8 @@ def main(args):
     path = args[1]
     pf = list_files(path)
     print(pf.to_frame())
+    return pf
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        main(sys.argv)
+        pf = main(sys.argv)
