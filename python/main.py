@@ -10,6 +10,7 @@ class MainClass:
         print(self.args1)
         print(self.args2)
         print(len(sys.argv))
+        return 0
 
 if __name__ == '__main__':
     argsmin = 2
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
             main_instance = MainClass(sys.argv)
-            main_instance.main()
+            sys.exit(main_instance.main())
         else:
             print("This program needs at least %(argsmin)s arguments" %
                   locals())
