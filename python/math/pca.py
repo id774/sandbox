@@ -2,7 +2,6 @@
 import sys
 import scipy as sp
 import scipy.linalg as linalg
-# from scipy.linalg import eig, norm
 from matplotlib import pylab as plt
 
 # =================
@@ -52,10 +51,12 @@ def pca(data, base_num=1):
 # ========
 from numpy.random import multivariate_normal
 
-def test():
-    data = multivariate_normal([0, 0], [[1, 2], [2, 5]], 100)
+def test(args):
+    data = multivariate_normal([0, 0], [[1, 2], [2, 5]], int(args[1]))
+    print(data)
     # PCA
-    pc_base = pca(data, base_num=1)[0]
+    result = pca(data, base_num=int(args[2]))
+    pc_base = result[0]
     print(pc_base)
 
     # Plotting
@@ -81,11 +82,11 @@ def test():
     return 0
 
 if __name__ == '__main__':
-    argsmin = 0
+    argsmin = 2
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
-            sys.exit(test())
+            sys.exit(test(sys.argv))
         else:
             print("This program needs at least %(argsmin)s arguments" %
                   locals())
