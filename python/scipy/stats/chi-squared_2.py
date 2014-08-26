@@ -2,7 +2,7 @@
 
 import numpy as np
 import scipy as sp
-from scipy import stats
+import scipy.stats as stats
 
 rvs1 = sp.array([
     32.97, 36.37, 35.24, 36.03, 34.84, 33.63, 37.94, 33.48, 34.09, 33.74,

@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
 
 import scipy as sp
-import scipy.stats
+import scipy.stats as stats
 
 crossed = sp.array([[435, 265],
                     [165, 135]])
 
-x2, p, dof, expected = sp.stats.chi2_contingency(crossed)
+x2, p, dof, expected = stats.chi2_contingency(crossed)
 
 print("カイ二乗値は %(x2)s" % locals())
 print("確率は %(p)s" % locals())
