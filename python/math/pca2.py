@@ -60,10 +60,8 @@ def main(args):
     X = data.as_matrix()[0:150, 0:4].astype(np.float)
     Y = data.as_matrix()[0:150, 4:]
 
-    print(X)
-
     pca = PCA()
-    X_pca = pca.transform(X, dim=2)
+    X_pca = pca.transform(X, 2)
 
     print(X_pca)
 
