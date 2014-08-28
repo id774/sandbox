@@ -61,7 +61,7 @@ def main(args):
     Y = data.as_matrix()[0:150, 4:]
 
     pca = PCA()
-    X_pca = pca.transform(X, 2)
+    X_pca = pca.transform(X, int(args[1]))
 
     print(X_pca)
 
@@ -70,7 +70,7 @@ def main(args):
     return 0
 
 if __name__ == '__main__':
-    argsmin = 0
+    argsmin = 1
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
