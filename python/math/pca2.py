@@ -1,17 +1,17 @@
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas
 
-# 主成分分析の実装
 class PCA:
 
-    # 主成分分析による次元削減
-
     def transform(self, X, dim):
-        # 共分散行列を求める
+        # 共分散行列
         X_bar = np.array([row - np.mean(row)
                           for row in X.transpose()]).transpose()
         m = np.dot(X_bar.T, X_bar) / X.shape[0]
-        # 固有値問題を解く
+
+        # 固有値問題
         (w, v) = np.linalg.eig(m)
         v = v.T
 
@@ -24,10 +24,7 @@ class PCA:
         for key in sorted(tmp.keys(), reverse=True):
             v_sorted.append(v[tmp[key]])
         v_sorted = np.array(v_sorted)
-        print(v_sorted)
-
-        w_sorted = np.array(sorted(w, reverse=True))
-        print(w_sorted)
+        # w_sorted = np.array(sorted(w, reverse=True))
 
         # 次元削減
         components = v_sorted[:dim, ]
@@ -35,38 +32,53 @@ class PCA:
 
         return X_pca
 
-# pandasを用いてデータを読み込む
-import pandas
 
-names = ["sl", "sw", "pl", "pw", "class"]
-data = pandas.read_csv("iris.csv", names=names)
+def plot(X_pca, Y):
+    s = np.array(
+        [x for i, x in enumerate(X_pca) if Y[i] == "Iris-setosa"])
+    ve = np.array(
+        [x for i, x in enumerate(X_pca) if Y[i] == "Iris-versicolor"])
+    vi = np.array(
+        [x for i, x in enumerate(X_pca) if Y[i] == "Iris-virginica"])
 
-X = data.as_matrix()[0:150, 0:4].astype(np.float)
-Y = data.as_matrix()[0:150, 4:]
+    # colors = ['b.', 'r.', 'k.']
+    fig, ax = plt.subplots()
+    ax.plot(s[:, 0], s[:, 1], 'b.', label='Setosa')
+    ax.plot(ve[:, 0], ve[:, 1], 'r.', label='Versicolour')
+    ax.plot(vi[:, 0], vi[:, 1], 'k.', label='Virginica')
 
-# 主成分分析前のサイズ
-print(X.shape)
+    ax.set_title("PCA for iris")
+    ax.legend(numpoints=1)
 
-# 主成分分析
-pca = PCA()
-X_pca = pca.transform(X, dim=2)
+    plt.show()
+    plt.savefig("image.png")
 
-# 主成分分析後のサイズ
-print(X_pca.shape)
+def main(args):
+    names = ["sl", "sw", "pl", "pw", "class"]
+    data = pandas.read_csv("iris.csv", names=names)
 
-# 可視化
-s = np.array([x for i, x in enumerate(X_pca) if Y[i] == "Iris-setosa"])
-ve = np.array([x for i, x in enumerate(X_pca) if Y[i] == "Iris-versicolor"])
-vi = np.array([x for i, x in enumerate(X_pca) if Y[i] == "Iris-virginica"])
+    X = data.as_matrix()[0:150, 0:4].astype(np.float)
+    Y = data.as_matrix()[0:150, 4:]
 
-colors = ['b.', 'r.', 'k.']
-fig, ax = plt.subplots()
-ax.plot(s[:, 0], s[:, 1], 'b.', label='Setosa')
-ax.plot(ve[:, 0], ve[:, 1], 'r.', label='Versicolour')
-ax.plot(vi[:, 0], vi[:, 1], 'k.', label='Virginica')
+    print(X)
 
-ax.set_title("PCA for iris")
-ax.legend(numpoints=1)
+    pca = PCA()
+    X_pca = pca.transform(X, dim=2)
 
-plt.show()
-plt.savefig("image.png")
+    print(X_pca)
+
+    plot(X_pca, Y)
+
+    return 0
+
+if __name__ == '__main__':
+    argsmin = 0
+    version = (3, 0)
+    if sys.version_info > (version):
+        if len(sys.argv) > argsmin:
+            sys.exit(main(sys.argv))
+        else:
+            print("This program needs at least %(argsmin)s arguments" %
+                  locals())
+    else:
+        print("This program requires python > %(version)s" % locals())
