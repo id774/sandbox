@@ -3,7 +3,7 @@
 require 'net/ping'
 
 def monitor(args)
-  r_code = 0
+  rc = 0
   hosts = args || []
 
   hosts.each do |host|
@@ -13,11 +13,11 @@ def monitor(args)
 
     unless ping.ping?
       puts "#{host} unreachable."
-      r_code = 1
+      rc = 1
     end
   end
 
-  exit r_code
+  exit rc
 end
 
 if __FILE__ == $0
