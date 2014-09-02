@@ -2,7 +2,7 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
-def draw_heatmap(data, column_labels, row_labels):
+def draw_heatmap(data, row_labels, column_labels):
     fig, ax = plt.subplots()
     heatmap = ax.pcolor(data, cmap=plt.cm.Blues)
 
@@ -20,15 +20,16 @@ def draw_heatmap(data, column_labels, row_labels):
     return heatmap
 
 def main(args):
-    column_labels = list('ABCD')
-    row_labels = list('WXYZ')
-    data = np.random.rand(4, 4)
+    size = int(args[1])
+    x_labels = np.arange(0, size)
+    y_labels = np.arange(0, size)
+    data = np.random.rand(size, size)
 
-    heatmap = draw_heatmap(data, column_labels, row_labels)
+    heatmap = draw_heatmap(data, x_labels, y_labels)
     return heatmap
 
 if __name__ == '__main__':
-    argsmin = 0
+    argsmin = 1
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
