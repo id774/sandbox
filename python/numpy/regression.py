@@ -20,12 +20,12 @@ print("p(0.5)", p(0.5))
 print("p(3.5)", p(3.5))
 print("p(10)", p(10))
 
-p30 = np.poly1d(np.polyfit(x, y, 30))
-print("p30", p30)
+poly1d = np.poly1d(np.polyfit(x, y, 30))
+print("poly1d", poly1d)
 
 xp = np.linspace(-2, 6, 100)
 
-plt.plot(x, y, '.', xp, p(xp), '-', xp, p30(xp), '*')
+plt.plot(x, y, '.', xp, p(xp), 'b', xp, poly1d(xp), 'r')
 plt.ylim(-2, 2)
 plt.show()
 plt.savefig('image.png')
