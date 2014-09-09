@@ -19,8 +19,10 @@ def plot(samples):
     print("s3", s3.describe())
 
     plt.figure()
-    plt.boxplot([s1, s2, s3])
-    plt.plot([s0, s1, s2, s3], marker='.', linestyle='None')
+    boxes = [s1, s2, s3]
+    plt.boxplot(boxes)
+    boxes.insert(0, s0)
+    plt.plot(boxes, marker='.', linestyle='None')
 
     xticks = ['A', 'B', 'C']
     plt.xticks([1, 2, 3], xticks)
