@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # - * - coding: utf-8 - * -
 
-import nltk
-import sys
-import re
-import pprint
-
 def permutations(seq):
     if len(seq) <= 1:
         yield seq
