@@ -1,30 +1,50 @@
 import sys
-from random import choice
 import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+from random import choice
 
 def montyhall(N, doors):
-    win_picked = 0
-    win_switch = 0
+    arr_picked = np.zeros(N)
+    arr_switch = np.zeros(N)
     for i in range(N):
         car = choice(doors)
         picked = choice(doors)
-
         goat = choice(list(set(doors) - set([picked, car])))
-
-        switch_door = choice(list(set(doors) - set([picked, goat])))
+        switch = choice(list(set(doors) - set([picked, goat])))
 
         if picked == car:
-            win_picked += 1
-        elif switch_door == car:
-            win_switch += 1
+            arr_picked[i] = 1
+        elif switch == car:
+            arr_switch[i] = 1
 
-    return (win_picked, win_switch)
+    return (arr_picked, arr_switch)
+
+def plot(N, arr_picked, arr_switch):
+    prop = font_manager.FontProperties(
+        fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+    X = np.arange(N) + 1
+    picked_car = arr_picked.cumsum()
+    switch_car = arr_switch.cumsum()
+    ax.plot(X, picked_car, label='picked up')
+    ax.plot(X, switch_car, label='switched car')
+    ax.set_title('モンティホール問題の通算当たり回数', fontproperties=prop)
+    ax.legend(loc='best')
+    plt.savefig('image.png')
 
 def main(args):
     N = int(args[1])
     doors = np.arange(0, int(args[2])) + 1
-    (win_picked, win_switch) = montyhall(N, doors)
-    print("%d 回ゲームを行い、車を当てた割合 :" % N)
+
+    (arr_picked, arr_switch) = montyhall(N, doors)
+    plot(N, arr_picked, arr_switch)
+
+    win_picked = arr_picked.sum()
+    win_switch = arr_switch.sum()
+
+    print("%d 回のゲーム中" % N)
     print("ドアを変更しなかった場合: %f %% (%d)" %
           (100.0 * win_picked / N, win_picked))
     print("ドアを変更した場合:      %f %% (%d)" %
