@@ -15,7 +15,7 @@ def montyhall(N, doors):
 
         if picked == car:
             arr_picked[i] = 1
-        elif switch == car:
+        if switch == car:
             arr_switch[i] = 1
 
     return (arr_picked, arr_switch)
