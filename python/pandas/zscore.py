@@ -2,15 +2,21 @@ import sys
 import pandas as pd
 from scipy import stats
 
-def calc_zscore(df):
-    zscore = stats.zscore(df.ix[:,1])
-    df[5] = zscore
+def calc_zscore(df, name):
+    try:
+        zscore = stats.zscore(df.ix[:,1])
+        df[5] = zscore
+    except TypeError:
+        print("TypeError: " + name)
     return df
 
 def add_zcore(filename):
-    df = pd.read_table(filename, header=None)
-    scored_df = calc_zscore(df)
-    scored_df.to_csv(filename, header=None, index=None, sep="\t")
+    try:
+        df = pd.read_table(filename, header=None)
+        scored_df = calc_zscore(df, filename)
+        scored_df.to_csv(filename, header=None, index=None, sep="\t")
+    except pd.parser.CParserError:
+        print("ParseError: " + filename)
 
 def main(args):
     filename = args[1]
