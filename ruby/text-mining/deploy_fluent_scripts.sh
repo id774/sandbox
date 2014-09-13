@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo cp $HOME/sandbox/python/pandas/zscore.py /home/fluent/.fluent/bin/
+sudo cp $HOME/sandbox/python/pandas/hotnews/zscore.py /home/fluent/.fluent/bin/
 sudo cp $HOME/sandbox/ruby/text-mining/fluentd_wordcount.rb /home/fluent/.fluent/bin/
 sudo cp $HOME/sandbox/ruby/text-mining/news_hottopic.rb /home/fluent/.fluent/bin/
 sudo cp $HOME/sandbox/ruby/text-mining/mongo_fluentd_wordcount.rb /home/fluent/.fluent/bin/
