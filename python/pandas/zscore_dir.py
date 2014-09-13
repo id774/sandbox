@@ -5,7 +5,7 @@ from scipy import stats
 
 def calc_zscore(df, name):
     try:
-        zscore = stats.zscore(df.ix[:,1])
+        zscore = stats.zscore(df.ix[:, 1])
         df[5] = zscore
     except TypeError:
         print("TypeError: " + name)

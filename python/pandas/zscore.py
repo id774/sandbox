@@ -1,10 +1,11 @@
 import sys
+import datetime
 import pandas as pd
 from scipy import stats
 
 def calc_zscore(df, name):
     try:
-        zscore = stats.zscore(df.ix[:,1])
+        zscore = stats.zscore(df.ix[:, 1])
         df[5] = zscore
     except TypeError:
         print("TypeError: " + name)
@@ -19,7 +20,10 @@ def add_zcore(filename):
         print("ParseError: " + filename)
 
 def main(args):
-    filename = args[1]
+    before = int(args[1])
+    d = datetime.date.today() - datetime.timedelta(before)
+    yyyymmdd = d.strftime('%Y%m%d')
+    filename = "/home/fluent/.fluent/log/hotnews_" + yyyymmdd + ".txt"
     add_zcore(filename)
 
 if __name__ == '__main__':
