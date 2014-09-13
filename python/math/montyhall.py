@@ -21,8 +21,11 @@ def montyhall(N, doors):
     return (arr_picked, arr_switch)
 
 def plot(N, arr_picked, arr_switch):
-    prop = font_manager.FontProperties(
-        fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+    if sys.platform == "darwin":
+        font_path = "/Library/Fonts/Osaka.ttf"
+    else:
+        font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+    prop = font_manager.FontProperties(fname=font_path)
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     X = np.arange(N) + 1
