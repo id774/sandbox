@@ -13,6 +13,7 @@ def calc_zscore(df, name):
 def add_zcore(filename):
     try:
         df = pd.read_table(filename, header=None)
+        df[2] = [x.replace("\t", "") for x in df[2]]
         scored_df = calc_zscore(df, filename)
         scored_df.to_csv(filename, header=None, index=None, sep="\t")
     except pd.parser.CParserError:
