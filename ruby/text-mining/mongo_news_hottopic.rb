@@ -158,7 +158,7 @@ class HotNews
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
         i += 1
-        title = #{v['title']}.delete("\t")
+        title = v['title'].delete("\t")
         f.write("#{i.to_s}\t#{v['score'].to_s}\t#{title}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
       }
     }
