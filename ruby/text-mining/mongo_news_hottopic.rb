@@ -158,7 +158,8 @@ class HotNews
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
         i += 1
-        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{v['title']}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
+        quoted_title = '"' + "#{v['title']}" + '"'
+        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{quoted_title}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
       }
     }
   end
