@@ -1,4 +1,5 @@
 import sys
+import datetime
 import pandas as pd
 from scipy import stats
 
@@ -19,7 +20,10 @@ def add_zcore(filename):
         print("ParseError: " + filename)
 
 def main(args):
-    filename = args[1]
+    before = int(args[1])
+    d = datetime.date.today() - datetime.timedelta(before)
+    yyyymmdd = d.strftime('%Y%m%d')
+    filename = "/home/fluent/.fluent/log/hotnews_" + yyyymmdd + ".txt"
     add_zcore(filename)
 
 if __name__ == '__main__':
