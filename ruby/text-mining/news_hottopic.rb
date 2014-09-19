@@ -9,9 +9,9 @@ require 'kmeans/dendrogram'
 require 'naivebayes'
 
 class HotNews
-  def initialize(day = 0)
-    @run_date      = Date.today - day
-    @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
+  def initialize(pickup_date, run_date)
+    @pickup_date   = pickup_date
+    @run_date      = run_date
     puts_with_time("The pick up date is #{@pickup_date}")
     @log_name      = "news.log.#{@pickup_date}_0.log"
     @wordcount     = "wordcount_#{@pickup_date}.txt"
@@ -220,8 +220,9 @@ class HotNews
 end
 
 if __FILE__ == $0
-  day = ARGV.shift || 0; day = day.to_i
-  hot_news = HotNews.new(day)
+  pickup_date = ARGV.shift || (Date.today - 1).strftime("%Y%m%d")
+  run_date = ARGV.shift || Date.today.strftime("%Y%m%d")
+  hot_news = HotNews.new(pickup_date, run_date)
   hot_news.run
 end
 

@@ -21,14 +21,17 @@ def add_zcore(filename):
         print("ParseError: " + filename)
 
 def main(args):
-    before = int(args[1])
-    d = datetime.date.today() - datetime.timedelta(before)
-    yyyymmdd = d.strftime('%Y%m%d')
+    try:
+        yyyymmdd = args.pop(1)
+    except IndexError:
+        d = datetime.date.today() - datetime.timedelta(days=1)
+        yyyymmdd = d.strftime('%Y%m%d')
+
     filename = "/home/fluent/.fluent/log/hotnews_" + yyyymmdd + ".txt"
     add_zcore(filename)
 
 if __name__ == '__main__':
-    argsmin = 1
+    argsmin = 0
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:

@@ -6,11 +6,10 @@ require 'mongo'
 require 'MeCab'
 
 class WordCount
-  def initialize(day = 0)
-    @run_date      = Date.today - day
-    @pickup_date   = (@run_date - 1).strftime("%Y%m%d")
+  def initialize(pickup_date, run_date)
+    @pickup_date   = pickup_date
+    @run_date      = run_date
     puts_with_time("The pick up date is #{@pickup_date}")
-    @today         = @run_date.strftime("%Y%m%d")
     @wordcount     = "wordcount_#{@pickup_date}.txt"
     @log_path      = "/home/fluent/.fluent/log"
     @outfile       = File.expand_path(File.join(@log_path, @wordcount))
@@ -52,7 +51,7 @@ class WordCount
     db = mongo.db('fluentd')
     coll = db.collection('news.feed')
     from = Time.parse(@pickup_date)
-    to   = Time.parse(@today)
+    to   = Time.parse(@run_date)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
       line.each {|k,v|
         if k == "title" or k == "description"
