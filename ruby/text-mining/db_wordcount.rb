@@ -19,7 +19,7 @@ class WordCount
     @run_date      = run_date
     puts_with_time("The pick up date is #{@pickup_date}")
     puts_with_time("The run date is #{@run_date}")
-    @wordcount     = "wordcount_#{@run_date}.txt"
+    @wordcount     = "wordcount_#{@pickup_date}.txt"
     @log_path      = "/home/fluent/.fluent/log"
     @db_path       = "/home/fluent/.fluent/db"
     @outfile       = File.expand_path(File.join(@log_path, @wordcount))
@@ -33,8 +33,8 @@ class WordCount
   end
 
   def run
-    prepare_database
     puts_with_time('Start wordcount')
+    prepare_database
     read_from_exclude
     read_from_datasource
     write_result
@@ -121,7 +121,7 @@ class WordCount
 end
 
 if __FILE__ == $0
-  pickup_date = ARGV.shift || (Date.today - 1).strftime("%Y%m%d")
+  pickup_date = ARGV.shift || (Date.today - 0).strftime("%Y%m%d")
   run_date = ARGV.shift || Date.today.strftime("%Y%m%d")
   wordcount = WordCount.new(pickup_date, run_date)
   wordcount.run
