@@ -13,7 +13,8 @@ class News < ActiveRecord::Base
   self.table_name = 'd'
 
   def self.today
-    where("created_at >= ?", Time.now.beginning_of_day)
+    date_limit = Date.today.strftime("%Y/%m/%d")
+    where("created_at >= ?", date_limit)
   end
 end
 
@@ -124,6 +125,7 @@ class HotNews
 
   def read_from_datasource
     news_records = model_class.today
+    puts_with_time("Today's news count is #{news_records.length}")
     news_records.each do |news|
       hits = {}
       pickup_nouns(news.title + news.description).each {|word|
