@@ -22,6 +22,8 @@ def add_zcore(filename):
 def main(args):
     try:
         yyyymmdd = args.pop(1)
+        if yyyymmdd == "today":
+            yyyymmdd = datetime.date.today().strftime('%Y%m%d')
     except IndexError:
         d = datetime.date.today() - datetime.timedelta(days=1)
         yyyymmdd = d.strftime('%Y%m%d')
