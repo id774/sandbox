@@ -114,7 +114,7 @@ class HotNews
     to   = Time.parse(@run_date)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
       hits = {}
-      pickup_nouns.take(15).(blog['title'] + blog['description']).each {|word|
+      pickup_nouns.(blog['title'] + blog['description']).take(15).each {|word|
         if word.length > 1
           if word =~ /[一-龠]/
             hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
