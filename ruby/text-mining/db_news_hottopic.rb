@@ -128,7 +128,7 @@ class HotNews
     puts_with_time("Today's news count is #{news_records.length}")
     news_records.each do |news|
       hits = {}
-      pickup_nouns.(news.title + news.description).take(15).each {|word|
+      pickup_nouns(news.title + news.description).take(15).each {|word|
         if word.length > 1
           if word =~ /[一-龠]/
             hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
