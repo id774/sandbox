@@ -19,6 +19,7 @@ MSN
 NEWS
 NHK
 News
+Notice
 ON
 ONLINE
 On
@@ -27,6 +28,7 @@ PC
 PR
 Qiita
 RT
+Redirect
 SEO
 SPA
 Sponichi
@@ -35,8 +37,10 @@ TechCrunch
 The
 Togetter
 Twitter
+WEATHER
 WEB
 WIRED
+ZAKZAK
 Watch
 We
 Web
@@ -44,8 +48,11 @@ Wikipedia
 YOMIURI
 Yahoo
 You
+all
+amp
 and
 as
+articles
 be
 blog
 cc
@@ -61,7 +68,9 @@ is
 it
 jp
 me
+more
 net
+news
 nifty
 nikkansports
 of
