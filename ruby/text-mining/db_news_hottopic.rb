@@ -124,26 +124,32 @@ class HotNews
   end
 
   def read_from_datasource
+    links = Array.new
+    titles = Array.new
     news_records = model_class.today
     puts_with_time("Today's news count is #{news_records.length}")
     news_records.each do |news|
       hits = {}
-      pickup_nouns(news.title + news.description).take(15).each {|word|
-        if word.length > 1
-          if word =~ /[一-龠]/
-            hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
-          elsif word =~ /^[A-Za-z].*/
-            hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+      unless links.include?(news.link) or titles.include?(news.title)
+        links.push(news.link)
+        titles.push(news.title)
+        pickup_nouns(news.title + news.description).take(15).each {|word|
+          if word.length > 1
+            if word =~ /[一-龠]/
+              hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
+            elsif word =~ /^[A-Za-z].*/
+              hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+            end
+            if @text_hash.has_key?(word)
+              scoring(news.title,
+                      news.link,
+                      news.description,
+                      @text_hash[word])
+            end
           end
-          if @text_hash.has_key?(word)
-            scoring(news.title,
-                    news.link,
-                    news.description,
-                    @text_hash[word])
-          end
-        end
-      }
-      @blog_hash[news.link]['category'] = @classifier.classify(hits).max{|a, b| a[1] <=> b[1]}[0] if @blog_hash.has_key?(news.link)
+        }
+        @blog_hash[news.link]['category'] = @classifier.classify(hits).max{|a, b| a[1] <=> b[1]}[0] if @blog_hash.has_key?(news.link)
+      end
     end
   end
 

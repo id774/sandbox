@@ -109,27 +109,32 @@ class HotNews
   end
 
   def read_from_datasource
+    links = Array.new
+    titles = Array.new
     coll = @db.collection('news.feed')
     from = Time.parse(@pickup_date)
     to   = Time.parse(@run_date)
     coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|blog|
       hits = {}
-      pickup_nouns(blog['title'] + blog['description']).take(15).each {|word|
-        if word.length > 1
-          if word =~ /[一-龠]/
-            hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
-          elsif word =~ /^[A-Za-z].*/
-            hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+      unless links.include?(blog['link']) or titles.include?(blog['title'])
+        links.push(blog['link'])
+        titles.push(blog['title'])
+        pickup_nouns(blog['title'] + blog['description']).take(15).each {|word|
+          if word.length > 1
+            if word =~ /[一-龠]/
+              hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
+            elsif word =~ /^[A-Za-z].*/
+              hits.has_key?(word) ? hits[word] += 1 : hits[word] = 1
+            end
+            if @text_hash.has_key?(word)
+              mongo_scoring(blog['title'],
+                            blog['link'],
+                            blog['description'],
+                            @text_hash[word])
+            end
           end
-          if @text_hash.has_key?(word)
-            mongo_scoring(blog['title'],
-                          blog['link'],
-                          blog['description'],
-                          @text_hash[word])
-          end
-        end
-      }
-      @blog_hash[blog['link']]['category'] = @classifier.classify(hits).max{|a, b| a[1] <=> b[1]}[0] if @blog_hash.has_key?(blog['link'])
+        }
+        @blog_hash[blog['link']]['category'] = @classifier.classify(hits).max{|a, b| a[1] <=> b[1]}[0] if @blog_hash.has_key?(blog['link'])
     }
   end
 
