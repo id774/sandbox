@@ -86,11 +86,17 @@ class WordCount
   end
 
   def read_from_datasource
+    links = Array.new
+    titles = Array.new
     news_records = model_class.today
     puts_with_time("Today's news count is #{news_records.length}")
     news_records.each do |news|
-      try_pickup_words(news.title)
-      try_pickup_words(news.description)
+      unless links.include?(news.link) or titles.include?(news.title)
+        links.push(news.link)
+        titles.push(news.title)
+        try_pickup_words(news.title)
+        try_pickup_words(news.description)
+      end
     end
     puts_with_time("Excluded words count is #{@exclude_count}")
   end

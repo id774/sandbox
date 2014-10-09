@@ -46,29 +46,36 @@ class WordCount
   end
 
   def read_from_datasource
+    links = Array.new
+    titles = Array.new
     exclude_count = 0
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
     coll = db.collection('news.feed')
     from = Time.parse(@pickup_date)
     to   = Time.parse(@run_date)
-    coll.find({:time => {"$gt" => from , "$lt" => to}}).each {|line|
-      line.each {|k,v|
-        if k == "title" or k == "description"
-          pickup_nouns(v).each {|word|
-            if word.length > 1
-              if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
-                unless @exclude.include?(word)
-                  count_words(word)
-                else
-                  exclude_count += 1
+    hash = coll.find({:time => {"$gt" => from , "$lt" => to}})
+    unless links.include?(hash['link']) or titles.include?(hash['title'])
+      links.push(hash['link'])
+      titles.push(hash['title'])
+      hash.each {|line|
+        line.each {|k,v|
+          if k == "title" or k == "description"
+            pickup_nouns(v).each {|word|
+              if word.length > 1
+                if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
+                  unless @exclude.include?(word)
+                    count_words(word)
+                  else
+                    exclude_count += 1
+                  end
                 end
               end
-            end
-          }
-        end
+            }
+          end
+        }
       }
-    }
+    end
     puts_with_time("Excluded words count is #{exclude_count}")
   end
 
