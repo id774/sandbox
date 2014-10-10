@@ -29,6 +29,8 @@ class HotNews
     @exclude       = "wordcount_exclude.txt"
     @exclude_txt   = File.expand_path(File.join(@log_path, @exclude))
 
+    @logger = Logger.new(STDOUT)
+    @logger.level = Logger::WARN
     @mecab = MeCab::Tagger.new("-Ochasen")
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
@@ -55,12 +57,8 @@ class HotNews
 
   private
 
-  def logger
-    @logger ||= Logger.new(STDOUT)
-  end
-
-  def puts(message, level = :info)
-    logger.send level, message
+  def puts(message, level=:info)
+    @logger.send(level, message)
   end
 
   def read_from_exclude
