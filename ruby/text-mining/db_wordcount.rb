@@ -17,6 +17,9 @@ end
 
 class WordCount
   def initialize(pickup_date, run_date)
+    @logger = Logger.new(STDOUT)
+    @logger.level = Logger::INFO
+
     @pickup_date   = pickup_date
     @run_date      = run_date
     puts("The pick up date is #{@pickup_date}")
@@ -45,12 +48,8 @@ class WordCount
 
   private
 
-  def logger
-    @logger ||= Logger.new(STDOUT)
-  end
-
   def puts(message, level=:info)
-    logger.send level, message
+    @logger.send(level, message)
   end
 
   def model_class
