@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require 'logger'
 require 'json'
 require 'date'
 require 'MeCab'
@@ -8,7 +9,7 @@ class WordCount
   def initialize(pickup_date, run_date)
     @pickup_date   = pickup_date
     @run_date      = run_date
-    puts_with_time("The pick up date is #{@pickup_date}")
+    puts("The pick up date is #{@pickup_date}")
     @log_name      = "news.log.#{@pickup_date}_0.log"
     @wordcount     = "wordcount_#{@pickup_date}.txt"
     @log_path      = "/home/fluent/.fluent/log"
@@ -23,18 +24,21 @@ class WordCount
   end
 
   def run
-    puts_with_time('Start wordcount')
+    puts('Start wordcount')
     read_from_exclude
     read_from_datasource
     write_result
-    puts_with_time('End wordcount')
+    puts('End wordcount')
   end
 
   private
 
-  def puts_with_time(message)
-    fmt = "%Y/%m/%d %X"
-    puts "#{Time.now.strftime(fmt)}: #{message.force_encoding("utf-8")}"
+  def logger
+    @logger ||= Logger.new(STDOUT)
+  end
+
+  def puts(message, level=:info)
+    logger.send level, message
   end
 
   def read_from_exclude
@@ -43,7 +47,7 @@ class WordCount
         @exclude << line.force_encoding("utf-8").chomp
       end
     end
-    puts_with_time("Exclude word's array is #{@exclude}")
+    puts("Exclude word's array is #{@exclude}", level=:debug)
   end
 
   def read_from_datasource
@@ -74,7 +78,7 @@ class WordCount
         end
       end
     end
-    puts_with_time("Excluded words count is #{exclude_count}")
+    puts("Excluded words count is #{exclude_count}")
   end
 
   def write_result

@@ -78,11 +78,6 @@ class HotNews
     create_table unless model_class.table_exists?
   end
 
-  def puts(message)
-    fmt = "%Y/%m/%d %X"
-    puts "#{Time.now.strftime(fmt)}: #{message.force_encoding("utf-8")}"
-  end
-
   def read_from_exclude
     open(@exclude_txt) do |file|
       file.each_line do |line|
