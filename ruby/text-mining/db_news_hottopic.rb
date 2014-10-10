@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require 'logger'
 require 'json'
 require 'date'
 require 'MeCab'
@@ -22,8 +23,8 @@ class HotNews
   def initialize(pickup_date, run_date)
     @pickup_date   = pickup_date
     @run_date      = run_date
-    puts_with_time("The pick up date is #{@pickup_date}")
-    puts_with_time("The run date is #{@run_date}")
+    puts("The pick up date is #{@pickup_date}")
+    puts("The run date is #{@run_date}")
     @wordcount     = "wordcount_#{@pickup_date}.txt"
     @train         = "category_map.txt"
     @hot_news      = "hotnews_#{@pickup_date}.txt"
@@ -47,7 +48,7 @@ class HotNews
   end
 
   def run
-    puts_with_time('Start hotnews')
+    puts('Start hotnews')
     prepare_database
     read_from_wordcount
     read_from_datasource
@@ -55,6 +56,14 @@ class HotNews
   end
 
   private
+
+  def logger
+    @logger ||= Logger.new(STDOUT)
+  end
+
+  def puts(message, level = :info)
+    logger.send level, message
+  end
 
   def model_class
     News
@@ -69,7 +78,7 @@ class HotNews
     create_table unless model_class.table_exists?
   end
 
-  def puts_with_time(message)
+  def puts(message)
     fmt = "%Y/%m/%d %X"
     puts "#{Time.now.strftime(fmt)}: #{message.force_encoding("utf-8")}"
   end
@@ -80,7 +89,7 @@ class HotNews
         @exclude << line.force_encoding("utf-8").chomp
       end
     end
-    puts_with_time("Exclude word's array is #{@exclude}")
+    puts("Exclude word's array is #{@exclude}", level=:debug)
   end
 
   def train(category)
@@ -106,8 +115,8 @@ class HotNews
       end
     end
     @train_num += 1
-    puts_with_time("Excluded words count is #{exclude_count}")
-    puts_with_time("Training classifier #{category} to #{hits}")
+    puts("Excluded words count is #{exclude_count}", level=:debug)
+    puts("Training classifier #{category} to #{hits}", level=:debug)
     return hits
   end
 
@@ -127,7 +136,7 @@ class HotNews
     links = Array.new
     titles = Array.new
     news_records = model_class.today
-    puts_with_time("Today's news count is #{news_records.length}")
+    puts("Today's news count is #{news_records.length}")
     news_records.each do |news|
       hits = {}
       unless links.include?(news.link) or titles.include?(news.title)

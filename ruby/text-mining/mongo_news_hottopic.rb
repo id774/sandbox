@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require 'logger'
 require 'date'
 require 'time'
 require 'mongo'
@@ -13,7 +14,7 @@ class HotNews
   def initialize(pickup_date, run_date)
     @pickup_date   = pickup_date
     @run_date      = run_date
-    puts_with_time("The pick up date is #{@pickup_date}")
+    puts("The pick up date is #{@pickup_date}")
     @wordcount     = "wordcount_#{@pickup_date}.txt"
     @train         = "category_map.txt"
     @hot_news      = "hotnews_#{@pickup_date}.txt"
@@ -41,22 +42,25 @@ class HotNews
   end
 
   def run
-    puts_with_time('Start hotnews')
+    puts('Start hotnews')
     read_from_wordcount
     read_from_datasource
     @entry_list = new_entrylist
     write_hotnews
-    puts_with_time('Create vector')
+    puts('Create vector')
     create_wordvector_from_bloghash
-    puts_with_time('Start kmeans')
+    puts('Start kmeans')
     kmeans_clustering
   end
 
   private
 
-  def puts_with_time(message)
-    fmt = "%Y/%m/%d %X"
-    puts "#{Time.now.strftime(fmt)}: #{message.force_encoding("utf-8")}"
+  def logger
+    @logger ||= Logger.new(STDOUT)
+  end
+
+  def puts(message, level = :info)
+    logger.send level, message
   end
 
   def read_from_exclude
@@ -65,7 +69,7 @@ class HotNews
         @exclude << line.force_encoding("utf-8").chomp
       end
     end
-    puts_with_time("Exclude word's array is #{@exclude}")
+    puts("Exclude word's array is #{@exclude}", level=:debug)
   end
 
   def train(category)
@@ -91,8 +95,8 @@ class HotNews
       end
     end
     @train_num += 1
-    puts_with_time("Excluded words count is #{exclude_count}")
-    puts_with_time("Training classifier #{category} to #{hits}")
+    puts("Excluded words count is #{exclude_count}", level=:debug)
+    puts("Training classifier #{category} to #{hits}", level=:debug)
     return hits
   end
 
