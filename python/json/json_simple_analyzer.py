@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import os
 import json
 from collections import OrderedDict
 
@@ -24,7 +23,8 @@ class Analyzer:
                     self.dic[word] = count
 
         i = 0
-        for k, v in sorted(self.dic.items(), key=lambda x: int(x[1]), reverse=True):
+        for k, v in sorted(self.dic.items(),
+                           key=lambda x: int(x[1]), reverse=True):
             i += 1
             self.__output(i, k, v)
         file.close
