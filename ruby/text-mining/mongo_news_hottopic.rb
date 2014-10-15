@@ -122,7 +122,10 @@ class HotNews
       unless links.include?(blog['link']) or titles.include?(blog['title'])
         links.push(blog['link'])
         titles.push(blog['title'])
-        pickup_nouns(blog['title'] + blog['description']).take(15).each {|word|
+        s = ""
+        s << blog['title'] if blog['title'].class == String
+        s << blog['description'] if blog['description'].class == String
+        pickup_nouns(s).take(15).each {|word|
           if word.length > 1
             if word =~ /[一-龠]/
               hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3

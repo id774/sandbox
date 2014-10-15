@@ -75,17 +75,19 @@ class WordCount
   end
 
   def try_pickup_words(sentence)
-    pickup_nouns(sentence).each {|word|
-      if word.length > 1
-        if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
-          unless @exclude.include?(word)
-            count_words(word)
-          else
-            @exclude_count += 1
+    if sentence.class == String
+      pickup_nouns(sentence).each {|word|
+        if word.length > 1
+          if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
+            unless @exclude.include?(word)
+              count_words(word)
+            else
+              @exclude_count += 1
+            end
           end
         end
-      end
-    }
+      }
+    end
   end
 
   def read_from_datasource

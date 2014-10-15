@@ -122,7 +122,7 @@ class HotNews
           titles.push(blog[:title])
           s = ""
           s << blog[:title] if blog[:title].class == String
-          s << blog[:description] unless blog[:description].class == String
+          s << blog[:description] if blog[:description].class == String
           pickup_nouns(s).take(15).each {|word|
             if word.length > 1
               if word =~ /[一-龠]/

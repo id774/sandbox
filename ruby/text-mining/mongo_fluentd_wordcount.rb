@@ -48,6 +48,22 @@ class WordCount
     puts("Exclude word's array is #{@exclude}", level=:debug)
   end
 
+  def try_pickup_words(sentence)
+    if sentence.class == String
+      pickup_nouns(sentence).each {|word|
+        if word.length > 1
+          if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
+            unless @exclude.include?(word)
+              count_words(word)
+            else
+              @exclude_count += 1
+            end
+          end
+        end
+      }
+    end
+  end
+
   def read_from_datasource
     links = Array.new
     titles = Array.new
@@ -63,17 +79,7 @@ class WordCount
       titles.push(hash['title'])
       hash.each {|line|
         if k == "title" or k == "description"
-          pickup_nouns(v).each {|word|
-            if word.length > 1
-              if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
-                unless @exclude.include?(word)
-                  count_words(word)
-                else
-                  exclude_count += 1
-                end
-              end
-            end
-          }
+          try_pickup_words(v)
         end
       }
     end

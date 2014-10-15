@@ -136,7 +136,10 @@ class HotNews
       unless links.include?(news.link) or titles.include?(news.title)
         links.push(news.link)
         titles.push(news.title)
-        pickup_nouns(news.title + news.description).take(15).each {|word|
+        s = ""
+        s << news.title if news.title.class == String
+        s << news.description if news.description.class == String
+        pickup_nouns(s).take(15).each {|word|
           if word.length > 1
             if word =~ /[一-龠]/
               hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
