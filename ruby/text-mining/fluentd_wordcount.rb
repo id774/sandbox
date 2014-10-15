@@ -61,7 +61,9 @@ class WordCount
           titles.push(hash['title'])
           hash.each {|k,v|
             if k == "title" or k == "description"
-              pickup_nouns(v).each {|word|
+              s = ""
+              s << v if v.class == String
+              pickup_nouns(s).each {|word|
                 if word.length > 1
                   if word =~ /[一-龠]/ or word =~ /^[A-Za-z].*/
                     unless @exclude.include?(word)
@@ -95,19 +97,15 @@ class WordCount
   end
 
   def pickup_nouns(string)
-    if string.class == String
-      node = @mecab.parseToNode(string)
-      nouns = []
-      while node
-        if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
-          nouns.push(node.surface.force_encoding("utf-8"))
-        end
-        node = node.next
+    node = @mecab.parseToNode(string)
+    nouns = []
+    while node
+      if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
+        nouns.push(node.surface.force_encoding("utf-8"))
       end
-      return nouns
-    else
-      return []
+      node = node.next
     end
+    nouns
   end
 end
 

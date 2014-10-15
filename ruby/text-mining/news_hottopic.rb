@@ -219,19 +219,15 @@ class HotNews
   end
 
   def pickup_nouns(string)
-    if string.class == String
-      node = @mecab.parseToNode(string)
-      nouns = []
-      while node
-        if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
-          nouns.push(node.surface.force_encoding("utf-8"))
-        end
-        node = node.next
+    node = @mecab.parseToNode(string)
+    nouns = []
+    while node
+      if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
+        nouns.push(node.surface.force_encoding("utf-8"))
       end
-      return nouns
-    else
-      return []
+      node = node.next
     end
+    nouns
   end
 end
 
