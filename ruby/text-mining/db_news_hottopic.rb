@@ -182,9 +182,13 @@ class HotNews
     open(@outfile, "w"){|f|
       i = 0
       @blog_hash.sort_by{|k,v| -v['score']}.each {|k, v|
-        i += 1
-        title = v['title'].delete("\t").delete("\n")
-        f.write("#{i.to_s}\t#{v['score'].to_s}\t#{title}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
+        if v['title'].class == String
+          if v['title'].length > 1
+            i += 1
+            title = v['title'].delete("\t").delete("\n")
+            f.write("#{i.to_s}\t#{v['score'].to_s}\t#{title}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
+          end
+        end
       }
     }
   end
