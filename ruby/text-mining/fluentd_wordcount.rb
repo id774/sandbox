@@ -95,15 +95,19 @@ class WordCount
   end
 
   def pickup_nouns(string)
-    node = @mecab.parseToNode(string)
-    nouns = []
-    while node
-      if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
-        nouns.push(node.surface.force_encoding("utf-8"))
+    if string.class == String
+      node = @mecab.parseToNode(string)
+      nouns = []
+      while node
+        if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
+          nouns.push(node.surface.force_encoding("utf-8"))
+        end
+        node = node.next
       end
-      node = node.next
+      return nouns
+    else
+      return []
     end
-    nouns
   end
 end
 

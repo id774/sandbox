@@ -120,7 +120,10 @@ class HotNews
         unless links.include?(blog[:link]) or titles.include?(blog[:title])
           links.push(blog[:link])
           titles.push(blog[:title])
-          pickup_nouns(blog[:title] + blog[:description]).take(15).each {|word|
+          s = ""
+          s << blog[:title] if blog[:title].class == String
+          s << blog[:description] unless blog[:description].class == String
+          pickup_nouns(s).take(15).each {|word|
             if word.length > 1
               if word =~ /[一-龠]/
                 hits.has_key?(word) ? hits[word] += 3 : hits[word] = 3
@@ -216,15 +219,19 @@ class HotNews
   end
 
   def pickup_nouns(string)
-    node = @mecab.parseToNode(string)
-    nouns = []
-    while node
-      if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
-        nouns.push(node.surface.force_encoding("utf-8"))
+    if string.class == String
+      node = @mecab.parseToNode(string)
+      nouns = []
+      while node
+        if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
+          nouns.push(node.surface.force_encoding("utf-8"))
+        end
+        node = node.next
       end
-      node = node.next
+      return nouns
+    else
+      return []
     end
-    nouns
   end
 end
 
