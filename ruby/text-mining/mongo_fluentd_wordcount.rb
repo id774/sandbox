@@ -23,6 +23,7 @@ class WordCount
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
     @exclude = Array.new
+    @exclude_count = 0
   end
 
   def run
@@ -67,7 +68,6 @@ class WordCount
   def read_from_datasource
     links = Array.new
     titles = Array.new
-    exclude_count = 0
     mongo = Mongo::Connection.new('localhost', 27017)
     db = mongo.db('fluentd')
     coll = db.collection('news.feed')
@@ -83,7 +83,7 @@ class WordCount
         end
       }
     end
-    puts("Excluded words count is #{exclude_count}")
+    puts("Excluded words count is #{@exclude_count}")
   end
 
   def write_result

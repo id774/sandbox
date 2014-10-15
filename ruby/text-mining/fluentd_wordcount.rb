@@ -24,6 +24,7 @@ class WordCount
     @mecab = MeCab::Tagger.new("-Ochasen")
     @hits = {}
     @exclude = Array.new
+    @exclude_count = 0
   end
 
   def run
@@ -68,7 +69,6 @@ class WordCount
   def read_from_datasource
     links = Array.new
     titles = Array.new
-    exclude_count = 0
     open(@infile) do |file|
       file.each do |line|
         hash = JSON.parse(line.force_encoding("utf-8").scan(/\{.*\}/).join)
@@ -83,7 +83,7 @@ class WordCount
         end
       end
     end
-    puts("Excluded words count is #{exclude_count}")
+    puts("Excluded words count is #{@exclude_count}")
   end
 
   def write_result
