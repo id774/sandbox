@@ -185,9 +185,12 @@ class HotNews
       @text_hash.keys.each {|word|
         if i < @words
           @blog_hash.each {|k,v|
-            if v['title'] == entry
-              if (v['title'] + v['description']).include?(word)
-                wordmap[i] += 1
+            if v['title'].class == String
+              if v['title'] == entry
+                s = ""
+                s << v['title']
+                s << v['description']
+                wordmap[i] += 1 if s.include?(word)
               end
             end
           }
