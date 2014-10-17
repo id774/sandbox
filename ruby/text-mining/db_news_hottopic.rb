@@ -185,7 +185,7 @@ class HotNews
         if v['title'].class == String
           if v['title'].length > 1
             i += 1
-            title = v['title'].delete("\t").delete("\n")
+            title = v['title'].delete("\t").delete("\r").delete("\n")
             f.write("#{i.to_s}\t#{v['score'].to_s}\t#{title}\t#{k}\t#{v['category']}\n") if v['score'] >= 10
           end
         end
