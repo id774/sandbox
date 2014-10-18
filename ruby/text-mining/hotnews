@@ -8,7 +8,7 @@ date "+%Y/%m/%d %T">>$JOBLOG 2>&1
 /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/fluentd_wordcount.rb $*>>$JOBLOG 2>&1
 /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/news_hottopic.rb $*>>$JOBLOG 2>&1
 /opt/python/current/bin/python /home/fluent/.fluent/bin/zscore.py $*>>$JOBLOG 2>&1
-cd /home/fluent/.fluent && /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/upload_news_amazons3.rb $*>>$JOBLOG 2>&1
+# cd /home/fluent/.fluent && /opt/ruby/current/bin/ruby /home/fluent/.fluent/bin/upload_news_amazons3.rb $*>>$JOBLOG 2>&1
 
 echo -n "*** $0: Job ended on `/bin/hostname` at ">>$JOBLOG 2>&1
 date "+%Y/%m/%d %T">>$JOBLOG 2>&1
