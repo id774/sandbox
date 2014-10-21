@@ -3,6 +3,7 @@ require 'logger'
 require 'jpstock'
 require 'csv'
 require 'date'
+require 'fluent-logger'
 
 class Stock
   def initialize(args, options)
@@ -10,6 +11,11 @@ class Stock
     @logger.level = Logger::INFO
     @codes = args
     @options = options
+    if options['fluentd']
+      @fluentd = Fluent::Logger::FluentLogger.open(nil,
+        host = 'localhost',
+        port = 9999)
+    end
   end
 
   def main
@@ -21,6 +27,22 @@ class Stock
 
   def puts(message, level=:info)
     @logger.send(level, message)
+  end
+
+  def puts_fluentd(stock)
+    begin
+      @fluentd.post('stock.price', {
+        :created_at => stock.date,
+        :code => stock.code,
+        :open => stock.open,
+        :close => stock.close,
+        :high => stock.high,
+        :low => stock.low,
+        :volume => stock.volume
+      })
+    rescue
+      puts("Fault in forwarding fluentd", level=:error)
+    end
   end
 
   def write_price(stock)
@@ -36,6 +58,7 @@ class Stock
       ]
     }
     puts("Saved stock code: #{stock.code}")
+    puts_fluentd(stock) if @options['fluentd']
   end
 
   def write_title(stock)
@@ -88,10 +111,9 @@ if __FILE__ == $0
     parser.banner = "#{File.basename($0,".*")}
     Usage: #{File.basename($0,".*")} [options] args"
     parser.separator "options:"
-    parser.on('-f', '--file FILE', String, "read stock data from FILENAME"){|f| options['filename'] = f }
+    parser.on('-f', '--file FILE', String, "read stocks data from FILENAME"){|f| options['filename'] = f }
     parser.on('-d', '--date DATE', String, "new records start from YYYY-MM-DD"){|d| options['start_date'] = d }
-    parser.on('-v', '--verbose', "verbose"){ options['verbose'] = true }
-    parser.on('-q', '--quiet', "quiet"){ options['verbose'] = false }
+    parser.on('-l', '--log', "Output log with fluentd"){ options['fluentd'] = true }
     parser.on('-h', '--help', "show this message"){
       puts parser
       exit
