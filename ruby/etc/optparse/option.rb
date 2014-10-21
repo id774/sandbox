@@ -1,37 +1,35 @@
 #!/usr/bin/env ruby
-$:.unshift File.join(ENV['SCRIPTS'], 'lib') unless ENV['SCRIPTS'] == nil
-$:.unshift File.join(File.dirname(__FILE__), 'lib')
 
 require 'optparse'
 
-filename = 'None'
-verbose = false
-
-parser = OptionParser.new do |parser|
-  parser.banner = "#{File.basename($0,".*")}
-  Usage: #{File.basename($0,".*")} [options] arg"
-  parser.separator "options:"
-  parser.on('-f', '--file FILE', String, "read data from FILENAME"){|f| filename = f }
-  parser.on('-v', '--verbose', "verbose"){ verbose = true }
-  parser.on('-q', '--quiet', "quiet"){ verbose = false }
-  parser.on('-h', '--help', "show this message"){
-    puts parser
-    exit
-  }
+def main(args, options)
+  p args
+  p options
 end
 
-begin
-  parser.parse!
-rescue OptionParser::ParseError => err
-  $stderr.puts err.message
-  $stderr.puts parser.help
-  exit 1
-end
+if __FILE__ == $0
+  options = Hash.new
+  parser = OptionParser.new do |parser|
+    parser.banner = "#{File.basename($0,".*")}
+    Usage: #{File.basename($0,".*")} [options] args"
+    parser.separator "options:"
+    parser.on('-f', '--file FILE', String, "read data from FILENAME"){|f| options['filename'] = f }
+    parser.on('-d', '--date DATE', String, "state date is START_DATE"){|d| options['start_date'] = d }
+    parser.on('-v', '--verbose', "verbose"){ options['verbose'] = true }
+    parser.on('-q', '--quiet', "quiet"){ options['verbose'] = false }
+    parser.on('-h', '--help', "show this message"){
+      puts parser
+      exit
+    }
+  end
 
-if ARGV.size >= 1
-  p filename
-  p verbose
-  p ARGV
-else
-  puts parser.help
+  begin
+    parser.parse!
+  rescue OptionParser::ParseError => err
+    $stderr.puts err.message
+    $stderr.puts parser.help
+    exit 1
+  end
+
+  main(ARGV, options)
 end
