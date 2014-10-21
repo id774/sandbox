@@ -8,14 +8,13 @@ class Stock
   def initialize(args, options)
     @logger = Logger.new(STDOUT)
     @logger.level = Logger::INFO
-    @args = args
+    @codes = args
     @options = options
   end
 
   def main
-    if @options['filename'].nil?
-      get_price
-    end
+    read_from_file unless @options['filename'].nil?
+    get_price
   end
 
   private
@@ -36,6 +35,7 @@ class Stock
         stock.volume
       ]
     }
+    puts("Saved stock code: #{stock.code}")
   end
 
   def write_title(stock)
@@ -50,11 +50,20 @@ class Stock
         "出来高"
       ]
     }
-    puts("Saved stock code: #{stock.code}}")
+    puts("Create csv with title: #{stock.code}", level=:debug)
+  end
+
+  def read_from_file
+    open(@options['filename']) do |file|
+      file.each_line do |line|
+        @codes << line.force_encoding("utf-8").chomp
+      end
+    end
+    puts("Target codes: #{@codes}", level=:info)
   end
 
   def get_price
-    @args.each do |code|
+    @codes.each do |code|
       begin
         if @options['start_date'].nil?
           stock = JpStock.price(:code => code)
@@ -79,8 +88,8 @@ if __FILE__ == $0
     parser.banner = "#{File.basename($0,".*")}
     Usage: #{File.basename($0,".*")} [options] args"
     parser.separator "options:"
-    parser.on('-f', '--file FILE', String, "read data from FILENAME"){|f| options['filename'] = f }
-    parser.on('-d', '--date DATE', String, "state date is YYYY-MM-DD"){|d| options['start_date'] = d }
+    parser.on('-f', '--file FILE', String, "read stock data from FILENAME"){|f| options['filename'] = f }
+    parser.on('-d', '--date DATE', String, "new records start from YYYY-MM-DD"){|d| options['start_date'] = d }
     parser.on('-v', '--verbose', "verbose"){ options['verbose'] = true }
     parser.on('-q', '--quiet', "quiet"){ options['verbose'] = false }
     parser.on('-h', '--help', "show this message"){
