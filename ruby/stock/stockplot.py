@@ -27,7 +27,7 @@ class Analyzer:
         plt.close()
 
     def start(self):
-        stocks = pd.read_table('stocks.txt', header=None)
+        stocks = pd.read_csv('stocks.txt', header=None)
         for s in stocks.values:
             self.draw(str(s[0]))
 

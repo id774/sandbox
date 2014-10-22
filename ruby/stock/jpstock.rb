@@ -79,7 +79,7 @@ class Stock
   def read_from_file
     open(@options[:filename]) do |file|
       file.each_line do |line|
-        @codes << line.force_encoding("utf-8").chomp
+        @codes << line.force_encoding("utf-8").strip.split(",")[0]
       end
     end
     puts("Target codes: #{@codes}", level=:info)
