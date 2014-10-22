@@ -11,7 +11,7 @@ class Stock
     @logger.level = Logger::INFO
     @codes = args
     @options = options
-    if options['fluentd']
+    if options[:fluentd]
       @fluentd = Fluent::Logger::FluentLogger.open(nil,
         host = 'localhost',
         port = 9999)
@@ -19,7 +19,7 @@ class Stock
   end
 
   def main
-    read_from_file unless @options['filename'].nil?
+    read_from_file unless @options[:filename].nil?
     get_price
   end
 
@@ -58,7 +58,7 @@ class Stock
       ]
     }
     puts("Saved stock code: #{stock.code}")
-    puts_fluentd(stock) if @options['fluentd']
+    puts_fluentd(stock) if @options[:fluentd]
   end
 
   def write_title(stock)
@@ -77,7 +77,7 @@ class Stock
   end
 
   def read_from_file
-    open(@options['filename']) do |file|
+    open(@options[:filename]) do |file|
       file.each_line do |line|
         @codes << line.force_encoding("utf-8").chomp
       end
@@ -88,11 +88,11 @@ class Stock
   def get_price
     @codes.each do |code|
       begin
-        if @options['start_date'].nil?
+        if @options[:start_date].nil?
           stock = JpStock.price(:code => code)
           write_price(stock)
         else
-          date = Date.parse(@options['start_date'])
+          date = Date.parse(@options[:start_date])
           stocks = JpStock.historical_prices(:code => code, :start_date => date, :end_date => Date.today)
           write_title(stocks.first)
           stocks.reverse.each {|stock| write_price(stock)}
@@ -111,9 +111,9 @@ if __FILE__ == $0
     parser.banner = "#{File.basename($0,".*")}
     Usage: #{File.basename($0,".*")} [options] args"
     parser.separator "options:"
-    parser.on('-f', '--file FILE', String, "read stocks data from FILENAME"){|f| options['filename'] = f }
-    parser.on('-d', '--date DATE', String, "new records start from YYYY-MM-DD"){|d| options['start_date'] = d }
-    parser.on('-l', '--log', "Output log with fluentd"){ options['fluentd'] = true }
+    parser.on('-f', '--file FILE', String, "read stocks data from FILENAME"){|f| options[:filename] = f }
+    parser.on('-d', '--date DATE', String, "new records start from YYYY-MM-DD"){|d| options[:start_date] = d }
+    parser.on('-l', '--log', "Output log with fluentd"){ options[:fluentd] = true }
     parser.on('-h', '--help', "show this message"){
       puts parser
       exit
