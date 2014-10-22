@@ -13,10 +13,10 @@ if __FILE__ == $0
     parser.banner = "#{File.basename($0,".*")}
     Usage: #{File.basename($0,".*")} [options] args"
     parser.separator "options:"
-    parser.on('-f', '--file FILE', String, "read data from FILENAME"){|f| options['filename'] = f }
-    parser.on('-d', '--date DATE', String, "state date is START_DATE"){|d| options['start_date'] = d }
-    parser.on('-v', '--verbose', "verbose"){ options['verbose'] = true }
-    parser.on('-q', '--quiet', "quiet"){ options['verbose'] = false }
+    parser.on('-f', '--file FILE', String, "read data from FILENAME"){|f| options[:filename] = f }
+    parser.on('-d', '--date DATE', String, "state date is START_DATE"){|d| options[:start_date] = d }
+    parser.on('-v', '--verbose', "verbose"){ options[:verbose] = true }
+    parser.on('-q', '--quiet', "quiet"){ options[:verbose] = false }
     parser.on('-h', '--help', "show this message"){
       puts parser
       exit
