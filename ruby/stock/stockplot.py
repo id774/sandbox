@@ -15,10 +15,10 @@ class Analyzer:
         filename = 'stock_' + code
         ext = '.csv'
         df = pd.read_csv(filename + ext, index_col=0)
-        df.ix[:, 4].plot(label="low", color="k")
-        df.ix[:, 3].plot(label="high", color="r")
-        df.ix[:, 1].plot(label="start", color="g")
-        df.ix[:, 2].plot(label="close", color="b")
+        df.ix[:, 4].plot(label="Low", color="k")
+        df.ix[:, 3].plot(label="High", color="r")
+        df.ix[:, 1].plot(label="Open", color="g")
+        df.ix[:, 2].plot(label="Close", color="b")
         plt.legend(loc='best')
         ext = '.png'
         plt.ylabel('Stock of ' + code)
