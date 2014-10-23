@@ -64,13 +64,13 @@ class Stock
   def write_title(stock)
     CSV.open("stock_#{stock.code}.csv", "w") {|csv|
       csv << [
-        "日付",
-        "コード",
-        "始値",
-        "終値",
-        "高値",
-        "安値",
-        "出来高"
+        "Date",
+        "Code",
+        "Open",
+        "Close",
+        "High",
+        "Low",
+        "Volume"
       ]
     }
     puts("Create csv with title: #{stock.code}", level=:debug)
