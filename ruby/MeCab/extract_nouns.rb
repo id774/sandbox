@@ -6,13 +6,14 @@ require 'awesome_print'
 class Extractor
   def initialize(args)
     @mecab = MeCab::Tagger.new("-Ochasen")
-    @infiles = args.shift || ""
+    @in_dir = args.shift || "."
     @out_dir = args.shift || "."
   end
 
   def main
-    Dir.glob(@infiles).each do |infile|
+    Dir.glob(File.join(@in_dir, "*")).each do |infile|
       if FileTest.file?(infile)
+        p infile
         picked_nouns = []
         open(infile) do |file|
           file.each_line do |line|
@@ -20,9 +21,10 @@ class Extractor
             picked_nouns.concat(pickup_nouns(line))
           end
         end
-        open(File.join(@out_dir, File.basename(infile)), "w") {|f|
-          f.write(picked_nouns.join(","))
-        }
+        File.write(
+          File.join(@out_dir, File.basename(infile)),
+          picked_nouns.join("\n")
+        )
       end
     end
   end
