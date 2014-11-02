@@ -1,29 +1,51 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+import sys
 import os
 import MeCab
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-home = os.path.expanduser('~')
-target_dir = os.path.join(home, 'tmp', 'doc')
-token_dict = {}
+class Tfidf:
+    def __init__(self, args):
+        try:
+            self.target_dir = args[1]
+        except IndexError:
+            home = os.path.expanduser('~')
+            self.target_dir = os.path.join(home, 'tmp', 'doc')
 
-def tokenize(text):
-    wakati = MeCab.Tagger("-O wakati")
-    return wakati.parse(text)
+    def tokenize(self, text):
+        wakati = MeCab.Tagger("-O wakati")
+        return wakati.parse(text)
 
-for subdir, dirs, files in os.walk(target_dir):
-    for file in files:
-        file_path = os.path.join(subdir, file)
-        shakes = open(file_path, 'r')
-        text = shakes.read()
-        lowers = text.lower()
-        token_dict[file] = lowers
+    def main(self):
+        token_dict = {}
+        for subdir, dirs, files in os.walk(self.target_dir):
+            for file in files:
+                file_path = os.path.join(subdir, file)
+                shakes = open(file_path, 'r')
+                text = shakes.read()
+                lowers = text.lower()
+                token_dict[file] = lowers
+                shakes.close()
 
-tfidf = TfidfVectorizer(tokenizer=tokenize, stop_words='english')
-tfs = tfidf.fit_transform(token_dict.values())
+        tfidf = TfidfVectorizer(tokenizer=self.tokenize, stop_words='english')
+        tfs = tfidf.fit_transform(token_dict.values())
 
-print(token_dict)
-print(tfs.toarray())
+        return(token_dict, tfs)
+
+if __name__ == '__main__':
+    argsmin = 0
+    version = (3, 0)
+    if sys.version_info > (version):
+        if len(sys.argv) > argsmin:
+            tfidf = Tfidf(sys.argv)
+            token_dict, tfs = tfidf.main()
+            print(token_dict)
+            print(tfs)
+            print(tfs.toarray())
+        else:
+            print("This program needs at least %(argsmin)s arguments" %
+                  locals())
+    else:
+        print("This program requires python > %(version)s" % locals())
