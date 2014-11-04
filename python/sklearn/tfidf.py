@@ -33,16 +33,27 @@ class Tfidf:
     def analyze(self):
         dic = {}
         token_dic = self.token_dict()
+        # Vectorize tokens.
         tfidf = TfidfVectorizer(tokenizer=self.tokenize,
                                 max_df=10,
                                 stop_words='english')
+        # TF-IDF fitting.
         tfs = tfidf.fit_transform(token_dic.values())
+
+        # Getting feature names from given words.
         feature_names = tfidf.get_feature_names()
+
         i = 0
         for k, v in token_dic.items():
-            score = dict(zip(feature_names, tfs[i].toarray()[0]))
-            dic[k] = score
+            # Concat words and the scores of the words.
+            d = dict(zip(feature_names, tfs[i].toarray()[0]))
+            # Sort dic by values decending.
+            score = [(x, d[x]) for x in sorted(d, key=lambda x:-d[x])]
+            # Pick up top 30 words.
+            dic[k] = score[:30]
             i += 1
+
+        # Return filename and scored words.
         return dic
 
 if __name__ == '__main__':
