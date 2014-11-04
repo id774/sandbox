@@ -49,8 +49,8 @@ class Tfidf:
             d = dict(zip(feature_names, tfs[i].toarray()[0]))
             # Sort dic by values decending.
             score = [(x, d[x]) for x in sorted(d, key=lambda x:-d[x])]
-            # Pick up top 30 words.
-            dic[k] = score[:30]
+            # Pick up top 50 words.
+            dic[k] = score[:50]
             i += 1
 
         # Return filename and scored words.
@@ -63,7 +63,12 @@ if __name__ == '__main__':
         if len(sys.argv) > argsmin:
             tfidf = Tfidf(sys.argv)
             result = tfidf.analyze()
-            print(result)
+            for k, v in result.items():
+                print(k)
+                arr = []
+                for w, s in v:
+                    arr.append(w)
+                print(arr)
         else:
             print("This program needs at least %(argsmin)s arguments" %
                   locals())
