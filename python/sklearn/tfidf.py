@@ -3,7 +3,7 @@
 
 import sys
 import os
-#import MeCab
+# import MeCab
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 class Tfidf:
@@ -27,16 +27,23 @@ class Tfidf:
         return dic
 
     def tokenize(self, text):
-        #wakati = MeCab.Tagger("-O wakati")
-        #return wakati.parse(text)
-        return text.rstrip().split(",")
+        words = text.rstrip().split("\n")
+        return list(set(words))
 
-    def main(self):
-        dic = self.token_dict()
-        tfidf = TfidfVectorizer(tokenizer=self.tokenize, stop_words='english')
-        tfs = tfidf.fit_transform(dic.values())
-
-        return(dic, tfs)
+    def analyze(self):
+        dic = {}
+        token_dic = self.token_dict()
+        tfidf = TfidfVectorizer(tokenizer=self.tokenize,
+                                max_df=10,
+                                stop_words='english')
+        tfs = tfidf.fit_transform(token_dic.values())
+        feature_names = tfidf.get_feature_names()
+        i = 0
+        for k, v in token_dic.items():
+            score = dict(zip(feature_names, tfs[i].toarray()[0]))
+            dic[k] = score
+            i += 1
+        return dic
 
 if __name__ == '__main__':
     argsmin = 0
@@ -44,10 +51,8 @@ if __name__ == '__main__':
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
             tfidf = Tfidf(sys.argv)
-            dic, tfs = tfidf.main()
-            print(dic)
-            for i, name in enumerate(dic):
-                print(name, tfs[i])
+            result = tfidf.analyze()
+            print(result)
         else:
             print("This program needs at least %(argsmin)s arguments" %
                   locals())
