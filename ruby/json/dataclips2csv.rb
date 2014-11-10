@@ -13,15 +13,9 @@ class Analyzer
     json = File.read(@filename, :encoding => Encoding::UTF_8)
     JSON.parse(json).each {|key, values|
       values.each {|value|
-        output(value[0], value[1])
+        puts value[0]
       }
     }
-  end
-
-  private
-
-  def output(key, value)
-    puts "#{key},#{value}"
   end
 end
 
