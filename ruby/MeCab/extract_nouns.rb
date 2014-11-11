@@ -43,15 +43,25 @@ class Extractor
 
   def pickup_nouns(string)
     node = @mecab.parseToNode(string)
-    nouns = []
+    words = []
     while node
       if /^名詞/ =~ node.feature.force_encoding("utf-8").split(/,/)[0] then
-        element = node.surface.force_encoding("utf-8")
-        nouns.push(element) if element.length > 1
+        word = node.surface.force_encoding("utf-8")
+        if word.length > 1
+          if word =~ /[一-龠]/
+            words.push(word)
+          elsif word =~ /[あ-ン]/
+            words.push(word)
+          elsif word =~ /^[A-Za-z].*/
+            words.push(word)
+          elsif word =~ /^[Ａ-Ｚａ-ｚ].*/
+            words.push(word)
+          end
+        end
       end
       node = node.next
     end
-    nouns
+    words
   end
 
 end
