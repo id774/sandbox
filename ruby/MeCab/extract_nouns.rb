@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 require 'MeCab'
-require 'awesome_print'
 
 class Extractor
   def initialize(args)

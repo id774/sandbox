@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require 'awesome_print'
-
-class Extractor
+class WordCount
   def initialize(args)
     @in_dir = args.shift || "."
     @out_dir = args.shift || "."
@@ -20,14 +18,14 @@ class Extractor
     hash.sort{|a, b| b[1] <=> a[1]}
   end
 
+  def wordcount(word)
+    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
+  end
+
   def transform_file(filename)
     read_from_file(filename)
     @hits = sort_hash_by_value_desc(@hits)
     write_file(filename, @hits)
-  end
-
-  def wordcount(word)
-    @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
   end
 
   def read_from_file(filename)
@@ -51,7 +49,7 @@ class Extractor
 end
 
 if __FILE__ == $0
-  extractor = Extractor.new(ARGV)
-  extractor.main
+  wc = WordCount.new(ARGV)
+  wc.main
 end
 
