@@ -50,7 +50,9 @@ class Extractor
         if word.length > 1
           if word =~ /[一-龠]/
             words.push(word)
-          elsif word =~ /[あ-ン]/
+          #elsif word =~ /[あ-ん]/
+          #  words.push(word)
+          elsif word =~ /[ア-ン]/
             words.push(word)
           elsif word =~ /^[A-Za-z].*/
             words.push(word)
