@@ -20,12 +20,11 @@ def read_all_files(path):
     return dic
 
 def kmeans(dic):
-    features = []
-    for value in dic.values():
-        features.append(value)
+    features = [value for value in dic.values()]
 
     kmeans_model = KMeans(n_clusters=5, random_state=20).fit(features)
     labels = kmeans_model.labels_
+
     return labels, features
 
 def main(args):
