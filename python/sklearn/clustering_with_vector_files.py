@@ -19,23 +19,25 @@ def read_all_files(path):
                 dic[filename] = read_file(fullname)
     return dic
 
-def kmeans(dic):
+def kmeans(dic, n, r):
     features = [value for value in dic.values()]
 
-    kmeans_model = KMeans(n_clusters=5, random_state=20).fit(features)
+    kmeans_model = KMeans(n_clusters=n, random_state=r).fit(features)
     labels = kmeans_model.labels_
 
     return labels, features
 
 def main(args):
     path = args[1]
+    n_clusters = int(args[2])
+    random_state = int(args[3])
     dic = read_all_files(path)
-    labels, features = kmeans(dic)
+    labels, features = kmeans(dic, n_clusters, random_state)
     for label, key in zip(labels, dic.keys()):
         print(label, key)
 
 if __name__ == '__main__':
-    argsmin = 1
+    argsmin = 3
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
