@@ -22,7 +22,7 @@ class WordCount
       @all_words.each {|word|
         vector << words[word].to_i
       }
-      write_file(filename, vector)
+      write_file(vector, @out_dir, filename)
     }
   end
 
@@ -30,7 +30,7 @@ class WordCount
     read_from_file(filename)
     @all_words = @all_words.sort.uniq
     vectorize
-    write_file('all_words.txt', @all_words)
+    write_file(@all_words, @in_dir, 'all_words.txt')
   end
 
   def read_from_file(filename)
@@ -45,9 +45,9 @@ class WordCount
     @word_vector[filename] = dic
   end
 
-  def write_file(filename, vector)
+  def write_file(vector, dir, filename)
     File.write(
-      File.join(@out_dir, File.basename(filename)),
+      File.join(dir, File.basename(filename)),
       vector.join(",")
     )
   end
