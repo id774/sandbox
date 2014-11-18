@@ -9,7 +9,7 @@ class WordCount
   end
 
   def main
-    Dir.glob(File.join(@in_dir, "*")).each do |filename|
+    Dir.glob(File.join(@in_dir, "????.txt")).each do |filename|
       transform_file(filename) if FileTest.file?(filename)
     end
   end
@@ -30,7 +30,7 @@ class WordCount
     read_from_file(filename)
     @all_words = @all_words.sort.uniq
     vectorize
-    write_file(@all_words, @in_dir, 'all_words.txt')
+    # write_file(@all_words, @in_dir, 'all_words.txt')
   end
 
   def read_from_file(filename)

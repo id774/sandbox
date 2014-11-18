@@ -4,12 +4,15 @@ class WordCount
   def initialize(args)
     @in_dir = args.shift || "."
     @out_dir = args.shift || "."
+    @all = {}
   end
 
   def main
     Dir.glob(File.join(@in_dir, "*")).each do |filename|
       transform_file(filename) if FileTest.file?(filename)
     end
+    @all = sort_hash_by_value_desc(@all)
+    write_file('all_words.txt', @all)
   end
 
   private
@@ -20,6 +23,7 @@ class WordCount
 
   def wordcount(word)
     @hits.has_key?(word) ? @hits[word] += 1 : @hits[word] = 1
+    @all.has_key?(word) ? @all[word] += 1 : @all[word] = 1
   end
 
   def transform_file(filename)
