@@ -21,7 +21,8 @@ class WordCount
     @exclude       = "wordcount_exclude.txt"
     @exclude_txt   = File.expand_path(File.join(@log_path, @exclude))
 
-    @mecab = MeCab::Tagger.new("-Ochasen")
+    userdic = File.expand_path("/home/mecab/dic/custom.dic")
+    @mecab = MeCab::Tagger.new("-Ochasen -u #{userdic}")
     @hits = {}
     @exclude = Array.new
     @exclude_count = 0
