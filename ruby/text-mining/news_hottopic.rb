@@ -52,7 +52,8 @@ class HotNews
     puts('Create vector')
     create_wordvector_from_bloghash
     puts('Start kmeans')
-    kmeans_clustering
+    hcluster = kmeans_clustering
+    kmeans_dendrogram(hcluster)
   end
 
   private
@@ -205,8 +206,13 @@ class HotNews
     cluster = Kmeans::HCluster.new
     hcluster = cluster.hcluster(@word_vector)
     # p cluster.printclust(hcluster, @entry_list)
+    return hcluster
+  end
+
+  def kmeans_dendrogram(hcluster)
+    trimmed_entries = trim_array(@entry_list)
     den = Kmeans::Dendrogram.new(:imagefile => @outimage)
-    den.drawdendrogram(hcluster, @entry_list)
+    den.drawdendrogram(hcluster, trimmed_entries)
   end
 
   def new_entrylist
@@ -223,6 +229,21 @@ class HotNews
       wordmap << 0
     end
     wordmap
+  end
+
+  def trim_array(arr)
+    new_arr = []
+    arr.each {|str| new_arr << trim_string(str, max_length = 50)}
+    new_arr
+  end
+
+  def trim_string(str, max_length = 140)
+    arr_str = str.split(//)
+    if arr_str.length > max_length
+      return arr_str[0, max_length].join("")
+    else
+      return str
+    end
   end
 
   def pickup_nouns(string)
