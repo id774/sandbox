@@ -13,7 +13,7 @@ class Extractor
     stopwords = args.shift || "stopword.txt"
     @exclude = read_from_exclude(stopwords)
 
-    @mecab = MeCab::Tagger.new("-Ochasen -u #{@userdic}}")
+    @mecab = MeCab::Tagger.new("-Ochasen -u #{@userdic}")
   end
 
   def main
@@ -47,7 +47,7 @@ class Extractor
         exclude << line.force_encoding("utf-8").strip.split(",")[0]
       end
     end
-    return exclude
+    return exclude.sort.uniq
   end
 
   def write_file(filename, words)
