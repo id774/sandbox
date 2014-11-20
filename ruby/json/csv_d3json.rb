@@ -27,7 +27,7 @@ class Converter
       file.each_line do |line|
         label, value = line.force_encoding("utf-8").strip.split(',')
         hash = {:label => label, :value => value}
-        array << hash if array.length < 20
+        array << hash if array.length < 30
       end
     end
     [{:key => "key", :values => array}]
