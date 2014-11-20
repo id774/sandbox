@@ -17,8 +17,8 @@ class Converter
   private
 
   def transform_file(filename)
-    array = read_from_file(filename)
-    write_file(filename, array)
+    json = read_from_file(filename)
+    write_file(filename, json)
   end
 
   def read_from_file(filename)
@@ -26,18 +26,17 @@ class Converter
     open(filename) do |file|
       file.each_line do |line|
         label, value = line.force_encoding("utf-8").strip.split(',')
-        hash = {"label" => label, "value" => value}
+        hash = {:label => label, :value => value}
         array << hash if array.length < 20
       end
     end
-    array
+    [{:key => "key", :values => array}]
   end
 
-  def write_file(filename, array)
-    json = JSON.generate(array)
+  def write_file(filename, json)
     File.write(
       File.join(@out_dir, File.basename(filename)),
-      json
+      JSON.pretty_generate(json)
     )
   end
 end
