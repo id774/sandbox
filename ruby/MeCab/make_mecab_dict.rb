@@ -24,7 +24,8 @@ require 'csv'
 
 original_data = {
   wikipedia: 'jawiki-latest-all-titles-in-ns0',
-  hatena: 'keywordlist_furigana.csv'
+  hatena: 'keywordlist_furigana.csv',
+  custom: 'my.csv'
 }
 
 CSV.open("custom.csv", 'w') do |csv|
