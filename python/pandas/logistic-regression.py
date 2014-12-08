@@ -34,14 +34,14 @@ def read_csv():
                        'python',
                        'math',
                        'iris.csv'
-    )
+                       )
 
     names = ['Sepal.Length',
              'Sepal.Width',
              'Petal.Length',
              'Petal.Width',
              'Species'
-    ]
+             ]
 
     iris = pd.read_csv(csv, header=None, names=names)
     return iris
@@ -51,8 +51,8 @@ def conversion(data):
 
     columns = ['Petal.Width', 'Petal.Length']
 
-    x = data[columns]   # データ (説明変数)
-    y = data['Species'] # ラベル (目的変数)
+    x = data[columns]    # データ (説明変数)
+    y = data['Species']  # ラベル (目的変数)
 
     # ラベルを0, 1の列に変換
     y = (y == 'setosa').astype(int)
