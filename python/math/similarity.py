@@ -72,6 +72,34 @@ def dice(v1, v2):
     denominator = len(v1) + len(v2)
     return 2 * float(numerator) / denominator if denominator != 0 else 0
 
+def jaccard_weight(v1, v2):
+    numerator = 0
+    denominator = 0
+
+    keys = set(v1.keys())
+    keys.update(v2.keys())
+
+    for k in keys:
+        f1 = v1.get(k, 0)
+        f2 = v2.get(k, 0)
+        numerator += min(f1, f2)
+        denominator += max(f1, f2)
+    return float(numerator) / denominator if denominator != 0 else 0
+
+def dice_weight(v1, v2):
+    numerator = 0
+    denominator = 0
+
+    keys = set(v1.keys())
+    keys.update(v2.keys())
+
+    for k in keys:
+        f1 = v1.get(k, 0)
+        f2 = v2.get(k, 0)
+        numerator += min(f1, f2)
+        denominator += f1 + f2
+    return 2 * float(numerator) / denominator if denominator != 0 else 0
+
 print('Cosine', cosineSim(A, B))
 print('Jaccard', jaccardSim(A, B))
 print('Simpson', simpsonSim(A, B))
@@ -80,3 +108,6 @@ print('Match', matchCoeff(A, B))
 print('Cosine', cos(A, B))
 print('Jaccard', jaccard(A, B))
 print('Dice', dice(A, B))
+
+print('Jaccard weight', jaccard_weight(A, B))
+print('Dice weight', dice_weight(A, B))
