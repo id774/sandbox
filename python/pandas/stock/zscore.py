@@ -4,20 +4,26 @@ import pandas as pd
 from scipy import stats
 
 def calc_zscore(df, name):
+    evaluated = 300
+
     try:
-        df = df.tail(300)
+        df = df.tail(evaluated)
         df[6] = stats.zscore(df.ix[:, 2])
     except TypeError:
         print("TypeError: " + name)
     return df
 
-def add_zcore(filename):
+def calc_results(df, name):
+    samples = 100
+
+    trading_results = (df.tail(samples).ix[:, 6].sum()) / samples
+    print(name, trading_results)
+
+def parse_file(filename):
     try:
         df = pd.read_csv(filename, index_col=0)
         scored_df = calc_zscore(df, filename)
-        updown = scored_df.tail(100).ix[:, 6].sum()
-        print(updown)
-        scored_df.to_csv(filename, header=None, index=None, sep=",")
+        calc_results(scored_df, filename)
     except pd.parser.CParserError:
         print("ParseError: " + filename)
 
@@ -26,8 +32,7 @@ def list_files(path):
         for filename in files:
             if filename.endswith(".csv"):
                 fullname = os.path.join(root, filename)
-                print("Parse: " + filename)
-                add_zcore(fullname)
+                parse_file(fullname)
 
 def main(args):
     path = args[1]
