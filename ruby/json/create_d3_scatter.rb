@@ -34,9 +34,9 @@ class Converter
     words.each {|k, v|
       hash = {}
       hash[:name] = k
-      hash[:x_count] = v.to_i
-      hash[:y_count] = score[k]
-      array << hash
+      hash[:x_count] = score[k].to_f
+      hash[:y_count] = v.to_i
+      array << hash if hash[:y_count] >= 10
     }
     array
   end
@@ -46,6 +46,7 @@ class Converter
       filename,
       JSON.pretty_generate(json)
     )
+    puts "#{json.length} records generated."
   end
 end
 
