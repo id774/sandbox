@@ -30,7 +30,8 @@ class Converter
         array << hash if array.length < 30
       end
     end
-    [{:key => "key", :values => array}]
+    # [{:key => "key", :values => array}]
+    array
   end
 
   def write_file(filename, json)
