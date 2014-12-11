@@ -16,6 +16,8 @@ class WordCount
       transform_file(filename) if FileTest.file?(filename)
     end
 
+    normalize
+
     write_all('all_words.txt', @all)
     write_all('all_score.txt', @score_map)
   end
@@ -65,11 +67,16 @@ class WordCount
     @all.has_key?(word) ? @all[word] += 1 : @all[word] = 1
   end
 
+  def normalize
+    @score_map.each do |k, v|
+      @score_map[k] = v / @all[k]
+    end
+  end
+
   def calc_score(word, filename)
     basename = File.basename(filename, File.extname(filename))
     magnification = @score_table[basename].to_f
     @score_map.has_key?(word) ? @score_map[word] += magnification : @score_map[word] = magnification
-    @score_map[word] = @score_map[word] / @all[word]
   end
 
   def write_file(filename, hash)
