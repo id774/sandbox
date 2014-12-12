@@ -68,9 +68,7 @@ class WordCount
   end
 
   def normalize
-    @score_map.each do |k, v|
-      @score_map[k] = v / @all[k]
-    end
+    @score_map.each {|k, v| @score_map[k] = v / @all[k]}
   end
 
   def calc_score(word, filename)
