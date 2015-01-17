@@ -32,7 +32,8 @@ class HotNews
     @exclude       = "wordcount_exclude.txt"
     @exclude_txt   = File.expand_path(File.join(@log_path, @exclude))
 
-    @mecab = MeCab::Tagger.new("-Ochasen")
+    userdic = File.expand_path("/home/mecab/dic/custom.dic")
+    @mecab = MeCab::Tagger.new("-Ochasen -u #{userdic}")
     @text_hash = Hash.new
     @blog_hash = Hash.new{ |h,k| h[k] = Hash.new(&h.default_proc) }
     @word_vector = Array.new
