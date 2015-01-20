@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JOBLOG=/var/log/sysadmin/make_meab_dic.log
+JOBLOG=/var/log/sysadmin/make_mecab_dic.log
 
 echo -n "*** $0: Job started on `/bin/hostname` at ">>$JOBLOG 2>&1
 date "+%Y/%m/%d %T">>$JOBLOG 2>&1
