@@ -5,15 +5,18 @@ data = np.random.normal(loc=100, scale=25, size=500)
 
 # 平均を求める
 mu = np.mean(data)
+print("mu", mu)
 
 # 分散を求める
 s2 = np.var(data, ddof=1)
+print("s2", s2)
 
 # 90% 信頼区間
 from scipy.stats import norm
 rv = norm()
 z = rv.ppf(0.995)
+print("z", z)
 
 # 100(1-σ)% 信頼区間
 r = np.array([-z, z]) * np.sqrt(25 / 500)
-print(mu + r)
+print("mu+r", mu + r)
