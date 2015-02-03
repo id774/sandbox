@@ -5,6 +5,7 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import spearmanr
+from scipy.stats import pearsonr
 
 def split_array(data):
     v1 = []
@@ -202,6 +203,7 @@ print("regression2", regression2(data))
 
 v1, v2 = split_array(data)
 print("np.corrcoef", np.corrcoef(v1, v2)[0, 1])
+print("pearsonr", pearsonr(v1, v2))
 
 def plot2data(v1, v2, filename):
     plt.xlim(0, 12)
