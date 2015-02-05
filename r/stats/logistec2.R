@@ -1,0 +1,10 @@
+## mydata <- read.csv("http://www.ats.ucla.edu/stat/data/binary.csv")
+data1 <- read.csv("data1.csv", header=TRUE)
+data1
+mydata = lm(y ~ x1 + x2, data=data1)
+summary(mydata)
+mylogit = glm(y ~ x1 + x2, data=data1, family=binomial(link="logit"))
+summary(mylogit)
+confint(mylogit)
+confint.default(mylogit)
+fitted(mylogit)

@@ -1,5 +1,5 @@
 ## mydata <- read.csv("http://www.ats.ucla.edu/stat/data/binary.csv")
-mydata <- read.csv("../python/pandas/statsmodels/binary.csv")
+mydata <- read.csv("../../python/pandas/statsmodels/binary.csv")
 mydata
 summary(mydata)
 sapply(mydata, sd)
