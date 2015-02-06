@@ -3,6 +3,7 @@ data1 <- read.csv("data1.csv", header=TRUE)
 data1
 sortlist <- order(data1$x2)
 data2 <- data1[sortlist,]
+rownames(data2) <- c(1:nrow(data2))
 mydata = lm(y ~ x1 + x2, data=data2)
 summary(mydata)
 mylogit = glm(y ~ x1 + x2, data=data2, family=binomial(link="logit"))
