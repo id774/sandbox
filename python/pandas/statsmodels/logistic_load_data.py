@@ -60,7 +60,7 @@ def cartesian(arrays, out=None):
 
 # read the data in
 # df = pd.read_csv("http://www.ats.ucla.edu/stat/data/binary.csv")
-df = pd.read_csv("binary.csv")
+df = pd.read_csv("../../../r/stats/binary.csv")
 
 # take a look at the dataset
 print((df.head()))
