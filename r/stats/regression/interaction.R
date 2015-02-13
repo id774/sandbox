@@ -14,7 +14,9 @@ summary(model2)
 # per が高群（+1SD) の場合に talk の効果
 # 低群 (-1SD) の場合，有意ではない
 
+png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 PlotSlope(model2)
+dev.off()
 
 # 交互作用項が二つ以上でも単純主効果の分析
 model3 <- lmres(sat~talk*per*con,centered=c("talk","per","con"),data=data)
