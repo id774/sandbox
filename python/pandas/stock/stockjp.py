@@ -2,6 +2,7 @@
 
 # http://sinhrks.hatenablog.com/entry/2015/02/04/002258
 
+import sys
 import pandas as pd
 import pandas.io.data as web
 import pandas.tools.plotting as plotting
@@ -102,18 +103,25 @@ plotting._plot_klass['ohlc'] = OhlcPlot
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
-    start = '2014-10-01'
 
-    stock_tse = get_quote_yahoojp(9682, start=start)
+    if not len(sys.argv) == 3:
+        print("Require 2 arguments")
+        sys.exit(1)
+
+    stock_n = int(sys.argv[1])
+    start = sys.argv[2]
+    # start = '2014-10-01'
+
+    stock_tse = get_quote_yahoojp(stock_n, start=start)
     stock_tse = stock_tse[-30:]
 
-    print(stock_tse)
+    stock_tse.to_csv("".join(["stockjp_", sys.argv[1], ".csv"]))
 
-    stock_tse.plot(kind='ohlc')
-    plt.show()
-    plt.savefig('image.png')
+    # stock_tse.plot(kind='ohlc')
+    # plt.show()
+    # plt.savefig('image.png')
 
     stock_tse.asfreq('B').plot(kind='ohlc')
     plt.subplots_adjust(bottom=0.25)
     plt.show()
-    plt.savefig('image2.png')
+    plt.savefig("".join(["stockjp_", sys.argv[1], ".png"]))
