@@ -1,0 +1,5 @@
+data <- read.csv("sample_data2.csv", header=TRUE)
+result = glm(con ~ group + sat + talk + per, data=data, family=binomial(link="logit"))
+summary(result)
+names(result)
+exp(result[[1]])
