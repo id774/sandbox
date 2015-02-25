@@ -38,3 +38,12 @@ plt.figure()
 plotting.scatter_matrix(df)
 plt.savefig('image2.png')
 plt.close()
+
+# 増加率
+plt.figure()
+pct_change = df.pct_change()
+print(pct_change)
+pct_change.plot(kind='bar', alpha=0.5)
+plt.savefig('image3.png')
+plt.close()
+
