@@ -117,6 +117,7 @@ def read_data(stock):
 
         stock_tse.asfreq('B').plot(kind='ohlc')
         plt.subplots_adjust(bottom=0.25)
+        plt.xlabel('Stock of ' + str(stock))
         plt.show()
         plt.savefig("".join(["stockjp_", str(stock), ".png"]))
         plt.close()
