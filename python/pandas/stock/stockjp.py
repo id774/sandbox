@@ -124,8 +124,10 @@ def read_data(stock):
         sma5.plot(label="SMA5")
 
         ewma = pd.stats.moments.ewma
+        ewma75 = ewma(stock_tse['Adj Close'], span=75)
         ewma25 = ewma(stock_tse['Adj Close'], span=25)
         ewma5 = ewma(stock_tse['Adj Close'], span=5)
+        ewma75.plot(label="EWMA75")
         ewma25.plot(label="EWMA25")
         ewma5.plot(label="EWMA5")
 
