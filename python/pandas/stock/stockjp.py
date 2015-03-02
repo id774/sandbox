@@ -117,6 +117,19 @@ def read_data(stock):
 
         stock_tse.asfreq('B').plot(kind='ohlc')
         plt.subplots_adjust(bottom=0.25)
+
+        sma25 = pd.rolling_mean(stock_tse['Adj Close'], window=25)
+        sma5 = pd.rolling_mean(stock_tse['Adj Close'], window=5)
+        sma25.plot(label="SMA25")
+        sma5.plot(label="SMA5")
+
+        ewma = pd.stats.moments.ewma
+        ewma25 = ewma(stock_tse['Adj Close'], span=25)
+        ewma5 = ewma(stock_tse['Adj Close'], span=5)
+        ewma25.plot(label="EWMA25")
+        ewma5.plot(label="EWMA5")
+
+        plt.legend(loc="best")
         plt.xlabel('Stock of ' + str(stock))
         plt.show()
         plt.savefig("".join(["stockjp_", str(stock), ".png"]))
