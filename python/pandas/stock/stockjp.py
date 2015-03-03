@@ -104,14 +104,13 @@ def read_data(stock, name):
     fontprop = font_manager.FontProperties(
         fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
-    start = sys.argv[1]
-    # start = '2014-10-01'
+    start = '2014-01-01'
 
     try:
-        stock_tse = get_quote_yahoojp(stock, start=start)
+        stock_tse = get_quote_yahoojp(int(stock), start=start)
         stock_tse = stock_tse[-90:]
 
-        stock_tse.to_csv("".join(["stockjp_", str(stock), ".csv"]))
+        stock_tse.to_csv("".join(["stockjp_", stock, ".csv"]))
 
         plt.figure()
         # stock_tse.plot(kind='ohlc')
@@ -135,19 +134,25 @@ def read_data(stock, name):
         ewma5.plot(label="EWMA5")
 
         plt.legend(loc="best")
-        plt.xlabel(str(stock) + ':' + name,
+        plt.xlabel(stock + ':' + name,
                    fontdict={"fontproperties": fontprop})
         plt.show()
-        plt.savefig("".join(["stockjp_", str(stock), ".png"]))
+        plt.savefig("".join(["stockjp_", stock, ".png"]))
         plt.close()
 
     except ValueError:
         print("Value Error occured in", stock)
 
-def main():
-    stocks = pd.read_csv('stocks.txt', header=None)
+def read_csv(filename):
+    stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        read_data(int(s[0]), s[1])
+        read_data(s[0], s[1])
+
+def main():
+    if len(sys.argv) == 2:
+        read_csv(sys.argv[1])
+    if len(sys.argv) > 2:
+        read_data(sys.argv[1], sys.argv[2])
 
 if __name__ == '__main__':
     argsmin = 1
