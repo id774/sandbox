@@ -134,7 +134,10 @@ def read_data(stock, name):
         ewma5.plot(label="EWMA5")
 
         plt.legend(loc="best")
-        plt.xlabel(stock + ':' + name,
+        closed = stock_tse.ix[-1:, 'Adj Close'][0]
+        plt.xlabel("".join(
+                   [name, '(', stock, '):',
+                    str(closed)]),
                    fontdict={"fontproperties": fontprop})
         plt.show()
         plt.savefig("".join(["stockjp_", stock, ".png"]))
