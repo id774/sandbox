@@ -8,6 +8,7 @@ import pandas.io.data as web
 import pandas.tools.plotting as plotting
 import matplotlib.pyplot as plt
 from matplotlib.dates import date2num, AutoDateFormatter, AutoDateLocator
+from matplotlib import font_manager
 
 class OhlcPlot(plotting.LinePlot):
     ohlc_cols = pd.Index(['open', 'high', 'low', 'close'])
@@ -96,10 +97,12 @@ def get_quote_yahoojp(code, start=None, end=None, interval='d'):
     result = result.sort_index()
     return result
 
-def read_data(stock):
+def read_data(stock, name):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
     plotting._plot_klass['ohlc'] = OhlcPlot
+    fontprop = font_manager.FontProperties(
+        fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
     start = sys.argv[1]
     # start = '2014-10-01'
@@ -132,7 +135,8 @@ def read_data(stock):
         ewma5.plot(label="EWMA5")
 
         plt.legend(loc="best")
-        plt.xlabel('Stock of ' + str(stock))
+        plt.xlabel(str(stock) + ':' + name,
+                   fontdict={"fontproperties": fontprop})
         plt.show()
         plt.savefig("".join(["stockjp_", str(stock), ".png"]))
         plt.close()
@@ -143,7 +147,7 @@ def read_data(stock):
 def main():
     stocks = pd.read_csv('stocks.txt', header=None)
     for s in stocks.values:
-        read_data(int(s[0]))
+        read_data(int(s[0]), s[1])
 
 if __name__ == '__main__':
     argsmin = 1
