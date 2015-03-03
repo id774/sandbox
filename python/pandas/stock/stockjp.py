@@ -146,7 +146,7 @@ def read_data(stock, name):
 def read_csv(filename):
     stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        read_data(s[0], s[1])
+        read_data(str(s[0]), s[1])
 
 def main():
     if len(sys.argv) == 2:
