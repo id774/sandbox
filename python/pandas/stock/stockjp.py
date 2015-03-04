@@ -115,7 +115,7 @@ def read_data(stock, name):
         else:
             stock_tse = get_quote_yahoojp(int(stock), start=start)
 
-        stock_tse = stock_tse[-180:]
+        stock_tse = stock_tse[-90:]
         stock_tse.to_csv("".join(["stockjp_", stock, ".csv"]))
 
         plt.figure()
