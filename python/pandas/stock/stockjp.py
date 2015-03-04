@@ -98,7 +98,7 @@ def get_quote_yahoojp(code, start=None, end=None, interval='d'):
     result = result.sort_index()
     return result
 
-def read_data(stock, name, days):
+def plot_stock(stock, name, days):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
     plotting._plot_klass['ohlc'] = OhlcPlot
@@ -155,15 +155,15 @@ def read_data(stock, name, days):
 def read_csv(filename):
     stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        read_data(str(s[0]), s[1], -90)
+        plot_stock(str(s[0]), s[1], -90)
 
 def main():
     if len(sys.argv) == 2:
         read_csv(sys.argv[1])
     if len(sys.argv) == 3:
-        read_data(sys.argv[1], sys.argv[2], -180)
+        plot_stock(sys.argv[1], sys.argv[2], -180)
     if len(sys.argv) > 3:
-        read_data(sys.argv[1], sys.argv[2], int(sys.argv[3]))
+        plot_stock(sys.argv[1], sys.argv[2], int(sys.argv[3]))
 
 if __name__ == '__main__':
     argsmin = 1
