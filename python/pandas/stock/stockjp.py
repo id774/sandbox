@@ -3,6 +3,7 @@
 # http://sinhrks.hatenablog.com/entry/2015/02/04/002258
 
 import sys
+import datetime
 import pandas as pd
 import pandas.io.data as web
 import pandas.tools.plotting as plotting
@@ -105,11 +106,16 @@ def read_data(stock, name):
         fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
     start = '2014-01-01'
+    end = datetime.datetime.now()
 
     try:
-        stock_tse = get_quote_yahoojp(int(stock), start=start)
-        stock_tse = stock_tse[-90:]
+        if stock == 'N225':
+            start = datetime.datetime.strptime(start, '%Y-%m-%d')
+            stock_tse = web.DataReader('^N225', 'yahoo', start, end)
+        else:
+            stock_tse = get_quote_yahoojp(int(stock), start=start)
 
+        stock_tse = stock_tse[-90:]
         stock_tse.to_csv("".join(["stockjp_", stock, ".csv"]))
 
         plt.figure()
