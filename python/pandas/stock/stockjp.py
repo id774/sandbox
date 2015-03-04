@@ -105,7 +105,7 @@ def read_data(stock, name, days):
     fontprop = font_manager.FontProperties(
         fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
-    start = '2014-01-01'
+    start = '2014-09-01'
     end = datetime.datetime.now()
 
     try:
