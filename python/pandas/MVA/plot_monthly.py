@@ -47,3 +47,7 @@ pct_change.plot(kind='bar', alpha=0.5)
 plt.savefig('image3.png')
 plt.close()
 
+# 増分当てはめ試算例
+pct_change = df.T.pct_change()
+a = df.ix[5,1] * (1 + pct_change.ix[2,4])
+print(a)
