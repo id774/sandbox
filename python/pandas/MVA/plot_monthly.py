@@ -39,7 +39,7 @@ plotting.scatter_matrix(df)
 plt.savefig('image2.png')
 plt.close()
 
-# 増加率
+# 日ごと増加率
 plt.figure()
 pct_change = df.pct_change()
 print(pct_change)
@@ -47,7 +47,12 @@ pct_change.plot(kind='bar', alpha=0.5)
 plt.savefig('image3.png')
 plt.close()
 
-# 増分当てはめ試算例
+# 各月の増加率
 pct_change = df.T.pct_change()
-a = df.ix[5,1] * (1 + pct_change.ix[2,4])
-print(a)
+
+def estimated_from_reference(day):
+    return df.ix[7, 1] * (1 + df.T.pct_change().ix[2, day])
+
+# 各日の結果から最終日の結果を試算
+estimated = [estimated_from_reference(x) for x in range(1, 7)]
+print(estimated)
