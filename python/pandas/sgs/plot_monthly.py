@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import pandas.tools.plotting as plotting
 
 # 各月のデータを読み出す
 df201411 = pd.read_csv("201411.csv", index_col=0)
@@ -34,25 +33,19 @@ df.plot()
 plt.savefig('image.png')
 plt.close()
 
-plt.figure()
-plotting.scatter_matrix(df)
-plt.savefig('image2.png')
-plt.close()
-
-# 日ごと増加率
-plt.figure()
-pct_change = df.pct_change()
-print(pct_change)
-pct_change.plot(kind='bar', alpha=0.5)
-plt.savefig('image3.png')
-plt.close()
-
-# 各月の増加率
 pct_change = df.T.pct_change()
 
 def estimated_from_reference(day):
     return df.ix[7, 1] * (1 + df.T.pct_change().ix[2, day])
-
-# 各日の結果から最終日の結果を試算
 estimated = [estimated_from_reference(x) for x in range(1, 7)]
+
 print(estimated)
+
+def estimated_from_perchange(criteria, day):
+    return df.ix[criteria, 2] * (1 + df.pct_change().ix[day, 1])
+
+print(df)
+df.ix[5, 3] = estimated_from_perchange(4, 5)
+df.ix[6, 3] = estimated_from_perchange(5, 6)
+df.ix[7, 3] = estimated_from_perchange(6, 7)
+print(df)
