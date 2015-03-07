@@ -45,7 +45,16 @@ def estimated_from_perchange(criteria, day):
     return df.ix[criteria, 2] * (1 + df.pct_change().ix[day, 1])
 
 print(df)
+df.ix[2, 3] = estimated_from_perchange(1, 2)
+df.ix[3, 3] = estimated_from_perchange(2, 3)
+df.ix[4, 3] = estimated_from_perchange(3, 4)
 df.ix[5, 3] = estimated_from_perchange(4, 5)
 df.ix[6, 3] = estimated_from_perchange(5, 6)
 df.ix[7, 3] = estimated_from_perchange(6, 7)
 print(df)
+
+plt.figure()
+df[2].plot()
+df[3].plot()
+plt.savefig('image2.png')
+plt.close()
