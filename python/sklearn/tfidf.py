@@ -65,10 +65,7 @@ if __name__ == '__main__':
             result = tfidf.analyze()
             for k, v in result.items():
                 print(k)
-                arr = []
-                for w, s in v:
-                    arr.append(w)
-                print(arr)
+                print(v)
         else:
             print("This program needs at least %(argsmin)s arguments" %
                   locals())
