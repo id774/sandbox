@@ -116,7 +116,6 @@ def calc_rsi(price, n=14):
     # run for all periods with rolling_apply
     return pd.rolling_apply(gain, n, rsiCalc)
 
-
 def plot_stock(stock, name, days):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
@@ -134,39 +133,53 @@ def plot_stock(stock, name, days):
         else:
             stock_tse = get_quote_yahoojp(int(stock), start=start)
 
-        rsi = calc_rsi(stock_tse.asfreq('B'), n=14)
-        stock_tse = stock_tse[days:]
-        stock_tse.to_csv("".join(["stockjp_", stock, ".csv"]))
+        stock_b = stock_tse.asfreq('B')
+        stock_d = stock_b[days:]
+        rsi = calc_rsi(stock_d, n=14)
+        stock_d.to_csv("".join(["stock_", stock, ".csv"]))
 
         plt.figure()
+        plt.subplots_adjust(bottom=0.20)
+
         # stock_tse.plot(kind='ohlc')
         # plt.show()
         # plt.savefig('image.png')
 
-        stock_tse.asfreq('B').plot(kind='ohlc')
-        plt.subplots_adjust(bottom=0.25)
-        rsi['Adj Close'].plot(label="RSI")
+        stock_d.plot(kind='ohlc')
 
-        sma25 = pd.rolling_mean(stock_tse['Adj Close'], window=25)
-        sma5 = pd.rolling_mean(stock_tse['Adj Close'], window=5)
-        sma25.plot(label="SMA25")
-        sma5.plot(label="SMA5")
+        # sma25 = pd.rolling_mean(stock_d['Adj Close'], window=25)
+        # sma5 = pd.rolling_mean(stock_d['Adj Close'], window=5)
+        # sma25.plot(label="SMA25")
+        # sma5.plot(label="SMA5")
 
-        ewma75 = ewma(stock_tse['Adj Close'], span=75)
-        ewma25 = ewma(stock_tse['Adj Close'], span=25)
-        ewma5 = ewma(stock_tse['Adj Close'], span=5)
+        ewma75 = ewma(stock_d['Adj Close'], span=75)
+        ewma25 = ewma(stock_d['Adj Close'], span=25)
+        ewma5 = ewma(stock_d['Adj Close'], span=5)
         ewma75.plot(label="EWMA75")
         ewma25.plot(label="EWMA25")
         ewma5.plot(label="EWMA5")
 
-        plt.legend(loc="best")
-        closed = stock_tse.ix[-1:, 'Adj Close'][0]
+        closed = stock_d.ix[-1:, 'Adj Close'][0]
         plt.xlabel("".join(
                    [name, '(', stock, '):',
                     str(closed)]),
                    fontdict={"fontproperties": fontprop})
+        plt.legend(loc="best")
         plt.show()
-        plt.savefig("".join(["stockjp_", stock, ".png"]))
+        plt.savefig("".join(["stock_", stock, ".png"]))
+        plt.close()
+
+        plt.figure()
+        plt.subplots_adjust(bottom=0.20)
+        rsi['Adj Close'].plot(label="RSI")
+        plt.xlabel("".join(
+                   [name, '(', stock, '):',
+                    str(closed)]),
+                   fontdict={"fontproperties": fontprop})
+        plt.legend(loc="best")
+        plt.show()
+        plt.savefig("".join(["rsi_", stock, ".png"]))
+        plt.legend(loc="best")
         plt.close()
 
     except ValueError:
