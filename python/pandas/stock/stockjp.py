@@ -4,6 +4,7 @@
 
 import sys
 import datetime
+import numpy as np
 import pandas as pd
 import pandas.io.data as web
 import pandas.tools.plotting as plotting
@@ -116,6 +117,7 @@ def calc_rsi(price, n=14):
     # run for all periods with rolling_apply
     return pd.rolling_apply(gain, n, rsiCalc)
 
+
 def plot_stock(stock, name, days):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
@@ -139,13 +141,13 @@ def plot_stock(stock, name, days):
         stock_d.to_csv("".join(["stock_", stock, ".csv"]))
 
         plt.figure()
-        plt.subplots_adjust(bottom=0.20)
 
         # stock_tse.plot(kind='ohlc')
         # plt.show()
         # plt.savefig('image.png')
 
         stock_d.plot(kind='ohlc')
+        plt.subplots_adjust(bottom=0.25)
 
         # sma25 = pd.rolling_mean(stock_d['Adj Close'], window=25)
         # sma5 = pd.rolling_mean(stock_d['Adj Close'], window=5)
@@ -170,12 +172,17 @@ def plot_stock(stock, name, days):
         plt.close()
 
         plt.figure()
-        plt.subplots_adjust(bottom=0.20)
+
         rsi['Adj Close'].plot(label="RSI")
+        plt.subplots_adjust(bottom=0.20)
+
+        closed = round(rsi.ix[-1:, 'Adj Close'][0], 2)
         plt.xlabel("".join(
                    [name, '(', stock, '):',
                     str(closed)]),
                    fontdict={"fontproperties": fontprop})
+        # plt.ylim = (np.arange(0, 110, step=10))
+        plt.ylim = ([0, 100])
         plt.legend(loc="best")
         plt.show()
         plt.savefig("".join(["rsi_", stock, ".png"]))
