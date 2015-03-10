@@ -8,6 +8,7 @@ import pandas as pd
 import pandas.io.data as web
 import pandas.tools.plotting as plotting
 import matplotlib.pyplot as plt
+from pandas.stats.moments import ewma
 from matplotlib.dates import date2num, AutoDateFormatter, AutoDateLocator
 from matplotlib import font_manager
 
@@ -98,6 +99,24 @@ def get_quote_yahoojp(code, start=None, end=None, interval='d'):
     result = result.sort_index()
     return result
 
+
+def calc_rsi(price, n=14):
+    ''' Relative Strength Index '''
+
+    # calculate price gain with previous day, first row nan is filled with 0
+    gain = (price - price.shift(1)).fillna(0)
+
+    def rsiCalc(p):
+        ''' subfunction for calculating rsi for one lookback period '''
+        avgGain = p[p > 0].sum() / n
+        avgLoss = -p[p < 0].sum() / n
+        rs = avgGain / avgLoss
+        return 100 - 100 / (1 + rs)
+
+    # run for all periods with rolling_apply
+    return pd.rolling_apply(gain, n, rsiCalc)
+
+
 def plot_stock(stock, name, days):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
@@ -115,6 +134,7 @@ def plot_stock(stock, name, days):
         else:
             stock_tse = get_quote_yahoojp(int(stock), start=start)
 
+        rsi = calc_rsi(stock_tse.asfreq('B'), n=14)
         stock_tse = stock_tse[days:]
         stock_tse.to_csv("".join(["stockjp_", stock, ".csv"]))
 
@@ -125,13 +145,13 @@ def plot_stock(stock, name, days):
 
         stock_tse.asfreq('B').plot(kind='ohlc')
         plt.subplots_adjust(bottom=0.25)
+        rsi['Adj Close'].plot(label="RSI")
 
         sma25 = pd.rolling_mean(stock_tse['Adj Close'], window=25)
         sma5 = pd.rolling_mean(stock_tse['Adj Close'], window=5)
         sma25.plot(label="SMA25")
         sma5.plot(label="SMA5")
 
-        ewma = pd.stats.moments.ewma
         ewma75 = ewma(stock_tse['Adj Close'], span=75)
         ewma25 = ewma(stock_tse['Adj Close'], span=25)
         ewma5 = ewma(stock_tse['Adj Close'], span=5)
