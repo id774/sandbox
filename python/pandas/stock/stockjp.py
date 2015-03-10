@@ -146,7 +146,7 @@ def plot_stock(stock, name, days):
         # plt.savefig('image.png')
 
         stock_d.plot(kind='ohlc')
-        plt.subplots_adjust(bottom=0.25)
+        plt.subplots_adjust(bottom=0.20)
 
         # sma25 = pd.rolling_mean(stock_d['Adj Close'], window=25)
         # sma5 = pd.rolling_mean(stock_d['Adj Close'], window=5)
