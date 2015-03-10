@@ -4,7 +4,6 @@
 
 import sys
 import datetime
-import numpy as np
 import pandas as pd
 import pandas.io.data as web
 import pandas.tools.plotting as plotting
