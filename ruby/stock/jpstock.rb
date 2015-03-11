@@ -33,12 +33,12 @@ class Stock
     begin
       @fluentd.post('stock.price', {
         :created_at => stock.date,
-        :code => stock.code,
         :open => stock.open,
-        :close => stock.close,
         :high => stock.high,
         :low => stock.low,
-        :volume => stock.volume
+        :close => stock.close,
+        :volume => stock.volume,
+        :adj_close => stock.close
       })
     rescue
       puts("Fault in forwarding fluentd", level=:error)
@@ -49,28 +49,28 @@ class Stock
     CSV.open("stock_#{stock.code}.csv", "a") {|csv|
       csv << [
         stock.date.strftime("%Y-%m-%d"),
-        stock.code,
         stock.open,
-        stock.close,
         stock.high,
         stock.low,
-        stock.volume
+        stock.close,
+        stock.volume,
+        stock.close
       ]
     }
-    puts("Saved stock code: #{stock.code}")
+    puts("Saved stock code: #{stock.code}", level=:debug)
     puts_fluentd(stock) if @options[:fluentd]
   end
 
   def write_title(stock)
     CSV.open("stock_#{stock.code}.csv", "w") {|csv|
       csv << [
-        "Date",
-        "Code",
+        "",
         "Open",
-        "Close",
         "High",
         "Low",
-        "Volume"
+        "Close",
+        "Volume",
+        "Adj Close"
       ]
     }
     puts("Create csv with title: #{stock.code}", level=:debug)
