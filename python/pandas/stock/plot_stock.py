@@ -85,7 +85,7 @@ def calc_rsi(price, n=14):
     return pd.rolling_apply(gain, n, rsiCalc)
 
 
-def plot_stock(stock, name, days):
+def plot_stock(stock, name, days=0, filename=None):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
     plotting._plot_klass['ohlc'] = OhlcPlot
@@ -96,16 +96,20 @@ def plot_stock(stock, name, days):
     end = datetime.datetime.now()
 
     try:
-        if stock == 'N225':
-            start = datetime.datetime.strptime(start, '%Y-%m-%d')
-            stock_tse = web.DataReader('^N225', 'yahoo', start, end)
+        if filename:
+            stock_tse = pd.read_csv(filename,
+                                    index_col=0, parse_dates=True)
         else:
-            jpstock = JpStock()
-            stock_tse = jpstock.get(int(stock), start=start)
+            if stock == 'N225':
+                start = datetime.datetime.strptime(start, '%Y-%m-%d')
+                stock_tse = web.DataReader('^N225', 'yahoo', start, end)
+            else:
+                jpstock = JpStock()
+                stock_tse = jpstock.get(int(stock), start=start)
+            stock_tse.to_csv("".join(["stock_", stock, ".csv"]))
 
         stock_d = stock_tse.asfreq('B')[days:]
         rsi = calc_rsi(stock_d, n=14)
-        stock_d.to_csv("".join(["stock_", stock, ".csv"]))
 
         plt.figure()
 
@@ -162,15 +166,15 @@ def plot_stock(stock, name, days):
 def read_csv(filename):
     stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        plot_stock(str(s[0]), s[1], -90)
+        plot_stock(str(s[0]), s[1], days=-90)
 
 def main():
     if len(sys.argv) == 2:
         read_csv(sys.argv[1])
     if len(sys.argv) == 3:
-        plot_stock(sys.argv[1], sys.argv[2], -180)
+        plot_stock(sys.argv[1], sys.argv[2], days=-180)
     if len(sys.argv) > 3:
-        plot_stock(sys.argv[1], sys.argv[2], int(sys.argv[3]))
+        plot_stock(sys.argv[1], sys.argv[2], filename=sys.argv[3])
 
 if __name__ == '__main__':
     argsmin = 1
