@@ -3,69 +3,19 @@
 # http://sinhrks.hatenablog.com/entry/2015/02/04/002258
 
 import sys
+import os
 import datetime
 import pandas as pd
 import pandas.tools.plotting as plotting
 import matplotlib.pyplot as plt
 from pandas.stats.moments import ewma
-from matplotlib.dates import date2num, AutoDateFormatter, AutoDateLocator
+from matplotlib.dates import AutoDateFormatter
+from matplotlib.dates import AutoDateLocator
+from matplotlib.dates import date2num
 from matplotlib import font_manager
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
+from ohlc_plot import OhlcPlot
 from jpstock import JpStock
-
-class OhlcPlot(plotting.LinePlot):
-    ohlc_cols = pd.Index(['open', 'high', 'low', 'close'])
-    reader_cols = pd.Index(
-        ['Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close'])
-
-    def __init__(self, data, **kwargs):
-        data = data.copy()
-        self.freq = kwargs.pop('freq', 'B')
-
-        if isinstance(data, pd.Series):
-            data = data.resample(self.freq, how='ohlc')
-        assert isinstance(data, pd.DataFrame)
-        assert isinstance(data.index, pd.DatetimeIndex)
-        if data.columns.equals(self.ohlc_cols):
-            data.columns = [c.title() for c in data.columns]
-        elif data.columns.equals(self.reader_cols):
-            pass
-        else:
-            raise ValueError('data is not ohlc-like')
-        data = data[['Open', 'Close', 'High', 'Low']]
-        plotting.LinePlot.__init__(self, data, **kwargs)
-
-    def _get_plot_function(self):
-        from matplotlib.finance import candlestick
-
-        def _plot(data, ax, **kwds):
-            candles = candlestick(ax, data.values, **kwds)
-            return candles
-        return _plot
-
-    def _make_plot(self):
-        from pandas.tseries.plotting import _decorate_axes, format_dateaxis
-        plotf = self._get_plot_function()
-        ax = self._get_ax(0)
-
-        data = self.data
-        data.index.name = 'Date'
-        data = data.to_period(freq=self.freq)
-        data = data.reset_index(level=0)
-
-        if self._is_ts_plot():
-            data['Date'] = data['Date'].apply(lambda x: x.ordinal)
-            _decorate_axes(ax, self.freq, self.kwds)
-            candles = plotf(data, ax, **self.kwds)
-            format_dateaxis(ax, self.freq)
-        else:
-            data['Date'] = data['Date'].apply(
-                lambda x: date2num(x.to_timestamp()))
-            candles = plotf(data, ax, **self.kwds)
-
-            locator = AutoDateLocator()
-            ax.xaxis.set_major_locator(locator)
-            ax.xaxis.set_major_formatter(AutoDateFormatter(locator))
-        return candles
 
 
 def calc_rsi(price, n=14):
