@@ -6,6 +6,7 @@ import sys
 import os
 import datetime
 import pandas as pd
+import pandas.io.data as web
 import pandas.tools.plotting as plotting
 import matplotlib.pyplot as plt
 from pandas.stats.moments import ewma
