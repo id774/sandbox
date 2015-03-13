@@ -56,7 +56,13 @@ class HotNews
     prepare_database
     read_from_wordcount
     read_from_datasource
+    @entry_list = new_entrylist
     write_hotnews
+    puts('Create vector')
+    create_wordvector_from_bloghash
+    puts('Start kmeans')
+    hcluster = kmeans_clustering
+    kmeans_dendrogram(hcluster)
   end
 
   private
@@ -192,6 +198,73 @@ class HotNews
         end
       }
     }
+  end
+
+  def create_wordvector_from_bloghash
+    @entry_list.each {|entry|
+      i = 0
+      wordmap = new_wordmap
+      @text_hash.keys.each {|word|
+        if i < @words
+          @blog_hash.each {|k,v|
+            if v['title'].class == String
+              if v['title'] == entry
+                s = ""
+                s << v['title']
+                s << v['description']
+                wordmap[i] += 1 if s.include?(word)
+              end
+            end
+          }
+          i += 1
+        end
+      }
+      @word_vector << wordmap
+    }
+  end
+
+  def kmeans_clustering
+    cluster = Kmeans::HCluster.new
+    hcluster = cluster.hcluster(@word_vector)
+    # p cluster.printclust(hcluster, @entry_list)
+    return hcluster
+  end
+
+  def kmeans_dendrogram(hcluster)
+    trimmed_entries = trim_array(@entry_list)
+    den = Kmeans::Dendrogram.new(:imagefile => @outimage)
+    den.drawdendrogram(hcluster, trimmed_entries)
+  end
+
+  def new_entrylist
+    entry_list = Array.new
+    @blog_hash.each {|k,v|
+      entry_list << v['title'] if v['score'] >= 10
+    }
+    entry_list
+  end
+
+  def new_wordmap
+    wordmap = []
+    @words.times do
+      wordmap << 0
+    end
+    wordmap
+  end
+
+  def trim_array(arr)
+    new_arr = []
+    arr.each {|str| new_arr << trim_string(str, max_length = 50)}
+    new_arr
+  end
+
+  def trim_string(str, max_length = 140)
+    arr_str = str.split(//)
+    if arr_str.length > max_length
+      return arr_str[0, max_length].join("")
+    else
+      return str
+    end
   end
 
   def pickup_nouns(string)
