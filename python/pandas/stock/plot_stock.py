@@ -14,7 +14,8 @@ from matplotlib.dates import AutoDateFormatter
 from matplotlib.dates import AutoDateLocator
 from matplotlib.dates import date2num
 from matplotlib import font_manager
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             'lib'))
 from ohlc_plot import OhlcPlot
 from jpstock import JpStock
 
