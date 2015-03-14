@@ -1,7 +1,5 @@
 # coding: utf-8
 
-# http://sinhrks.hatenablog.com/entry/2015/02/04/002258
-
 import sys
 import os
 import datetime
@@ -20,7 +18,7 @@ from ohlc_plot import OhlcPlot
 from jpstock import JpStock
 
 
-def calc_rsi(price, n=14):
+def _calc_rsi(price, n=14):
     ''' Relative Strength Index '''
 
     # calculate price gain with previous day, first row nan is filled with 0
@@ -37,7 +35,7 @@ def calc_rsi(price, n=14):
     return pd.rolling_apply(gain, n, rsiCalc)
 
 
-def plot_stock(stock, name, days=0, filename=None):
+def _plot_stock(stock, name, days=0, filename=None):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
     plotting._plot_klass['ohlc'] = OhlcPlot
@@ -61,7 +59,7 @@ def plot_stock(stock, name, days=0, filename=None):
             stock_tse.to_csv("".join(["stock_", stock, ".csv"]))
 
         stock_d = stock_tse.asfreq('B')[days:]
-        rsi = calc_rsi(stock_d, n=14)
+        rsi = _calc_rsi(stock_d, n=14)
 
         plt.figure()
 
@@ -118,15 +116,15 @@ def plot_stock(stock, name, days=0, filename=None):
 def read_csv(filename):
     stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        plot_stock(str(s[0]), s[1], days=-90)
+        _plot_stock(str(s[0]), s[1], days=-90)
 
 def main():
     if len(sys.argv) == 2:
         read_csv(sys.argv[1])
     if len(sys.argv) == 3:
-        plot_stock(sys.argv[1], sys.argv[2], days=-180)
+        _plot_stock(sys.argv[1], sys.argv[2], days=-180)
     if len(sys.argv) > 3:
-        plot_stock(sys.argv[1], sys.argv[2], filename=sys.argv[3])
+        _plot_stock(sys.argv[1], sys.argv[2], filename=sys.argv[3])
 
 if __name__ == '__main__':
     argsmin = 1

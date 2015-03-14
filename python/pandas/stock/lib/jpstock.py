@@ -7,7 +7,7 @@ import pandas.io.data as web
 
 class JpStock:
 
-    def base_url(self):
+    def _base_url(self):
         return ('http://info.finance.yahoo.co.jp/history/'
                 '?code={0}.T&{1}&{2}&tm={3}&p={4}')
 
@@ -18,7 +18,7 @@ class JpStock:
 
             return result.asfreq('B')
 
-        base = self.base_url()
+        base = self._base_url()
         start, end = web._sanitize_dates(start, end)
         start = 'sy={0}&sm={1}&sd={2}'.format(
             start.year, start.month, start.day)
