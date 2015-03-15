@@ -16,23 +16,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
                              'lib'))
 from ohlc_plot import OhlcPlot
 from jpstock import JpStock
-
-
-def _calc_rsi(price, n=14):
-    ''' Relative Strength Index '''
-
-    # calculate price gain with previous day, first row nan is filled with 0
-    gain = (price - price.shift(1)).fillna(0)
-
-    def rsiCalc(p):
-        ''' subfunction for calculating rsi for one lookback period '''
-        avgGain = p[p > 0].sum() / n
-        avgLoss = -p[p < 0].sum() / n
-        rs = avgGain / avgLoss
-        return 100 - 100 / (1 + rs)
-
-    # run for all periods with rolling_apply
-    return pd.rolling_apply(gain, n, rsiCalc)
+from calc_rsi import calc_rsi
 
 
 def _plot_stock(stock, name, days=0, filename=None):
@@ -59,7 +43,7 @@ def _plot_stock(stock, name, days=0, filename=None):
             stock_tse.to_csv("".join(["stock_", stock, ".csv"]))
 
         stock_d = stock_tse.asfreq('B')[days:]
-        rsi = _calc_rsi(stock_d, n=14)
+        rsi = calc_rsi(stock_d, n=14)
 
         plt.figure()
 
