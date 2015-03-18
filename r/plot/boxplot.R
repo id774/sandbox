@@ -1,14 +1,14 @@
 
 # http://bio-info.biz/tips/r_boxplot.html
 
-savedata <- function(name, data) {
-  write.csv(data, paste(name, "csv", sep="."),
-              quote=TRUE, row.names=FALSE, sep=",")
-}
-
 readdata <- function(name) {
   read.csv(paste(name, "csv", sep="."),
            header=TRUE, skip=0)
+}
+
+savedata <- function(name, data) {
+  write.csv(data, paste(name, "csv", sep="."),
+            quote=TRUE, row.names=FALSE, sep=",")
 }
 
 draw <- function(name, data) {
