@@ -1,8 +1,10 @@
 library(MASS)
 head(birthwt)
-write.table(birthwt, "birthwt.csv", sep=",")
+write.csv(birthwt, "birthwt.csv",
+          quote=TRUE, row.names=TRUE, sep=",")
 
-data <- read.csv("birthwt.csv", header=TRUE)
+data <- read.csv("birthwt.csv",
+                 header=TRUE, skip=0)
 head(data)
 
 sample <- birthwt[,c(1,2,3,5,6,7,8)]
