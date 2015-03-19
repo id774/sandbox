@@ -43,7 +43,6 @@ def _plot_stock(stock, name, days=0, filename=None):
             stock_tse.to_csv("".join(["stock_", stock, ".csv"]))
 
         stock_d = stock_tse.asfreq('B')[days:]
-        rsi = calc_rsi(stock_d, n=14)
 
         plt.figure()
 
@@ -78,10 +77,13 @@ def _plot_stock(stock, name, days=0, filename=None):
 
         plt.figure()
 
-        rsi['Adj Close'].plot(label="RSI")
+        rsi9 = calc_rsi(stock_d, n=9)
+        rsi14 = calc_rsi(stock_d, n=14)
+        rsi9['Adj Close'].plot(label="RSI9")
+        rsi14['Adj Close'].plot(label="RSI14")
         plt.subplots_adjust(bottom=0.20)
 
-        closed = round(rsi.ix[-1:, 'Adj Close'][0], 2)
+        closed = round(rsi14.ix[-1:, 'Adj Close'][0], 2)
         plt.xlabel("".join(
                    [name, '(', stock, '):',
                     str(closed)]),
