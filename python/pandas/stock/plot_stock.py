@@ -19,14 +19,13 @@ from jpstock import JpStock
 from calc_rsi import calc_rsi
 
 
-def _plot_stock(stock, name, days=0, filename=None):
+def _plot_stock(stock="", name="", start='2014-09-01', days=180, filename=None):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
     plotting._plot_klass['ohlc'] = OhlcPlot
     fontprop = font_manager.FontProperties(
         fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
-    start = '2014-09-01'
     end = datetime.datetime.now()
 
     try:
@@ -42,6 +41,7 @@ def _plot_stock(stock, name, days=0, filename=None):
                 stock_tse = jpstock.get(int(stock), start=start)
             stock_tse.to_csv("".join(["stock_", stock, ".csv"]))
 
+        days = days * -1
         stock_d = stock_tse.asfreq('B')[days:]
 
         plt.figure()
@@ -102,21 +102,39 @@ def _plot_stock(stock, name, days=0, filename=None):
 def read_csv(filename):
     stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        _plot_stock(str(s[0]), s[1], days=-90)
+        _plot_stock(stock=str(s[0]), name=s[1], days=90)
 
 def main():
-    if len(sys.argv) == 2:
-        read_csv(sys.argv[1])
-    if len(sys.argv) == 3:
-        _plot_stock(sys.argv[1], sys.argv[2], days=-180)
-    if len(sys.argv) == 4:
-        _plot_stock(sys.argv[1], sys.argv[2], days=int(sys.argv[3]))
-    if len(sys.argv) > 4:
-        _plot_stock(sys.argv[1], sys.argv[2], days=int(sys.argv[3]),
-                    filename=sys.argv[4])
+    from optparse import OptionParser
+    usage = "usage: %prog [options] arg"
+    parser = OptionParser(usage)
+    parser.add_option("-c", "--code", dest="stockcode",
+                      help="stock code")
+    parser.add_option("-n", "--name", dest="stockname",
+                      help="stock name")
+    parser.add_option("-s", "--stock", dest="stocktxt",
+                      help="read scraping stock names from text file")
+    parser.add_option("-r", "--readfile", dest="csvfile",
+                      help="read stock data from csv file")
+    parser.add_option("-d", "--date", dest="startdate",
+                      help="specify start date as '2014-09-01'")
+    parser.add_option("-y", "--days", dest="days",
+                      help="plot days as '-90', specify 0 for all days")
+    (options, args) = parser.parse_args()
+    if len(args) != 0:
+        parser.error("incorrect number of arguments")
+
+    if options.stocktxt:
+        read_csv(options.stocktxt)
+    else:
+        _plot_stock(stock=options.stockcode,
+                    name=options.stockname,
+                    filename=options.csvfile,
+                    start=options.startdate,
+                    days=int(options.days))
 
 if __name__ == '__main__':
-    argsmin = 1
+    argsmin = 0
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
