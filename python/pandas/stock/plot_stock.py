@@ -109,8 +109,11 @@ def main():
         read_csv(sys.argv[1])
     if len(sys.argv) == 3:
         _plot_stock(sys.argv[1], sys.argv[2], days=-180)
-    if len(sys.argv) > 3:
-        _plot_stock(sys.argv[1], sys.argv[2], filename=sys.argv[3])
+    if len(sys.argv) == 4:
+        _plot_stock(sys.argv[1], sys.argv[2], days=int(sys.argv[3]))
+    if len(sys.argv) > 4:
+        _plot_stock(sys.argv[1], sys.argv[2], days=int(sys.argv[3]),
+                    filename=sys.argv[4])
 
 if __name__ == '__main__':
     argsmin = 1
