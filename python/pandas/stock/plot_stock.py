@@ -19,7 +19,7 @@ from jpstock import JpStock
 from calc_rsi import calc_rsi
 
 
-def _plot_stock(stock="", name="", start='2014-09-01', days=180, filename=None):
+def _plot_stock(stock="", name="", start='2014-09-01', days=0, filename=None):
     plotting._all_kinds.append('ohlc')
     plotting._common_kinds.append('ohlc')
     plotting._plot_klass['ohlc'] = OhlcPlot
@@ -27,6 +27,11 @@ def _plot_stock(stock="", name="", start='2014-09-01', days=180, filename=None):
         fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
     end = datetime.datetime.now()
+
+    if not days:
+        days = 90
+    else:
+        days = int(days)
 
     try:
         if filename:
@@ -99,10 +104,13 @@ def _plot_stock(stock="", name="", start='2014-09-01', days=180, filename=None):
     except ValueError:
         print("Value Error occured in", stock)
 
-def read_csv(filename):
+def read_csv(filename, start, days):
     stocks = pd.read_csv(filename, header=None)
     for s in stocks.values:
-        _plot_stock(stock=str(s[0]), name=s[1], days=90)
+        _plot_stock(stock=str(s[0]),
+                    name=s[1],
+                    start=start,
+                    days=days)
 
 def main():
     from optparse import OptionParser
@@ -125,13 +133,15 @@ def main():
         parser.error("incorrect number of arguments")
 
     if options.stocktxt:
-        read_csv(options.stocktxt)
+        read_csv(filename=options.stocktxt,
+                 start=options.startdate,
+                 days=options.days)
     else:
         _plot_stock(stock=options.stockcode,
                     name=options.stockname,
                     filename=options.csvfile,
                     start=options.startdate,
-                    days=int(options.days))
+                    days=options.days)
 
 if __name__ == '__main__':
     argsmin = 0
