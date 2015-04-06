@@ -26,7 +26,6 @@ def plot(data, eaten):
     plt.savefig("image.png")
 
 plot(data, eaten)
+print(data)
 labels = kmeans(data)
 
-for label, feature in zip(labels, data):
-    print(label, feature)
