@@ -51,6 +51,5 @@ for weights in ['uniform', 'distance']:
     plt.ylim(yy.min(), yy.max())
     plt.title("3-Class classification (k = %i, weights = '%s')"
               % (n_neighbors, weights))
-
-plt.show()
-plt.savefig('image.png')
+    plt.show()
+    plt.savefig(weights + '.png')
