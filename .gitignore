@@ -30,3 +30,4 @@ Rplots.pdf
 ipython_log.py
 Untitled0.ipynb
 .ipynb_checkpoints
+*.pickle
