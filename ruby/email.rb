@@ -21,7 +21,7 @@ def sendmail
     to       "774@id774.net"
     subject  "メール送信のテスト"
     body     "テストメールです"
-   add_file :filename => filename, :content => File.read(path)
+    add_file :filename => filename, :content => File.read(path)
   end
 
   mail.charset = 'utf-8'
