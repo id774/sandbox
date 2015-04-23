@@ -1,6 +1,9 @@
 require 'mail'
 
 def sendmail
+  hostname = `hostname`.chop
+  return unless hostname.include?("id774.net")
+
   options = {
     :address  => "localhost",
     :port   => 25,
@@ -12,12 +15,12 @@ def sendmail
     delivery_method :smtp, options
   end
 
-  filename = "email.rb"
+  filename = "testmail.txt"
   dir = File.expand_path(File.dirname(__FILE__))
   path = File.join(dir, filename)
 
   mail = Mail.new do
-    from     "774@id774.net"
+    from     "774@#{hostname}"
     to       "774@id774.net"
     subject  "メール送信のテスト"
     body     "テストメールです"
