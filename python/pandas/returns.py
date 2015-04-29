@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import pandas.io.data as web
+from pandas_datareader import data
 
 import matplotlib.dates as dates
 from datetime import datetime
@@ -13,7 +13,7 @@ from matplotlib import font_manager
 fontprop = font_manager.FontProperties(
     fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
-price = web.get_data_yahoo('AAPL', '2009-12-31')['Adj Close']
+price = data.get_data_yahoo('AAPL', '2009-12-31')['Adj Close']
 
 returns = price.pct_change()
 ret_index = (1 + returns).cumprod()
@@ -24,7 +24,7 @@ m_returns = ret_index.resample('BM', how='last').pct_change()
 
 print(m_returns['2014'])
 
-#data = web.get_data_yahoo('AAPL', '2011-03-01')
+#data = data.get_data_yahoo('AAPL', '2011-03-01')
 #px = data['Adj Close']
 #returns = px.pct_change()
 #returns = price.pct_change()
@@ -46,7 +46,7 @@ print(m_returns['2014'])
 # to_index(trade_rets).plot()
 
 def get_px(stock, start, end):
-    return web.get_data_yahoo(stock, start, end)['Adj Close']
+    return data.get_data_yahoo(stock, start, end)['Adj Close']
 
 names = ['AAPL', 'GOOG', 'MSFT', 'DELL', 'GS', 'MS', 'BAC', 'C']
 px = pd.DataFrame({n: get_px(n, '1/1/2010', '3/11/2014') for n in names})

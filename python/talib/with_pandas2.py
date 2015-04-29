@@ -1,9 +1,7 @@
 import os
 import numpy as np
-import pandas.io.data as data
 import pandas as pd
 import talib as ta
-import matplotlib.pyplot as plt
 
 days = 30
 filename = os.path.join(os.path.dirname(

@@ -1,8 +1,7 @@
 import numpy as np
-import pandas.io.data as data
+from pandas_datareader import data
 import pandas as pd
 import talib as ta
-import matplotlib.pyplot as plt
 
 # Download SP500 data with pandas
 spyidx = data.get_data_yahoo('SPY', '2013-01-01')

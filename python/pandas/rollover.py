@@ -2,17 +2,16 @@
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import pandas.io.data as web
-import matplotlib.dates as dates
 from datetime import datetime
+from pandas_datareader import data
+import matplotlib.pyplot as plt
 
 from matplotlib import font_manager
 
 fontprop = font_manager.FontProperties(
     fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
 
-px = web.get_data_yahoo('SPY')['Adj Close'] * 10
+px = data.get_data_yahoo('SPY')['Adj Close'] * 10
 expiries = {
     'GCJ14': datetime(2014, 4, 28),
     'GCM14': datetime(2014, 6, 26)
