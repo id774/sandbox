@@ -16,6 +16,7 @@ def calc_zscore(df, name):
 def calc_results(df, name):
     samples = 100
 
+    print(df)
     trading_results = (df.tail(samples).ix[:, 6].sum()) / samples
     print(name, trading_results)
 
