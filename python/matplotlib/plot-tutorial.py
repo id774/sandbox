@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 import numpy as np
 from pandas import *
 from pylab import *
@@ -8,8 +9,12 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager
 from numpy.random import randn
 
-fontprop = matplotlib.font_manager.FontProperties(
-    fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+if sys.platform == "darwin":
+    font_path = "/Library/Fonts/Osaka.ttf"
+else:
+    font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+
+fontprop = font_manager.FontProperties(fname=font_path)
 
 fig = plt.figure()
 

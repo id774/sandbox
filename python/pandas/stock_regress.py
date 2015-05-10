@@ -1,10 +1,15 @@
+import sys
 import pandas as pd
 import statsmodels.api as sm
 from matplotlib import pyplot as plt
 from matplotlib import font_manager
 
-prop = font_manager.FontProperties(
-    fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+if sys.platform == "darwin":
+    font_path = "/Library/Fonts/Osaka.ttf"
+else:
+    font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+
+prop = font_manager.FontProperties(fname=font_path)
 
 df = pd.read_csv('stocks.csv',
                  index_col=0, parse_dates=True)

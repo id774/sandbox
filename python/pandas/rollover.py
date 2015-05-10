@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import sys
 import numpy as np
 import pandas as pd
 from datetime import datetime
@@ -8,8 +9,12 @@ import matplotlib.pyplot as plt
 
 from matplotlib import font_manager
 
-fontprop = font_manager.FontProperties(
-    fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+if sys.platform == "darwin":
+    font_path = "/Library/Fonts/Osaka.ttf"
+else:
+    font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+
+fontprop = font_manager.FontProperties(fname=font_path)
 
 px = data.get_data_yahoo('SPY')['Adj Close'] * 10
 expiries = {

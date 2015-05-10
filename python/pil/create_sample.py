@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import os
 import sys
+import os
 from PIL import Image, ImageDraw, ImageFont
 
 # フォントの指定
-font = ImageFont.truetype(
-    '/usr/share/fonts/truetype/vlgothic/VL-Gothic-Regular.ttf', 10, encoding='unic')
+if sys.platform == "darwin":
+    font_path = "/Library/Fonts/Osaka.ttf"
+else:
+    font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+font = ImageFont.truetype(font_path,
+                          10, encoding='unic')
 
 # RGB, 200x200 サイズ, 白い背景の画像を描画
 img = Image.new('RGB', (200, 200), (255, 255, 255))

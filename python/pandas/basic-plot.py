@@ -1,14 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 from pylab import *
 from pandas import *
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import font_manager
 
-fontprop = matplotlib.font_manager.FontProperties(
-    fname="/usr/share/fonts/truetype/fonts-japanese-gothic.ttf")
+if sys.platform == "darwin":
+    font_path = "/Library/Fonts/Osaka.ttf"
+else:
+    font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+
+fontprop = font_manager.FontProperties(fname=font_path)
 
 ts = Series(randn(1000), index=date_range('1/1/2000', periods=1000))
 ts = ts.cumsum()

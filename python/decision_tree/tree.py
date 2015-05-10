@@ -163,8 +163,13 @@ def drawtree(tree, jpeg='tree.jpg'):
     img.save(jpeg, 'JPEG')
 
 def drawnode(draw, tree, x, y):
-    font = ImageFont.truetype(
-        '/usr/share/fonts/truetype/vlgothic/VL-Gothic-Regular.ttf', 16, encoding='utf-8')
+    if sys.platform == "darwin":
+        font_path = "/Library/Fonts/Osaka.ttf"
+    else:
+        font_path = "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf"
+
+    font = ImageFont.truetype(font_path,
+                              16, encoding='utf-8')
     if tree.results == None:
         # Get the width of each branch
         w1 = getwidth(tree.fb) * 100
