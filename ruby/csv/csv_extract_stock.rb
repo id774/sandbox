@@ -13,9 +13,8 @@ def create_hash(hash)
 
   CSV.foreach(File.expand_path(CSV_PATH), encoding: "UTF-8" ) do |row|
     hashed_row = Hash[*keys.zip(row).flatten]
-    p hash
-    pri_key = hashed_row[0]
-    unless pri_key == "player"
+    pri_key = hashed_row[:date]
+    unless pri_key == "Date"
       hash[pri_key] =
         {
           "Open"  => hashed_row[:open],
@@ -35,7 +34,11 @@ def extract
   hash = Sysadmin::Util.create_multi_dimensional_hash
   hash = create_hash(hash)
 
-  pp hash
+  i = 3
+  hash.each do |k, v|
+    pp k, v if i < 10
+    i += 1
+  end
 end
 
 if __FILE__ == $0
