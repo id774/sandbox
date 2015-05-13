@@ -64,7 +64,7 @@ class Stock
   def write_title(stock)
     CSV.open("stock_#{stock.code}.csv", "w") {|csv|
       csv << [
-        "",
+        "Date",
         "Open",
         "High",
         "Low",
