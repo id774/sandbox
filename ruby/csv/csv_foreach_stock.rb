@@ -3,16 +3,18 @@
 
 require 'csv'
 
-i = 0
+arr = []
 CSV.foreach('ti_N225.csv') do |row|
-  if i < 5
-    unless row[0] == "Date"
-      p row[0]
-      p row[1]
-      p row[2]
-      p row[3]
-      p row[4]
-      i += 1
-    end
+  unless row[0] == "Date"
+    arr << row
   end
+end
+
+5.times do
+  a = arr.pop
+  p a[0]
+  p a[1]
+  p a[2]
+  p a[3]
+  p a[4]
 end
