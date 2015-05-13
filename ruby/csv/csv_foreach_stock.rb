@@ -3,6 +3,16 @@
 
 require 'csv'
 
-CSV.foreach('ti_N225.csv') do |bo|
-  print bo, "\n"
+i = 0
+CSV.foreach('ti_N225.csv') do |row|
+  if i < 5
+    unless row[0] == "Date"
+      p row[0]
+      p row[1]
+      p row[2]
+      p row[3]
+      p row[4]
+      i += 1
+    end
+  end
 end
