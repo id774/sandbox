@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import os
 from PIL import Image, ImageDraw, ImageFont
 
 # フォントの指定
@@ -19,6 +18,6 @@ draw = ImageDraw.Draw(img)
 draw.line((20, 50, 150, 80), fill=(255, 0, 0))  # 赤い直線を引く
 draw.line((150, 150, 20, 200), fill=(0, 255, 0))  # 緑の直線を引く
 draw.text((40, 80), 'Hello Python!', (0, 0, 0))  # 黒い文字を書く
-draw.text((25, 45), u'テスト', font=font, fill='#000000')  # 全角文字を出力
+draw.text((25, 45), 'テスト', font=font, fill='#000000')  # 全角文字を出力
 
 img.save('sample.jpg', 'JPEG')  # JPEG として保存
