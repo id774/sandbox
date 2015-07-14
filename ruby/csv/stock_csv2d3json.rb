@@ -41,7 +41,7 @@ class Converter
       pri_key = hashed_row[:date]
       unless pri_key == "Date"
         unixtime = Time.parse(pri_key).to_i
-        array.push([unixtime, hashed_row[:ret_index].to_f])
+        array.push([unixtime * 1000, hashed_row[:ret_index].to_f])
       end
     end
 
