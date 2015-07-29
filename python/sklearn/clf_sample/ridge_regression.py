@@ -7,11 +7,16 @@ def create_features(arr, range=16):
     range = range * -1
     train_X = []
     train_y = []
-    for i in np.arange(range, -15):
+    for i in np.arange(range, -14):
         s = i + 14
         feature = arr.ix[i:s]
-        train_y.append(feature[-1])
-        train_X.append(feature.values)
+        x = feature.values
+        y = arr[s]
+        print("Pointer:", i, s)
+        print("X:", x)
+        print("Y:", y)
+        train_X.append(x)
+        train_y.append(y)
     return np.array(train_X), np.array(train_y)
 
 s = pd.read_csv("sampledata.csv", index_col=0, parse_dates=True)
@@ -29,5 +34,14 @@ clf.fit(x, y)
 
 # Classify
 print("Predict")
-print(x[-1:])
-print(clf.predict(x[-1:]))
+arr = s['Values']
+
+def classify(clf, arr, a, b):
+    t = arr.values[a:b]
+    print(t)
+    print(clf.predict(t))
+
+classify(clf, arr, -30, -16)
+classify(clf, arr, -17, -3)
+classify(clf, arr, -16, -2)
+classify(clf, arr, -15, -1)
