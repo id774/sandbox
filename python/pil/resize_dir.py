@@ -1,5 +1,6 @@
 import sys
 import os
+import imghdr
 from PIL import Image
 
 def resize_file(size, filename, outpath):
@@ -10,8 +11,9 @@ def resize_file(size, filename, outpath):
 def read_dir(size, src, out):
     for root, dirs, files in os.walk(src):
         for filename in files:
-            if filename.endswith("png"):
-                fullname = os.path.join(root, filename)
+            fullname = os.path.join(root, filename)
+            image_type = imghdr.what(fullname)
+            if image_type == 'jpeg' or image_type == 'png':
                 outpath = os.path.join(out, filename)
                 print("Resize: " + filename)
                 resize_file(size, fullname, outpath)
