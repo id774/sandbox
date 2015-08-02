@@ -19,6 +19,25 @@ def create_features(arr, range=16):
         train_y.append(y)
     return np.array(train_X), np.array(train_y)
 
+def create_features2(arr, range=16):
+    if range > 135:
+        range = 135
+    range = range * -1
+    train_X = []
+    train_y = []
+    for i in np.arange(range, -15):
+        s = i + 14
+        feature = arr.ix[i:s]
+        x = feature.values
+        s = s + 1
+        y = arr[s]
+        print("Pointer:", i, s)
+        print("X:", x)
+        print("Y:", y)
+        train_X.append(x)
+        train_y.append(y)
+    return np.array(train_X), np.array(train_y)
+
 s = pd.read_csv("sampledata.csv", index_col=0, parse_dates=True)
 # Features
 x, y = create_features(s['Values'], range=999)
@@ -42,6 +61,7 @@ def classify(clf, arr, a, b):
     print(t)
     print(clf.predict(t))
 
+print("test1")
 classify(clf, arr, -30, -16)
 classify(clf, arr, -17, -3)
 classify(clf, arr, -16, -2)
@@ -64,3 +84,12 @@ t = [5008.1, 5012.2, 5055.3, 5140.0, 5099.0,
      5022.0, 5013.0, 5081.1, 5088.1]
 print(t)
 print(clf.predict(t))
+
+x, y = create_features2(s['Values'], range=999)
+print("Trained")
+print(x)
+print(y)
+clf.fit(x, y)
+
+print("test2")
+classify(clf, arr, -30, -16)
