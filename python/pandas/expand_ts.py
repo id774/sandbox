@@ -11,4 +11,5 @@ t = pd.concat([s, dup_ts])
 print(len(s))
 print(len(dup_ts))
 print(len(t))
+t['Close'] = t['Values'] * 16780.53
 t.to_csv('expand_ts.csv')
