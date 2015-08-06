@@ -27,7 +27,7 @@ def features(arr, range=16):
 x, y = features(s['Values'], range=999)
 
 from sklearn import linear_model
-clf = linear_model.Ridge(alpha=2)
+clf = linear_model.Ridge(alpha=0.5)
 clf.fit(x, y)
 
 for i in np.arange(0, 180):
