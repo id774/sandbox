@@ -20,7 +20,7 @@ class Converter
   def read_from_file
     array = []
 
-    Dir.glob(File.join(@in_dir, "*.csv")).each do |filename|
+    Dir.glob(File.join(@in_dir, "ti_*.csv")).each do |filename|
       hash = transform_file(filename) if FileTest.file?(filename)
       array.push(hash)
     end
@@ -41,11 +41,15 @@ class Converter
       pri_key = hashed_row[:date]
       unless pri_key == "Date"
         unixtime = Time.parse(pri_key).to_i
-        array.push([unixtime * 1000, hashed_row[:ret_index].to_f])
+        array.push([unixtime * 1000,
+                    # hashed_row[:ret_index].to_f])
+                    hashed_row[:adj_close].to_f])
       end
     end
 
-    hash = {"key" => filename, "values" => array}
+    basename = File.basename(filename)
+    base_numbers = basename.scan(/[0-9]/).join("")
+    hash = {"key" => base_numbers, "values" => array}
 
     return hash
   end
