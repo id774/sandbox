@@ -19,7 +19,7 @@ def main(args):
                                                       'Trend',
                                                       'Pred',
                                                       'Close']).T
-    df4.to_csv(outfile)
+    df4.to_csv(outfile, index=False)
 
 if __name__ == '__main__':
     argsmin = 2
