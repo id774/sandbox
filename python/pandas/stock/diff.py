@@ -4,6 +4,7 @@ import pandas as pd
 def main(args):
     file1 = args[1]
     file2 = args[2]
+    file3 = args[3]
 
     sortkey = 'Code'
     df1 = pd.read_csv(file1, sep='\t').sort(sortkey, ascending=True)
@@ -18,10 +19,10 @@ def main(args):
                                                       'Trend',
                                                       'Pred',
                                                       'Close']).T
-    df4.to_csv('result.csv')
+    df4.to_csv(file3)
 
 if __name__ == '__main__':
-    argsmin = 2
+    argsmin = 3
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
