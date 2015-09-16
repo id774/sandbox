@@ -2,8 +2,8 @@ import sys
 import pandas as pd
 
 def main(args):
-    infile1 = "".join(["summary_", args[1], ".csv"])
-    infile2 = "".join(["summary_", args[2], ".csv"])
+    infile1 = "".join(["summary.csv.", args[1], ".csv"])
+    infile2 = "".join(["summary.csv.", args[2], ".csv"])
     outfile = "".join(["diff_", args[1], "-", args[2], ".csv"])
 
     sortkey = 'Code'
