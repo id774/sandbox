@@ -9,6 +9,16 @@ def calc_pred_ratio(df):
         result[i] = (df['Pred'][i] / df['Close'][i] * 100) - 100
     return result
 
+def calc_trend_correct(df):
+    l = len(df)
+    result = np.zeros(l, dtype=int)
+    for i in range(l):
+        if df['Prev'][i] > df['Close'][i] and df['Trend'][i] == 0:
+            result[i] = 1
+        if df['Prev'][i] <= df['Close'][i] and df['Trend'][i] == 1:
+            result[i] = 1
+    return result
+
 def calc_correct(df):
     l = len(df)
     result = np.zeros(l, dtype=int)
@@ -74,6 +84,7 @@ def main(args):
     df['Errata-D'] = calc_errata_d(df)
     df['Errata-U'] = calc_errata_u(df)
     df['Correct'] = calc_correct(df)
+    df['Trend-Correct'] = calc_trend_correct(df)
     df['Pred-Ratio'] = calc_pred_ratio(df)
 
     pred_d = df['Pred-D'].sum()
@@ -81,20 +92,26 @@ def main(args):
     errata_d = df['Errata-D'].sum()
     errata_u = df['Errata-U'].sum()
     correct = df['Correct'].sum()
-    ratio_mean = df['Pred-Ratio'].mean()
-    ratio_max = df['Pred-Ratio'].max()
-    ratio_min = df['Pred-Ratio'].min()
+    trend_correct = df['Trend-Correct'].sum()
+    pred_mean = df['Pred-Ratio'].mean()
+    pred_max = df['Pred-Ratio'].max()
+    pred_min = df['Pred-Ratio'].min()
 
     print('Pred-D', pred_d)
     print('Pred-U', pred_u)
     print('Errata-D', errata_d)
     print('Errata-U', errata_u)
+    trend_ratio = df['Trend'].sum()
+    print('Trend-Ratio', trend_ratio)
+    print('Trend-Correct', trend_correct)
+    trend_correct_ratio = trend_correct / len(df) * 100
+    print('Trend-Correct-ratio', trend_correct_ratio)
     print('Correct', correct)
     total = correct / (pred_d + pred_u) * 100
     print('Total', total)
-    print('Ratio-mean', ratio_mean)
-    print('Ratio-max', ratio_max)
-    print('Ratio-min', ratio_min)
+    print('Predict-mean', pred_mean)
+    print('Predict-max', pred_max)
+    print('Predict-min', pred_min)
 
     df.to_csv(outfile, index=False)
 
