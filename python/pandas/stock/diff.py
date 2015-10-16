@@ -2,6 +2,16 @@ import sys
 import numpy as np
 import pandas as pd
 
+def calc_correct(df):
+    l = len(df)
+    result = np.zeros(l, dtype=int)
+    for i in range(l):
+        if df['Pred-D'][i] == 1 and df['Errata-D'][i] == 1:
+            result[i] = 1
+        if df['Pred-U'][i] == 1 and df['Errata-U'][i] == 1:
+            result[i] = 1
+    return result
+
 def calc_errata_u(df):
     l = len(df)
     result = np.zeros(l, dtype=int)
@@ -56,11 +66,13 @@ def main(args):
     df['Pred-U'] = calc_pred_u(df)
     df['Errata-D'] = calc_errata_d(df)
     df['Errata-U'] = calc_errata_u(df)
+    df['Correct'] = calc_correct(df)
 
     print('Pred-D', df['Pred-D'].sum())
     print('Pred-U', df['Pred-U'].sum())
     print('Errata-D', df['Errata-D'].sum())
     print('Errata-U', df['Errata-U'].sum())
+    print('Correct', df['Correct'].sum())
 
     df.to_csv(outfile, index=False)
 
