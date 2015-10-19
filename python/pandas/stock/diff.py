@@ -61,7 +61,7 @@ def calc_pred_d(df):
             result[i] = 1
     return result
 
-def main(args):
+def calc(args):
     infile1 = "".join(["summary.csv.", args[1], ".csv"])
     infile2 = "".join(["summary.csv.", args[2], ".csv"])
     outfile = "".join(["diff_", args[1], "-", args[2], ".csv"])
@@ -118,6 +118,10 @@ def main(args):
     df.to_csv(outfile, index=False)
 
     return df
+
+def main(args):
+    calc(args)
+    return 0
 
 if __name__ == '__main__':
     argsmin = 2
