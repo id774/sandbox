@@ -87,6 +87,7 @@ def main(args):
     df['Trend-Correct'] = calc_trend_correct(df)
     df['Pred-Ratio'] = calc_pred_ratio(df)
 
+    df.ix[-1, 'Code'] = "Total"
     pred_d = df['Pred-D'].sum()
     pred_u = df['Pred-U'].sum()
     errata_d = df['Errata-D'].sum()
@@ -96,24 +97,27 @@ def main(args):
     pred_mean = df['Pred-Ratio'].mean()
     pred_max = df['Pred-Ratio'].max()
     pred_min = df['Pred-Ratio'].min()
-
-    print('Pred-D', pred_d)
-    print('Pred-U', pred_u)
-    print('Errata-D', errata_d)
-    print('Errata-U', errata_u)
+    df.ix[-1, 'Pred-D'] = pred_d
+    df.ix[-1, 'Pred-U'] = pred_u
+    df.ix[-1, 'Errata-D'] = errata_d
+    df.ix[-1, 'Errata-U'] = errata_u
     trend_ratio = df['Trend'].sum()
-    print('Trend-Ratio', trend_ratio)
-    print('Trend-Correct', trend_correct)
+    df.ix[-1, 'Trend-Ratio'] = trend_ratio
+    df.ix[-1, 'Trend-Correct'] = trend_correct
     trend_correct_ratio = trend_correct / len(df) * 100
-    print('Trend-Correct-ratio', trend_correct_ratio)
-    print('Correct', correct)
+    df.ix[-1, 'Trend-Correct-Ratio'] = trend_correct_ratio
+    df.ix[-1, 'Correct'] = correct
     total = correct / (pred_d + pred_u) * 100
-    print('Total', total)
-    print('Predict-mean', pred_mean)
-    print('Predict-max', pred_max)
-    print('Predict-min', pred_min)
+    df.ix[-1, 'Total-Correct-Ratio'] = total
+    df.ix[-1, 'Predict-mean'] = pred_mean
+    df.ix[-1, 'Predict-max'] = pred_max
+    df.ix[-1, 'Predict-min'] = pred_min
+
+    print(df.ix[-1, :])
 
     df.to_csv(outfile, index=False)
+
+    return df
 
 if __name__ == '__main__':
     argsmin = 2
