@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 def create_features(arr, range=3285):
-    if range > 3285:
-        range = 3285
+    # if range > 3285:
+    #     range = 3285
     range = range * -1
     train_X = []
     train_y = []
@@ -26,10 +26,12 @@ def create_features(arr, range=3285):
 
 df = pd.read_csv("jma_sample.csv", index_col=0, parse_dates=True)
 
-train_df = df.ix[:-365, :]
-test_df = df.ix[-365:, :]
-
-x, y = create_features(train_df['Value'], range=3285)
+division_point = 730
+d = division_point * -1
+train_df = df.ix[:d, :]
+test_df = df.ix[d:, :]
+s = 3600 - division_point
+x, y = create_features(train_df['Value'], range=s)
 
 # Save train data to CSV
 pd.DataFrame(x).to_csv('x.csv')
@@ -65,7 +67,7 @@ clf = dic["Decision Tree"]
 # Fitting
 clf.fit(x, y)
 
-ruler = 361
+ruler = 450
 s = ruler * -1
 e = s + 360
 samples = test_df['Value'].ix[s:e].values
