@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def create_features(arr, range=3285):
+def create_features(arr, range=3600):
     # if range > 3285:
     #     range = 3285
     range = range * -1
@@ -26,7 +26,7 @@ def create_features(arr, range=3285):
 
 df = pd.read_csv("jma_sample.csv", index_col=0, parse_dates=True)
 
-division_point = 730
+division_point = 100
 d = division_point * -1
 train_df = df.ix[:d, :]
 test_df = df.ix[d:, :]
@@ -49,9 +49,9 @@ names = ["Decision Tree",
          "Bernoulli Naive Bayes",
          "LDA"]
 classifiers = [
-    DecisionTreeClassifier(max_depth=5),
+    DecisionTreeClassifier(max_depth=360),
     RandomForestClassifier(
-        max_depth=5, n_estimators=10, max_features=1),
+        max_depth=100, n_estimators=30, max_features=1),
     AdaBoostClassifier(),
     GaussianNB(), MultinomialNB(), BernoulliNB(),
     LDA()]
@@ -67,14 +67,17 @@ clf = dic["Decision Tree"]
 # Fitting
 clf.fit(x, y)
 
-ruler = 450
-s = ruler * -1
-e = s + 360
-samples = test_df['Value'].ix[s:e].values
-correct = test_df['Value'].ix[e]
-print(len(samples))
-print(samples)
-print(correct)
+# ruler = 450
+# s = ruler * -1
+# e = s + 360
+# samples = test_df['Value'].ix[s:e].values
+# correct = test_df['Value'].ix[e]
 
-# Classify
-print(clf.predict(samples))
+for i in np.arange(361, len(train_df)):
+    s = i * -1
+    e = s + 360
+    samples = train_df['Value'].ix[s:e].values
+    correct = train_df['Value'].ix[e]
+    # print(samples)
+    print(correct)
+    print(clf.predict(samples))
