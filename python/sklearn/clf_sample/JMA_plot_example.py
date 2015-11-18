@@ -20,7 +20,18 @@ plt.close()
 
 plt.figure()
 monthly = df.groupby(pd.Grouper(level=0, freq='M')).mean()
-monthly.index = ['2014/' + str(x) for x in np.arange(1, 13)]
+monthly.index = ['14/' + str(x) for x in np.arange(1, 13)]
 monthly.plot.bar(color=['#348ABD', '#7A68A6', '#A60628'])
 plt.savefig('image3.png')
+plt.close()
+
+plt.figure()
+df.plot(kind='scatter', x='Sapporo', y='Fukuoka')
+plt.savefig('image4.png')
+plt.close()
+
+plt.figure()
+df.plot(kind='scatter', x='Sapporo', y='Fukuoka',
+        c=df.index.month, cmap='winter')
+plt.savefig('image5.png')
 plt.close()
