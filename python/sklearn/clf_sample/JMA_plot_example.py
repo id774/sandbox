@@ -41,6 +41,18 @@ df.plot(kind='scatter', x='Sapporo', y='Fukuoka',
 plt.savefig('image5.png')
 plt.close()
 
+plt.figure()
+fig, ax = plt.subplots(1, 1)
+cmap = plt.get_cmap('rainbow')
+colors = [cmap(c / 12.0) for c in np.arange(1, 13)]
+for i, (key, group) in \
+        enumerate(df.groupby(pd.Grouper(level=0, freq='M')),
+                  start=1):
+    group.plot(kind='scatter', x='Sapporo', y='Fukuoka',
+               color=cmap(i / 12.0), ax=ax, label=i)
+plt.savefig('image6.png')
+plt.close()
+
 df = jma_df.iloc[:, [6, 9, 18, 21, 30, 33]]
 df.columns = ['Tokyo-High', 'Tokyo-Low', 'Fukuoka-High',
               'Fukuoka-Low', 'Sapporo-High', 'Sapporo-Low']
@@ -48,5 +60,5 @@ df.index.name = 'Date'
 print(df.head(10))
 plt.figure()
 df.plot()
-plt.savefig('image6.png')
+plt.savefig('image7.png')
 plt.close()
