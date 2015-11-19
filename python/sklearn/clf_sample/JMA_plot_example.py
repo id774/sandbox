@@ -8,6 +8,7 @@ df = pd.read_csv(
     header=[0, 1, 2], encoding='utf8')
 df = df.iloc[:, [0, 6, 12]]
 df.columns = ['Tokyo', 'Fukuoka', 'Sapporo']
+print(df.head(10))
 plt.figure()
 df.plot()
 plt.savefig('image.png')
@@ -21,6 +22,7 @@ plt.close()
 plt.figure()
 monthly = df.groupby(pd.Grouper(level=0, freq='M')).mean()
 monthly.index = ['14/' + str(x) for x in np.arange(1, 13)]
+print(monthly.head(10))
 monthly.plot.bar(color=['#348ABD', '#7A68A6', '#A60628'])
 plt.savefig('image3.png')
 plt.close()
