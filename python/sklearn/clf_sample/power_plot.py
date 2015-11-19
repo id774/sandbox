@@ -13,6 +13,8 @@ del df_power['date']
 del df_power['time']
 df_power_daily = df_power.resample('D', how='max', kind='period')
 print(df_power_daily.head(10))
+df_power_monthly = df_power_daily.resample('M', how='max', kind='period')
+print(df_power_monthly.head(10))
 
 plt.figure()
 df_power_daily.plot()
