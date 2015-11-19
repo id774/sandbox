@@ -3,12 +3,12 @@ plt.style.use('ggplot')
 import numpy as np
 import pandas as pd
 
-df = pd.read_csv(
+jma_df = pd.read_csv(
     'JMA_3city.csv', index_col=0, parse_dates=True,
     header=None,
     skiprows=6,
-    encoding='utf8')
-df = df.iloc[:, [0, 12, 24]]
+    encoding='Shift_JIS')
+df = jma_df.iloc[:, [0, 12, 24]]
 df.columns = ['Tokyo', 'Fukuoka', 'Sapporo']
 df.index.name = 'Date'
 print(df.head(10))
@@ -39,4 +39,14 @@ plt.figure()
 df.plot(kind='scatter', x='Sapporo', y='Fukuoka',
         c=df.index.month, cmap='winter')
 plt.savefig('image5.png')
+plt.close()
+
+df = jma_df.iloc[:, [6, 9, 18, 21, 30, 33]]
+df.columns = ['Tokyo-High', 'Tokyo-Low', 'Fukuoka-High',
+              'Fukuoka-Low', 'Sapporo-High', 'Sapporo-Low']
+df.index.name = 'Date'
+print(df.head(10))
+plt.figure()
+df.plot()
+plt.savefig('image6.png')
 plt.close()
