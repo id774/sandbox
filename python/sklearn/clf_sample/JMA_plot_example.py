@@ -5,9 +5,12 @@ import pandas as pd
 
 df = pd.read_csv(
     'JMA_3city.csv', index_col=0, parse_dates=True,
-    header=[0, 1, 2], encoding='utf8')
-df = df.iloc[:, [0, 6, 12]]
+    header=None,
+    skiprows=6,
+    encoding='utf8')
+df = df.iloc[:, [0, 12, 24]]
 df.columns = ['Tokyo', 'Fukuoka', 'Sapporo']
+df.index.name = 'Date'
 print(df.head(10))
 plt.figure()
 df.plot()
