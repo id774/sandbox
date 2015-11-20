@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 import pandas as pd
 
-datafile = 'http://www.tepco.co.jp/forecast/html/images/juyo-2014.csv'
+datafile = 'juyo-2014.csv'
 df_power = pd.read_csv(datafile,
                        skiprows=3,
                        names=['date', 'time', 'actual'],
