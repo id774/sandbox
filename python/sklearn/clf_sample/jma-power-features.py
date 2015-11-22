@@ -26,8 +26,8 @@ df_power.index = idx_power
 del df_power['date']
 del df_power['time']
 df_power_daily = df_power.resample('D', how='max', kind='period')
-print(df_power_daily['Power'].values)
-print(len(df_power_daily['Power'].values))
+# print(df_power_daily['Power'].values)
+# print(len(df_power_daily['Power'].values))
 
 def features(x, y, range=365):
     train_X = []
@@ -38,7 +38,7 @@ def features(x, y, range=365):
     return train_X, train_y
 
 x = df['Tokyo'].values.tolist()
-y = df_power['Power'].values.tolist()
+y = df_power_daily['Power'].values.tolist()
 x, y = features(x, y)
 
 from sklearn.tree import DecisionTreeClassifier
