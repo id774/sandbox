@@ -19,7 +19,7 @@ def create_features(arr, range=16):
 
 s = pd.read_csv("sampledata.csv", index_col=0, parse_dates=True)
 # Features
-x, y = create_features(s['Values'])
+x, y = create_features(s['Values'], range=32)
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -43,6 +43,10 @@ dic = dict(zip(names, classifiers))
 clf = dic["Gaussian Naive Bayes"]
 
 # Fitting
+print(x)
+print(y)
+print(len(x))
+print(len(y))
 clf.fit(x, y)
 
 # Classify
