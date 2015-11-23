@@ -83,3 +83,6 @@ plt.plot(y, label="answer",
 plt.legend(loc='best')
 plt.savefig('image.png')
 plt.close()
+
+corr = np.corrcoef(predicted, y)
+print(corr[0, 1])
