@@ -3,6 +3,7 @@ plt.style.use('ggplot')
 import pandas as pd
 import numpy as np
 
+# JMA
 jma_df = pd.read_csv(
     'JMA_3city.csv', index_col=0, parse_dates=True,
     header=None,
@@ -16,6 +17,7 @@ df.index.name = 'Date'
 # print(df['Tokyo'].values[0])
 # print(df['Tokyo'].values[364])
 
+# Power
 datafile = 'juyo-2014.csv'
 df_power = pd.read_csv(datafile,
                        skiprows=3,
@@ -41,6 +43,7 @@ x = df['Tokyo'].values.tolist()
 y = df_power_daily['Power'].values.tolist()
 x, y = features(x, y)
 
+# Machine Learning
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB, MultinomialNB, BernoulliNB
@@ -68,6 +71,15 @@ clf = dic["Gaussian Naive Bayes"]
 clf.fit(x, y)
 
 # Classify
-answer = clf.predict(x)
-for (a, b) in zip (answer, y):
-    print(a, b)
+predicted = clf.predict(x)
+#for (a, b) in zip (predicted, y):
+#    print(a, b)
+
+plt.figure()
+plt.plot(predicted, label="predicted",
+         color="r")
+plt.plot(y, label="answer",
+         color="g")
+plt.legend(loc='best')
+plt.savefig('image.png')
+plt.close()
