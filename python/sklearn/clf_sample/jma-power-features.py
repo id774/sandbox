@@ -15,12 +15,6 @@ def read_jma(filename):
     df.index.name = 'Date'
     return df
 
-df_jma = read_jma('JMA_3city_2014.csv')
-# print(df_jma['Tokyo'])
-# print(len(df_jma['Tokyo'].values))
-# print(df_jma['Tokyo'].values[0])
-# print(df_jma['Tokyo'].values[364])
-
 # Power
 def read_power(filename):
     df_power = pd.read_csv(filename,
@@ -33,11 +27,6 @@ def read_power(filename):
     del df_power['time']
     return df_power.resample('D', how='max', kind='period')
 
-
-df_power_daily = read_power('juyo-2014.csv')
-# print(df_power_daily['Power'])
-# print(len(df_power_daily['Power'].values))
-
 def features(x, y, range=365):
     train_X = []
     train_y = []
@@ -45,10 +34,6 @@ def features(x, y, range=365):
         train_X.append([x[i]])
         train_y.append(y[i])
     return train_X, train_y
-
-x = df_jma['Tokyo'].values.tolist()
-y = df_power_daily['Power'].values.tolist()
-x, y = features(x, y, range=365)
 
 # Machine Learning
 from sklearn.tree import DecisionTreeClassifier
@@ -73,9 +58,26 @@ dic = dict(zip(names, classifiers))
 clf = dic["Gaussian Naive Bayes"]
 
 # Fitting
-# print(x)
-# print(y)
+df_power_daily = read_power('juyo-2013.csv')
+df_jma = read_jma('JMA_3city_2013.csv')
+x = df_jma['Tokyo'].values.tolist()
+y = df_power_daily['Power'].values.tolist()
+x, y = features(x, y, range=365)
 clf.fit(x, y)
+
+df_power_daily = read_power('juyo-2014.csv')
+# print(df_power_daily['Power'])
+# print(len(df_power_daily['Power'].values))
+
+df_jma = read_jma('JMA_3city_2014.csv')
+# print(df_jma['Tokyo'])
+# print(len(df_jma['Tokyo'].values))
+# print(df_jma['Tokyo'].values[0])
+# print(df_jma['Tokyo'].values[364])
+
+x = df_jma['Tokyo'].values.tolist()
+y = df_power_daily['Power'].values.tolist()
+x, y = features(x, y, range=365)
 
 # Classify
 predicted = clf.predict(x)
