@@ -23,7 +23,7 @@ common_reviewers = set(book_1_reviewers).intersection(book_2_reviewers)
 def get_book_reviews(title, common_reviewers):
     reviewer_books = (data.Reviewer.isin(common_reviewers)) & (
         data.Book == title)
-    reviews = data[reviewer_books].sort('Reviewer')
+    reviews = data[reviewer_books].sort_values(by='Reviewer')
     reviews = reviews[reviews.Reviewer.duplicated() == False]
     return reviews
 
