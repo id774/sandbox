@@ -18,7 +18,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.datasets import load_iris
-from sklearn.tree import DecisionTreeClassifier
+# from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
 
 # Parameters
 n_classes = 3
@@ -47,7 +48,9 @@ for pairidx, pair in enumerate([[0, 1], [0, 2], [0, 3],
     X = (X - mean) / std
 
     # Train
-    clf = DecisionTreeClassifier().fit(X, y)
+    # clf = DecisionTreeClassifier()
+    clf = GaussianNB()
+    clf.fit(X, y)
 
     # Plot the decision boundary
     plt.subplot(2, 3, pairidx + 1)
@@ -73,7 +76,7 @@ for pairidx, pair in enumerate([[0, 1], [0, 2], [0, 3],
 
     # plt.axis("tight")
 
-plt.suptitle("Decision surface of a decision tree using paired features")
+plt.suptitle("Gaussian NB")
 plt.legend(loc='lower right', bbox_to_anchor=(1.5, -0.05),
            ncol=1, fancybox=False, shadow=False)
 plt.show()
