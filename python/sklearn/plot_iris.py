@@ -18,13 +18,37 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.datasets import load_iris
-# from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
+from sklearn.lda import LDA
+from sklearn.cluster import KMeans
+from sklearn import svm
 
 # Parameters
 n_classes = 3
 plot_colors = "bry"
 plot_step = 0.02
+
+clf1 = DecisionTreeClassifier(max_depth=4)
+clf2 = KNeighborsClassifier(n_neighbors=7)
+clf3 = SVC(kernel='rbf', probability=True)
+clf4 = LinearSVC()
+clf5 = AdaBoostClassifier()
+clf6 = ExtraTreesClassifier()
+clf7 = GradientBoostingClassifier()
+clf8 = RandomForestClassifier(max_depth=5,
+                              n_estimators=10,
+                              max_features=1)
+clf9 = GaussianNB()
+clf10 = LDA()
+clf11 = svm.SVC(kernel='rbf', C=1)
 
 # Load data
 iris = load_iris()
@@ -48,8 +72,7 @@ for pairidx, pair in enumerate([[0, 1], [0, 2], [0, 3],
     X = (X - mean) / std
 
     # Train
-    # clf = DecisionTreeClassifier()
-    clf = GaussianNB()
+    clf = clf11
     clf.fit(X, y)
 
     # Plot the decision boundary
@@ -76,7 +99,7 @@ for pairidx, pair in enumerate([[0, 1], [0, 2], [0, 3],
 
     # plt.axis("tight")
 
-plt.suptitle("Gaussian NB")
+plt.suptitle("SVM (kernel=rbf, C=1)")
 plt.legend(loc='lower right', bbox_to_anchor=(1.5, -0.05),
            ncol=1, fancybox=False, shadow=False)
 plt.show()
