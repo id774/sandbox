@@ -221,7 +221,7 @@ for epoch in range(1, n_epoch + 1):
 plt.figure(figsize=(8, 6))
 plt.plot(list(range(len(train_acc))), train_acc)
 plt.plot(list(range(len(test_acc))), test_acc)
-plt.legend(["train_acc", "test_acc"], loc=4)
+plt.legend(["train accuracy", "test accuracy"], loc=4)
 plt.title("Accuracy of digit recognition.")
 plt.plot()
 plt.savefig('image2.png')
@@ -230,22 +230,21 @@ plt.savefig('image2.png')
 plt.style.use('fivethirtyeight')
 def draw_digit3(data, n, ans, recog):
     size = 28
-    plt.subplot(10, 10, n)
+    plt.subplot(5, 5, n)
     Z = data.reshape(size, size)   # convert from vector to 28x28 matrix
     Z = Z[::-1, :]             # flip vertical
     plt.xlim(0, 27)
     plt.ylim(0, 27)
     plt.pcolor(Z)
-    plt.title("ans=%d, recog=%d" % (ans, recog), size=8)
+    plt.title("answer=%d, predict=%d" % (ans, recog), size=8)
     plt.gray()
     plt.tick_params(labelbottom="off")
     plt.tick_params(labelleft="off")
 
-
-plt.figure(figsize=(15, 15))
+plt.figure(figsize=(6.40, 6.40))
 
 cnt = 0
-for idx in np.random.permutation(N)[:100]:
+for idx in np.random.permutation(N)[:25]:
     # Forwarding for prediction
     xxx = x_train[idx].astype(np.float32)
     h1 = F.dropout(
@@ -254,95 +253,5 @@ for idx in np.random.permutation(N)[:100]:
     y = model.l3(h2)
     cnt += 1
     draw_digit3(x_train[idx], cnt, y_train[idx], np.argmax(y.data))
+
 plt.savefig('image3.png')
-
-# layer 1
-def draw_digit2(data, n, i):
-    size = 28
-    plt.subplot(10, 10, n)
-    Z = data.reshape(size, size)   # convert from vector to 28x28 matrix
-    Z = Z[::-1, :]             # flip vertical
-    plt.xlim(0, size - 1)
-    plt.ylim(0, size - 1)
-    plt.pcolor(Z)
-    plt.title("%d" % i, size=9)
-    plt.gray()
-    plt.tick_params(labelbottom="off")
-    plt.tick_params(labelleft="off")
-
-plt.figure(figsize=(10, 10))
-cnt = 1
-for i in np.random.permutation(1000)[:100]:
-    draw_digit2(l1_W[len(l1_W) - 1][i], cnt, i)
-    cnt += 1
-
-plt.savefig('image4.png')
-
-# Show Predict Result
-plt.style.use('fivethirtyeight')
-def draw_digit3(data, n, ans, recog):
-    size = 28
-    plt.subplot(10, 10, n)
-    Z = data.reshape(size, size)   # convert from vector to 28x28 matrix
-    Z = Z[::-1, :]             # flip vertical
-    plt.xlim(0, 27)
-    plt.ylim(0, 27)
-    plt.pcolor(Z)
-    plt.title("ans=%d, recog=%d" % (ans, recog), size=8)
-    plt.gray()
-    plt.tick_params(labelbottom="off")
-    plt.tick_params(labelleft="off")
-
-plt.figure(figsize=(15, 15))
-
-cnt = 0
-for idx in np.random.permutation(N)[:100]:
-    # Forwarding for prediction
-    xxx = x_train[idx].astype(np.float32)
-    h1 = F.dropout(
-        F.relu(model.l1(Variable(xxx.reshape(1, 784)))), train=False)
-    h2 = F.dropout(F.relu(model.l2(h1)), train=False)
-    y = model.l3(h2)
-    cnt += 1
-    draw_digit3(x_train[idx], cnt, y_train[idx], np.argmax(y.data))
-plt.savefig('image5.png')
-
-# layer 3
-def draw_digit4(data, n, i):
-    size = 32
-    plt.subplot(4, 4, n)
-    data = np.r_[data, np.zeros(24)]
-    Z = data.reshape(size, size)   # convert from vector to 28x28 matrix
-    Z = Z[::-1, :]             # flip vertical
-    plt.xlim(0, size - 1)
-    plt.ylim(0, size - 1)
-    plt.pcolor(Z)
-    plt.title("%d" % i, size=9)
-    plt.gray()
-    plt.tick_params(labelbottom="off")
-    plt.tick_params(labelleft="off")
-
-plt.figure(figsize=(10, 10))
-cnt = 1
-for i in range(10):
-    draw_digit3(l3_W[len(l3_W) - 1][i], cnt, i)
-    cnt += 1
-plt.savefig('image6.png')
-
-# Draw activation functions
-x_data = np.linspace(-10, 10, 100, dtype=np.float32)
-x = Variable(x_data)
-
-plt.figure(figsize=(8, 15))
-
-i = 0
-for func, y_lim in zip([F.relu, F.tanh, F.sigmoid], [(-2, 10), (-2, 2), (-.5, 1.5)]):
-    y = func(x)
-    plt.subplot(311 + i)
-    i += 1
-    plt.title(str(func).split('at')[0].replace('<', ''))
-    plt.ylim(y_lim)
-    plt.xlim(-6, 6)
-    plt.plot(x.data, y.data, lw=1)
-
-plt.savefig('image7.png')
