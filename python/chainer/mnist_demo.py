@@ -6,7 +6,6 @@ import numpy as np
 from sklearn.datasets import fetch_mldata
 from chainer import cuda, Variable, FunctionSet, optimizers
 import chainer.functions as F
-import pandas as pd
 
 plt.style.use('ggplot')
 # 確率的勾配降下法で学習させる際の 1 回分のバッチサイズ
@@ -18,9 +17,7 @@ n_units = 1000
 # MNIST の手書き数字データのダウンロード
 # $HOME/scikit_learn_data/mldata/mnist-original.mat にキャッシュされる
 print('fetch MNIST dataset')
-mnist = fetch_mldata('MNIST original')
-pd.DataFrame(mnist.data).to_csv('mnist_data.csv')
-pd.DataFrame(mnist.target).to_csv('mnist_target.csv')
+mnist = fetch_mldata('MNIST original', data_home=".")
 # mnist.data : 70,000件 の 784 次元ベクトルデータ
 mnist.data = mnist.data.astype(np.float32)
 mnist.data /= 255     # 0-1 のデータに変換
