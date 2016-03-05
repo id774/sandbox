@@ -87,11 +87,10 @@ l1_W = []
 l2_W = []
 l3_W = []
 
-# Learning loop
 for epoch in range(1, n_epoch + 1):
     print('epoch', epoch)
 
-    # training
+    # 訓練
     # N個の順番をランダムに並び替える
     perm = np.random.permutation(N)
     sum_accuracy = 0
@@ -118,7 +117,7 @@ for epoch in range(1, n_epoch + 1):
     train_loss.append(sum_loss / N)
     train_acc.append(sum_accuracy / N)
 
-    # evaluation
+    # 評価
     # テストデータで誤差と、正解精度を算出し汎化性能を確認
     sum_accuracy = 0
     sum_loss = 0
@@ -161,72 +160,6 @@ l1_W = []
 l2_W = []
 l3_W = []
 
-# Learning loop
-for epoch in range(1, n_epoch + 1):
-    print('epoch', epoch)
-
-    # training
-    # N 個の順番をランダムに並び替える
-    perm = np.random.permutation(N)
-    sum_accuracy = 0
-    sum_loss = 0
-    # 0〜N までのデータをバッチサイズごとに使って学習
-    for i in range(0, N, batchsize):
-        x_batch = x_train[perm[i:i + batchsize]]
-        y_batch = y_train[perm[i:i + batchsize]]
-
-        # 勾配を初期化
-        optimizer.zero_grads()
-        # 順伝播させて誤差と精度を算出
-        loss, acc = forward(x_batch, y_batch)
-        # 誤差逆伝播で勾配を計算
-        loss.backward()
-        optimizer.update()
-        sum_loss += float(cuda.to_cpu(loss.data)) * batchsize
-        sum_accuracy += float(cuda.to_cpu(acc.data)) * batchsize
-
-    # 訓練データの誤差と、正解精度を表示
-    print('train mean loss={}, accuracy={}'.format(
-        sum_loss / N, sum_accuracy / N))
-
-    train_loss.append(sum_loss / N)
-    train_acc.append(sum_accuracy / N)
-
-    # evaluation
-    # テストデータで誤差と、正解精度を算出し汎化性能を確認
-    sum_accuracy = 0
-    sum_loss = 0
-    for i in range(0, N_test, batchsize):
-        x_batch = x_test[i:i + batchsize]
-        y_batch = y_test[i:i + batchsize]
-
-        # 順伝播させて誤差と精度を算出
-        loss, acc = forward(x_batch, y_batch, train=False)
-
-        sum_loss += float(cuda.to_cpu(loss.data)) * batchsize
-        sum_accuracy += float(cuda.to_cpu(acc.data)) * batchsize
-
-    # テストデータでの誤差と、正解精度を表示
-    print('test  mean loss={}, accuracy={}'.format(
-        sum_loss / N_test, sum_accuracy / N_test))
-    test_loss.append(sum_loss / N_test)
-    test_acc.append(sum_accuracy / N_test)
-
-    # 学習したパラメーターを保存
-    l1_W.append(model.l1.W)
-    l2_W.append(model.l2.W)
-    l3_W.append(model.l3.W)
-
-# 精度と誤差をグラフ描画
-plt.figure(figsize=(8, 6))
-plt.plot(list(range(len(train_acc))), train_acc)
-plt.plot(list(range(len(test_acc))), test_acc)
-plt.legend(["train accuracy", "test accuracy"], loc=4)
-plt.title("Accuracy of digit recognition.")
-plt.plot()
-plt.savefig('image2.png')
-
-# Show Predict Result
 plt.style.use('fivethirtyeight')
 def draw_digit3(data, n, ans, recog):
     size = 28
@@ -254,4 +187,4 @@ for idx in np.random.permutation(N)[:25]:
     cnt += 1
     draw_digit3(x_train[idx], cnt, y_train[idx], np.argmax(y.data))
 
-plt.savefig('image3.png')
+plt.savefig('image2.png')
