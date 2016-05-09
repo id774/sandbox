@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 require 'MeCab'
-str = "THE IDOLM@STER CINDERELLA GIRLS"
+str = "『アイドルマスター シンデレラガールズ』（THE IDOLM@STER CINDERELLA GIRLS）は、バンダイナムコエンターテインメント（旧バンダイナムコゲームス）とCygamesが開発・運営する『THE IDOLM@STER』の世界観をモチーフとする携帯端末専用のソーシャルゲーム。"
 
 puts "### normal ###"
 m = MeCab::Tagger.new
