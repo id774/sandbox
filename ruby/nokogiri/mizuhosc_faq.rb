@@ -14,9 +14,9 @@ end
 doc = Nokogiri::HTML.parse(html, nil, charset)
 
 doc.xpath('//span[@class="icoQ"]').each do |node|
-  puts "質問, \"#{node.text.strip}\""
+  puts "質問,\"#{node.text.strip}\""
 end
 
 doc.xpath('//div[@class="faq_ansCont_txt clearfix"]').each do |node|
-  puts "回答, \"#{node.text.strip}\""
+  puts "回答,\"#{node.text.strip}\""
 end
