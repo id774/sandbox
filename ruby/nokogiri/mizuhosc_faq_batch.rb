@@ -12,16 +12,25 @@ def parse(url, i)
 
   doc = Nokogiri::HTML.parse(html, nil, charset)
 
+  doc.xpath("/html/head/meta").each do |node|
+    unless node.attribute("name").nil?
+      @keywords = node.attribute("content").value if node.attribute("name").value.include?("keywords")
+    end
+  end
+
+  h2 = @keywords.split(",")[0]
+  h1 = @keywords.split(",")[1]
+
   doc.xpath('//span[@class="icoQ"]').each do |node|
-    puts "#{i},質問,\"#{node.text.strip}\""
+    puts "#{i},#{h1},#{h2},質問,\"#{node.text.strip}\""
   end
 
   doc.xpath('//div[@class="faq_ansCont_txt clearfix"]').each do |node|
-    puts "#{i},回答,\"#{node.text.strip}\""
+    puts "#{i},#{h1},#{h2},回答,\"#{node.text.strip}\""
   end
 end
 
-(2000..9999).each do |i|
+(0..1200).each do |i|
   url = "https://faq.mizuho-sc.com/faq/show/#{i}"
   parse(url, i)
 end
