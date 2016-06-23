@@ -21,7 +21,7 @@ def parse(url, i)
   end
 end
 
-(1..9999).each do |i|
+(2000..9999).each do |i|
   url = "https://faq.mizuho-sc.com/faq/show/#{i}"
   parse(url, i)
 end
