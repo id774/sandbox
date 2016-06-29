@@ -5,6 +5,7 @@ class Status < ActiveRecord::Base
 end
 
 def query
+  # Status.where(screen_name: "")
   Status.all.limit(100)
 end
 
@@ -13,7 +14,7 @@ def analysis_datafilename
 end
 
 def output_format(status)
-  "#{status.created_at.getlocal.strftime("%Y/%m/%d %H:%M:%S")},https://twitter.com/#{status.screen_name}/statuses/#{status.id_str},#{status.screen_name},#{status.text}"
+  "#{status.created_at.getlocal.strftime("%Y/%m/%d %H:%M:%S")},https://twitter.com/#{status.screen_name}/statuses/#{status.id_str},#{status.screen_name},\"#{status.text}\""
 end
 
 def prepare_database(db_dir, db_file)
