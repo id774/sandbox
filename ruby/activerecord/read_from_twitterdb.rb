@@ -16,5 +16,5 @@ prepare_database(".", "1.db")
 statuses = Status.all.limit(100)
 
 statuses.each do |status|
-  puts "#{status.id_str},#{status.created_at.getlocal.strftime("%Y/%m/%d %H:%M:%S")},#{status.screen_name},\"#{status.text}\""
+  puts "#{status.created_at.getlocal.strftime("%Y/%m/%d %H:%M:%S")},https://twitter.com/#{status.screen_name}/statuses/#{status.id_str},#{status.screen_name},#{status.text}"
 end
