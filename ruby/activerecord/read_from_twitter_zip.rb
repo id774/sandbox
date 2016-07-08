@@ -6,6 +6,7 @@ end
 
 def query
   # Status.where(screen_name: "")
+  # Status.where("text like '%ほげ%'")
   Status.all.limit(100)
 end
 
