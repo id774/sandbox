@@ -2,19 +2,6 @@ require 'json'
 require 'csv'
 require 'ibm_db'
 
-def open_csv(filename, &block)
-  filename = File.expand_path(filename)
-  table = CSV.table(filename, encoding: "UTF-8")
-  keys = table.headers
-  array = []
-  CSV.foreach(File.expand_path(filename), encoding: "UTF-8" ) do |row|
-    row = row.map{|i|"'#{i}'"}
-    array << row.join(",")
-  end
-
-  return array
-end
-
 def connect
   json_file_path = "direct-dev_vcap.json"
 
@@ -40,6 +27,19 @@ def show_data(stmt)
   while row = IBM_DB.fetch_assoc(stmt)
     puts row
   end
+end
+
+def open_csv(filename, &block)
+  filename = File.expand_path(filename)
+  table = CSV.table(filename, encoding: "UTF-8")
+  keys = table.headers
+  array = []
+  CSV.foreach(File.expand_path(filename), encoding: "UTF-8" ) do |row|
+    row = row.map{|i|"'#{i}'"}
+    array << row.join(",")
+  end
+
+  return array
 end
 
 def load_csv(file_path)
