@@ -52,7 +52,6 @@ def load_data(table_name, file_path)
   data = load_csv(file_path)
   data.each do |row|
     sql = "insert into #{table_name} values (#{row})"
-    p sql
     exec_sql(conn, sql)
   end
   IBM_DB.close(conn)
