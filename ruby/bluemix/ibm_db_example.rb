@@ -49,6 +49,7 @@ def prepare
 end
 
 class User < ActiveRecord::Base
+  self.primary_key = :id
 end
 
 def main
@@ -62,13 +63,15 @@ def main
   pp User.count
 
   @user = User.new
+  @user.id = (User.count) + 1
   @user.name = "山田太郎"
   @user.age = 20
   @user.save!
 
   @user = User.new
+  @user.id = (User.count) + 1
   @user.name = "田中二郎"
-  @user.age = 21
+  @user.age = 22
   @user.save!
 
   @users = User.all
