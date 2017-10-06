@@ -8,7 +8,7 @@ def connect
   if(ENV['VCAP_SERVICES'])
     @dashdb = JSON.parse(ENV['VCAP_SERVICES'])["dashDB For Transactions"]
   else
-    json_file_path = "direct-dev_vcap.json"
+    json_file_path = "sample_vcap.json"
     json_data = open(json_file_path) do |io|
       @dashdb = JSON.load(io)
     end
@@ -59,6 +59,7 @@ def main
   pp User.count
 
   User.delete_all
+  pp User.count
 
   @user = User.new
   @user.name = "山田太郎"
@@ -72,6 +73,7 @@ def main
 
   @users = User.all
   pp @users
+  pp User.count
 end
 
 main

@@ -3,7 +3,7 @@ require 'csv'
 require 'ibm_db'
 
 def connect
-  json_file_path = "direct-dev_vcap.json"
+  json_file_path = "sample_vcap.json"
 
   json_data = open(json_file_path) do |io|
     @dashdb = JSON.load(io)
