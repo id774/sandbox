@@ -59,7 +59,7 @@ if __name__ == "__main__":
     data['date'] = pd.to_datetime(data['date'], format='%Y-%m-%d')
     scaled_data = data.copy()
     scaled_data['adj-close'] = preprocessing.scale(data['adj-close'])
-    # data = data.sort_values(by='date')
+    # scaled_data = scaled_data.sort_values(by='date')
     # scaled_data = scaled_data.reset_index(drop=True)
     scaled_data = scaled_data.loc[:, ['date', 'adj-close']]
 
