@@ -39,7 +39,7 @@ def main(args):
     df = df.drop('id', axis=1)
     df = df.drop('created_at', axis=1)
     df = df.drop('updated_at', axis=1)
-    df.to_csv(filename, date_format='%Y/%m/%d', index=False, encoding="utf8")
+    df.to_csv(filename, date_format='%Y/%m/%d %H:%M:%S', index=False, encoding="utf8")
 
 
 
