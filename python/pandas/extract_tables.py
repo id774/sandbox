@@ -44,9 +44,8 @@ def main(args):
     df.to_csv(filename, date_format='%Y/%m/%d %H:%M:%S', index=False, encoding="utf8")
 
 
-
 if __name__ == "__main__":
-    argsmin = 3
+    argsmin = 2
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
