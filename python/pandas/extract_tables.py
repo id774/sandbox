@@ -45,7 +45,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    argsmin = 2
+    argsmin = 3
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
