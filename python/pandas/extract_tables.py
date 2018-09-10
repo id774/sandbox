@@ -32,19 +32,21 @@ def main(args):
     sid = args[1]
     owner = 's' + sid
     table_name = args[2]
+    sys_columns = args[3]
 
     df = select_from_db(sid, owner, table_name)
     filename = (table_name + '.csv')
 
-    df = df.drop('id', axis=1)
-    df = df.drop('created_at', axis=1)
-    df = df.drop('updated_at', axis=1)
+    if not sys_columns == 'full':
+        df = df.drop('id', axis=1)
+        df = df.drop('created_at', axis=1)
+        df = df.drop('updated_at', axis=1)
     df.to_csv(filename, date_format='%Y/%m/%d %H:%M:%S', index=False, encoding="utf8")
 
 
 
 if __name__ == "__main__":
-    argsmin = 2
+    argsmin = 3
     version = (3, 0)
     if sys.version_info > (version):
         if len(sys.argv) > argsmin:
