@@ -1,6 +1,7 @@
 import sendgrid
+import os
 
-api_key="YOUR_API_KEY"
+api_key = os.environ["SENDGRID_APIKEY"]
 
 sg = sendgrid.SendGridAPIClient(api_key)
 data = {
