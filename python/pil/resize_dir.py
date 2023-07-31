@@ -17,7 +17,7 @@ def read_dir(size, src, out):
             fullname = os.path.join(root, filename)
             if is_image_file(fullname):
                 outpath = os.path.join(out, filename)
-                print(f"Resize: {filename}")
+                print("Resize: {}".format(filename))
                 resize_file(size, fullname, outpath)
 
 def parse_args():
