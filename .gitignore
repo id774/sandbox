@@ -43,3 +43,11 @@ dist/
 *.jar
 *.war
 *.gem
+android/*/bin/
+bin-debug/
+bin-release/
+gen/
+local.properties
+*.apk
+*.dex
+*.ap_
