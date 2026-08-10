@@ -1,0 +1,6 @@
+get	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb	/^    def HTTP.get(uri_or_host, path = nil, port = n/
+get_print	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb	/^    def HTTP.get_print(uri_or_host, path = nil, po/
+http_default_port	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb	/^      http_default_port()$/
+pack	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb	/^            credential = ["#{proxy_user}:#{proxy_p/
+post_form	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb	/^    def HTTP.post_form(url, params)$/
+set_debug_output	/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb	/^    def set_debug_output(output)$/

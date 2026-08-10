@@ -1,0 +1,7 @@
+%% Define double and add as a draft module; the attributes lack terminating periods.
+
+-module(sample)
+-export([double/1, add/2])
+
+double(X) -> X * 2.
+add(X, Y) -> X + Y.

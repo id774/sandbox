@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="800" height="600">
+	<maps:Map xmlns:maps="com.google.maps.*" id="map" mapevent_mapready="onMapReady(event)" width="100%" height="100%" url="http://soralabo.net/" key="ABQIAAAAt3TYsVtbe4KUeA6mjhDSQhQ49aUYdRaHf6cfvJ1lWHk9WqHHsxQBMl3F3YQdyNRrCuv1zBzeGRWfPg"/>    
+	<mx:Script>
+		<![CDATA[
+			import com.google.maps.interfaces.IOverlay;
+			import com.google.maps.styles.StrokeStyle;
+			import com.google.maps.LatLng;
+			import com.google.maps.Map;
+			import com.google.maps.MapMouseEvent;
+			import com.google.maps.MapType;
+			import com.google.maps.MapOptions;
+		    import com.google.maps.controls.MapTypeControl;
+    		import com.google.maps.controls.ZoomControl;
+    		import com.google.maps.controls.PositionControl;
+    		import com.google.maps.Color;
+    		import com.google.maps.overlays.Polyline;
+    		import com.google.maps.overlays.PolylineOptions;
+    		import flash.filesystem.*
+    		private var trks:Array = new Array();
+    		default xml namespace = new Namespace("http://www.topografix.com/GPX/1/0");  
+			private function onMapReady(event:Event):void {
+				map.addControl(new MapTypeControl());
+				map.addControl(new ZoomControl());
+				map.addControl(new PositionControl());
+				map.setCenter(new LatLng(36.497769779557004, 138.59338721874997), 5, MapType.NORMAL_MAP_TYPE);
+			}
+			
+			private function read_gpx_onclick():void {
+				var file:File = new File();
+				file.addEventListener(Event.SELECT, function(e:Event):void{
+					var selected_file:File = File(e.target);
+					trace(selected_file);
+					try{
+						var f:FileStream = new FileStream();
+						f.open(selected_file, FileMode.READ);
+						var str:String = f.readUTFBytes(f.bytesAvailable);
+						
+						var gpx:XML = new XML(str);
+						trace("opened file");
+						for each(var ovr:Polyline in trks){
+							trace("removeoverlay");
+							map.removeOverlay(ovr);
+						}
+						trace("init trks");
+						trks = new Array();
+						
+						for each(var trk:Object in gpx.trk) {
+							trace("trk loop");
+							var trkpts:Array = new Array();
+							for each(var trkpt:Object in trk.trkseg.trkpt) {
+								trkpts.push(new LatLng(Number(trkpt.@lat),Number(trkpt.@lon)));
+							}
+							trks.push(new Polyline(trkpts,
+								new PolylineOptions({
+									strokeStyle: new StrokeStyle({
+										color: 0xCD0000,
+										thickness: 2,
+										alpha: 0.6
+									})
+								})
+							));
+						}
+						for each(var ply:Polyline in trks){
+							trace(ply);
+							map.addOverlay(ply);
+						}
+						
+					}catch(e:IOError){
+						trace(e.message);
+					}finally{
+						trace("f.close");
+						f.close();
+					}
+				});
+				file.browseForOpen("GPXファイルを選択",[new FileFilter("GPX file", "*.gpx")]);
+			}
+		]]>
+	</mx:Script>
+	<mx:Button x="102" y="10" label="GPXを読み込み" id="read_gpx" click="read_gpx_onclick()" fillAlphas="[1.0, 1.0, 1.0, 1.0]"/>
+</mx:WindowedApplication>

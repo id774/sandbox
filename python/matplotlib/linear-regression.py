@@ -1,0 +1,52 @@
+# -*- coding:utf-8 -*-
+# Fit a cubic to a small data set and plot the fitted curve.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+v1 = np.array([24, 27, 29, 34, 42, 43, 51])
+v2 = np.array([236, 330, 375, 392, 460, 525, 578])
+
+def phi(x):
+    return [1, x, x ** 2, x ** 3]
+
+def f(w, x):
+    return np.dot(w, phi(x))
+
+PHI = np.array([phi(x) for x in v2])
+w = np.linalg.solve(np.dot(PHI.T, PHI), np.dot(PHI.T, v1))
+
+plt.xlim(20, 55)
+plt.ylim(200, 600)
+plt.xlabel('Age')
+plt.ylabel('Price')
+plt.plot(v1, v2, 'o', color="blue")
+plt.show()
+plt.savefig("image.png")
+
+ylist = np.arange(200, 600, 10)
+xlist = [f(w, x) for x in ylist]
+
+plt.plot(xlist, ylist, color="red")
+plt.xlim(20, 55)
+plt.ylim(200, 600)
+plt.xlabel('Age')
+plt.ylabel('Price')
+plt.plot(v1, v2, 'o', color="blue")
+plt.show()
+plt.savefig("image2.png")
+
+print("w の中身は %(w)s" % locals())
+print("PHI の中身は %(PHI)s" % locals())
+
+ave = np.average(v2)
+print("v2 の平均は %(ave)s" % locals())
+
+var = np.var(v2)
+print("v2 の分散は %(var)s" % locals())
+
+std = np.std(v2)
+print("v2 の標準偏差は %(std)s" % locals())
+
+corr = np.corrcoef(v1, v2)
+print("v1 と v2 の相関係数は %(corr)s" % locals())

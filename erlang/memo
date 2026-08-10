@@ -1,0 +1,45 @@
+HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nServer: ErLangDesugaNanikaMonkuAru?/MakedByErLang\r\nConnection: Close\r\n<h1>Hello, erlang</h1>
+
+
+  gen_tcp:send(Socket, <<"HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nServer: ErLangDesugaNanikaMonkuAru?/MakedByErLang\r\nConnection: close\r\n<h1>Hello, erlang</h1>\r\n\r\n">>),gen_tcp:send(Socket, <<"\r\n<h1>Hello, erlang</h1>\r\n\r\n">>),gen_tcp:close(Socket).
+  
+  {{Y,M,D},{Ho,Mi,Se}}=calendar:now_to_local_time({Mg,S,Ms}=now()),gen_tcp:send(Socket, <<element(2,regexp:gsub(lists:flatten(io_lib:format("~4w~2w~2w~2w~2w~2w.~w",[Y,M,D,Ho,Mi,Se,Ms]))>>),
+
+{{Y,M,D},{Ho,Mi,Se}}=calendar:now_to_local_time({Mg,S,Ms}=now()).
+
+---------------------------------  
+  
+          <<"GET /time HTTP/1.0\r\n">> ->
+				gen_tcp:send(Socket, <<"HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nServer: ErLangDesugaNanikaMonkuAru?/MakedByErLang\r\nConnection: close\r\n\r\n">>),{{Y,M,D},{Ho,Mi,Se}}=calendar:now_to_local_time({Mg,S,Ms}=now()),
+				gen_tcp:send(Socket, <<"\r\n<h1>time is...</h1>\r\n\r\n">>),
+				gen_tcp:send(Socket, <<integer_to_list(Y)>>),
+				gen_tcp:send(Socket, <<"/">>),
+				gen_tcp:send(Socket, <<integer_to_list(M)>>),
+				gen_tcp:send(Socket, <<"/">>),
+				gen_tcp:send(Socket, <<integer_to_list(D)>>),
+				gen_tcp:send(Socket, <<" ">>),
+				gen_tcp:send(Socket, <<integer_to_list(Ho)>>),
+				gen_tcp:send(Socket, <<":">>),
+				gen_tcp:send(Socket, <<integer_to_list(Mi)>>),
+				gen_tcp:send(Socket, <<":">>),
+				gen_tcp:send(Socket, <<integer_to_list(Se)>>),
+				gen_tcp:close(Socket);
+
+
+
+        <<"GET /time HTTP/1.1\r\n">> ->
+				gen_tcp:send(Socket, <<"HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nServer: ErLangDesugaNanikaMonkuAru?/MakedByErLang\r\nConnection: close\r\n\r\n">>),{{Y,M,D},{Ho,Mi,Se}}=calendar:now_to_local_time({Mg,S,Ms}=now()),
+				gen_tcp:send(Socket, <<"HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nServer: ErLangDesugaNanikaMonkuAru?/MakedByErLang\r\nConnection: close\r\n\r\n">>),{{Y,M,D},{Ho,Mi,Se}}=calendar:now_to_local_time({Mg,S,Ms}=now()),
+				gen_tcp:send(Socket, <<"\r\n<h1>time is...</h1>\r\n\r\n">>),
+				gen_tcp:send(Socket, <<integer_to_list(Y)>>),
+				gen_tcp:send(Socket, <<"/">>),
+				gen_tcp:send(Socket, <<integer_to_list(M)>>),
+				gen_tcp:send(Socket, <<"/">>),
+				gen_tcp:send(Socket, <<integer_to_list(D)>>),
+				gen_tcp:send(Socket, <<" ">>),
+				gen_tcp:send(Socket, <<integer_to_list(Ho)>>),
+				gen_tcp:send(Socket, <<":">>),
+				gen_tcp:send(Socket, <<integer_to_list(Mi)>>),
+				gen_tcp:send(Socket, <<":">>),
+				gen_tcp:send(Socket, <<integer_to_list(Se)>>),
+				gen_tcp:close(Socket);

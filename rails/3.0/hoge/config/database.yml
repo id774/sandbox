@@ -1,0 +1,22 @@
+common: &common
+  username: test
+  password: fuga
+  host: localhost
+  encoding: utf8
+  adapter: <%= [ENV['SYS_RDBMS'],'mysql2'].detect{|a|a} %>
+  port: <%= [ENV['RDBMS_PORTS'],'3306'].detect{|p|p} %>
+  socket: <%= ["/tmp/mysqld.sock",
+               "/tmp/mysql.sock",
+               "/var/lib/mysql/mysql.sock",
+               "/var/run/mysqld/mysqld.sock"].detect{|s|File.exist?(s)} %>
+
+development:
+  database: fuga
+  <<: *common
+test:
+  database: fuga
+  <<: *common
+production:
+  database: fuga
+  <<: *common
+

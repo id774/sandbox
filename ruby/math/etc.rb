@@ -1,0 +1,21 @@
+#!/opt/ruby/current/bin/ruby
+# -*- coding: utf-8 -*-
+# Print square roots, the base of natural logarithms, and the trigonometric functions.
+
+puts "平方根"
+n = 2
+p Math::sqrt(n)
+
+puts "自然対数の底 e の値"
+p Math::E
+
+puts "三角関数"
+deg = 30
+rad = (deg * Math::PI/180.0) # convert degrees to radians
+puts " sin(Θ) 正弦関数"
+p Math.sin(rad)
+puts " cos(Θ) 余弦関数"
+p Math.cos(rad)
+puts " tan(Θ) 正接関数"
+p Math.tan(rad)
+

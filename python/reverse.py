@@ -1,0 +1,5 @@
+# Reverse a list with an extended slice.
+
+a = [1,2,3,4,5]
+r = a[::-1]
+print(r)

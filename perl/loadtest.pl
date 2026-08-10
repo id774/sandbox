@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+# Generate load by forking the requested number of busy looping processes.
+
+my $nprocs = $ARGV[0] || 1;
+for( my $i=0; $i<$nprocs; $i++ ){
+    my $pid = fork;
+    die $! if( $pid < 0 );
+    if( $pid == 0 ){
+        while(1){
+            if( $ARGV[1] ){
+                open(IN, ">/dev/null");
+                close(IN);
+            }
+        }
+    }
+}
+wait

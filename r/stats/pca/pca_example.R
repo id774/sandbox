@@ -1,0 +1,5 @@
+data(USArrests)
+pc.cr<-princomp(USArrests,cor=T)
+png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
+biplot(pc.cr)
+dev.off()

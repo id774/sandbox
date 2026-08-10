@@ -1,0 +1,2 @@
+# Markdown documents, so that a diff hunk header names the section it falls in.
+*.md diff=markdown

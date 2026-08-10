@@ -1,0 +1,11 @@
+#!/opt/ruby/1.9.3/bin/ruby
+# -*- coding: utf-8 -*-
+# List the keyspaces of a local Cassandra server.
+
+require 'rubygems'
+require 'cassandra'
+include Cassandra::Constants
+
+client = Cassandra.new("Keyspace1", "127.0.0.1:9160")
+
+p client.keyspaces

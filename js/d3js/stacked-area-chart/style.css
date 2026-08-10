@@ -1,0 +1,11 @@
+body {
+  overflow-y:scroll;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+#chart1, #chart2 {
+  height: 500px;
+}

@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div.bar {
+   display: inline-block;
+   width: 20px;
+   height: 75px;
+   background-color: teal;
+   margin-right: 2px;
+}
