@@ -1,19 +1,17 @@
-# Plot Collatz sequence lengths for every start value up to a limit.
+#!/usr/bin/env python3
+# Print the start below 1000 with the longest Collatz sequence, found by max over a key function.
 
-import sys
-from matplotlib import pyplot as plt
+LIMIT = 1000
 
-MAXIT = int(sys.argv[1])
 
-def collatz(x):
-    lists = []
-    while x != 1:
-        x = x / 2 if x % 2 == 0 else x * 3 + 1
-        lists.append(x)
-    return lists
+def chain_length(start):
+    value = start
+    length = 1
+    while value != 1:
+        value = value // 2 if value % 2 == 0 else 3 * value + 1
+        length += 1
+    return length
 
-cs = [len(collatz(i)) for i in range(2, MAXIT + 1)]
-plt.figure()
-plt.plot(range(2, MAXIT + 1), cs, "ro")
-plt.savefig("image.png")
-plt.close()
+
+longest = max(range(1, LIMIT), key=chain_length)
+print(longest, chain_length(longest))

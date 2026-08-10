@@ -9,12 +9,13 @@ standard library behavior, such as generators, argument forms, and date handling
 
 Subdirectories group experiments by library or theme:
 
-- Cross-language exercise set: `basics`, described in the repository
-  [README](../README.md#the-basics-directory)
+- Cross-language exercise sets: `basics` and `math`, described in the
+  repository [README](../README.md#the-basics-directory). The six files of the
+  `math` set sit among the older snippets already in `math`.
 - Web frameworks and servers: `bottle`, `cherrypy`, `flask`, `web.py`,
   `simplemeserv`, `apache2`, `xml-rpc`
-- Numeric and scientific: `numpy`, `scipy`, `pandas`, `statsmodels`, `math`,
-  `talib`, `simpy`, `mpi4py`
+- Numeric and scientific: `numpy`, `scipy`, `pandas`, `statsmodels`, `talib`,
+  `simpy`, `mpi4py`
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
   `decision_tree`, `naivebayes`, `cluster`, `networkx`
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`

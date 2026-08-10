@@ -9,8 +9,8 @@ page or a browser extension.
 
 Subdirectories group experiments by library or theme:
 
-- Cross-language exercise set: `basics`, described in the repository
-  [README](../README.md#the-basics-directory)
+- Cross-language exercise sets: `basics` and `math`, described in the
+  repository [README](../README.md#the-basics-directory)
 - Client-side frameworks: `backbonejs`, `knockoutjs`
 - Visualization: `d3js`
 - Server-side and realtime: `nodejs`, `socketio`
