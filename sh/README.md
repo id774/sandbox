@@ -28,6 +28,11 @@ on, as `doc/POLICY.md` section 1 says of anything already written.
   variable for want of an array, the quicksort keeps each call's pivot off the
   next through the subshell of a command substitution for want of `local`, and
   the word count goes to `sort` and `uniq` for want of an associative array.
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory). The same constraint shows again:
+  the sieve rebuilds a candidate string once per prime for want of an array of
+  flags, and the matrix pastes its row and column into a variable name through
+  `eval` for want of a subscript.
 - `hadoop`, `shunit2`: scripts written against one particular tool.
 
 ## Notes

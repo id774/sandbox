@@ -9,10 +9,11 @@ or network I/O.
 
 Subdirectories group experiments by library or theme:
 
-- Cross-language exercise set: `basics`, described in the repository
-  [README](../README.md#the-basics-directory)
+- Cross-language exercise sets: `basics` and `math`, described in the
+  repository [README](../README.md#the-basics-directory). The six files of the
+  `math` set sit among the older snippets already in `math`.
 - Plotting and mapping: `ggplot2`, `ggmap3`, `plot`
-- Statistics and analysis: `stats`, `math`, `igraph`, `MachineLearning`
+- Statistics and analysis: `stats`, `igraph`, `MachineLearning`
 
 ## Notes
 

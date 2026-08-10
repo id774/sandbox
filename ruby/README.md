@@ -9,8 +9,9 @@ core library behavior, such as blocks, closures, and string handling.
 
 Subdirectories group experiments by library or theme:
 
-- Cross-language exercise set: `basics`, described in the repository
-  [README](../README.md#the-basics-directory)
+- Cross-language exercise sets: `basics` and `math`, described in the
+  repository [README](../README.md#the-basics-directory). The six files of the
+  `math` set sit among the older snippets already in `math`.
 - Web frameworks and applications: `rails`, `sinatra`, `rack`, `activerecord`
 - Scraping and feeds: `anemone`, `cosmicrawler`, `nokogiri`, `scraping`,
   `open-uri`, `rss`, `mixi2rss`
@@ -20,7 +21,7 @@ Subdirectories group experiments by library or theme:
   `eventmachine`, `daemon`, `monitor`, `sysadmin`, `log`
 - Data stores and serialization: `mongo`, `redis`, `cassandra`, `csv`, `json`,
   `xml`, `yaml`, `msgpack`, `excel`
-- Language features: `enumerable`, `lambda`, `lazy`, `unique-symbol`, `math`,
+- Language features: `enumerable`, `lambda`, `lazy`, `unique-symbol`,
   `narray`
 - Text processing and machine learning: `MeCab`, `CaboCha`, `okura`,
   `text-mining`, `machine-learning`, `naivebayes`

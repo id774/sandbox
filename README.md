@@ -30,8 +30,8 @@ Each top-level directory groups snippets by language or platform:
   `scala`, `sh`, `sql`, `swift`, `tex`, `typescript`, `zig`, `zsh`
 
 There is no shared structure or convention across directories; each one
-reflects whatever was being explored at the time. The one exception is
-`basics`, described below.
+reflects whatever was being explored at the time. The exceptions are the
+cross-language exercise sets, `basics` and `math`, described below.
 
 The largest directories carry their own README as an index of what they hold:
 [`python`](python/README.md), [`ruby`](ruby/README.md), [`js`](js/README.md),
@@ -61,6 +61,31 @@ than shared between them: the POSIX one has no array and leaves the counting to
 
 `dot`, `llvm`, `pig`, `sql`, `tex`, and the generated project trees have no
 `basics`, since the set does not translate into them.
+
+### The `math` Directory
+
+The same language directories carry a `math` subdirectory holding the same six
+exercises. They ask one step more of a language than `basics` does, and what
+they ask is arithmetic rather than string handling:
+
+| File | What it does |
+| --- | --- |
+| `sieve` | Prints the primes below 100, struck out by the sieve of Eratosthenes. |
+| `gcd_lcm` | Prints the greatest common divisor and least common multiple of four fixed pairs, by Euclid's algorithm. |
+| `collatz` | Prints the start below 1000 whose Collatz sequence is the longest, and how many terms that sequence has. |
+| `matrix` | Multiplies two fixed 3x3 integer matrices and prints the product, then its determinant. |
+| `pascal` | Prints the first 10 rows of Pascal's triangle. |
+| `modpow` | Prints the modular power of four fixed triples, by repeated squaring. |
+
+They hold to the rule `basics` holds to: the same bytes out of every language,
+nothing read from an argument or from standard input, and the data fixed in the
+file. Every one of them is integer arithmetic throughout, so that no language's
+float formatting can move the output, and no value it carries leaves the range
+of a 64 bit integer.
+
+`python`, `ruby`, and `r` had a `math` directory of unrelated snippets before
+the set arrived. The six files named above are the set; the rest of what those
+directories hold is what it always was.
 
 ## 3. Design Philosophy
 

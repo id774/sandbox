@@ -98,7 +98,7 @@ This is the one rule that admits no exception.
   has one, because what goes in it is POSIX.
 - Nothing is shared across top-level directories. Each reflects whatever was
   being explored at the time, and they are not brought into line with each
-  other. Section 2.8 describes the one deliberate exception.
+  other. Section 2.8 describes the deliberate exceptions.
 
 ### 2.7 Data Files
 
@@ -116,14 +116,44 @@ This is the one rule that admits no exception.
 - Generated output is not committed: images, rendered documents, compiled
   objects, and build trees. `.gitignore` already excludes the common ones.
 
-### 2.8 The `basics` Directory
+### 2.8 The Cross-Language Exercise Sets
 
-This is the one place where directories are deliberately brought into line
-with each other, so that a language can be read against its neighbours.
+Exercise sets are the one place where directories are deliberately brought into
+line with each other, so that a language can be read against its neighbours. A
+set is a subdirectory name carried by every language that can hold it, holding
+the same exercises under that name in each.
 
-- A language directory may carry a `basics` subdirectory holding the same four
-  exercises: `fizzbuzz`, `fibonacci`, `quicksort`, and `word_frequency`.
-- They print identical output in every language, byte for byte:
+Two sets exist, `basics` and `math`. A further set is added the same way, and
+what this section asks holds of whichever set an exercise belongs to. What is
+written here is the rule for a set; the exercises themselves and the output
+they print are stated in the repository [README](../README.md), where a reader
+meets them.
+
+- Every exercise of a set prints identical output in every language, byte for
+  byte.
+- The data an exercise reads is fixed and held in the file. Nothing comes from
+  an argument, from standard input, or from a clock or a random source, since
+  none of those can be relied on to give the same bytes twice.
+- Each is written the way its own language would write it, not as a
+  transcription of one common solution. Matching output is the only thing held
+  in common; pattern matching, laziness, generics, and allocation are meant to
+  differ, and that difference is what a set is for.
+- The file naming follows the language, not this document: `word_frequency.rs`
+  where the language writes snake_case, `WordFrequency.kt` where it does not.
+- The header comment of each file gives the command that runs or builds it.
+- A language that a given exercise does not translate into simply does not
+  carry it. `dot`, `llvm`, `pig`, `sql`, `tex`, and the generated project trees
+  of section 4.6 carry neither set.
+- A set may land in a directory name that already holds unrelated snippets, as
+  `math` does under `python`, `ruby`, and `r`. The set is the files the README
+  names, and a file name the set needs belongs to the set: `python/math/collatz.py`
+  and `ruby/math/matrix.rb` held something else and now hold the exercise. What
+  the directory holds under any other name is untouched.
+- Nothing else in the repository is expected to line up this way. This section
+  governs the exercise sets only.
+
+`basics` prints the output below, and the text `word_frequency` counts is
+`the quick brown fox jumps over the lazy dog the fox barks`:
 
 | Exercise | Output |
 | --- | --- |
@@ -132,19 +162,18 @@ with each other, so that a language can be read against its neighbours.
 | `quicksort` | `1 2 3 4 5 6 7 8 9 10`, from the input `5 3 8 4 2 7 1 10 9 6` |
 | `word_frequency` | `the 3`, `fox 2`, then the seven words that occur once, alphabetically |
 
-- The text `word_frequency` counts is fixed and held in the file:
-  `the quick brown fox jumps over the lazy dog the fox barks`.
-- Each is written the way its own language would write it, not as a
-  transcription of one common solution. Matching output is the only thing held
-  in common; pattern matching, laziness, generics, and allocation are meant to
-  differ, and that difference is what the set is for.
-- The file naming follows the language, not this document: `word_frequency.rs`
-  where the language writes snake_case, `WordFrequency.kt` where it does not.
-- A language that a given exercise does not translate into simply does not
-  carry it. `dot`, `llvm`, `pig`, `sql`, `tex`, and the generated project trees
-  of section 4.6 have no `basics`.
-- Nothing else in the repository is expected to line up this way. This section
-  governs `basics` only.
+`math` prints the output below. It is integer arithmetic throughout, so that no
+language's float formatting can move the output, and no value it carries leaves
+the range of a 64 bit integer:
+
+| Exercise | Output |
+| --- | --- |
+| `sieve` | `2 3 5 7 ... 89 97`, the 25 primes below 100 on one line |
+| `gcd_lcm` | four lines of `a b gcd lcm`, from the pairs `1071 462`, `270 192`, `17 5`, `120 36` |
+| `collatz` | `871 179`, the longest Collatz sequence starting below 1000 and its length |
+| `matrix` | the three rows of the product, then `1188`, its determinant |
+| `pascal` | 10 lines, `1` through `1 9 36 84 126 126 84 36 9 1` |
+| `modpow` | four lines of `base exponent modulus result`, the last of them `10 18 9999991 810000` |
 
 ## 3. What Does Not Apply, and What Does
 
