@@ -40,8 +40,8 @@ rules deliberately do not apply here, and which of them do.
 
 - One line is the target. Where the point of the snippet is not obvious from
   its code, a few more lines are better than a reader guessing.
-- A project made of many files (`play/`, `rails/`, `android/`, and the like)
-  carries the comment on its entry point, not on every generated file.
+- A project made of many files (`play/`, `rails/`, `actionscript/`, and the
+  like) carries the comment on its entry point, not on every generated file.
 
 ### 2.2 English and Naming
 
@@ -272,8 +272,8 @@ section 2, nothing more is asked.
 
 ### 4.6 Generated Project Trees
 
-- `java`, `scala`, `play`, `rails`, `android`, and `actionscript` hold trees
-  produced by a framework or an IDE. Their layout, formatting, and generated
+- `java`, `scala`, `play`, `rails`, and `actionscript` hold trees produced by a
+  framework or an IDE. Their layout, formatting, and generated
   files are left as generated. Do not reformat them and do not tidy them into
   the conventions of this document.
 - What is left as generated is the source the tool wrote. Build output under

@@ -6,8 +6,8 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 
-url = 'http://157.7.155.117/post'
-auth = HTTPBasicAuth("houseapi", "kogaidan")
+url = 'http://example.com/post'
+auth = HTTPBasicAuth("YOUR_USER", "YOUR_PASSWORD")
 headers = {'content-type': 'application/json', 'content-length': '0'}
 
 json_data = {"aaa": "bbb"}

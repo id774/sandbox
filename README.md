@@ -23,7 +23,7 @@ never be finished or reused.
 
 Each top-level directory groups snippets by language or platform:
 
-- `actionscript`, `android`, `bash`, `c`, `clojure`, `coffeescript`, `cpp`,
+- `actionscript`, `bash`, `c`, `clojure`, `coffeescript`, `cpp`,
   `crystal`, `csharp`, `dart`, `dot`, `elixir`, `erlang`, `gauche`, `go`,
   `haskell`, `java`, `js`, `julia`, `kotlin`, `llvm`, `lua`, `nim`, `ocaml`,
   `perl`, `php`, `pig`, `play`, `python`, `r`, `rails`, `ruby`, `rust`,
