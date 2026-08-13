@@ -20,6 +20,24 @@ const noteSchema = t.Object({
 const app = new Elysia()
   .model({ note: noteSchema })
 
+  // Registered before the routes on purpose: a lifecycle hook applies to what
+  // is registered after it, so an onError at the end of the chain would never
+  // see these routes fail. Every failure below lands here with a
+  // discriminated `code`.
+  .onError(({ code, error, set }) => {
+    if (code === 'VALIDATION') {
+      set.status = 422;
+      return { error: 'validation failed', details: error.all };
+    }
+    if (code === 'NOT_FOUND') {
+      set.status = 404;
+      return { error: 'no such route' };
+    }
+    console.error(error);
+    set.status = 500;
+    return { error: 'internal error' };
+  })
+
   .get('/notes', ({ query }) => {
     const list = [...notes.values()];
     return query.done === undefined ? list : list.filter((n) => n.done === query.done);
@@ -48,21 +66,6 @@ const app = new Elysia()
     return status(204);
   }, {
     params: t.Object({ id: t.Number() }),
-  })
-
-  // Every failure lands here with a discriminated `code`.
-  .onError(({ code, error, set }) => {
-    if (code === 'VALIDATION') {
-      set.status = 422;
-      return { error: 'validation failed', details: error.all };
-    }
-    if (code === 'NOT_FOUND') {
-      set.status = 404;
-      return { error: 'no such route' };
-    }
-    console.error(error);
-    set.status = 500;
-    return { error: 'internal error' };
   })
 
   .listen(3000);
