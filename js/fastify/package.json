@@ -1,0 +1,10 @@
+{
+  "name": "fastify-samples",
+  "private": true,
+  "type": "module",
+  "description": "Fastify 5 snippets; see README.md",
+  "dependencies": {
+    "fastify": "^5.12.0",
+    "fastify-plugin": "^5.1.0"
+  }
+}

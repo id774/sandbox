@@ -1,0 +1,9 @@
+{
+  "name": "express-samples",
+  "private": true,
+  "type": "module",
+  "description": "Express 5 snippets; see README.md",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

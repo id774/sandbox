@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Preact signals</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { h, render } from "https://esm.sh/preact@10";
+      import { computed, effect, signal } from "https://esm.sh/@preact/signals@2?deps=preact@10";
+      import htm from "https://esm.sh/htm@3";
+
+      const html = htm.bind(h);
+
+      // State lives outside the component tree: no provider, no prop drilling.
+      const count = signal(0);
+      const doubled = computed(() => count.value * 2);
+
+      effect(() => {
+        document.title = `count: ${count.value}`;
+      });
+
+      // Passing the signal itself (not `count.value`) into the markup lets
+      // Preact bind the text node directly, so Display never re-renders.
+      function Display() {
+        console.log("Display rendered once");
+        return html`<p>count: ${count}, doubled: ${doubled}</p>`;
+      }
+
+      // Any component can mutate it, wherever it sits in the tree.
+      function Buttons() {
+        return html`
+          <p>
+            <button onClick=${() => count.value++}>+1</button>
+            <button onClick=${() => count.value--}>-1</button>
+            <button onClick=${() => (count.value = 0)}>reset</button>
+          </p>
+        `;
+      }
+
+      render(html`<div><${Display} /><${Buttons} /></div>`, document.getElementById("root"));
+    </script>
+  </body>
+</html>

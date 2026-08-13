@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Preact todo</title>
+    <style>
+      .done { color: #999; text-decoration: line-through; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { h, render } from "https://esm.sh/preact@10";
+      import { useCallback, useMemo, useState } from "https://esm.sh/preact@10/hooks";
+      import htm from "https://esm.sh/htm@3";
+
+      const html = htm.bind(h);
+      let nextId = 1;
+
+      function TodoApp() {
+        const [todos, setTodos] = useState([]);
+        const [draft, setDraft] = useState("");
+        const [filter, setFilter] = useState("all");
+
+        // Recomputed only when the inputs change, not on every render.
+        const visible = useMemo(
+          () => todos.filter((t) => filter === "all" || (filter === "done") === t.done),
+          [todos, filter],
+        );
+
+        // Stable identity, so child props do not change on every render.
+        const toggle = useCallback((id) => {
+          setTodos((current) =>
+            current.map((t) => (t.id === id ? { ...t, done: !t.done } : t)),
+          );
+        }, []);
+
+        function add(event) {
+          event.preventDefault();
+          const text = draft.trim();
+          if (!text) return;
+          setTodos((current) => [...current, { id: nextId++, text, done: false }]);
+          setDraft("");
+        }
+
+        return html`
+          <section>
+            <form onSubmit=${add}>
+              <input
+                value=${draft}
+                placeholder="What next?"
+                onInput=${(e) => setDraft(e.currentTarget.value)}
+              />
+              <button type="submit">add</button>
+            </form>
+
+            <p>
+              ${["all", "open", "done"].map(
+                (name) => html`
+                  <button disabled=${filter === name} onClick=${() => setFilter(name)}>
+                    ${name}
+                  </button>
+                `,
+              )}
+            </p>
+
+            <ul>
+              ${visible.map(
+                (todo) => html`
+                  <li key=${todo.id} class=${todo.done ? "done" : ""}>
+                    <input
+                      type="checkbox"
+                      checked=${todo.done}
+                      onChange=${() => toggle(todo.id)}
+                    />
+                    ${todo.text}
+                  </li>
+                `,
+              )}
+            </ul>
+          </section>
+        `;
+      }
+
+      render(html`<${TodoApp} />`, document.getElementById("root"));
+    </script>
+  </body>
+</html>

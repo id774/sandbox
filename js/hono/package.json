@@ -1,0 +1,10 @@
+{
+  "name": "hono-samples",
+  "private": true,
+  "type": "module",
+  "description": "Hono 4 snippets; see README.md",
+  "dependencies": {
+    "@hono/node-server": "^2.1.0",
+    "hono": "^4.13.2"
+  }
+}

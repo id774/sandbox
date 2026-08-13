@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>htmx</title>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2/dist/htmx.min.js"></script>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40em; margin: 2em auto; }
+      .htmx-request { opacity: 0.5; }
+      section { margin-bottom: 2em; }
+    </style>
+  </head>
+  <body>
+    <h1>htmx</h1>
+
+    <section>
+      <h2>load on click</h2>
+      <!-- GET /fragments/quote, drop the response inside #quote -->
+      <button hx-get="/fragments/quote" hx-target="#quote" hx-swap="innerHTML">
+        another quote
+      </button>
+      <blockquote id="quote">click the button</blockquote>
+    </section>
+
+    <section>
+      <h2>active search</h2>
+      <!-- Fires 300ms after typing stops, and only if the value changed.
+           htmx cancels the previous request when a new one starts. -->
+      <input
+        type="search"
+        name="q"
+        placeholder="filter users"
+        hx-get="/fragments/users"
+        hx-trigger="input changed delay:300ms, load"
+        hx-target="#users"
+      >
+      <ul id="users"></ul>
+    </section>
+
+    <section>
+      <h2>delete a row</h2>
+      <!-- hx-target="closest li" + swap outerHTML: the server answers with an
+           empty body and the row removes itself -->
+      <ul id="rows">
+        <li>alpha <button hx-delete="/rows/1" hx-target="closest li" hx-swap="outerHTML">x</button></li>
+        <li>beta <button hx-delete="/rows/2" hx-target="closest li" hx-swap="outerHTML">x</button></li>
+        <li>gamma <button hx-delete="/rows/3" hx-target="closest li" hx-swap="outerHTML">x</button></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>poll</h2>
+      <!-- every 2s the element replaces itself with a fresh copy -->
+      <p hx-get="/fragments/time" hx-trigger="every 2s" hx-swap="innerHTML">-</p>
+    </section>
+  </body>
+</html>

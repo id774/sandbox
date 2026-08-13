@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Alpine fetch and store</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <!-- x-data attributes hold *expressions*, not statement blocks: a `try`
+         or an `if` there is a syntax error. Anything bigger than one
+         expression belongs in a component, as below. -->
+    <div x-data="userList">
+      <input x-model="query" placeholder="filter">
+
+      <p x-show="loading">loading…</p>
+      <p x-show="error" x-text="`failed: ${error}`" style="color: crimson"></p>
+
+      <ul>
+        <template x-for="user in filtered" :key="user.id">
+          <li>
+            <span x-text="user.name"></span>
+            <!-- $store reaches global state from any component -->
+            <button @click="$store.selection.pick(user.name)">pick</button>
+          </li>
+        </template>
+      </ul>
+    </div>
+
+    <!-- A different island, reading the same store -->
+    <div x-data>
+      <p>picked: <strong x-text="$store.selection.name || '-'"></strong></p>
+      <button @click="$store.selection.clear()">clear</button>
+    </div>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        // Global state, reachable as $store.selection from any component.
+        Alpine.store("selection", {
+          name: "",
+          pick(name) {
+            this.name = name;
+          },
+          clear() {
+            this.name = "";
+          },
+        });
+
+        Alpine.data("userList", () => ({
+          users: [],
+          error: null,
+          loading: true,
+          query: "",
+
+          // init() is called once when the component is initialised, and may
+          // be async — this is x-init with room for real code.
+          async init() {
+            try {
+              const res = await fetch("https://jsonplaceholder.typicode.com/users");
+              if (!res.ok) throw new Error(`HTTP ${res.status}`);
+              this.users = await res.json();
+            } catch (e) {
+              this.error = e.message;
+            } finally {
+              this.loading = false;
+            }
+          },
+
+          // A getter is re-evaluated whenever the state it reads changes.
+          get filtered() {
+            const q = this.query.toLowerCase();
+            return this.users.filter((u) => u.name.toLowerCase().includes(q));
+          },
+        }));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>React counter</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- JSX would need a compiler, so elements are built with createElement. -->
+    <script type="module">
+      import { createElement as h, useState } from "https://esm.sh/react@19";
+      import { createRoot } from "https://esm.sh/react-dom@19/client";
+
+      function Counter({ step = 1 }) {
+        const [count, setCount] = useState(0);
+
+        return h(
+          "p",
+          null,
+          h("output", null, count),
+          " ",
+          // The updater form takes the previous state, so repeated clicks
+          // do not read a stale value.
+          h("button", { onClick: () => setCount((c) => c + step) }, `+${step}`),
+          h("button", { onClick: () => setCount((c) => c - step) }, `-${step}`),
+          h("button", { onClick: () => setCount(0), disabled: count === 0 }, "reset"),
+        );
+      }
+
+      createRoot(document.getElementById("root")).render(h(Counter, { step: 2 }));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Stimulus</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "@hotwired/stimulus": "https://esm.sh/@hotwired/stimulus@3"
+        }
+      }
+    </script>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40em; margin: 2em auto; }
+      section { margin-bottom: 2em; }
+      [data-list-target="item"].done { color: #999; text-decoration: line-through; }
+    </style>
+  </head>
+  <body>
+    <h1>Stimulus</h1>
+
+    <section data-controller="hello">
+      <!-- data-action reads "event->controller#method" -->
+      <input data-hello-target="name" type="text" placeholder="your name"
+             data-action="input->hello#greet">
+      <p data-hello-target="output">…</p>
+    </section>
+
+    <section data-controller="clipboard" data-clipboard-text-value="npm create vite@latest">
+      <code data-clipboard-target="source">npm create vite@latest</code>
+      <button data-action="clipboard#copy" data-clipboard-target="button">copy</button>
+    </section>
+
+    <section data-controller="list" data-list-filter-value="all">
+      <button data-action="list#setFilter" data-filter="all">all</button>
+      <button data-action="list#setFilter" data-filter="open">open</button>
+      <button data-action="list#setFilter" data-filter="done">done</button>
+
+      <ul>
+        <li data-list-target="item" data-action="click->list#toggle">write samples</li>
+        <li data-list-target="item" data-action="click->list#toggle" class="done">read docs</li>
+        <li data-list-target="item" data-action="click->list#toggle">ship it</li>
+      </ul>
+      <p data-list-target="count"></p>
+    </section>
+
+    <script type="module">
+      import { Application } from "@hotwired/stimulus";
+      import HelloController from "./controllers/hello_controller.js";
+      import ClipboardController from "./controllers/clipboard_controller.js";
+      import ListController from "./controllers/list_controller.js";
+
+      // In a Rails app this registration is automatic (importmap or the
+      // stimulus-loading helper); here it is spelled out.
+      const application = Application.start();
+      application.register("hello", HelloController);
+      application.register("clipboard", ClipboardController);
+      application.register("list", ListController);
+    </script>
+  </body>
+</html>
