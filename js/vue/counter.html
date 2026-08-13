@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue counter</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        <output>{{ count }}</output>
+        <button @click="count += step">+{{ step }}</button>
+        <button @click="count -= step">-{{ step }}</button>
+        <button @click="count = 0" :disabled="count === 0">reset</button>
+      </p>
+      <p v-if="count > 10">over ten ({{ doubled }} doubled)</p>
+    </div>
+
+    <script type="module">
+      // esm-browser build: ships the template compiler, so the markup above
+      // is compiled in the browser. A bundler would use the runtime-only build.
+      import { createApp, ref, computed } from "https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js";
+
+      createApp({
+        setup() {
+          const count = ref(0);
+          const step = ref(2);
+          const doubled = computed(() => count.value * 2);
+
+          // Refs are unwrapped in templates, so `count` there, `count.value` here.
+          return { count, step, doubled };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

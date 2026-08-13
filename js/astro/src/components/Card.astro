@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  href?: string;
+}
+
+// Props come from the component tag, destructured off Astro.props.
+const { title, href = '#' } = Astro.props;
+---
+
+<article>
+  <h3><a href={href}>{title}</a></h3>
+  <!-- Whatever the caller put between the tags -->
+  <slot />
+  <!-- Named slots: <p slot="footer">…</p> on the caller side -->
+  <footer><slot name="footer">no footer</slot></footer>
+</article>
+
+<style>
+  /* Scoped to this component by a generated class; no leakage, no BEM */
+  article {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+  }
+  footer {
+    color: #888;
+    font-size: 0.85em;
+  }
+</style>

@@ -1,0 +1,9 @@
+{
+  "name": "elysia-samples",
+  "private": true,
+  "type": "module",
+  "description": "Elysia 1.4 snippets for Bun; see README.md",
+  "dependencies": {
+    "elysia": "^1.4.29"
+  }
+}

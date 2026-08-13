@@ -1,0 +1,49 @@
+---
+// Frontmatter: runs on the server (at build time for a static page), never in
+// the browser. Top-level await is fine here.
+import Card from '../components/Card.astro';
+import Counter from '../components/Counter.jsx';
+
+const res = await fetch('https://jsonplaceholder.typicode.com/users');
+const users = (await res.json()) as { id: number; name: string; email: string }[];
+
+const title = 'Astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+
+    <!-- No client:* directive, so this component is rendered to HTML and
+         nothing about it is shipped as JavaScript -->
+    {users.slice(0, 3).map((user) => (
+      <Card title={user.name} href={`/blog/${user.id}`}>
+        <p>{user.email}</p>
+      </Card>
+    ))}
+
+    <h2>Islands</h2>
+
+    <!-- Hydrates immediately on load -->
+    <Counter client:load step={1} />
+
+    <!-- Hydrates only when scrolled into view; client:idle and
+         client:media are the other common choices -->
+    <Counter client:visible step={10} />
+
+    <!-- Rendered on the server once and never hydrated -->
+    <Counter step={100} />
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 40em;
+    margin: 2em auto;
+  }
+</style>

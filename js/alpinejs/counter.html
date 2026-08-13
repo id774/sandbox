@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Alpine counter</title>
+    <!-- defer matters: Alpine walks the DOM as soon as it loads -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <!-- x-data is the component: an object literal, scoped to this element
+         and everything inside it -->
+    <div x-data="{ count: 0, step: 2, get doubled() { return this.count * 2 } }">
+      <p>
+        <output x-text="count"></output>
+        <span x-text="`(doubled: ${doubled})`"></span>
+        <button @click="count += step">+<span x-text="step"></span></button>
+        <button @click="count -= step">-<span x-text="step"></span></button>
+        <button @click="count = 0" :disabled="count === 0">reset</button>
+      </p>
+
+      <!-- x-show toggles display; x-if (on a <template>) removes the node -->
+      <p x-show="count > 10" style="color: crimson">over ten</p>
+    </div>
+
+    <!-- Separate x-data blocks are separate components with separate state -->
+    <div x-data="{ open: false }">
+      <button @click="open = !open" x-text="open ? 'hide' : 'show'"></button>
+      <p x-show="open" x-transition>toggled independently of the counter above</p>
+    </div>
+  </body>
+</html>

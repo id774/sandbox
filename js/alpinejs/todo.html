@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Alpine todo</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+    <style>
+      .done { color: #999; text-decoration: line-through; }
+    </style>
+  </head>
+  <body>
+    <!-- Once x-data outgrows an attribute, name a function registered on the
+         alpine:init event (see the script at the bottom). -->
+    <div x-data="todoApp">
+      <h2>Todo (<span x-text="remaining"></span> left)</h2>
+
+      <form @submit.prevent="add()">
+        <input x-model="draft" placeholder="What next?">
+        <button type="submit">add</button>
+      </form>
+
+      <ul>
+        <!-- x-for lives on a <template>; :key keeps DOM nodes matched to items -->
+        <template x-for="todo in todos" :key="todo.id">
+          <li :class="todo.done && 'done'">
+            <input type="checkbox" x-model="todo.done">
+            <span x-text="todo.text"></span>
+            <button @click="remove(todo.id)">x</button>
+          </li>
+        </template>
+      </ul>
+
+      <p x-show="todos.length === 0">nothing here yet</p>
+
+      <!-- x-effect re-runs whenever a value it reads changes -->
+      <p x-effect="console.log(`${todos.length} todos`)"></p>
+    </div>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("todoApp", () => ({
+          nextId: 1,
+          draft: "",
+          todos: [],
+
+          get remaining() {
+            return this.todos.filter((t) => !t.done).length;
+          },
+
+          add() {
+            const text = this.draft.trim();
+            if (!text) return;
+            this.todos.push({ id: this.nextId++, text, done: false });
+            this.draft = "";
+          },
+
+          remove(id) {
+            this.todos = this.todos.filter((t) => t.id !== id);
+          },
+        }));
+      });
+    </script>
+  </body>
+</html>

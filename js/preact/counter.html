@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Preact counter</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { h, render } from "https://esm.sh/preact@10";
+      import { useState } from "https://esm.sh/preact@10/hooks";
+      import htm from "https://esm.sh/htm@3";
+
+      // htm is JSX-shaped syntax as a tagged template: no build step, and
+      // `html` produces the same vnodes JSX would.
+      const html = htm.bind(h);
+
+      function Counter({ step = 1 }) {
+        const [count, setCount] = useState(0);
+
+        return html`
+          <p>
+            <output>${count}</output>
+            <button onClick=${() => setCount(count + step)}>+${step}</button>
+            <button onClick=${() => setCount(count - step)}>-${step}</button>
+            <button onClick=${() => setCount(0)} disabled=${count === 0}>reset</button>
+          </p>
+        `;
+      }
+
+      render(html`<${Counter} step=${2} />`, document.getElementById("root"));
+    </script>
+  </body>
+</html>
