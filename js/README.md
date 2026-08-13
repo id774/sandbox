@@ -9,14 +9,19 @@ page or a browser extension.
 
 Subdirectories group experiments by library or theme:
 
-- Cross-language exercise sets: `basics` and `math`, described in the
-  repository [README](../README.md#the-basics-directory)
-- Visualization: `d3js`
-- Server-side and realtime: `nodejs`, `socketio`
-- Browser snippets and pages: `bookmarklet`, `ksk`
-- Data formats: `json`
-- Client-side frameworks, older generation: `backbonejs`, `knockoutjs`
+- Cross-language exercise sets: [`basics`](basics/) and [`math`](math/), whose
+  exercises and expected output are described in the repository
+  [README](../README.md#the-basics-directory)
+- Visualization: [`d3js`](d3js/)
+- Server-side and realtime: [`nodejs`](nodejs/), [`socketio`](socketio/)
+- Browser snippets and pages: [`bookmarklet`](bookmarklet/), [`ksk`](ksk/)
+- Data formats: [`json`](json/)
+- Client-side frameworks, older generation: [`backbonejs`](backbonejs/),
+  [`knockoutjs`](knockoutjs/)
 - Frameworks in current use: see the table below
+
+Every subdirectory carries its own README saying what is in it, what the
+samples show, and what no longer runs as written.
 
 Several of the framework directories below are written in TypeScript, because
 that is what the framework expects — `angular`, `nestjs`, `nextjs`, `nuxt`,
