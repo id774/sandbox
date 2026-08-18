@@ -25,6 +25,10 @@ machine cannot use, take the CPU wheel instead:
   `AutoTokenizer` and `AutoModel` directly and showing the tensor shapes.
 - `text_generation.py` continues a short prompt with a text-generation pipeline
   and a `GenerationConfig`.
+- `watermark_generation.py` compares ordinary GPT-2 generation with generation
+  using Transformers `WatermarkingConfig`.
+- `watermark_detection.py` runs `WatermarkDetector` against plain and
+  watermarked completion tokens.
 - `datasets_load.py` reads a small dataset, prints its columns, features, and
   first rows, then reads a larger one in streaming mode.
 - `hub_download.py` fetches a single `config.json` with `hf_hub_download()` and
@@ -35,6 +39,8 @@ Run any of them directly:
     ./pipeline_classification.py
     ./tokenizer_model.py
     ./text_generation.py
+    ./watermark_generation.py
+    ./watermark_detection.py
     ./datasets_load.py
     ./hub_download.py
 
