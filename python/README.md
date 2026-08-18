@@ -17,7 +17,7 @@ Subdirectories group experiments by library or theme:
 - Numeric and scientific: `numpy`, `scipy`, `pandas`, `statsmodels`, `talib`,
   `simpy`, `mpi4py`
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
-  `decision_tree`, `naivebayes`, `cluster`, `networkx`
+  `decision_tree`, `naivebayes`, `cluster`, `networkx`, `huggingface`
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`
 - Plotting and imaging: `matplotlib`, `pylab`, `pil`
 - Data formats and messaging: `csv`, `json`, `config`, `email`, `sendgrid`
