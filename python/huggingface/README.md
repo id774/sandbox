@@ -33,6 +33,8 @@ machine cannot use, take the CPU wheel instead:
   first rows, then reads a larger one in streaming mode.
 - `hub_download.py` fetches a single `config.json` with `hf_hub_download()` and
   prints the cached path and a few of its values.
+- `kv_cache_size.py` estimates the KV cache size of a model from a Hugging Face
+  `config.json`.
 
 Run any of them directly:
 
@@ -43,6 +45,19 @@ Run any of them directly:
     ./watermark_detection.py
     ./datasets_load.py
     ./hub_download.py
+
+`kv_cache_size.py` reads a local `config.json` instead, and takes the context
+length, with the number of sequences given when more than one is served:
+
+    python3 kv_cache_size.py config.json --context 32768
+
+    python3 kv_cache_size.py config.json \
+      --context 32768 \
+      --sequences 4
+
+`fixtures/kv_cache_config.json` holds a small config to run it against:
+
+    python3 kv_cache_size.py fixtures/kv_cache_config.json --context 32768
 
 ## Models and datasets
 
