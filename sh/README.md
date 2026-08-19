@@ -34,6 +34,11 @@ on, as `doc/POLICY.md` section 1 says of anything already written.
   flags, and the matrix pastes its row and column into a variable name through
   `eval` for want of a subscript.
 - `hadoop`, `shunit2`: scripts written against one particular tool.
+- `git_reset_history.sh`: the Git commands that reduce a repository's history to
+  one Initial commit without deleting the repository. It rewrites history, so it
+  belongs against a disposable repository only.
+- `llama_kv_cache_benchmark.sh`: the two `llama-bench` runs that compare an F16
+  KV cache with a Q8_0 one.
 
 ## Notes
 
