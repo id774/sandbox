@@ -2,6 +2,8 @@
 
 R is a programming language and environment for statistical computing, data analysis, and graphics. It provides vectorized data structures, statistical modeling facilities, and a large package ecosystem oriented toward analysis and visualization.
 
+According to [Wikipedia](https://en.wikipedia.org/wiki/R_(programming_language)), the core R language is extended by a large collection of packages, including the widely used tidyverse collection for transforming, modeling, and visualizing data. It provides statistical techniques ranging from linear and nonlinear modeling to classical tests, time-series analysis, and classification, and has been broadly adopted in bioinformatics, data mining, and data science.
+
 R experiments covering plotting, statistics, and data handling.
 
 ## Layout
