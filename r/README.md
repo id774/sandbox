@@ -1,5 +1,7 @@
 # R
 
+R is a programming language and environment for statistical computing, data analysis, and graphics. It provides vectorized data structures, statistical modeling facilities, and a large package ecosystem oriented toward analysis and visualization.
+
 R experiments covering plotting, statistics, and data handling.
 
 ## Layout

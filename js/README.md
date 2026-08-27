@@ -1,5 +1,7 @@
 # JavaScript
 
+JavaScript is a dynamic, prototype-based, garbage-collected programming language standardized as ECMAScript. It is the native scripting language of web browsers and also runs outside the browser in environments such as Node.js, making it common for client-side interfaces, servers, tooling, and automation.
+
 JavaScript experiments covering browser-side snippets, frameworks, and Node.js.
 
 ## Layout
