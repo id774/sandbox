@@ -1,5 +1,7 @@
 # POSIX Shell Script
 
+The POSIX shell language is the standardized command and scripting language shared across Unix-like systems. It is built around commands, pipelines, redirection, expansion, and control structures, and deliberately omits many extensions provided by shells such as Bash and Zsh.
+
 POSIX shell script experiments. What is placed here holds to POSIX and runs
 under a plain `/bin/sh`.
 

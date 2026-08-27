@@ -29,14 +29,17 @@ Each top-level directory groups snippets by language or platform:
   `perl`, `php`, `pig`, `play`, `python`, `r`, `rails`, `ruby`, `rust`,
   `scala`, `sh`, `sql`, `swift`, `tex`, `typescript`, `zig`, `zsh`
 
-There is no shared structure or convention across directories; each one
-reflects whatever was being explored at the time. The exceptions are the
-cross-language exercise sets, `basics` and `math`, described below.
+There is no shared structure for the snippets across directories; each one
+reflects whatever was being explored at the time. The shared README overview
+requirement and the cross-language exercise sets, `basics` and `math`, are the
+deliberate exceptions.
 
-The largest directories carry their own README as an index of what they hold:
-[`python`](python/README.md), [`ruby`](ruby/README.md), [`js`](js/README.md),
-[`r`](r/README.md). [`sh`](sh/README.md) carries one for a different reason, to
-state that what goes in it is POSIX.
+Every top-level language or platform directory carries a `README.md` with a
+brief overview of the language, platform, or technology it represents. The
+larger directories [`python`](python/README.md), [`ruby`](ruby/README.md),
+[`js`](js/README.md), and [`r`](r/README.md) also use that README as an index
+of what they hold. [`sh`](sh/README.md) additionally states the POSIX
+constraint that applies there.
 
 ### The `basics` Directory
 

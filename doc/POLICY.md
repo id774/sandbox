@@ -91,14 +91,17 @@ This is the one rule that admits no exception.
   as that name is ordinarily written: `cpp`, `js`, `sh`, `r`, `tex`.
 - Below it, subdirectories group by library or theme. Files directly under the
   top level are the short, single-topic exercises.
-- A directory large enough that its listing stops being an index carries a
-  `README.md` saying what is in it. `python`, `ruby`, `js`, and `r` have one.
-- A directory whose contents are held to a constraint carries one too, stating
-  the constraint where the files are rather than only in this document. `sh`
-  has one, because what goes in it is POSIX.
-- Nothing is shared across top-level directories. Each reflects whatever was
-  being explored at the time, and they are not brought into line with each
-  other. Section 2.8 describes the deliberate exceptions.
+- Every top-level language or platform directory carries a `README.md` with a
+  brief overview of the language, platform, or technology it represents.
+- A directory large enough that its listing stops being an index uses the same
+  README to say what is in it. `python`, `ruby`, `js`, and `r` do this.
+- A directory whose contents are held to a constraint uses the same README to
+  state that constraint where the files are rather than only in this document.
+  `sh` does this because what goes in it is POSIX.
+- Nothing in the code is shared across top-level directories. Each reflects
+  whatever was being explored at the time, and the snippets are not brought
+  into line with each other. The README requirement above and the
+  cross-language exercise sets in section 2.8 are the deliberate exceptions.
 
 ### 2.7 Data Files
 
@@ -301,10 +304,11 @@ section 2, nothing more is asked.
 
 ### 4.6 Generated Project Trees
 
-- `java`, `scala`, `play`, `rails`, and `actionscript` hold trees produced by a
-  framework or an IDE. Their layout, formatting, and generated
-  files are left as generated. Do not reformat them and do not tidy them into
-  the conventions of this document.
+- `java`, `scala`, `play`, `rails`, and `actionscript` contain trees produced
+  by a framework or an IDE. Those generated project trees, their layout,
+  formatting, and generated files are left as generated. The top-level
+  `README.md` required by section 2.6 is repository documentation and does not
+  authorize changes inside a generated project tree.
 - What is left as generated is the source the tool wrote. Build output under
   such a tree is not exempt from section 2.7, and neither is the launcher or the
   library a scaffold happened to copy in.

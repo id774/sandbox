@@ -1,5 +1,7 @@
 # Python
 
+Python is a high-level, dynamically typed, general-purpose programming language that emphasizes readability and a compact syntax. It supports procedural, object-oriented, and functional styles and is widely used for scripting, web development, data analysis, scientific computing, and machine learning.
+
 Python experiments, from small language exercises to library and framework trials.
 
 ## Layout

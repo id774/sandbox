@@ -1,5 +1,7 @@
 # Ruby
 
+Ruby is a dynamically typed, object-oriented programming language designed around expressive syntax and developer productivity. It treats values as objects and makes extensive use of blocks, iterators, metaprogramming, and a flexible object model, with common uses in scripting and web development.
+
 Ruby experiments, from language exercises to gem trials and small applications.
 
 ## Layout
