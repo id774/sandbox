@@ -2,6 +2,8 @@
 
 Ruby is a dynamically typed, object-oriented programming language designed around expressive syntax and developer productivity. It treats values as objects and makes extensive use of blocks, iterators, metaprogramming, and a flexible object model, with common uses in scripting and web development.
 
+As described on [Wikipedia](https://en.wikipedia.org/wiki/Ruby_(programming_language)), Yukihiro "Matz" Matsumoto began developing Ruby in the mid-1990s in Japan and released the first version on December 21, 1995, citing Perl, Smalltalk, Eiffel, Ada, BASIC, and Lisp as influences. Everything in Ruby is an object, including primitive data types, and by 2000 the language was already more popular in Japan than Python, with English-language adoption widening after the book Programming Ruby was later released freely online.
+
 Ruby experiments, from language exercises to gem trials and small applications.
 
 ## Layout

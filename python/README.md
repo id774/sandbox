@@ -2,6 +2,8 @@
 
 Python is a high-level, dynamically typed, general-purpose programming language that emphasizes readability and a compact syntax. It supports procedural, object-oriented, and functional styles and is widely used for scripting, web development, data analysis, scientific computing, and machine learning.
 
+The [Wikipedia article on Python](https://en.wikipedia.org/wiki/Python_(programming_language)) attributes the language's design to Guido van Rossum, who conceived it in the late 1980s at Centrum Wiskunde & Informatica in the Netherlands and first released it as Python 0.9.0 in 1991, naming it after the British television show Monty Python's Flying Circus. Python 3.0, released in 2008, was a deliberately backward-incompatible revision, and the language is often described as a "glue language" for its ability to integrate components written in other languages.
+
 Python experiments, from small language exercises to library and framework trials.
 
 ## Layout

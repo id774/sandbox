@@ -2,6 +2,8 @@
 
 JavaScript is a dynamic, prototype-based, garbage-collected programming language standardized as ECMAScript. It is the native scripting language of web browsers and also runs outside the browser in environments such as Node.js, making it common for client-side interfaces, servers, tooling, and automation.
 
+According to [Wikipedia](https://en.wikipedia.org/wiki/JavaScript), JavaScript was created by Brendan Eich in 1995, shipping first under the name LiveScript before Netscape renamed it JavaScript for its official release that December. It is maintained as the ECMAScript standard by Ecma International's TC39 committee and supports event-driven, functional, and imperative programming styles alongside APIs for text, dates, regular expressions, and the Document Object Model.
+
 JavaScript experiments covering browser-side snippets, frameworks, and Node.js.
 
 ## Layout
