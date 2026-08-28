@@ -1,8 +1,28 @@
 # POSIX Shell Script
 
-The POSIX shell language is the standardized command and scripting language shared across Unix-like systems. It is built around commands, pipelines, redirection, expansion, and control structures, and deliberately omits many extensions provided by shells such as Bash and Zsh.
+## Overview
 
-The [Wikipedia article on the Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell) explains that Stephen Bourne developed it at Bell Labs as a replacement for the Thompson shell, releasing it in the Version 7 Unix distribution of 1979. It became standard across branded Unix systems and forms the basis of the POSIX `sh` standard, which scripts written for the Bourne shell can typically still run under with implementations such as Bash or dash.
+The subject of this directory, per repository policy, is the POSIX `sh` shell language: the standardized command and scripting language specified for `sh` by POSIX, rather than any single program that implements it. That language traces its lineage directly to the Bourne shell, whose syntax and constructs it codifies, and it is built around running commands, connecting them with pipelines, redirecting their input and output, expanding variables and other tokens, and sequencing work with control structures. Because it is a specification rather than a particular executable, POSIX `sh` is deliberately conservative, leaving out the various extensions that shells such as Bash and Zsh layer on top of the same Bourne-derived core.
+
+## History
+
+The Bourne shell was written by Stephen Bourne at Bell Labs and shipped as part of Version 7 Unix in 1979, where it replaced the earlier Thompson shell written by Ken Thompson for the first versions of Unix. The Thompson shell was a comparatively simple command interpreter without the programming constructs needed for substantial scripts, and Bourne's shell addressed that gap by adding features such as control-flow constructs, variables, and here-documents, making it practical to write real programs in the shell rather than only issue interactive commands. The Bourne shell then spread as the standard shell across commercial Unix systems, and its syntax and behavior became the reference point when the POSIX committee later defined a standardized shell command language: the resulting `sh` specification codified the Bourne shell's constructs so that conforming scripts would behave consistently across compliant systems, rather than tying the language to Bell Labs' original implementation.
+
+## Language design and characteristics
+
+A POSIX `sh` script is built from commands invoked by name, connected where useful into pipelines that pass one command's output to the next command's input, and combined with redirection operators that route input and output to and from files. The language provides several forms of expansion, including parameter expansion for variables, command substitution for capturing another command's output, and word splitting and filename expansion, all of which happen before a command is run. Control structures such as `if`, `while`, `until`, `for`, and `case` give scripts conditional and repeated execution, and shell functions allow a script to group commands under a name for reuse. Portability, in this context, means that a script written strictly to the POSIX `sh` specification is expected to behave the same way under any conforming implementation, since it relies only on the constructs the standard defines rather than on behavior specific to one shell.
+
+## Implementation and ecosystem
+
+POSIX `sh` is a language specification, not a program, and several different implementations provide it in practice. Bash, the GNU Bourne-Again Shell, implements POSIX `sh` behavior alongside a substantial set of its own extensions and is commonly installed as an interactive login shell; dash, a smaller and more minimal shell, is used on some systems specifically as `/bin/sh` because it sticks closely to the standardized language without the extra features; and the Korn shell, another descendant of the Bourne shell, likewise implements the POSIX language while adding capabilities of its own. Treating "the language" and "an implementation" as distinct matters here: a script that happens to work under Bash's `/bin/sh` is not necessarily POSIX-conformant, because Bash recognizes constructs the standard does not require, and the same script can fail under a stricter implementation such as dash.
+
+## Uses and influence
+
+Because POSIX `sh` is the shell language guaranteed to be available, in some form, on essentially every Unix-like system, it remains the language of choice for scripts that need to run unmodified across many machines and distributions without assuming a particular shell is installed as `/bin/sh`. That same portability requirement is also why the language deliberately excludes conveniences that Bash and Zsh add, such as arrays, the `[[ ... ]]` conditional syntax, `local` variables, and compound assignment operators like `+=`: including them would tie scripts to a specific implementation rather than to the standard, defeating the purpose of writing to POSIX `sh` in the first place.
+
+## References
+
+- [Wikipedia: Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell)
 
 POSIX shell script experiments. What is placed here holds to POSIX and runs
 under a plain `/bin/sh`.

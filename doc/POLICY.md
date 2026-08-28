@@ -92,7 +92,9 @@ This is the one rule that admits no exception.
 - Below it, subdirectories group by library or theme. Files directly under the
   top level are the short, single-topic exercises.
 - Every top-level language or platform directory carries a `README.md` with a
-  brief overview of the language, platform, or technology it represents.
+  comprehensive overview of the language, platform, or technology it represents,
+  covering its history, defining characteristics, implementation or execution
+  model, ecosystem or standardization where applicable, and principal uses.
 - A directory large enough that its listing stops being an index uses the same
   README to say what is in it. `python`, `ruby`, `js`, and `r` do this.
 - A directory whose contents are held to a constraint uses the same README to
