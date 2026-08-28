@@ -35,7 +35,9 @@ requirement and the cross-language exercise sets, `basics` and `math`, are the
 deliberate exceptions.
 
 Every top-level language or platform directory carries a `README.md` with a
-brief overview of the language, platform, or technology it represents. The
+comprehensive overview of the language, platform, or technology it represents,
+covering its history, defining characteristics, implementation or execution
+model, ecosystem or standardization where applicable, and principal uses. The
 larger directories [`python`](python/README.md), [`ruby`](ruby/README.md),
 [`js`](js/README.md), and [`r`](r/README.md) also use that README as an index
 of what they hold. [`sh`](sh/README.md) additionally states the POSIX

@@ -1,8 +1,32 @@
 # JavaScript
 
-JavaScript is a dynamic, prototype-based, garbage-collected programming language standardized as ECMAScript. It is the native scripting language of web browsers and also runs outside the browser in environments such as Node.js, making it common for client-side interfaces, servers, tooling, and automation.
+## Overview
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/JavaScript), JavaScript was created by Brendan Eich in 1995, shipping first under the name LiveScript before Netscape renamed it JavaScript for its official release that December. It is maintained as the ECMAScript standard by Ecma International's TC39 committee and supports event-driven, functional, and imperative programming styles alongside APIs for text, dates, regular expressions, and the Document Object Model.
+JavaScript is a dynamically typed, prototype-based programming language most closely associated with running inside web browsers, where it is used to control page behavior, respond to user interaction, and communicate with servers. The language itself, standardized as ECMAScript, treats functions as first-class values and does not use the class-based inheritance model found in languages like Java, relying instead on prototype chains to share behavior between objects. Beyond browsers, JavaScript engines are now embedded in numerous other runtimes, most notably Node.js, extending the language's original scripting role to servers and general-purpose tooling.
+
+## History
+
+JavaScript was created by Brendan Eich, an engineer at Netscape Communications, in 1995. Eich initially set out to bring a Scheme-like language into Netscape's browser, but under pressure from Netscape's management to give the new language a syntax resembling Java, he wrote its first version in about ten days to meet the release schedule of the Netscape Navigator 2.0 beta. The language went through two names before settling on its current one: it was called Mocha during early development, then renamed LiveScript when it first shipped in a Navigator beta in September 1995, and finally renamed JavaScript in a joint announcement with Sun Microsystems ahead of its official release that December. The JavaScript name has often been described as a marketing decision by Netscape intended to associate the new language with the popularity Java had at the time, rather than reflecting any deep technical kinship between the two languages.
+
+To keep the language from fragmenting across competing browser implementations, Netscape submitted it to the standards body Ecma International in 1996, which led to the publication of the first ECMAScript specification the following year. Since then, the language's evolution has been governed by Ecma's Technical Committee 39 (TC39), a group of browser vendors and other stakeholders that develops and approves new editions of the ECMAScript standard.
+
+## Language design and characteristics
+
+JavaScript is dynamically typed, so variable types are determined at run time rather than declared in advance, and it is a multi-paradigm language supporting event-driven, functional, and imperative styles of programming. Its object model is prototype-based rather than class-based: objects can inherit properties and methods directly from other objects through a prototype chain, and functions are first-class values that can be assigned to variables, passed as arguments, and returned from other functions. The ECMAScript specification defines the core language, including its syntax, types, and built-in objects, but it deliberately does not define any input or output facilities.
+
+## Implementation and ecosystem
+
+Because ECMAScript itself has no notion of input or output, everything JavaScript code can do beyond pure computation, such as reading a document's structure, responding to a mouse click, or opening a network connection, is provided by the host environment in which it runs rather than by the language. In a web browser, that host environment supplies APIs for the Document Object Model, timers, and network requests, among others; Node.js, a cross-platform runtime built to run JavaScript outside the browser, instead supplies APIs for the filesystem, operating-system processes, and networking, allowing the language to be used for command-line tools, servers, and general-purpose scripting. This separation of the standardized language core from environment-supplied APIs is also what allows the same JavaScript language to run in browsers, servers, and other embedded contexts with a mostly consistent core syntax.
+
+Much of JavaScript's asynchronous behavior follows from this host-and-language split. JavaScript programs run on a single thread, and both browsers and Node.js process work through an event loop that takes messages off a queue one at a time; operations such as timers, network requests, and user-interface events are handled by the host environment and only re-enter the JavaScript thread as queued callbacks once they complete. This event-driven model lets a single-threaded language perform non-blocking I/O and respond to many pending operations without needing multiple threads of execution.
+
+## Uses and influence
+
+As the only scripting language built into every major web browser, JavaScript occupies a central position in the web platform, working alongside HTML and CSS to create interactive pages and, through the Document Object Model and related Web APIs, giving scripts control over a page's content and behavior. Its expansion into environments such as Node.js broadened that role considerably, making JavaScript a common choice not only for browser-side interactivity but also for backend servers, command-line tooling, and build systems, and cementing its position as one of the primary languages of software delivered over the web.
+
+## References
+
+- [Wikipedia: JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 JavaScript experiments covering browser-side snippets, frameworks, and Node.js.
 
