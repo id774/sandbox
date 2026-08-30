@@ -235,7 +235,7 @@ Content adapted from an external article, answer, or documentation example
 credits its source and respects any third-party license it carried.
 
 This repository is dual licensed under the GPL version 3 or the LGPL version
-3, at the user's option. See [LICENSE](LICENSE), [COPYING](COPYING), and
+3, at the user's option. See [LICENSE](LICENSE.md), [COPYING](COPYING), and
 [COPYING.LESSER](COPYING.LESSER). This document does not change those terms.
 
 ## 11. Changes
