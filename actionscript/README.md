@@ -23,3 +23,12 @@ For most of its history, ActionScript was the scripting language behind the Flas
 ## References
 
 - [Wikipedia: ActionScript](https://en.wikipedia.org/wiki/ActionScript)
+
+## Layout
+
+- `Hello.as`, `ImageCircle.as`: standalone Flash display-list snippets, one
+  drawing text onto the stage and one loading an image into a circular mask.
+- `onsg8_calcuator`, `onsg8_hello`, `onsg8_timer`: three Flash Builder / Flex
+  projects from an "ONSG8" exercise set (a calculator, a hello-world app, and
+  a timer), each an MXML source under `src` plus its Eclipse/Flex project
+  metadata.

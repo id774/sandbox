@@ -25,3 +25,18 @@ Java's combination of portability and automatic memory management made it a comm
 ## References
 
 - [Wikipedia: Java (programming language)](https://en.wikipedia.org/wiki/Java_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `HashMapTest.java`, `HelloWorld.java`: standalone snippets — a `HashMap`
+  demo and hello world.
+- `javaee`: two generated Maven WAR projects (`mavenproject1`, `myfirstapp`)
+  trying out Java EE web-application packaging.
+- `javaiosample`: a small file-handling demo split across a main class and a
+  `FileHandler`.
+- `mahout`: shell scripts driving Apache Mahout/Hadoop text-processing
+  examples against Aozora Bunko text.

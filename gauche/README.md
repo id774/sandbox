@@ -20,3 +20,18 @@ Because Scheme is a standardized language rather than a single piece of software
 
 - [Wikipedia: Scheme](https://en.wikipedia.org/wiki/Scheme_(programming_language))
 - [Wikipedia: Gauche](https://en.wikipedia.org/wiki/Gauche_(Scheme_implementation))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `cat.scm`, `fizzbuzz.scm`, `printarg.scm`, `weekday-name.scm`, `square.scm`,
+  `fact-iter.scm`, `test-square.scm`: standalone scripting exercises — `cat`,
+  FizzBuzz, printing arguments, a weekday lookup, a square helper and its
+  test, and an iterative factorial.
+- `extent.scm`, `method.scm`, `next-method.scm`, `object.scm`, `slot.scm`:
+  exercises of Gauche's object system — a closure acting as an object,
+  generic methods, specializing a method with `next-method`, a class with
+  init keywords, and a virtual slot backed by accessor procedures.

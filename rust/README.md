@@ -23,3 +23,10 @@ Rust is used for systems programming tasks where control over memory and perform
 ## References
 
 - [Wikipedia: Rust (programming language)](https://en.wikipedia.org/wiki/Rust_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

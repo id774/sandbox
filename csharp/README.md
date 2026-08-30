@@ -23,3 +23,10 @@ C#'s tight integration with .NET has made it a common choice for Windows desktop
 ## References
 
 - [Wikipedia: C Sharp (programming language)](https://en.wikipedia.org/wiki/C_Sharp_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

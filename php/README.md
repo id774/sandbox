@@ -23,3 +23,13 @@ PHP's original purpose of generating dynamic web pages has remained its central 
 ## References
 
 - [Wikipedia: PHP](https://en.wikipedia.org/wiki/PHP)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `fizzbuzz.php`, `fizzbuzz2.php`: two FizzBuzz variants, the second
+  separating evaluation from output.
+- `namecalc.php`: a standalone name-based calculation script.

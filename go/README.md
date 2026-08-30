@@ -23,3 +23,11 @@ Go's combination of fast compilation, straightforward concurrency, and a compact
 ## References
 
 - [Wikipedia: Go (programming language)](https://en.wikipedia.org/wiki/Go_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `hello.go`: a standalone hello-world program.

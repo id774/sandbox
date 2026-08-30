@@ -19,3 +19,9 @@ Pig sits within the broader Hadoop ecosystem alongside other Apache projects suc
 ## References
 
 - [Wikipedia: Apache Pig](https://en.wikipedia.org/wiki/Apache_Pig)
+
+## Layout
+
+- `tutorial.sh`: downloads and unpacks the Apache Pig tutorial archive.
+- `tutorial-run.sh`: runs the tutorial's `script1` job locally and prints its
+  result.

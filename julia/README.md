@@ -23,3 +23,10 @@ Julia's combination of high-level syntax and native-level performance has made i
 ## References
 
 - [Wikipedia: Julia (programming language)](https://en.wikipedia.org/wiki/Julia_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

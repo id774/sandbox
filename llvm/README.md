@@ -19,3 +19,9 @@ Clang, a frontend for the C, C++, and Objective-C family of languages, is the mo
 ## References
 
 - [Wikipedia: LLVM](https://en.wikipedia.org/wiki/LLVM)
+
+## Layout
+
+- `a.ll`, `hello.ll`, `hello2.ll`: hand-written LLVM IR that prints a string,
+  by calling `printf` and by calling `puts`; `hello2.ll` duplicates
+  `hello.ll`, per their header comments.

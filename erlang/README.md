@@ -23,3 +23,17 @@ Although Erlang was created for telecommunications switches, its concurrency and
 ## References
 
 - [Wikipedia: Erlang (programming language)](https://en.wikipedia.org/wiki/Erlang_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `fib.erl`, `fibonacci.erl`, `hello.erl`: standalone Fibonacci and
+  hello-world modules.
+- `httpd.erl`, `httpdt.erl`: minimal TCP HTTP servers — one serving a fixed
+  response, the other serving the current local time.
+- `sample.erl`, `sample`, `memo`: draft and scratch material from developing
+  the two servers above — an Erlang sketch and a plain module that, per their
+  own header comments, do not compile, and a captured HTTP response.

@@ -23,3 +23,10 @@ Swift is the primary language for developing applications across Apple's platfor
 ## References
 
 - [Wikipedia: Swift (programming language)](https://en.wikipedia.org/wiki/Swift_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

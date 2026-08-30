@@ -19,3 +19,9 @@ Because working directly in TeX's low-level commands is cumbersome for everyday 
 ## References
 
 - [Wikipedia: TeX](https://en.wikipedia.org/wiki/TeX)
+
+## Layout
+
+- `ex2.tex`, `ex3.tex`, `ja.tex`, `ja2.tex`: standalone documents exercising
+  Japanese typesetting and math notation.
+- `templates/presentations`: two Beamer presentation templates.

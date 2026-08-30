@@ -23,3 +23,10 @@ SQL functions as the primary interface to the great majority of relational datab
 ## References
 
 - [Wikipedia: SQL](https://en.wikipedia.org/wiki/SQL)
+
+## Layout
+
+- `harddrive_analysis`: scripts and SQL for loading Backblaze's published
+  hard-drive test-data CSVs into a table.
+- `postgresql`: a script that sets up a local PostgreSQL role and database
+  for development.

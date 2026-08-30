@@ -23,3 +23,16 @@ C++'s combination of low-level control and higher-level abstraction has made it 
 ## References
 
 - [Wikipedia: C++](https://en.wikipedia.org/wiki/C%2B%2B)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `alias.cpp`, `class1.cpp`, `heepsort.cpp`, `hello.cpp`, `sort.cpp`,
+  `std-split.cpp`: standalone language snippets — a type alias, a class
+  example, a heap sort, hello world, a sort, and splitting a string.
+- `python`: a Python C extension module (`myupper`), built with `distutils`.
+- `ruby`: three Ruby C/C++ extensions (`ext`, `human`, `sort`), each with its
+  own `extconf.rb` and test script.

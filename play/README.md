@@ -19,3 +19,9 @@ Because it runs on the JVM and can be written in Java or Scala, Play sits within
 ## References
 
 - [Wikipedia: Play Framework](https://en.wikipedia.org/wiki/Play_Framework)
+
+## Layout
+
+- `myfirstapp`, `myfirstapp2`: two generated Play Framework project trees
+  (`README`, `app`, `build.sbt`, `conf`, `project`, `public`, `test`), left
+  with the layout the framework generated, per `doc/POLICY.md` Section 3.4.

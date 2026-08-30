@@ -23,3 +23,22 @@ CoffeeScript found early adoption at the framework level: it was included by def
 ## References
 
 - [Wikipedia: CoffeeScript](https://en.wikipedia.org/wiki/CoffeeScript)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `count.coffee`: a standalone list-comprehension snippet.
+- `helloworld.coffee`: a standalone Express hello-world server.
+- `d3js.circle.coffee`, `d3js.circle.js`, `d3js.square.coffee`,
+  `d3js.square.js`: D3.js shape-drawing snippets, each source paired with its
+  compiled JavaScript.
+- `favicon.coffee`, `favicon.js`, `faviconChange.coffee`, `faviconChange.js`:
+  browser favicon-animation snippets, each paired with its compiled
+  JavaScript.
+- `firstclass_function.coffee`, `firstclass_function.js`: a first-class
+  function demo, paired with its compiled JavaScript.
+- `rewriteHTML.coffee`, `rewriteHTML.js`: a DOM date-rewriting snippet, paired
+  with its compiled JavaScript.

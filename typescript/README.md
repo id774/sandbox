@@ -23,3 +23,10 @@ TypeScript is used widely for building and maintaining large-scale JavaScript ap
 ## References
 
 - [Wikipedia: TypeScript](https://en.wikipedia.org/wiki/TypeScript)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

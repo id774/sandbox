@@ -23,3 +23,14 @@ Scala's combination of JVM interoperability, strong typing, and functional progr
 ## References
 
 - [Wikipedia: Scala (programming language)](https://en.wikipedia.org/wiki/Scala_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `HelloWorld.scala`, `HelloWorldScript.sh`: a standalone hello-world program
+  and the script that runs it.
+- `loop`: five microbenchmarks timing loop and hash-map-insert variants
+  (`example01.scala` through `example05.scala`).
