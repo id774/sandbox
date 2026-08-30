@@ -143,9 +143,9 @@ the current inventory of what the repository holds.
 
 ### 5.2 Directory README
 
-Each top-level directory's README describes the language, platform, or
-technology that directory represents, what the directory itself contains, and
-any constraint local to that directory.
+Each top-level directory organized around a language, platform, or technology
+has a README that describes what that directory represents, what the directory
+itself contains, and any constraint local to that directory.
 
 ### 5.3 Local Constraints
 

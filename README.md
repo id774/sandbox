@@ -21,7 +21,8 @@ never be finished or reused.
 
 ## 2. Directory Structure
 
-Each top-level directory groups snippets by language or platform:
+Repository-wide documentation lives in `doc/`. The remaining top-level
+directories group experiments by language, platform, or technology:
 
 - `actionscript`, `bash`, `c`, `clojure`, `coffeescript`, `cpp`,
   `crystal`, `csharp`, `dart`, `dot`, `elixir`, `erlang`, `gauche`, `go`,
