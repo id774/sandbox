@@ -41,7 +41,7 @@ under a plain `/bin/sh`.
 `batch.sh`, `chatgpt_export.sh`, `shebang.sh`, and `shellshock.sh` carry
 `#!/bin/bash` and were written before the shell directories were split. They
 keep their shebangs and their paths. The rule applies to what is added from now
-on, as `doc/POLICY.md` section 1 says of anything already written.
+on, as `doc/POLICY.md` says of anything already written.
 
 ## Layout
 

@@ -96,17 +96,11 @@ directories hold is what it always was.
 
 - This repository is intentionally a sandbox, not a release. Code here may be
   incomplete, broken, or written to test an idea rather than to be reused.
-- [`doc/POLICY.md`](doc/POLICY.md) states the minimum asked of the code here: a
-  one-line English header comment, no secrets, and a per-language convention
-  kept as small as it can be. It is a floor, not a gate.
-- The implementation policy of [`scripts`](https://github.com/id774/scripts) is
-  not applied to the code, since experimenting with unconventional or
-  unfinished approaches is the point. `doc/POLICY.md` lists which of its rules
-  deliberately do not hold here.
-- Its rules on naming, on branches and pull requests, and on documents do hold,
-  and `doc/POLICY.md` sections 2.2, 3.1, and 3.2 state them. They govern how
-  work is named, proposed, and filed rather than what a snippet may try. A
-  shell script is a shell script here too.
+- [`doc/POLICY.md`](doc/POLICY.md) states the repository-wide rules asked of
+  what is added here: how the repository is organized and named, what source
+  code and documentation are expected to convey, security and privacy, safety,
+  and how a change is scoped. It is a floor, not a gate, and it is unrelated to
+  the policy of any other repository.
 - No `doc/VERSIONS` changelog is kept, since nothing here is packaged or
   released as a versioned deliverable; history lives in commit messages.
 
