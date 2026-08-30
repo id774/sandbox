@@ -2,7 +2,7 @@
 
 ## Overview
 
-The subject of this directory, per repository policy, is the POSIX `sh` shell language: the standardized command and scripting language specified for `sh` by POSIX, rather than any single program that implements it. That language traces its lineage directly to the Bourne shell, whose syntax and constructs it codifies, and it is built around running commands, connecting them with pipelines, redirecting their input and output, expanding variables and other tokens, and sequencing work with control structures. Because it is a specification rather than a particular executable, POSIX `sh` is deliberately conservative, leaving out the various extensions that shells such as Bash and Zsh layer on top of the same Bourne-derived core.
+The subject of this directory is the POSIX `sh` shell language: the standardized command and scripting language specified for `sh` by POSIX, rather than any single program that implements it. That language traces its lineage directly to the Bourne shell, whose syntax and constructs it codifies, and it is built around running commands, connecting them with pipelines, redirecting their input and output, expanding variables and other tokens, and sequencing work with control structures. Because it is a specification rather than a particular executable, POSIX `sh` is deliberately conservative, leaving out the various extensions that shells such as Bash and Zsh layer on top of the same Bourne-derived core.
 
 ## History
 

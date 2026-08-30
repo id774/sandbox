@@ -23,3 +23,10 @@ Clojure's approach to concurrency rests on distinguishing an "identity" — a lo
 ## References
 
 - [Wikipedia: Clojure](https://en.wikipedia.org/wiki/Clojure)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

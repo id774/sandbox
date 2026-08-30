@@ -23,3 +23,10 @@ Elixir is principally used to build concurrent, distributed, and fault-tolerant 
 ## References
 
 - [Wikipedia: Elixir (programming language)](https://en.wikipedia.org/wiki/Elixir_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

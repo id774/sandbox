@@ -19,3 +19,12 @@ As a framework written in Ruby, Rails is closely tied to the broader Ruby langua
 ## References
 
 - [Wikipedia: Ruby on Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails)
+
+## Layout
+
+- `3.0/hoge`: a generated Rails 3.0 application (`app/controllers`,
+  `app/helpers`, `app/models`, `app/views`, plus `Gemfile`, `config`, `db`,
+  and the rest of a standard Rails tree), left with the layout the generator
+  produced, per `doc/POLICY.md` Section 3.4.
+- `rake`: a standalone Rake task, `extract_fixtures.rake`, that dumps a
+  database's tables to fixture files.

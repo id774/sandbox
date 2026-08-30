@@ -23,3 +23,10 @@ Bash's dual nature as an interactive shell and a scripting language has made it 
 ## References
 
 - [Wikipedia: Bash (Unix shell)](https://en.wikipedia.org/wiki/Bash_(Unix_shell))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).

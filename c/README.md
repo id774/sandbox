@@ -23,3 +23,24 @@ C's success and ubiquity have made it the ancestor of a large family of later pr
 ## References
 
 - [Wikipedia: C (programming language)](https://en.wikipedia.org/wiki/C_(programming_language))
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `chroot_and_getcwd.c`, `escape_from_chroot.c`, `GHOST.c`, `segfault.c`:
+  low-level systems and security probes — printing a working directory across
+  a `chroot`, escaping a chroot jail, detecting the glibc GHOST vulnerability
+  (CVE-2015-0235), and deliberately overrunning a fixed-size array.
+- `fizzbuzz.c`, `hoge.c`, `msrand.c`, `unixtime.c`: small standalone
+  exercises — FizzBuzz, truncated integer division, a minimal-standard linear
+  congruential generator, and `ctime` on boundary `time_t` values.
+- `socket.c`: a bare TCP listener that accepts and immediately closes each
+  connection.
+- `ipc_socket`: a matching echo client and server pair that exchange lines
+  over a socket.
+- `is_prime`: a standalone primality check.
+- `ruby`: a native Ruby C extension (`mytest`), with its `extconf.rb` and a
+  script that loads and calls it.

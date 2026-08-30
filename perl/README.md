@@ -23,3 +23,14 @@ Perl's regular-expression and string-parsing capabilities made it one of the mos
 ## References
 
 - [Wikipedia: Perl](https://en.wikipedia.org/wiki/Perl)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `loadtest.pl`: a standalone load-generation script that forks the requested
+  number of busy-looping processes.
+- `hatena`: two scripts that post a URL to Hatena Bookmark, one with an empty
+  summary and one with a comment read from stdin.

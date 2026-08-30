@@ -19,3 +19,9 @@ Graphviz supplies several distinct programs that read DOT descriptions and compu
 ## References
 
 - [Wikipedia: DOT (graph description language)](https://en.wikipedia.org/wiki/DOT_(graph_description_language))
+
+## Layout
+
+- `choose.dot`: the one standalone Graphviz source file in this directory;
+  its header comment records the install and render commands it is meant to
+  be used with.

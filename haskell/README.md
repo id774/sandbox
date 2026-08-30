@@ -23,3 +23,13 @@ Haskell has been used extensively in academic research and in teaching functiona
 ## References
 
 - [Wikipedia: Haskell](https://en.wikipedia.org/wiki/Haskell)
+
+## Layout
+
+- `basics`: the cross-language exercise set, described in the repository
+  [README](../README.md#the-basics-directory).
+- `math`: the second exercise set, described in the repository
+  [README](../README.md#the-math-directory).
+- `etc`: a grab-bag of small standalone exercises reimplementing Unix
+  utilities and control flow in Haskell (`case`, `cat`, `cp`, `echo`,
+  `fizzbuzz`, `for`, `getchar`, `grep`, `if`, `leap`, `pwd`).

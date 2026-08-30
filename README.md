@@ -38,11 +38,14 @@ deliberate exceptions.
 Every top-level language or platform directory carries a `README.md` with a
 comprehensive overview of the language, platform, or technology it represents,
 covering its history, defining characteristics, implementation or execution
-model, ecosystem or standardization where applicable, and principal uses. The
-larger directories [`python`](python/README.md), [`ruby`](ruby/README.md),
-[`js`](js/README.md), and [`r`](r/README.md) also use that README as an index
-of what they hold. [`sh`](sh/README.md) additionally states the POSIX
-constraint that applies there.
+model, ecosystem or standardization where applicable, and principal uses, and
+every one of them also uses that README to describe what the directory itself
+holds, under a `## Layout` section. A larger or more heterogeneous directory,
+such as [`python`](python/README.md), [`ruby`](ruby/README.md),
+[`js`](js/README.md), or [`r`](r/README.md), carries a correspondingly more
+detailed index there; a directory with a constraint local to it, such as
+[`sh`](sh/README.md) and its POSIX `sh` rule, states that constraint in the
+same README.
 
 ### The `basics` Directory
 
