@@ -20,6 +20,15 @@ Rust's official build tool and package manager is Cargo, which handles compiling
 
 Rust is used for systems programming tasks where control over memory and performance is important, including components that would traditionally have been written in C or C++, and it has also become a common choice for building command-line tools, network services, and other backend software where its safety guarantees and native performance are both valuable. Its support for compiling without a standard runtime makes it usable in embedded and resource-constrained environments as well. The language's growing adoption in performance- and safety-sensitive contexts has also brought it into codebases and platforms that had historically relied exclusively on C and C++, reflecting the broader influence its safety-focused design has had on how such software is written.
 
+## Installation
+
+Rust recommends rustup for installing and updating the toolchain on both Linux
+and macOS:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
 ## References
 
 - [Wikipedia: Rust (programming language)](https://en.wikipedia.org/wiki/Rust_(programming_language))

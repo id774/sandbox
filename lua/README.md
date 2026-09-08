@@ -20,6 +20,21 @@ The reference implementation of Lua is written in ANSI C, which makes it portabl
 
 Lua's embeddability and small size have made it a widely used scripting language in video game development, where it has repeatedly been identified in developer surveys as a leading choice for adding scripting capability to game engines. Its use extends well beyond games, however: it has served as the language for building the user interface of applications such as Adobe Photoshop Lightroom and is used inside the Redis key-value store to let users write and run custom functions directly on the server. More broadly, Lua is a common choice as a configuration and extension language for other software, letting applications expose customizable behavior to end users without embedding a heavier general-purpose language runtime.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install lua5.4
+```
+
+### macOS
+
+```sh
+brew install lua
+```
+
 ## References
 
 - [Wikipedia: Lua (programming language)](https://en.wikipedia.org/wiki/Lua)

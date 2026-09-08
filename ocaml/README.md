@@ -20,6 +20,25 @@ The OCaml toolchain includes an interactive top-level interpreter for evaluating
 
 OCaml was developed initially in the context of automated theorem proving, and it continues to be used heavily in static analysis and formal-methods tooling, including tools built on top of it for program verification. Its use has also spread into systems programming, web development, and the financial industry: the proprietary trading firm Jane Street Capital adopted OCaml as its primary programming language early on and continues to use it extensively, contributing to the open-source OCaml compiler and its surrounding library ecosystem in the process.
 
+## Installation
+
+OCaml recommends using opam to install and manage the compiler.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install opam
+opam init
+```
+
+### macOS
+
+```sh
+brew install opam
+opam init
+```
+
 ## References
 
 - [Wikipedia: OCaml](https://en.wikipedia.org/wiki/OCaml)

@@ -16,6 +16,21 @@ TeX operates as a text-processing system in which a document is written using co
 
 Because working directly in TeX's low-level commands is cumbersome for everyday document preparation, most users interact with TeX indirectly through higher-level macro packages. The most widely used of these is LaTeX, which layers document-structuring commands, such as those for sections, references, and bibliographies, on top of TeX's typesetting engine, and other formats and macro packages built on the same underlying engine also exist. Owing to its precision with mathematical and technical notation, TeX and the formats built upon it are used extensively in academic and scientific publishing, particularly in fields such as mathematics, computer science, and physics, where documents frequently combine prose with complex mathematical expressions.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install texlive
+```
+
+### macOS
+
+```sh
+brew install --cask basictex
+```
+
 ## References
 
 - [Wikipedia: TeX](https://en.wikipedia.org/wiki/TeX)

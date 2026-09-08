@@ -20,6 +20,23 @@ C source code is compiled ahead of time into native machine code rather than int
 
 C's success and ubiquity have made it the ancestor of a large family of later programming languages that borrowed aspects of its syntax or design, commonly cited examples including C++, C#, Objective-C, Java, JavaScript, Perl, PHP, Python, Ruby, Go, Rust, Swift, and D, among many others. C++ in particular extends C directly, layering object-oriented programming, exception handling, and a standard template library on top of a language that remains close to C at its core, and Java's syntax is in turn heavily influenced by C and C++. In practical use, C has been applied above all to systems programming: it has been used to implement operating system kernels and utilities (beginning with Unix itself), device drivers, embedded systems software, and low-level libraries, contexts where its efficiency and direct hardware access are valued most.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install build-essential
+```
+
+### macOS
+
+Install Apple's Command Line Tools, which include Clang:
+
+```sh
+xcode-select --install
+```
+
 ## References
 
 - [Wikipedia: C (programming language)](https://en.wikipedia.org/wiki/C_(programming_language))

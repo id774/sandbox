@@ -1,3 +1,5 @@
+-- Validated with Lean 4.33.1.
+
 example : (0 : Nat) + 0 = 0 := by
   rfl
 

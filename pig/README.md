@@ -16,6 +16,26 @@ A Pig Latin program expresses a computation as a sequence of transformation step
 
 Pig sits within the broader Hadoop ecosystem alongside other Apache projects such as Hive and HBase, offering a script-based, higher-level alternative to writing MapReduce jobs by hand against large stored datasets.
 
+## Installation
+
+Apache Pig is distributed as a binary archive rather than as a standard Debian
+or Homebrew package. Install Java first, then download the current Pig binary
+distribution from https://downloads.apache.org/pig/latest/ and add its `bin`
+directory to `PATH`.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install default-jre
+```
+
+### macOS
+
+```sh
+brew install openjdk
+```
+
 ## References
 
 - [Wikipedia: Apache Pig](https://en.wikipedia.org/wiki/Apache_Pig)

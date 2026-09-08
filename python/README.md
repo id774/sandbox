@@ -20,6 +20,21 @@ Python's memory management combines automatic reference counting with a cycle-de
 
 Python is used as a general-purpose scripting language for automation and small programs, as a language for web development, and, through its data-science ecosystem, for scientific computing, data analysis, and machine learning; its extensive standard library and its suitability for adding programmable interfaces to existing applications are commonly cited as reasons for its adoption in these areas.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install python3
+```
+
+### macOS
+
+```sh
+brew install python
+```
+
 ## References
 
 - [Wikipedia: Python (programming language)](https://en.wikipedia.org/wiki/Python_(programming_language))

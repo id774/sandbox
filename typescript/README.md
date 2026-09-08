@@ -20,6 +20,25 @@ Because type erasure removes annotations before code runs, TypeScript relies on 
 
 TypeScript is used widely for building and maintaining large-scale JavaScript applications, where its static checking and tooling support help teams catch errors early and navigate unfamiliar code with more confidence than plain JavaScript typically allows. It is important to note that TypeScript is not a separate runtime or a replacement for JavaScript: TypeScript code is always compiled down to ordinary JavaScript, and it is that generated JavaScript which executes on existing JavaScript engines, such as those in web browsers or Node.js.
 
+## Installation
+
+TypeScript is distributed through npm.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install nodejs npm
+sudo npm install --global typescript
+```
+
+### macOS
+
+```sh
+brew install node
+npm install --global typescript
+```
+
 ## References
 
 - [Wikipedia: TypeScript](https://en.wikipedia.org/wiki/TypeScript)

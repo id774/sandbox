@@ -20,6 +20,21 @@ Elixir code compiles down to BEAM bytecode, the same form Erlang code compiles t
 
 Elixir is principally used to build concurrent, distributed, and fault-tolerant systems, and, through Phoenix, web applications and services that need to handle many simultaneous connections reliably. Its combination of an approachable syntax with BEAM's concurrency and fault-tolerance guarantees has made it a language of choice for systems where uptime and responsiveness under load matter, including in telecommunications, e-commerce, and finance.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install elixir
+```
+
+### macOS
+
+```sh
+brew install elixir
+```
+
 ## References
 
 - [Wikipedia: Elixir (programming language)](https://en.wikipedia.org/wiki/Elixir_(programming_language))

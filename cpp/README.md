@@ -20,6 +20,23 @@ There is no single official C++ implementation; instead, the ISO standard define
 
 C++'s combination of low-level control and higher-level abstraction has made it a common choice for systems software such as operating system components and device drivers, for game engines and other performance-sensitive applications, and for domains such as browsers and embedded systems where efficient use of hardware resources matters. Beyond its direct applications, C++ has influenced the design of numerous later languages, including Java and C#, which adopted aspects of its object-oriented syntax and class-based model, and it remains a reference point in discussions of systems programming and software engineering practice more broadly.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install build-essential
+```
+
+### macOS
+
+Install Apple's Command Line Tools, which include Clang++:
+
+```sh
+xcode-select --install
+```
+
 ## References
 
 - [Wikipedia: C++](https://en.wikipedia.org/wiki/C%2B%2B)

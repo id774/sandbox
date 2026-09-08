@@ -20,6 +20,21 @@ The "let it crash" model and its supervision trees are formalized in OTP, a set 
 
 Although Erlang was created for telecommunications switches, its concurrency and fault-tolerance model has carried it well beyond that original domain into other systems that need to stay available under heavy, unpredictable concurrent load, including messaging and chat infrastructure and message-queueing software. Its process-based, share-nothing approach to concurrency and its emphasis on isolating and recovering from failure rather than preventing it outright have also influenced the design of later languages and systems built on the same virtual machine, most notably Elixir.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install erlang
+```
+
+### macOS
+
+```sh
+brew install erlang
+```
+
 ## References
 
 - [Wikipedia: Erlang (programming language)](https://en.wikipedia.org/wiki/Erlang_(programming_language))

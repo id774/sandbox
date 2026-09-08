@@ -20,6 +20,20 @@ Zig's self-hosted compiler compiles source code directly to native machine code 
 
 Because Zig remains pre-1.0, both the language and its standard library are still subject to change between releases, and the project treats this ongoing evolution as part of its path toward a stable release rather than as a finished design. It is used chiefly for systems-level and performance-sensitive software where direct control over memory and compilation targets is valued, and it is often discussed alongside other languages that position themselves as safer or more modern alternatives to C and C++.
 
+## Installation
+
+### Debian
+
+Zig publishes self-contained Linux archives. Download the current tagged
+release from https://ziglang.org/download/, extract it, and add the extracted
+directory to `PATH`.
+
+### macOS
+
+```sh
+brew install zig
+```
+
 ## References
 
 - [Wikipedia: Zig (programming language)](https://en.wikipedia.org/wiki/Zig_(programming_language))

@@ -20,6 +20,28 @@ C# was originally tied to the Windows-only .NET Framework, but its ecosystem has
 
 C#'s tight integration with .NET has made it a common choice for Windows desktop applications, enterprise and web applications built with frameworks such as ASP.NET, and cloud services hosted on platforms like Microsoft Azure. It is also widely used in game development, most notably as the primary scripting language of the Unity game engine.
 
+## Installation
+
+Install the .NET SDK.
+
+### Debian
+
+A simple user-local installation is available through Microsoft's installer:
+
+```sh
+curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+bash dotnet-install.sh --channel LTS
+export PATH="$HOME/.dotnet:$PATH"
+dotnet --info
+```
+
+### macOS
+
+```sh
+brew install --cask dotnet-sdk
+dotnet --info
+```
+
 ## References
 
 - [Wikipedia: C Sharp (programming language)](https://en.wikipedia.org/wiki/C_Sharp_(programming_language))

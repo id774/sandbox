@@ -20,6 +20,21 @@ Scala compiles to Java Virtual Machine bytecode by default, which is what gives 
 
 Scala's combination of JVM interoperability, strong typing, and functional programming support has made it a common choice for backend and data-oriented systems, and it underpins some widely used infrastructure in the distributed-systems and data-processing space, including large-scale data processing and messaging frameworks that are themselves written in Scala. Its functional features and type system have also influenced how developers approach concurrent and data-intensive workloads on the JVM more generally, extending the language's impact beyond codebases written directly in Scala.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install scala
+```
+
+### macOS
+
+```sh
+brew install scala
+```
+
 ## References
 
 - [Wikipedia: Scala (programming language)](https://en.wikipedia.org/wiki/Scala_(programming_language))

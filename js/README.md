@@ -24,6 +24,23 @@ Much of JavaScript's asynchronous behavior follows from this host-and-language s
 
 As the only scripting language built into every major web browser, JavaScript occupies a central position in the web platform, working alongside HTML and CSS to create interactive pages and, through the Document Object Model and related Web APIs, giving scripts control over a page's content and behavior. Its expansion into environments such as Node.js broadened that role considerably, making JavaScript a common choice not only for browser-side interactivity but also for backend servers, command-line tooling, and build systems, and cementing its position as one of the primary languages of software delivered over the web.
 
+## Installation
+
+The JavaScript examples in this directory run with Node.js.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install nodejs npm
+```
+
+### macOS
+
+```sh
+brew install node
+```
+
 ## References
 
 - [Wikipedia: JavaScript](https://en.wikipedia.org/wiki/JavaScript)

@@ -16,6 +16,25 @@ Rails is a model-view-controller framework, and beyond MVC it is organized aroun
 
 As a framework written in Ruby, Rails is closely tied to the broader Ruby language and its package ecosystem, and it is frequently credited with having significantly raised Ruby's visibility after its release. Wikipedia describes Rails' 2005 debut as influential on rapid web-application development in general, pointing to its handling of database migrations and scaffolding, and notes that it went on to influence web frameworks in other languages, including Django in Python, Catalyst in Perl, Laravel, CakePHP, and Yii in PHP, Grails in Groovy, and Phoenix in Elixir. Sites reported as built on Rails include Airbnb, GitHub, Shopify, Twitch, Crunchbase, Dribbble, and Archive of Our Own.
 
+## Installation
+
+Rails is installed as a Ruby gem.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install ruby-full build-essential
+sudo gem install rails
+```
+
+### macOS
+
+```sh
+brew install ruby
+gem install rails
+```
+
 ## References
 
 - [Wikipedia: Ruby on Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails)

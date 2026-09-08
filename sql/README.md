@@ -20,6 +20,25 @@ SQL was standardized by the American National Standards Institute in 1986 and by
 
 SQL functions as the primary interface to the great majority of relational database management systems in use today, serving as the common language through which applications define schemas, insert and retrieve data, enforce integrity rules, and manage transactions regardless of which particular database product is underneath. That central, standardized role, resting on ongoing revision by ANSI and ISO even as vendors layer their own dialects on top, is a large part of why SQL has remained the dominant way of interacting with relational data since its introduction.
 
+## Installation
+
+SQL is implemented by database systems rather than installed as a standalone
+language. The SQL snippets in this repository include PostgreSQL-oriented
+material, so PostgreSQL is a practical local environment.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install postgresql-client
+```
+
+### macOS
+
+```sh
+brew install postgresql
+```
+
 ## References
 
 - [Wikipedia: SQL](https://en.wikipedia.org/wiki/SQL)

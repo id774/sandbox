@@ -20,6 +20,21 @@ Go ships with a standard toolchain rather than leaving tooling to third parties:
 
 Go's combination of fast compilation, straightforward concurrency, and a compact standard toolchain has made it a common choice for network services, cloud infrastructure, and systems-level tooling. It underlies widely used infrastructure software such as Docker and Kubernetes, and it is broadly used for building backend services and command-line tools where predictable performance and simple deployment matter.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install golang-go
+```
+
+### macOS
+
+```sh
+brew install go
+```
+
 ## References
 
 - [Wikipedia: Go (programming language)](https://en.wikipedia.org/wiki/Go_(programming_language))

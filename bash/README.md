@@ -20,6 +20,23 @@ Bash is closely associated with the GNU Project and is commonly installed as the
 
 Bash's dual nature as an interactive shell and a scripting language has made it central to everyday command-line use and to the automation of system administration tasks on Unix-like systems, and its extensions to the POSIX shell language are extensive enough that Wikipedia describes the list of Bash-only features as considerable. Its status as a default shell has shifted over time on some systems: on Apple's operating system, the default shell for new user accounts changed to Bash beginning with Mac OS X 10.3, but with the release of macOS Catalina (10.15) in 2019, Apple changed the default login shell to Zsh instead, and running the older, GPLv2-licensed version of Bash still bundled with macOS interactively now displays a warning message by default.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install bash
+```
+
+### macOS
+
+macOS includes Bash, but Homebrew can install a current release:
+
+```sh
+brew install bash
+```
+
 ## References
 
 - [Wikipedia: Bash (Unix shell)](https://en.wikipedia.org/wiki/Bash_(Unix_shell))

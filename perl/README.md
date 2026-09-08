@@ -20,6 +20,23 @@ Beyond the interpreter itself, Perl's practical strength has long rested on the 
 
 Perl's regular-expression and string-parsing capabilities made it one of the most popular languages for writing Common Gateway Interface (CGI) scripts during the rapid growth of the World Wide Web in the mid-1990s, and modules such as CGI.pm reinforced that role. Outside of web scripting, Perl became a mainstay of Unix system administration, text processing, and general automation tasks, earning it the informal nickname "the Swiss Army chainsaw of scripting languages" in recognition of both its flexibility and its power. While its prominence in web development has since been overtaken by newer languages, Perl's historical role in popularizing practical, regular-expression-driven text processing in day-to-day system and web scripting remains a lasting part of its legacy.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install perl
+```
+
+### macOS
+
+macOS includes Perl, but Homebrew can install a separate current release:
+
+```sh
+brew install perl
+```
+
 ## References
 
 - [Wikipedia: Perl](https://en.wikipedia.org/wiki/Perl)

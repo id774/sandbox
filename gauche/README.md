@@ -16,6 +16,21 @@ As a language, Scheme is built around lexical scope, meaning a variable's bindin
 
 Because Scheme is a standardized language rather than a single piece of software, it has many independent implementations beyond Gauche, each making its own choices about which standard to target and what additional features to provide; Gauche occupies a place among these implementations as one oriented specifically toward practical, production-style scripting rather than toward extending the language for research purposes or providing a full teaching environment. Gauche is distributed as free software and is used both as a general-purpose Scheme environment and, in keeping with its design goals, as a scripting tool for tasks that call for quick-starting programs with direct access to system facilities and to text in multiple character encodings.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install gauche
+```
+
+### macOS
+
+```sh
+brew install gauche
+```
+
 ## References
 
 - [Wikipedia: Scheme](https://en.wikipedia.org/wiki/Scheme_(programming_language))

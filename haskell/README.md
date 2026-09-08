@@ -20,6 +20,17 @@ Because Haskell is purely functional, it needs a disciplined way to express acti
 
 Haskell has been used extensively in academic research and in teaching functional programming and programming language theory, owing to its close correspondence with these languages' theoretical foundations, and it has also found use in industrial and production settings. Its type classes and its monadic approach to sequencing effects were novel contributions when introduced and have gone on to influence the design of type systems and effect-handling mechanisms in other later programming languages.
 
+## Installation
+
+GHCup is the standard installer for the Haskell toolchain on both Linux and
+macOS:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+```
+
+Follow the installer prompts to install GHC and Cabal.
+
 ## References
 
 - [Wikipedia: Haskell](https://en.wikipedia.org/wiki/Haskell)

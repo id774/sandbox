@@ -20,6 +20,21 @@ The reference implementation, generally known as Matz's Ruby Interpreter or CRub
 
 Ruby is used for general-purpose scripting and automation as well as for building larger applications, but its most consequential impact on adoption came through Ruby on Rails, a web application framework whose release in the mid-2000s introduced many developers outside Japan to the language and popularized conventions such as favoring sensible defaults over configuration. The success of Rails drove a marked increase in Ruby's international visibility and use for web development in the years that followed, even as the language continued to be used more broadly for scripting and tooling work outside the web context.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install ruby-full
+```
+
+### macOS
+
+```sh
+brew install ruby
+```
+
 ## References
 
 - [Wikipedia: Ruby (programming language)](https://en.wikipedia.org/wiki/Ruby_(programming_language))

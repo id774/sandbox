@@ -20,6 +20,14 @@ Julia relies on the LLVM compiler infrastructure to generate optimized native ma
 
 Julia's combination of high-level syntax and native-level performance has made it a common choice for numerical computing, data science, and other scientific and technical computing tasks, including differential equation solving, mathematical optimization, and machine learning. Its performance characteristics have also led to adoption in high-performance computing settings, where it is used for large-scale simulation and data-intensive workloads that have traditionally been the domain of lower-level compiled languages.
 
+## Installation
+
+Julia recommends Juliaup for normal installations on both Linux and macOS:
+
+```sh
+curl -fsSL https://install.julialang.org | sh
+```
+
 ## References
 
 - [Wikipedia: Julia (programming language)](https://en.wikipedia.org/wiki/Julia_(programming_language))

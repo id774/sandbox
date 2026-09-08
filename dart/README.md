@@ -20,6 +20,30 @@ The Dart SDK includes a virtual machine offering both the JIT and AOT compilatio
 
 Dart's most prominent use is as the language underlying Flutter, Google's framework for building natively compiled mobile, web, and desktop applications from a single codebase, and this association has become the primary way most developers encounter Dart today. Beyond Flutter-based client applications, Dart is also used for command-line tools and server-side programs, reflecting its original design as a general-purpose language rather than one restricted to a single kind of target.
 
+## Installation
+
+### Debian
+
+Dart provides an official APT repository for Debian:
+
+```sh
+sudo apt-get update
+sudo apt-get install apt-transport-https gpg
+wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub \
+  | sudo gpg --dearmor -o /usr/share/keyrings/dart.gpg
+echo 'deb [signed-by=/usr/share/keyrings/dart.gpg] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' \
+  | sudo tee /etc/apt/sources.list.d/dart_stable.list
+sudo apt-get update
+sudo apt-get install dart
+```
+
+### macOS
+
+```sh
+brew tap dart-lang/dart
+brew install dart
+```
+
 ## References
 
 - [Wikipedia: Dart (programming language)](https://en.wikipedia.org/wiki/Dart_(programming_language))

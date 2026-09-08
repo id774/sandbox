@@ -20,6 +20,21 @@ R is free and open-source software released under the GNU General Public License
 
 R is used broadly across statistics, data mining, data analysis, and data science, and it has a particularly prominent role in bioinformatics through projects such as Bioconductor, which supplies R packages for genomic and other high-throughput biological data analysis; it is reported to rank among the ten most widely used programming languages.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install r-base
+```
+
+### macOS
+
+```sh
+brew install r
+```
+
 ## References
 
 - [Wikipedia: R (programming language)](https://en.wikipedia.org/wiki/R_(programming_language))
