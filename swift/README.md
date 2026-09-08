@@ -20,6 +20,23 @@ Swift manages memory automatically through automatic reference counting (ARC), w
 
 Swift is the primary language for developing applications across Apple's platforms, including iOS, iPadOS, macOS, watchOS, and tvOS, where it works alongside or in place of Objective-C in existing codebases. Its open-source availability and portability to Linux and Windows have also allowed Swift to be used outside of Apple's ecosystem, including in server-side programming through community frameworks and in general cross-platform software development.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install swiftlang
+```
+
+### macOS
+
+Swift is included with Apple's developer tools:
+
+```sh
+xcode-select --install
+```
+
 ## References
 
 - [Wikipedia: Swift (programming language)](https://en.wikipedia.org/wiki/Swift_(programming_language))

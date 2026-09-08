@@ -16,6 +16,21 @@ LLVM IR is built around static single-assignment (SSA) form, a discipline under 
 
 Clang, a frontend for the C, C++, and Objective-C family of languages, is the most prominent consumer of LLVM IR, translating source code into the representation after performing its own parsing and semantic analysis, but it is far from the only one: compilers and toolchains for languages including Rust, Swift, Julia, Kotlin, and Haskell, among many others, generate LLVM IR as a step toward native code, relying on LLVM's shared optimizers and its backends for architectures such as x86, ARM, PowerPC, and WebAssembly rather than implementing that machinery themselves. LLVM IR can be turned into machine code at several different points in a program's lifecycle: ahead of time, as part of an ordinary compile step or, with additional interprocedural optimization, at link time across whole programs; or at run time, through LLVM's just-in-time compilation engine, which language implementations that generate and execute code dynamically rely on.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install llvm clang
+```
+
+### macOS
+
+```sh
+brew install llvm
+```
+
 ## References
 
 - [Wikipedia: LLVM](https://en.wikipedia.org/wiki/LLVM)

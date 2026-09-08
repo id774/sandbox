@@ -22,6 +22,21 @@ The language and its libraries are formalized as the Java Platform, Standard Edi
 
 Java's combination of portability and automatic memory management made it a common choice for enterprise and server-side software, including web applications built on specifications such as Java EE and delivered through server-side components like servlets. On the desktop, Java has been used both for standalone applications built with GUI toolkits such as Swing and, in its early years, for applets that ran inside web browsers, a mechanism that browser vendors eventually dropped and that Sun and Oracle deprecated in Java 9. Java also became a foundational language for Android application development, although Android's own runtime and libraries diverge from the standard Java SE platform. Beyond applications written directly in Java, the language's bytecode format and virtual machine gave rise to a broader ecosystem of JVM-based languages, including Kotlin, Scala, Groovy, and Clojure, which compile to the same bytecode and can interoperate with Java libraries and with one another.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install default-jdk
+```
+
+### macOS
+
+```sh
+brew install openjdk
+```
+
 ## References
 
 - [Wikipedia: Java (programming language)](https://en.wikipedia.org/wiki/Java_(programming_language))

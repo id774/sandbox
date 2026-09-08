@@ -20,6 +20,21 @@ Running on the JVM gives Clojure code direct interoperability with Java: Clojure
 
 Clojure's approach to concurrency rests on distinguishing an "identity" — a logical, named entity in a program — from the succession of immutable states that identity takes on over time; because each of those states is itself an immutable value, it can be freely read and shared across threads without locking. To manage the actual transition from one state to the next, Clojure supplies several reference types with distinct concurrency semantics: atoms, which are updated synchronously and independently using a compare-and-swap operation; refs, which are updated only within coordinated transactions under a software transactional memory system so that multiple refs can be changed together consistently; and agents, which support asynchronous, independent updates. This model, together with a standard library that treats data structurally, has made Clojure a language of choice for server-side application development, data processing, and other systems where correctness under concurrency is a central concern.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install clojure
+```
+
+### macOS
+
+```sh
+brew install clojure
+```
+
 ## References
 
 - [Wikipedia: Clojure](https://en.wikipedia.org/wiki/Clojure)

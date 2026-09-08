@@ -20,6 +20,21 @@ POSIX `sh` is a language specification, not a program, and several different imp
 
 Because POSIX `sh` is the shell language guaranteed to be available, in some form, on essentially every Unix-like system, it remains the language of choice for scripts that need to run unmodified across many machines and distributions without assuming a particular shell is installed as `/bin/sh`. That same portability requirement is also why the language deliberately excludes conveniences that Bash and Zsh add, such as arrays, the `[[ ... ]]` conditional syntax, `local` variables, and compound assignment operators like `+=`: including them would tie scripts to a specific implementation rather than to the standard, defeating the purpose of writing to POSIX `sh` in the first place.
 
+## Installation
+
+POSIX `sh` is provided by both Debian and macOS and normally requires no
+additional installation.
+
+On Debian, `/bin/sh` is normally provided by Dash. It can be installed
+explicitly if necessary:
+
+```sh
+sudo apt update
+sudo apt install dash
+```
+
+On macOS, use the system `/bin/sh`.
+
 ## References
 
 - [Wikipedia: Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell)

@@ -16,6 +16,23 @@ A DOT file describes either a directed graph, written with the `digraph` keyword
 
 Graphviz supplies several distinct programs that read DOT descriptions and compute a layout from them, each suited to different kinds of graphs: the dot tool produces layered, hierarchical drawings well suited to directed graphs such as flowcharts, neato and fdp use force-directed, spring-model layouts more suited to undirected graphs, circo produces circular layouts, and twopi produces radial ones. These tools render the resulting layout into common output formats such as SVG, PNG, PDF, and PostScript. Because DOT is a simple, human-readable and easily machine-generated text format, it is widely used as a target output format by other software, letting programs emit DOT files as a straightforward way to visualize dependency graphs, state machines, call graphs, and other structures, and as a documentation aid wherever a diagram needs to be generated automatically rather than drawn by hand.
 
+## Installation
+
+DOT is provided by Graphviz.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install graphviz
+```
+
+### macOS
+
+```sh
+brew install graphviz
+```
+
 ## References
 
 - [Wikipedia: DOT (graph description language)](https://en.wikipedia.org/wiki/DOT_(graph_description_language))

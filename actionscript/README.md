@@ -20,6 +20,28 @@ ActionScript 1.0 and 2.0 executed on the original ActionScript Virtual Machine (
 
 For most of its history, ActionScript was the scripting language behind the Flash ecosystem's web animations, games, and rich internet applications, and it was used together with tools such as Flash Builder and the Flex framework to build larger applications. Adobe officially discontinued Flash Player at the end of 2020, removing its download page shortly afterward, and from January 2021 onward Flash Player versions released after that point refuse to play Flash content and display a warning instead. This ended ActionScript's role as a mainstream browser scripting language, but ActionScript 3.0 remains in use through Adobe Animate, the successor to Flash Professional, and through Adobe AIR for building standalone applications and games outside the browser plug-in model.
 
+## Installation
+
+ActionScript examples in this directory use the Flash/Flex toolchain rather
+than a standalone ActionScript runtime. Install Java and Ant first, then obtain
+the Apache Flex SDK from the official Apache Flex distribution.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install default-jdk ant
+```
+
+### macOS
+
+```sh
+brew install openjdk ant
+```
+
+See the Apache Flex installation documentation for the SDK itself:
+https://cwiki.apache.org/confluence/display/FLEX/Installation+help
+
 ## References
 
 - [Wikipedia: ActionScript](https://en.wikipedia.org/wiki/ActionScript)

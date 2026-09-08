@@ -16,6 +16,28 @@ Play follows the model-view-controller pattern and is organized around conventio
 
 Because it runs on the JVM and can be written in Java or Scala, Play sits within the broader Java and Scala ecosystem while deliberately avoiding a Java EE-centric application model. Wikipedia lists corporate users including Coursera, HuffPost, Hootsuite, Janrain, LinkedIn, and Connectifier, and notes that Play ranked among the most popular Scala projects on GitHub at points in 2013 and 2015. Its principal use is building server-side web applications and REST APIs.
 
+## Installation
+
+Play Framework applications require Java and sbt.
+
+### Debian
+
+Install Java from Debian, then install sbt using the official sbt installation
+instructions:
+
+```sh
+sudo apt update
+sudo apt install default-jdk
+```
+
+See https://www.scala-sbt.org/download/ for sbt.
+
+### macOS
+
+```sh
+brew install openjdk sbt
+```
+
 ## References
 
 - [Wikipedia: Play Framework](https://en.wikipedia.org/wiki/Play_Framework)

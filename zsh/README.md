@@ -20,6 +20,23 @@ Interactively, zsh is particularly known for features such as programmable comma
 
 Zsh is widely used as an interactive login and command shell, valued particularly for its completion system and customization options, and it became the default interactive shell on macOS starting with macOS Catalina in 2019, replacing the outdated GPLv2-licensed version of bash that Apple had shipped previously. Outside of macOS, it also remains a popular alternative shell on Linux and other Unix-like systems for users who want its interactive features while retaining broad compatibility with Bourne-style scripting.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install zsh
+```
+
+### macOS
+
+macOS includes Zsh, but Homebrew can install a separate current release:
+
+```sh
+brew install zsh
+```
+
 ## References
 
 - [Wikipedia: Z shell](https://en.wikipedia.org/wiki/Z_shell)

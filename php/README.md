@@ -20,6 +20,21 @@ At the core of the standard PHP implementation is the Zend Engine, a compiler an
 
 PHP's original purpose of generating dynamic web pages has remained its central use case, and it has been used at very large scale as the language underlying widely deployed content management systems and web platforms. Its combination of easy HTML embedding, a low barrier to entry for simple scripts, and, in later versions, a mature object-oriented feature set, has kept it in wide use for building web applications ranging from small personal sites to large, framework-based systems, cementing its historical and ongoing role as one of the primary languages of server-side web development.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install php-cli
+```
+
+### macOS
+
+```sh
+brew install php
+```
+
 ## References
 
 - [Wikipedia: PHP](https://en.wikipedia.org/wiki/PHP)

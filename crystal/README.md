@@ -20,6 +20,21 @@ Crystal source is compiled ahead of time to native machine code using an LLVM ba
 
 Crystal is aimed at situations where developers want the concise, expressive feel of a Ruby-like language but also need the raw performance and compile-time safety of a natively compiled program, such as web backends and APIs, command-line tools, and other general-purpose software. Its influence has so far been mostly within the smaller community of languages seeking to pair dynamic-feeling syntax with static compilation, rather than reshaping mainstream language design the way older, more established languages have.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install crystal
+```
+
+### macOS
+
+```sh
+brew install crystal
+```
+
 ## References
 
 - [Wikipedia: Crystal (programming language)](https://en.wikipedia.org/wiki/Crystal_(programming_language))

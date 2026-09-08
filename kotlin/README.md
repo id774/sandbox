@@ -20,6 +20,21 @@ Kotlin was designed from the outset to interoperate fully with Java: its standar
 
 Kotlin's closest association is with Android, where Google gave it first-class support at Google I/O in 2017 and then, in 2019, named it its preferred language for Android application development; by the mid-2020s, the great majority of top Android applications on Google Play contained Kotlin code. Beyond Android, Kotlin is also used for server-side development on the JVM, where it draws on the same libraries and frameworks available to Java, and Kotlin Multiplatform has extended its reach into cross-platform mobile and desktop development, positioning Kotlin as both an entry point into the JVM ecosystem and a language for sharing code across otherwise separate platforms.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install kotlin
+```
+
+### macOS
+
+```sh
+brew install kotlin
+```
+
 ## References
 
 - [Wikipedia: Kotlin (programming language)](https://en.wikipedia.org/wiki/Kotlin_(programming_language))

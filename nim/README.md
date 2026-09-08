@@ -22,6 +22,21 @@ The Nim compiler is self-hosting, meaning it is itself written in Nim. Rather th
 
 Nim's combination of static typing, compilation to efficient native or C-based targets, and direct interoperability with existing C and C++ code positions it as a language for both systems programming and general application development, letting a single codebase target multiple platforms through its choice of compilation backend. Its design has drawn attention within the programming-language community for pairing a readable, whitespace-sensitive syntax with a compiled, statically typed implementation and an unusually extensive compile-time metaprogramming facility.
 
+## Installation
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install nim
+```
+
+### macOS
+
+```sh
+brew install nim
+```
+
 ## References
 
 - [Wikipedia: Nim (programming language)](https://en.wikipedia.org/wiki/Nim_(programming_language))

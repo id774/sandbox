@@ -20,6 +20,25 @@ Because CoffeeScript compiles to JavaScript rather than running on a runtime of 
 
 CoffeeScript found early adoption at the framework level: it was included by default in Ruby on Rails starting with version 3.1 in 2011 and was also supported by the Play Framework. Its influence extended to JavaScript itself, with Brendan Eich, JavaScript's creator, citing CoffeeScript in 2011 as an influence on his thinking about the language's future direction. Some prominent projects adopted it directly, such as Dropbox, which rewrote its browser-side codebase in CoffeeScript in 2012, though Dropbox later migrated that codebase to TypeScript in 2017. CoffeeScript's popularity declined over time following the 2015 publication of ECMAScript 6, a major revision to the JavaScript standard that natively incorporated many of the concise features, such as classes and more modern function syntax, that had previously made CoffeeScript an attractive alternative to writing JavaScript directly.
 
+## Installation
+
+CoffeeScript is distributed through npm.
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install nodejs npm
+sudo npm install --global coffeescript
+```
+
+### macOS
+
+```sh
+brew install node
+npm install --global coffeescript
+```
+
 ## References
 
 - [Wikipedia: CoffeeScript](https://en.wikipedia.org/wiki/CoffeeScript)

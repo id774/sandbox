@@ -37,30 +37,27 @@ directory use only Lean itself and do not depend on Mathlib.
 
 ## Installation
 
-These examples were validated with Lean 4.33.1.
+Lean is normally installed through the `elan` toolchain manager.
 
-On Debian, install `elan` from the Debian package repository and select Lean
-4.33.1:
+### Debian
 
 ```sh
 sudo apt update
 sudo apt install elan
-elan toolchain install leanprover/lean4:v4.33.1
-elan default leanprover/lean4:v4.33.1
+elan default stable
 lean --version
 ```
 
-On macOS with Homebrew, install `elan` through the `elan-init` formula and
-select Lean 4.33.1:
+### macOS
 
 ```sh
 brew install elan-init
-elan toolchain install leanprover/lean4:v4.33.1
-elan default leanprover/lean4:v4.33.1
+elan default stable
 lean --version
 ```
 
-The final command should report Lean 4.33.1 before running the examples.
+Individual source files may record the Lean version used to validate that
+specific example.
 
 ## Uses and influence
 
@@ -78,8 +75,8 @@ that separate proof generation from proof validation.
 
 ## Layout
 
-These standalone examples were validated with Lean 4.33.1 and use no Mathlib
-dependency.
+These standalone examples use only Lean itself and do not depend on Mathlib.
+Each source file records the Lean version used for that sample's validation.
 
 - `finite_examples.lean`: proves three concrete `Nat` addition examples with
   `rfl`.
