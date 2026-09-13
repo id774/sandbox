@@ -8,7 +8,8 @@ tools. It exists for trying things out, not for producing a maintained toolset.
 1. [About](#1-about)
 2. [Directory Structure](#2-directory-structure)
 3. [Design Philosophy](#3-design-philosophy)
-4. [License](#4-license)
+4. [Primary Branch](#4-primary-branch)
+5. [License](#5-license)
 
 ---
 
@@ -18,10 +19,6 @@ Unlike [`scripts`](https://github.com/id774/scripts), which is a curated,
 policy-driven collection of reusable tools, this repository is an experimental
 workspace: quick prototypes, language studies, and one-off snippets that may
 never be finished or reused.
-
-This repository uses `master` as its primary branch name.
-
-The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
 
 ## 2. Directory Structure
 
@@ -112,7 +109,13 @@ directories hold is what it always was.
 - No `doc/VERSIONS` changelog is kept, since nothing here is packaged or
   released as a versioned deliverable; history lives in commit messages.
 
-## 4. License
+## 4. Primary Branch
+
+This repository uses `master` as its primary branch name.
+
+The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
+
+## 5. License
 
 This repository is dual licensed under the [GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html)
 or the [LGPL version 3](https://www.gnu.org/licenses/lgpl-3.0.html), at your option.
