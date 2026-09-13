@@ -8,7 +8,8 @@ tools. It exists for trying things out, not for producing a maintained toolset.
 1. [About](#1-about)
 2. [Directory Structure](#2-directory-structure)
 3. [Design Philosophy](#3-design-philosophy)
-4. [License](#4-license)
+4. [Branch Naming](#4-branch-naming)
+5. [License](#5-license)
 
 ---
 
@@ -108,14 +109,16 @@ directories hold is what it always was.
 - No `doc/VERSIONS` changelog is kept, since nothing here is packaged or
   released as a versioned deliverable; history lives in commit messages.
 
-## 4. License
+## 4. Branch Naming
+
+This repository uses `master` as its primary branch name.
+
+The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
+
+## 5. License
 
 This repository is dual licensed under the [GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html)
 or the [LGPL version 3](https://www.gnu.org/licenses/lgpl-3.0.html), at your option.
 For full details, please refer to the [LICENSE](doc/LICENSE.md) file. See also
 [COPYING](doc/COPYING) and [COPYING.LESSER](doc/COPYING.LESSER) for the
 complete license texts.
-
-This repository uses `master` as its primary branch name.
-
-The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
