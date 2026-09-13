@@ -19,6 +19,10 @@ policy-driven collection of reusable tools, this repository is an experimental
 workspace: quick prototypes, language studies, and one-off snippets that may
 never be finished or reused.
 
+This repository uses `master` as its primary branch name.
+
+The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
+
 ## 2. Directory Structure
 
 Repository-wide documentation lives in `doc/`. The remaining top-level
@@ -115,7 +119,3 @@ or the [LGPL version 3](https://www.gnu.org/licenses/lgpl-3.0.html), at your opt
 For full details, please refer to the [LICENSE](doc/LICENSE.md) file. See also
 [COPYING](doc/COPYING) and [COPYING.LESSER](doc/COPYING.LESSER) for the
 complete license texts.
-
-This repository uses `master` as its primary branch name.
-
-The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
