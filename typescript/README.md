@@ -49,3 +49,7 @@ npm install --global typescript
   [README](../README.md#the-basics-directory).
 - `math`: the second exercise set, described in the repository
   [README](../README.md#the-math-directory).
+- `jev`: a self-contained sample that connects Jev's typed probabilistic
+  decisions to ordinary business logic, covering the relationship between
+  probability and confidence, calibration, and decision thresholds. See
+  [`jev/README.md`](jev/README.md).
