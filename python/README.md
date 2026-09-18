@@ -57,7 +57,7 @@ Subdirectories group experiments by library or theme:
   `simpy`, `mpi4py`
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
   `decision_tree`, `naivebayes`, `cluster`, `networkx`, `huggingface`
-- Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`
+- Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`, `langchain`
 - Plotting and imaging: `matplotlib`, `pylab`, `pil`
 - Data formats and messaging: `csv`, `json`, `config`, `email`, `sendgrid`
 - Databases and interop: `sqlalchemy`, `libvirt`, `r`
