@@ -153,6 +153,27 @@ use loads it the way that language or platform normally serves it, or records
 how to obtain it. This document does not set a package-manager or
 version-support policy common to every language.
 
+### 4.5 Failure, Continuation, and Output
+
+Examples in this repository may use different languages and execution models,
+but code with more than one logical step keeps three decisions separate: what
+result occurred, whether independent later work may continue, and whether any
+message needs to be emitted.
+
+A missing required dependency or input, or a condition for which continuing
+would produce an invalid, inconsistent, destructive, or otherwise unsafe
+result, stops the affected example or logical operation. Do not turn such a
+condition into a warning merely to keep execution moving.
+
+Independent work may continue when the example's own contract makes that
+continuation meaningful and the remaining result stays coherent. A normal
+no-op, guard, or intentionally inapplicable path may be silent and is not a
+warning merely because no work was performed.
+
+Do not add logging, status output, or exit-code machinery solely to make an
+example resemble another repository. Existing example-specific interfaces and
+language-native conventions remain authoritative.
+
 ## 5. Documentation
 
 ### 5.1 Repository README
