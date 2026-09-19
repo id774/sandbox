@@ -1,8 +1,7 @@
 // Reproduces Jev's API-shaped typed output with fixed data instead of a
-// live call, so every code path from the companion Qiita article - Noul,
-// Choice, and Score answers, probability vs. confidence, calibration,
-// expected-loss review thresholds, audit records, distribution comparison,
-// and an operational log record - can be traced in this single file.
+// live call. Noul, Choice, and Score answers, probability vs. confidence,
+// calibration, expected-loss review thresholds, audit records, distribution
+// comparison, and an operational log record can all be traced in this file.
 // Run: tsc --target es2020 decision.ts && node decision.js
 
 interface NoulAnswer {

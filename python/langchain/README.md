@@ -51,8 +51,8 @@ counts of the retrieved child and parent chunks.
   counts.
 - `requirements.txt`: dependencies used by the sample.
 
-## Source
+## Source / Attribution
 
-This sample reproduces the code from the following article:
+Original source:
 
 <https://qiita.com/ynakayama/items/88005c72a6272939ad0b>
