@@ -5,10 +5,9 @@
 Jev is TypeSafe AI's typed probabilistic model, served on Cloudflare Workers
 AI, which returns structured outputs such as `Noul`, `Choice`, and `Score`
 answers instead of free-form text. This sample connects that typed output to
-ordinary business logic through the full set of patterns covered in the
-companion article: an API-shaped request and response, the distinction
-between probability and confidence, calibration against observed outcomes,
-expected-loss review thresholds, business branches driven by those
+ordinary business logic through an API-shaped request and response, the
+distinction between probability and confidence, calibration against observed
+outcomes, expected-loss review thresholds, business branches driven by those
 thresholds, audit records, comparing Score distributions with the same
 aggregate value, and an operational log record.
 
@@ -62,19 +61,17 @@ Running the sample prints nine sections to stdout:
 - **H. Same score, different distributions** — two distributions with the
   same weighted score (`1.00`), where a `score > 1.5` check and a
   `probabilities["2"] > 0.3` check produce different review decisions.
-- **I. Operational log record** — a record carrying the operational log
-  fields named in the article: `model_version`, `question_type`,
-  `prediction`, `probability`, `probabilities`, `confidence`, `threshold`,
-  `decision`, and `actual_result`.
+- **I. Operational log record** — a record carrying `model_version`,
+  `question_type`, `prediction`, `probability`, `probabilities`, `confidence`,
+  `threshold`, `decision`, and `actual_result`.
 
-## Qiita code coverage
+## Implementation coverage
 
-This sample was expanded so that every code example in the companion Qiita
-article has a corresponding path in `decision.ts`. The article's Python
-calibration example is ported to TypeScript, as `calibrationByBucket()`,
-because this directory is the TypeScript sandbox sample.
+The sample keeps the demonstrated decision paths together in `decision.ts`.
+Calibration is implemented in TypeScript as `calibrationByBucket()` so the
+example remains self-contained within the TypeScript directory.
 
-| Qiita code example | `decision.ts` |
+| Behavior | `decision.ts` |
 | --- | --- |
 | `env.AI.run("typesafe/jev", ...)` request | mock `env.AI.run()` call in section A |
 | Jev response JSON (`Noul` / `Choice` / `Score`) | `supportResponse` |
@@ -95,10 +92,8 @@ because this directory is the TypeScript sandbox sample.
 
 ## Source / Attribution
 
-This sample reproduces, as a self-contained TypeScript example, the
-decision-logic approach described in:
+The Jev API shape and published example data used by this sample are based on:
 
-- id774 article: <https://blog.id774.net/entry/2026/09/19/5693/>
 - TypeSafe AI, "Introducing System 1 Models and Jev":
   <https://typesafe.ai/blog/introducing-system-one-models-and-jev>
 - Cloudflare Workers AI, Jev documentation:

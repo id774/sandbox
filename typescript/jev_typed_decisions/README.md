@@ -2,11 +2,10 @@
 
 ## Purpose
 
-This is a self-contained sample implementation for the companion Qiita
-article on placing Jev's typed decisions at the boundary between
-unstructured input and ordinary TypeScript business logic (see
-Source / Attribution below). It demonstrates how to place Jev's `Noul`,
-`Choice`, and `Score` decisions at that boundary.
+This is a self-contained sample implementation that demonstrates how to place
+Jev's typed decisions at the boundary between unstructured input and ordinary
+TypeScript business logic. It uses Jev's `Noul`, `Choice`, and `Score`
+decisions at that boundary.
 
 The implementation keeps deterministic rules in code, sends semantic judgment
 to a Jev-shaped interface, validates a `Choice` result at the application
@@ -20,8 +19,8 @@ service. `env.AI.run()` in `decision.ts` is a local mock that returns fixed
 `Noul`, `Choice`, and `Score` data. No API token, account ID, environment
 variable, or other credential is required.
 
-The fixed response is demonstration data. It illustrates the API shape used in
-the article and must not be interpreted as a current live model result.
+The fixed response is demonstration data. It illustrates the API shape used by
+the sample and must not be interpreted as a current live model result.
 
 ## Requirements
 
@@ -63,9 +62,9 @@ Locked account
 Jev calls: 1
 ```
 
-## Article concept coverage
+## Implementation coverage
 
-| Article concept | Implementation |
+| Concept | Implementation |
 | --- | --- |
 | `Noul`, `Choice`, and `Score` | `NoulAnswer`, `ChoiceAnswer`, `ScoreAnswer`, `questions`, and `supportResponse` |
 | `state` and `questions` separation | `SupportState` and the separate `questions` constant |
@@ -76,8 +75,7 @@ Jev calls: 1
 | Semantic judgment through Jev | unlocked requests call `env.AI.run()` and use the returned `department` choice |
 | Verify the deterministic bypass | `jevCallCount` shows that the locked request did not invoke the model mock |
 
-The article also compares Jev with JSON Mode. That comparison is explanatory;
-this sample intentionally implements only the Jev-side application boundary
+This sample intentionally implements only the Jev-side application boundary
 and does not add a second model or JSON Mode dependency.
 
 ## Files
@@ -86,9 +84,8 @@ and does not add a second model or JSON Mode dependency.
 
 ## Source / Attribution
 
-This sample implementation is based on the design discussed in:
+The Jev API shape and terminology used by this sample are based on:
 
-- id774 article: <https://blog.id774.net/entry/2026/09/19/5693/>
 - TypeSafe AI, "Introducing System One Models & Jev":
   <https://typesafe.ai/blog/introducing-system-one-models-and-jev>
 - Cloudflare Workers AI, Jev documentation:
