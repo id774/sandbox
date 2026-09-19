@@ -49,11 +49,5 @@ npm install --global typescript
   [README](../README.md#the-basics-directory).
 - `math`: the second exercise set, described in the repository
   [README](../README.md#the-math-directory).
-- `jev`: a self-contained sample that connects Jev's typed probabilistic
-  decisions to ordinary business logic, covering the relationship between
-  probability and confidence, calibration, and decision thresholds. See
+- `jev`: the Jev-related TypeScript samples, grouped by topic. See
   [`jev/README.md`](jev/README.md).
-- `jev_typed_decisions`: a self-contained sample implementation that keeps
-  deterministic rules in ordinary TypeScript and connects Jev's `Noul`,
-  `Choice`, and `Score` decisions to typed routing. See
-  [`jev_typed_decisions/README.md`](jev_typed_decisions/README.md).
