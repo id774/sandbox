@@ -17,3 +17,7 @@ aspects of using Jev while sharing the same technology.
   an application boundary and connected to deterministic TypeScript business
   logic and routing. See
   [`typed_decisions/README.md`](typed_decisions/README.md).
+- `regression_testing`: demonstrates fixed evaluation cases, deterministic
+  decision unit tests, and a live Jev regression evaluation using a
+  Cloudflare Workers AI remote binding. See
+  [`regression_testing/README.md`](regression_testing/README.md).
