@@ -1,0 +1,17 @@
+{
+  "name": "jev-regression-testing-sample",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "types": "wrangler types",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run test/decision.spec.ts",
+    "eval:jev": "vitest run test/jev-regression.spec.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.1.13",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.135.0"
+  }
+}
