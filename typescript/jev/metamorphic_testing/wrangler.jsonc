@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jev-metamorphic-testing-sample",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-21",
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  }
+}
