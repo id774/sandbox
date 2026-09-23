@@ -5,11 +5,13 @@ that apply when code, documentation, or data is added to or changed in this
 repository.
 
 Sections 0 and 1 are intentionally repository-independent. Together they form
-the reusable policy baseline: a new software repository may adopt them as a
-starting point without inheriting sandbox-specific assumptions about
-experiments, repository layout, release management, compatibility, test
-coverage, or licensing. Section 2 specializes that baseline for this
-repository.
+a reference set of reusable policy principles, not a template to copy
+verbatim. When defining policy for a new software repository, first determine
+that repository's own purpose, requirements, architecture, constraints,
+operating model, compatibility commitments, release model, and other
+repository-specific needs. Then adopt, adapt, or omit the principles in
+Sections 0 and 1 according to whether they apply. Section 2 specializes those
+principles for this repository and is not part of that reference set.
 
 This policy is self-contained. It does not defer to, inherit from, or require
 reading the policy of any other repository to be understood. Rules that are
