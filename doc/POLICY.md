@@ -287,6 +287,93 @@ This repository is dual licensed under the GPL version 3 or the LGPL version
 3, at the user's option. See [LICENSE](LICENSE.md), [COPYING](COPYING), and
 [COPYING.LESSER](COPYING.LESSER). This document does not change those terms.
 
+### 1.12 Dependencies and Optional Capabilities
+
+Minimize dependencies when doing so does not compromise the stated purpose or
+make the implementation unreasonable. Dependency reduction is a design
+preference, not an end in itself.
+
+A dependency or capability is required only on an execution path that actually
+needs it. Do not make an optional capability a repository-wide prerequisite
+merely because one example or one branch can use it.
+
+Detect an optional capability where its result affects behavior. Its absence
+must select behavior already allowed by the applicable contract: use an
+established alternative, skip an optional operation, or refuse the affected
+operation. Do not invent a fallback merely to keep processing.
+
+Do not add a check whose only purpose is to reconfirm a state already
+guaranteed by an established invariant or by a preceding operation that
+completed successfully. Add a separate check only when the condition can vary
+independently and its result changes safe behavior, reporting, fallback, or
+another observable choice.
+
+### 1.13 Environment Differences
+
+When the question is whether a capability exists or is usable, detect that
+capability rather than using an operating-system, distribution, runtime,
+terminal, or other environment name as a proxy for it.
+
+Use an environment identity only when the identity itself determines the fact
+that varies, such as a platform-specific path, file format, API, or other
+genuinely environment-specific contract.
+
+Keep one logical capability decision in one place. Do not answer the same
+environment question independently in several locations when one established
+decision can be reused.
+
+### 1.14 Failure, Continuation, and Reporting
+
+Treat the result of an operation, whether later work continues, and whether
+anything is reported as separate decisions.
+
+A missing required dependency or input, invalid state, or another condition
+that makes correct completion impossible or would make continuation invalid,
+inconsistent, destructive, or otherwise unsafe stops the affected logical
+operation. Do not turn such a condition into a warning merely to keep
+processing.
+
+Independent later work may continue only when the applicable contract permits
+it and the remaining result can still be coherent and valid.
+
+A normal no-op, guard, intentionally inapplicable path, or supported absence is
+not a warning merely because no work was performed and may be silent.
+
+Do not add output merely to narrate ordinary control-flow choices. Report a
+condition when the user or operator can use the information or when an
+established interface requires it.
+
+### 1.15 Privilege
+
+Use only the privilege required by the work being performed.
+
+Do not run an entire program, example, installer, or operation with elevated
+privilege merely because one step requires it when the elevated scope can be
+confined to that step.
+
+Do not add privilege acquisition, a broader execution identity, or wider
+access as a defensive convenience. The scope and duration of elevated access
+must follow from the stated purpose.
+
+Where privilege itself is the subject of an experiment, make that requirement
+and its affected scope explicit rather than leaving it for a reader to discover
+by running the example.
+
+### 1.16 Wording Strength
+
+Reserve absolute wording such as `must`, `always`, and `never` for an invariant
+that admits no reasonable exception.
+
+Use wording such as `prefer`, `should`, or `when appropriate` for a design
+preference, recommendation, or situational rule.
+
+Do not write a rule so that applying its literal wording would defeat the
+rule's purpose, the governing principle, the stated scope, safety, or intended
+behavior. Where wording and purpose conflict, follow the higher-level policy
+purpose and intended behavior rather than the literal wording alone.
+
+This is not a formal MUST/SHOULD/MAY taxonomy.
+
 ## 2. Sandbox-Specific Policy
 
 ### 2.1 Experimental by Design
@@ -361,35 +448,23 @@ directory's own README under Section 1.6.2.
 
 #### 2.4.4 Dependencies
 
-A dependency serves the purpose of the snippet that needs it. Do not add one
-merely to make an example resemble another repository or another language's
-implementation.
+Section 1.12 governs whether a dependency is justified and how an optional
+capability is handled.
 
 A third-party library or dependency a snippet needs is not vendored into the
 repository without a specific reason tied to that snippet's purpose; ordinary
-use loads it the way that language or platform normally serves it, or records
-how to obtain it.
+use obtains it through the normal mechanism of that language or platform, or
+records how to obtain it.
 
 This document does not set a package-manager or version-support policy common
 to every language.
 
 #### 2.4.5 Failure, Continuation, and Output
 
-Examples in this repository may use different languages and execution models,
-but code with more than one logical step keeps three decisions separate: what
-result occurred, whether independent later work may continue, and whether any
-message needs to be emitted.
+Section 1.14 governs the relationship between an operation result,
+continuation, and reporting.
 
-A missing required dependency or input, or a condition for which continuing
-would produce an invalid, inconsistent, destructive, or otherwise unsafe
-result, stops the affected example or logical operation. Do not turn such a
-condition into a warning merely to keep execution moving.
-
-Independent work may continue when the example's own contract makes that
-continuation meaningful and the remaining result stays coherent. A normal
-no-op, guard, or intentionally inapplicable path may be silent and is not a
-warning merely because no work was performed.
-
+Examples in this repository may use different languages and execution models.
 Do not add logging, status output, or exit-code machinery solely to make an
 example resemble another repository. Existing example-specific interfaces and
 language-native conventions remain authoritative.
