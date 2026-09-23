@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jev-ticket-routing",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-23",
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jev-ticket-routing",
+      "database_id": "<D1_DATABASE_ID>"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "TICKET_QUEUE",
+        "queue": "jev-ticket-routing"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "jev-ticket-routing",
+        "max_batch_size": 1,
+        "max_batch_timeout": 5,
+        "max_retries": 3,
+        "dead_letter_queue": "jev-ticket-routing-dlq"
+      },
+      {
+        "queue": "jev-ticket-routing-dlq",
+        "max_batch_size": 1,
+        "max_batch_timeout": 5
+      }
+    ]
+  }
+}
