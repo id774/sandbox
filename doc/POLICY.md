@@ -2,16 +2,20 @@
 
 This document states the repository-wide implementation and maintenance rules
 that apply when code, documentation, or data is added to or changed in this
-repository. It does not describe what the repository currently contains; that
-is the responsibility of [the repository README](../README.md) and the README
-of each top-level directory. Adding, removing, or changing a language, a
-platform, or an exercise does not by itself require this document to change.
+repository.
+
+Sections 0 and 1 are intentionally repository-independent. Together they form
+the reusable policy baseline: a new software repository may adopt them as a
+starting point without inheriting sandbox-specific assumptions about
+experiments, repository layout, release management, compatibility, test
+coverage, or licensing. Section 2 specializes that baseline for this
+repository.
 
 This policy is self-contained. It does not defer to, inherit from, or require
 reading the policy of any other repository to be understood. Rules that are
-common across repositories are stated here in the form that applies to this
-repository; repository-specific rules remain here rather than being replaced
-by cross-repository references.
+common across repositories are stated here in full; repository-specific rules
+are stated in Section 2 rather than being replaced by cross-repository
+references.
 
 ## 0. Governing Principle
 
@@ -38,11 +42,17 @@ alone.
 
 ### 1.1 Purpose and Scope
 
-This is a sandbox: a personal workspace for prototypes, language studies, and
-one-off experiments, not a maintained, production toolset. The rules below are
-a floor for what is added to it, not a gate that existing content is expected
-to pass. They apply to a repository change made from now on; they are not a
-reason, by themselves, to go back and revise something already committed.
+This section defines repository-wide implementation and maintenance rules that
+remain meaningful independently of a particular product, domain, language,
+platform, release model, or repository layout.
+
+The rules apply when the stated scope of a change reaches the behavior or
+structure they govern. They do not, by themselves, authorize revisiting
+unrelated existing content.
+
+A repository's concrete purpose, architecture, compatibility commitments,
+release model, domain contracts, and other repository-specific requirements
+belong in its repository-specific policy or another authoritative document.
 
 ### 1.2 Decision Priorities and Maintainer Judgment
 
@@ -55,11 +65,6 @@ purpose, judge the alternatives in this order:
    anything the change was not asked to touch.
 3. Prefer the simpler implementation with fewer dependencies, moving parts,
    side effects, and operational assumptions.
-
-The experimental nature of this repository does not turn an unrelated behavior
-change into part of a task. At the same time, this repository does not promise
-general backward compatibility for every historical experiment; Section 2.7
-defines that maintenance boundary.
 
 Where this policy and the applicable local documentation leave more than one
 valid choice, an explicit maintainer decision settles that choice. A general
@@ -114,17 +119,18 @@ change only the side the task requires.
 ### 1.5 Repository-Wide and Local Rules
 
 This policy is the repository-wide floor. A rule that applies only to one
-language, platform, technology, generated project, experiment, or directory is
-kept with that scope, normally in the responsible README or in the source when
-the constraint is inseparable from the source itself.
+component, language, platform, technology, generated project, directory, or
+other narrower scope is kept with that scope, normally in the responsible
+README, local policy, or source when the constraint is inseparable from the
+source itself.
 
 A local rule may narrow what is permitted in its scope. It does not relax a
-repository-wide safety, privacy, attribution, or change-discipline rule stated
-here.
+repository-wide safety, privacy, attribution, licensing, or change-discipline
+rule stated here.
 
 Do not impose one implementation style mechanically across different
-languages, platforms, or tools. Apply the native convention and the local
-contract unless doing so conflicts with a repository-wide rule.
+languages, platforms, components, or tools. Apply the native convention and
+the local contract unless doing so conflicts with a repository-wide rule.
 
 ### 1.6 Dependencies and Optional Capabilities
 
@@ -134,7 +140,7 @@ preference, not an end in itself.
 
 A dependency or capability is required only on an execution path that actually
 needs it. Do not make an optional capability a repository-wide prerequisite
-merely because one example or one branch can use it.
+merely because one component, feature, or execution path can use it.
 
 Detect an optional capability where its result affects behavior. Its absence
 must select behavior already allowed by the applicable contract: use an
@@ -193,31 +199,31 @@ expired, or of unknown status, is committed to this repository.
 
 No private infrastructure information, such as a real internal host name or
 network address, and no personal information that is not intended for public
-disclosure, is committed to this repository. Where a snippet needs an example
-of such a value, it uses an obvious placeholder instead.
+disclosure, is committed to this repository. Where source, documentation,
+configuration, fixtures, or examples need such a value, they use an obvious
+placeholder instead.
 
 #### 1.9.3 Existing Content
 
 Where a secret or private information described in Sections 1.9.1 or 1.9.2 is
-found in existing content, it is removed on sight. This is the one exception to
-Section 2.2: preserving the historical record does not extend to preserving a
-credential or private information that should never have been committed.
+found in existing content, it is removed on sight. Preservation of historical
+or existing content never extends to preserving a credential or private
+information that should never have been committed.
 
 ### 1.10 Safety and Side Effects
 
-A snippet whose subject is inherently destructive, such as one that deletes,
-overwrites, or otherwise damages data, is not prohibited on that basis alone.
-It does, however, act on a scope it was deliberately given, such as a path
-passed to it or a directory it creates for itself, rather than reaching into a
-home directory or a system path on its own initiative.
+Code, tooling, or automation whose purpose is inherently destructive is not
+prohibited on that basis alone. It must, however, act only on the scope
+deliberately supplied to it or established by its applicable contract rather
+than broadening the target on its own.
 
-Where causing damage is the point of the experiment, that is made evident to a
-reader through the context required by Section 2.4.1 rather than left for a
-reader to discover by running it.
+Where destructive behavior is intentional, make that behavior and its affected
+scope evident before execution through the applicable interface or
+documentation.
 
 Do not add a side effect that the stated purpose does not require. A safer or
 more defensive-looking implementation is not an improvement if it silently
-widens the files, state, network resources, or external systems the example can
+widens the files, state, network resources, or external systems the change can
 affect.
 
 ### 1.11 Privilege
@@ -232,9 +238,9 @@ Do not add privilege acquisition, a broader execution identity, or wider
 access as a defensive convenience. The scope and duration of elevated access
 must follow from the stated purpose.
 
-Where privilege itself is the subject of an experiment, make that requirement
-and its affected scope explicit rather than leaving it for a reader to discover
-by running the example.
+Where elevated privilege or an alternate execution identity is part of the
+intended behavior, make that requirement and its affected scope explicit rather
+than leaving it to be discovered during execution.
 
 ### 1.12 Naming, Comments, and Language
 
@@ -248,8 +254,8 @@ adopted later. A path may be linked to from outside the repository, and
 uniformity alone does not justify breaking that path.
 
 Comments and identifiers are written in English, except where non-English text
-is itself the subject or data of the experiment, such as an encoding, locale,
-natural-language, or text-processing example.
+is required by the repository's domain, interface, localization, protocol,
+test data, or text-processing behavior.
 
 A comment preserves a reason, constraint, non-obvious intent, or decision that
 a later change could otherwise undo. Do not use comments merely to restate code
@@ -259,32 +265,36 @@ whose operation is already evident.
 
 #### 1.13.1 Repository README
 
-The root README describes the repository's purpose, its current top-level
-directories and what each one is for, its current cross-language experiment
-sets and the concrete exercises they contain, and how to navigate it. It is the
-current inventory of what the repository holds.
+The root README is the repository's entry point. It describes the repository's
+purpose, how to use or navigate it at the appropriate level, its high-level
+structure, and the authoritative documents a contributor or operator needs to
+find. It does not duplicate detailed specifications whose source of truth is
+elsewhere.
 
-#### 1.13.2 Directory README
+#### 1.13.2 Local Documentation
 
-Each top-level directory organized around a language, platform, or technology
-has a README that describes what that directory represents, what the directory
-itself contains, and any constraint local to that directory.
+Behavior, interfaces, constraints, or operating information that applies only
+to one component, directory, tool, language, or other local scope is documented
+at the narrowest stable location where a reader working in that scope will find
+it. A local README is appropriate when that local scope is a directory or
+component.
 
 #### 1.13.3 Local Constraints
 
-A constraint that applies only within one directory, such as a language subset
-a directory's contents are held to, is stated in that directory's own README,
-where a reader working in that directory will see it. Such a local constraint
-may narrow what is written in that directory beyond what this document asks;
-it may not relax a repository-wide rule this document states.
+A local constraint may narrow what is permitted within its scope, but it does
+not relax a repository-wide rule. Keep a local constraint with the scope that
+owns it rather than duplicating it throughout unrelated documentation.
 
 #### 1.13.4 Single Source of Truth
 
-A concrete specification, such as what a given exercise computes, what input
-it uses, or what output it produces, has exactly one authoritative statement,
-in the README responsible for it under Sections 1.13.1 and 1.13.2. This document
-does not restate or duplicate that detail; it states only the rule that such
-detail belongs to a README and not to this document.
+A concrete specification has exactly one authoritative home appropriate to the
+responsibility that owns it. Other documents may link to or summarize that
+specification for navigation, but they do not create a competing normative
+copy.
+
+This policy states repository-wide implementation and maintenance rules. It
+does not duplicate product, domain, component, protocol, interface, or
+repository-specific specifications whose source of truth belongs elsewhere.
 
 ### 1.14 Pull Request Scope and History
 
@@ -365,18 +375,29 @@ serves its purpose, whether it alters behavior outside that purpose, whether it
 adds an unnecessary dependency or side effect, whether it exposes private
 information, and whether directly affected documentation remains correct.
 
-### 1.16 Attribution and License
+### 1.16 Attribution and Licensing
 
-Content adapted from an external article, answer, or documentation example
-credits its source and respects any third-party license it carried.
+Content adapted from an external article, answer, documentation example, source
+file, dataset, or other third-party material credits its source and respects
+the license or redistribution terms that apply to it.
 
-This repository is dual licensed under the GPL version 3 or the LGPL version
-3, at the user's option. See [LICENSE](LICENSE.md), [COPYING](COPYING), and
-[COPYING.LESSER](COPYING.LESSER). This document does not change those terms.
+Repository-owned content follows the repository's declared license. Third-party
+code, data, documentation, and dependencies retain or satisfy their applicable
+licensing and attribution requirements.
+
+The concrete repository license choice and the paths of its license texts are
+repository-specific. They belong in the repository-specific policy or the
+authoritative license documents rather than in this reusable General Policy.
 
 ## 2. Sandbox-Specific Policy
 
 ### 2.1 Experimental by Design
+
+This is a sandbox: a personal workspace for prototypes, language studies, and
+one-off experiments, not a maintained, production toolset. The rules below are
+a floor for what is added to it, not a gate that existing content is expected
+to pass. They apply to a repository change made from now on; they are not a
+reason, by themselves, to go back and revise something already committed.
 
 The repository exists for trying an idea out. Production readiness,
 reusability, ongoing maintenance, and staying current with a dependency's
@@ -393,6 +414,11 @@ matches current practice in its language. Section 1.9.3 states the one
 exception, for security and privacy.
 
 ### 2.3 Repository Structure
+
+This policy does not describe what the repository currently contains; that is
+the responsibility of the repository README and the README of each top-level
+directory. Adding, removing, or changing a language, a platform, or an exercise
+does not by itself require this document to change.
 
 #### 2.3.1 Top-Level Organization
 
@@ -417,6 +443,35 @@ files are left as the tool produced them. This policy does not require
 restructuring a generated tree to match another directory, though
 repository-authored documentation added alongside it still follows Section
 1.13. Section 2.6 covers build output within such a tree.
+
+#### 2.3.4 Repository README
+
+The root README describes the repository's purpose, its current top-level
+directories and what each one is for, its current cross-language experiment
+sets and the concrete exercises they contain, and how to navigate it. It is the
+current inventory of what the repository holds.
+
+#### 2.3.5 Directory README
+
+Each top-level directory organized around a language, platform, or technology
+has a README that describes what that directory represents, what the directory
+itself contains, and any constraint local to that directory.
+
+#### 2.3.6 Local Constraints
+
+A constraint that applies only within one directory, such as a language subset
+a directory's contents are held to, is stated in that directory's own README,
+where a reader working in that directory will see it. Such a local constraint
+may narrow what is written in that directory beyond what this document asks;
+it may not relax a repository-wide rule this document states.
+
+#### 2.3.7 Concrete Specifications
+
+A concrete specification, such as what a given exercise computes, what input
+it uses, or what output it produces, has exactly one authoritative statement,
+in the README responsible for it under Sections 2.3.4 and 2.3.5. This document
+does not restate or duplicate that detail; it states only the rule that such
+detail belongs to a README and not to this document.
 
 ### 2.4 Source Code
 
@@ -444,7 +499,11 @@ Source code follows the established convention of the language, platform, or
 tool it is written for. This document does not require a uniform style across
 languages, and it does not catalogue per-language formatters, comment syntax,
 or style rules; where such detail is useful to a reader, it belongs in that
-directory's own README under Section 1.13.2.
+directory's own README under Section 2.3.5.
+
+Comments and identifiers are written in English, except where non-English text
+is itself the subject or data of the experiment, such as an encoding, locale,
+natural-language, or text-processing example.
 
 #### 2.4.4 Dependencies
 
@@ -469,6 +528,27 @@ Do not add logging, status output, or exit-code machinery solely to make an
 example resemble another repository. Existing example-specific interfaces and
 language-native conventions remain authoritative.
 
+#### 2.4.6 Destructive and Privileged Experiments
+
+A snippet whose subject is inherently destructive, such as one that deletes,
+overwrites, or otherwise damages data, is not prohibited on that basis alone.
+It does, however, act on a scope it was deliberately given, such as a path
+passed to it or a directory it creates for itself, rather than reaching into a
+home directory or a system path on its own initiative.
+
+Where causing damage is the point of the experiment, that is made evident to a
+reader through the context required by Section 2.4.1 rather than left for a
+reader to discover by running it.
+
+Do not add a side effect that the stated purpose does not require. A safer or
+more defensive-looking implementation is not an improvement if it silently
+widens the files, state, network resources, or external systems the example can
+affect.
+
+Where privilege itself is the subject of an experiment, make that requirement
+and its affected scope explicit rather than leaving it for a reader to discover
+by running the example.
+
 ### 2.5 Cross-Language Experiments
 
 The repository may place comparable exercises across multiple language or
@@ -487,7 +567,7 @@ language's idioms. Where it does, the following applies:
 
 Which sets currently exist, their exercises, and the concrete input and
 expected output of each are stated in the repository README under Section
-1.13.1 and are not repeated here.
+2.3.4 and are not repeated here.
 
 ### 2.6 Data and Generated Artifacts
 
@@ -515,3 +595,14 @@ dependency's current version is not an ongoing obligation.
 Those limits do not authorize a change to alter existing executable behavior
 outside its stated purpose, and they do not permit a documentation-only change
 to alter what existing executable code actually does.
+
+The experimental nature of this repository does not turn an unrelated behavior
+change into part of a task. At the same time, this repository does not promise
+general backward compatibility for every historical experiment; the
+maintenance boundary in this section defines that limit.
+
+### 2.8 License
+
+This repository is dual licensed under the GPL version 3 or the LGPL version
+3, at the user's option. See [LICENSE](LICENSE.md), [COPYING](COPYING), and
+[COPYING.LESSER](COPYING.LESSER). This document does not change those terms.
