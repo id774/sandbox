@@ -66,7 +66,22 @@ valid choice, an explicit maintainer decision settles that choice. A general
 best practice, a convention from another repository, or a newer technique does
 not override that decision.
 
-### 1.3 Change Discipline and Observable Behavior
+### 1.3 Wording Strength
+
+Reserve absolute wording such as `must`, `always`, and `never` for an invariant
+that admits no reasonable exception.
+
+Use wording such as `prefer`, `should`, or `when appropriate` for a design
+preference, recommendation, or situational rule.
+
+Do not write a rule so that applying its literal wording would defeat the
+rule's purpose, the governing principle, the stated scope, safety, or intended
+behavior. Where wording and purpose conflict, follow the higher-level policy
+purpose and intended behavior rather than the literal wording alone.
+
+This is not a formal MUST/SHOULD/MAY taxonomy.
+
+### 1.4 Change Discipline and Observable Behavior
 
 A change touches only what its stated purpose requires. Unrelated refactoring,
 reformatting, modernization, cleanup, renaming, feature work, or documentation
@@ -96,7 +111,7 @@ behavior; if the document and implementation disagree, determine which is
 wrong from the repository's stated purpose and local source of truth, and
 change only the side the task requires.
 
-### 1.4 Repository-Wide and Local Rules
+### 1.5 Repository-Wide and Local Rules
 
 This policy is the repository-wide floor. A rule that applies only to one
 language, platform, technology, generated project, experiment, or directory is
@@ -111,7 +126,117 @@ Do not impose one implementation style mechanically across different
 languages, platforms, or tools. Apply the native convention and the local
 contract unless doing so conflicts with a repository-wide rule.
 
-### 1.5 Naming, Comments, and Language
+### 1.6 Dependencies and Optional Capabilities
+
+Minimize dependencies when doing so does not compromise the stated purpose or
+make the implementation unreasonable. Dependency reduction is a design
+preference, not an end in itself.
+
+A dependency or capability is required only on an execution path that actually
+needs it. Do not make an optional capability a repository-wide prerequisite
+merely because one example or one branch can use it.
+
+Detect an optional capability where its result affects behavior. Its absence
+must select behavior already allowed by the applicable contract: use an
+established alternative, skip an optional operation, or refuse the affected
+operation. Do not invent a fallback merely to keep processing.
+
+Do not add a check whose only purpose is to reconfirm a state already
+guaranteed by an established invariant or by a preceding operation that
+completed successfully. Add a separate check only when the condition can vary
+independently and its result changes safe behavior, reporting, fallback, or
+another observable choice.
+
+### 1.7 Environment Differences
+
+When the question is whether a capability exists or is usable, detect that
+capability rather than using an operating-system, distribution, runtime,
+terminal, or other environment name as a proxy for it.
+
+Use an environment identity only when the identity itself determines the fact
+that varies, such as a platform-specific path, file format, API, or other
+genuinely environment-specific contract.
+
+Keep one logical capability decision in one place. Do not answer the same
+environment question independently in several locations when one established
+decision can be reused.
+
+### 1.8 Failure, Continuation, and Reporting
+
+Treat the result of an operation, whether later work continues, and whether
+anything is reported as separate decisions.
+
+A missing required dependency or input, invalid state, or another condition
+that makes correct completion impossible or would make continuation invalid,
+inconsistent, destructive, or otherwise unsafe stops the affected logical
+operation. Do not turn such a condition into a warning merely to keep
+processing.
+
+Independent later work may continue only when the applicable contract permits
+it and the remaining result can still be coherent and valid.
+
+A normal no-op, guard, intentionally inapplicable path, or supported absence is
+not a warning merely because no work was performed and may be silent.
+
+Do not add output merely to narrate ordinary control-flow choices. Report a
+condition when the user or operator can use the information or when an
+established interface requires it.
+
+### 1.9 Security and Privacy
+
+#### 1.9.1 Secrets
+
+No API key, password, access token, private key, or session credential, live,
+expired, or of unknown status, is committed to this repository.
+
+#### 1.9.2 Private Information
+
+No private infrastructure information, such as a real internal host name or
+network address, and no personal information that is not intended for public
+disclosure, is committed to this repository. Where a snippet needs an example
+of such a value, it uses an obvious placeholder instead.
+
+#### 1.9.3 Existing Content
+
+Where a secret or private information described in Sections 1.9.1 or 1.9.2 is
+found in existing content, it is removed on sight. This is the one exception to
+Section 2.2: preserving the historical record does not extend to preserving a
+credential or private information that should never have been committed.
+
+### 1.10 Safety and Side Effects
+
+A snippet whose subject is inherently destructive, such as one that deletes,
+overwrites, or otherwise damages data, is not prohibited on that basis alone.
+It does, however, act on a scope it was deliberately given, such as a path
+passed to it or a directory it creates for itself, rather than reaching into a
+home directory or a system path on its own initiative.
+
+Where causing damage is the point of the experiment, that is made evident to a
+reader through the context required by Section 2.4.1 rather than left for a
+reader to discover by running it.
+
+Do not add a side effect that the stated purpose does not require. A safer or
+more defensive-looking implementation is not an improvement if it silently
+widens the files, state, network resources, or external systems the example can
+affect.
+
+### 1.11 Privilege
+
+Use only the privilege required by the work being performed.
+
+Do not run an entire program, example, installer, or operation with elevated
+privilege merely because one step requires it when the elevated scope can be
+confined to that step.
+
+Do not add privilege acquisition, a broader execution identity, or wider
+access as a defensive convenience. The scope and duration of elevated access
+must follow from the stated purpose.
+
+Where privilege itself is the subject of an experiment, make that requirement
+and its affected scope explicit rather than leaving it for a reader to discover
+by running the example.
+
+### 1.12 Naming, Comments, and Language
 
 A new directory, file, identifier, or other named thing takes a name that
 identifies it accurately and stably, in the way it is ordinarily referred to.
@@ -130,22 +255,22 @@ A comment preserves a reason, constraint, non-obvious intent, or decision that
 a later change could otherwise undo. Do not use comments merely to restate code
 whose operation is already evident.
 
-### 1.6 Documentation
+### 1.13 Documentation
 
-#### 1.6.1 Repository README
+#### 1.13.1 Repository README
 
 The root README describes the repository's purpose, its current top-level
 directories and what each one is for, its current cross-language experiment
 sets and the concrete exercises they contain, and how to navigate it. It is the
 current inventory of what the repository holds.
 
-#### 1.6.2 Directory README
+#### 1.13.2 Directory README
 
 Each top-level directory organized around a language, platform, or technology
 has a README that describes what that directory represents, what the directory
 itself contains, and any constraint local to that directory.
 
-#### 1.6.3 Local Constraints
+#### 1.13.3 Local Constraints
 
 A constraint that applies only within one directory, such as a language subset
 a directory's contents are held to, is stated in that directory's own README,
@@ -153,58 +278,20 @@ where a reader working in that directory will see it. Such a local constraint
 may narrow what is written in that directory beyond what this document asks;
 it may not relax a repository-wide rule this document states.
 
-#### 1.6.4 Single Source of Truth
+#### 1.13.4 Single Source of Truth
 
 A concrete specification, such as what a given exercise computes, what input
 it uses, or what output it produces, has exactly one authoritative statement,
-in the README responsible for it under Sections 1.6.1 and 1.6.2. This document
+in the README responsible for it under Sections 1.13.1 and 1.13.2. This document
 does not restate or duplicate that detail; it states only the rule that such
 detail belongs to a README and not to this document.
 
-### 1.7 Security and Privacy
-
-#### 1.7.1 Secrets
-
-No API key, password, access token, private key, or session credential, live,
-expired, or of unknown status, is committed to this repository.
-
-#### 1.7.2 Private Information
-
-No private infrastructure information, such as a real internal host name or
-network address, and no personal information that is not intended for public
-disclosure, is committed to this repository. Where a snippet needs an example
-of such a value, it uses an obvious placeholder instead.
-
-#### 1.7.3 Existing Content
-
-Where a secret or private information described in Sections 1.7.1 or 1.7.2 is
-found in existing content, it is removed on sight. This is the one exception to
-Section 2.2: preserving the historical record does not extend to preserving a
-credential or private information that should never have been committed.
-
-### 1.8 Safety and Side Effects
-
-A snippet whose subject is inherently destructive, such as one that deletes,
-overwrites, or otherwise damages data, is not prohibited on that basis alone.
-It does, however, act on a scope it was deliberately given, such as a path
-passed to it or a directory it creates for itself, rather than reaching into a
-home directory or a system path on its own initiative.
-
-Where causing damage is the point of the experiment, that is made evident to a
-reader through the context required by Section 2.4.1 rather than left for a
-reader to discover by running it.
-
-Do not add a side effect that the stated purpose does not require. A safer or
-more defensive-looking implementation is not an improvement if it silently
-widens the files, state, network resources, or external systems the example can
-affect.
-
-### 1.9 Pull Request Scope and History
+### 1.14 Pull Request Scope and History
 
 A pull request presents the change it proposes, not the sequence of corrections
 that produced it. It carries one coherent higher-level purpose.
 
-#### 1.9.1 One Purpose to a Pull Request
+#### 1.14.1 One Purpose to a Pull Request
 
 - "Purpose" means the higher-level reason the pull request exists, not an
   individual finding, issue, file, function, or review comment. Several
@@ -231,7 +318,7 @@ that produced it. It carries one coherent higher-level purpose.
   reviewable without the other, keep them together and state the shared
   purpose.
 
-#### 1.9.2 Keeping a Branch to Its Change
+#### 1.14.2 Keeping a Branch to Its Change
 
 - A branch that carries one coherent change carries it as one commit.
 - Revise that commit by amending and force pushing with `--force-with-lease`
@@ -240,7 +327,7 @@ that produced it. It carries one coherent higher-level purpose.
 - Split a branch into several commits only when it genuinely carries several
   independent changes. Coherence, not chronology, decides.
 
-#### 1.9.3 Leaving No Trace of the Correction
+#### 1.14.3 Leaving No Trace of the Correction
 
 - Read each revision against the base branch, not merely against the previous
   revision, so that abandoned wording, code, comments, files, and temporary
@@ -253,7 +340,7 @@ that produced it. It carries one coherent higher-level purpose.
   shared, make the rewrite explicit because it invalidates previously fetched
   copies.
 
-### 1.10 Validation and Judging a Change
+### 1.15 Validation and Judging a Change
 
 Validation matches what changed and proves the property the change is meant to
 preserve or establish.
@@ -278,7 +365,7 @@ serves its purpose, whether it alters behavior outside that purpose, whether it
 adds an unnecessary dependency or side effect, whether it exposes private
 information, and whether directly affected documentation remains correct.
 
-### 1.11 Attribution and License
+### 1.16 Attribution and License
 
 Content adapted from an external article, answer, or documentation example
 credits its source and respects any third-party license it carried.
@@ -286,93 +373,6 @@ credits its source and respects any third-party license it carried.
 This repository is dual licensed under the GPL version 3 or the LGPL version
 3, at the user's option. See [LICENSE](LICENSE.md), [COPYING](COPYING), and
 [COPYING.LESSER](COPYING.LESSER). This document does not change those terms.
-
-### 1.12 Dependencies and Optional Capabilities
-
-Minimize dependencies when doing so does not compromise the stated purpose or
-make the implementation unreasonable. Dependency reduction is a design
-preference, not an end in itself.
-
-A dependency or capability is required only on an execution path that actually
-needs it. Do not make an optional capability a repository-wide prerequisite
-merely because one example or one branch can use it.
-
-Detect an optional capability where its result affects behavior. Its absence
-must select behavior already allowed by the applicable contract: use an
-established alternative, skip an optional operation, or refuse the affected
-operation. Do not invent a fallback merely to keep processing.
-
-Do not add a check whose only purpose is to reconfirm a state already
-guaranteed by an established invariant or by a preceding operation that
-completed successfully. Add a separate check only when the condition can vary
-independently and its result changes safe behavior, reporting, fallback, or
-another observable choice.
-
-### 1.13 Environment Differences
-
-When the question is whether a capability exists or is usable, detect that
-capability rather than using an operating-system, distribution, runtime,
-terminal, or other environment name as a proxy for it.
-
-Use an environment identity only when the identity itself determines the fact
-that varies, such as a platform-specific path, file format, API, or other
-genuinely environment-specific contract.
-
-Keep one logical capability decision in one place. Do not answer the same
-environment question independently in several locations when one established
-decision can be reused.
-
-### 1.14 Failure, Continuation, and Reporting
-
-Treat the result of an operation, whether later work continues, and whether
-anything is reported as separate decisions.
-
-A missing required dependency or input, invalid state, or another condition
-that makes correct completion impossible or would make continuation invalid,
-inconsistent, destructive, or otherwise unsafe stops the affected logical
-operation. Do not turn such a condition into a warning merely to keep
-processing.
-
-Independent later work may continue only when the applicable contract permits
-it and the remaining result can still be coherent and valid.
-
-A normal no-op, guard, intentionally inapplicable path, or supported absence is
-not a warning merely because no work was performed and may be silent.
-
-Do not add output merely to narrate ordinary control-flow choices. Report a
-condition when the user or operator can use the information or when an
-established interface requires it.
-
-### 1.15 Privilege
-
-Use only the privilege required by the work being performed.
-
-Do not run an entire program, example, installer, or operation with elevated
-privilege merely because one step requires it when the elevated scope can be
-confined to that step.
-
-Do not add privilege acquisition, a broader execution identity, or wider
-access as a defensive convenience. The scope and duration of elevated access
-must follow from the stated purpose.
-
-Where privilege itself is the subject of an experiment, make that requirement
-and its affected scope explicit rather than leaving it for a reader to discover
-by running the example.
-
-### 1.16 Wording Strength
-
-Reserve absolute wording such as `must`, `always`, and `never` for an invariant
-that admits no reasonable exception.
-
-Use wording such as `prefer`, `should`, or `when appropriate` for a design
-preference, recommendation, or situational rule.
-
-Do not write a rule so that applying its literal wording would defeat the
-rule's purpose, the governing principle, the stated scope, safety, or intended
-behavior. Where wording and purpose conflict, follow the higher-level policy
-purpose and intended behavior rather than the literal wording alone.
-
-This is not a formal MUST/SHOULD/MAY taxonomy.
 
 ## 2. Sandbox-Specific Policy
 
@@ -389,7 +389,7 @@ by itself, a policy violation.
 Existing content is a record of what was tried and when. A snippet is not
 rewritten, upgraded, or removed only because it is old, no longer runs against
 a current interpreter or library, uses a deprecated interface, or no longer
-matches current practice in its language. Section 1.7.3 states the one
+matches current practice in its language. Section 1.9.3 states the one
 exception, for security and privacy.
 
 ### 2.3 Repository Structure
@@ -416,7 +416,7 @@ build tool, or IDE generator, that tree's own layout, formatting, and generated
 files are left as the tool produced them. This policy does not require
 restructuring a generated tree to match another directory, though
 repository-authored documentation added alongside it still follows Section
-1.6. Section 2.6 covers build output within such a tree.
+1.13. Section 2.6 covers build output within such a tree.
 
 ### 2.4 Source Code
 
@@ -444,11 +444,11 @@ Source code follows the established convention of the language, platform, or
 tool it is written for. This document does not require a uniform style across
 languages, and it does not catalogue per-language formatters, comment syntax,
 or style rules; where such detail is useful to a reader, it belongs in that
-directory's own README under Section 1.6.2.
+directory's own README under Section 1.13.2.
 
 #### 2.4.4 Dependencies
 
-Section 1.12 governs whether a dependency is justified and how an optional
+Section 1.6 governs whether a dependency is justified and how an optional
 capability is handled.
 
 A third-party library or dependency a snippet needs is not vendored into the
@@ -461,7 +461,7 @@ to every language.
 
 #### 2.4.5 Failure, Continuation, and Output
 
-Section 1.14 governs the relationship between an operation result,
+Section 1.8 governs the relationship between an operation result,
 continuation, and reporting.
 
 Examples in this repository may use different languages and execution models.
@@ -487,7 +487,7 @@ language's idioms. Where it does, the following applies:
 
 Which sets currently exist, their exercises, and the concrete input and
 expected output of each are stated in the repository README under Section
-1.6.1 and are not repeated here.
+1.13.1 and are not repeated here.
 
 ### 2.6 Data and Generated Artifacts
 
