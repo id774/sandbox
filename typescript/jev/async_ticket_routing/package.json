@@ -1,0 +1,13 @@
+{
+  "name": "jev-ticket-routing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "types": "wrangler types",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "wrangler": "^4.135.0"
+  }
+}

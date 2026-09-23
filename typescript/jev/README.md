@@ -27,3 +27,8 @@ aspects of using Jev while sharing the same technology.
   and a related follow-up input, using a live Cloudflare Workers AI remote
   binding. See
   [`metamorphic_testing/README.md`](metamorphic_testing/README.md).
+- `async_ticket_routing`: demonstrates asynchronous support-ticket routing
+  with Cloudflare Queues and D1, including typed Jev evaluation, deterministic
+  final routing, retry state, Dead Letter Queue handling, and final-state
+  duplicate suppression. See
+  [`async_ticket_routing/README.md`](async_ticket_routing/README.md).
