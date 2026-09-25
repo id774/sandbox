@@ -17,6 +17,10 @@ aspects of using Jev while sharing the same technology.
   an application boundary and connected to deterministic TypeScript business
   logic and routing. See
   [`typed_decisions/README.md`](typed_decisions/README.md).
+- `answer_shapes`: demonstrates choosing and consuming Jev `Choice`, `Score`,
+  and `Noul` answers from the value shape required by downstream code: a finite
+  label, an ordered scale, or a proposition probability. See
+  [`answer_shapes/README.md`](answer_shapes/README.md).
 - `regression_testing`: demonstrates fixed evaluation cases, deterministic
   decision unit tests, and a live Jev regression evaluation using a
   Cloudflare Workers AI remote binding. See
