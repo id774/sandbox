@@ -1,3 +1,22 @@
+# test_memory_history.py: Tests for memory_history.py
+#
+# Description:
+# Deterministic tests for value replacement, past lookup, revocation,
+# future activation, and rejection of out-of-order history.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Run from the python/temporal_memory directory:
+#     python -m pytest -q
+#
+# Requirements:
+# - Python 3.12 or later
+# - pytest 8.0 or later
+
 from datetime import datetime, timezone
 
 import pytest

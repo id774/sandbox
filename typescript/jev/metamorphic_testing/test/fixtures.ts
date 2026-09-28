@@ -1,3 +1,15 @@
+// fixtures.ts: Metamorphic cases for the live Jev evaluation
+//
+// Description:
+// Supporting fixture of the Jev metamorphic testing sample, used by
+// metamorphic.spec.ts. See src/index.ts for the sample context and
+// requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import type { MetamorphicRelation } from "../src/relations";
 
 export type MetamorphicCase = {

@@ -1,8 +1,23 @@
+// classify_market.ts: Jev-shaped interpretation of precomputed market features
+//
+// Description:
 // Demonstrates interpreting precomputed market features with Jev-shaped
 // judgments while keeping the hard risk veto and the quote policy in ordinary
 // code. The features and the Jev response are fixed locally, so no market
 // data, order, network access, or credentials are needed.
-// Run: tsc --target es2020 classify_market.ts && node classify_market.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 classify_market.ts && node classify_market.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const regimes = ["calm", "trending", "volatile"] as const;
 const directions = ["up", "down", "flat"] as const;

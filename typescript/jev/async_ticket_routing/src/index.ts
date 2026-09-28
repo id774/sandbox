@@ -1,3 +1,41 @@
+// index.ts: Asynchronous Jev support-ticket routing on Cloudflare Workers
+//
+// Description:
+// Worker entry point for a sample that accepts support tickets over HTTP,
+// stores them in D1, and routes them asynchronously through Cloudflare
+// Queues. The Queue consumer evaluates each ticket with typesafe/jev through
+// Workers AI, applies deterministic routing rules, and records retry, Dead
+// Letter Queue, and final states in D1. See README.md in this sample for the
+// routing rules, states, and setup details.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     npm run types
+//     npx wrangler d1 execute jev-ticket-routing --local \
+//       --file=./migrations/0001_create_tickets.sql
+//     npx wrangler dev
+//
+//     npm run typecheck
+//
+// Requirements:
+// - Node.js 22 or later and npm
+// - TypeScript 7.0.2 or later
+// - Wrangler 4.135.0 or later
+// - A Cloudflare account with access to Workers AI, Queues, and D1, with
+//   Wrangler authenticated against it
+//
+// Notes:
+// - The AI binding is remote, so requests that reach Jev use the Cloudflare
+//   account configured for Wrangler and may consume Workers AI usage.
+// - Creating the Queues and the D1 database, and setting the D1 database ID
+//   in wrangler.jsonc, are described in README.md. Account-specific resource
+//   identifiers are not committed.
+
 type TicketMessage = {
   ticketId: string;
 };

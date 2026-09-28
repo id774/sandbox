@@ -1,8 +1,23 @@
+// automation.ts: Jev-shaped home automation notification decision
+//
+// Description:
 // Demonstrates passing a sensor state to a Jev-shaped Noul judgment and
 // letting a deterministic automation policy create a notification decision.
 // The sensor and the Jev response are fixed locally, so no home automation
 // server, device, network access, or credentials are needed.
-// Run: tsc --target es2020 automation.ts && node automation.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 automation.ts && node automation.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 interface NoulAnswer {
     noul: number;

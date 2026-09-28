@@ -1,9 +1,24 @@
+// answer_shapes.ts: Choose Jev answer types by downstream value shape
+//
+// Description:
 // Demonstrates choosing Jev Choice, Score, and Noul questions by the answer
 // shape and control flow that downstream code needs: a validated finite label
 // for a switch, an ordered scale for numeric comparison, and a proposition
 // probability for a threshold. The Jev response is fixed local data, not a
 // live model call.
-// Run: tsc --target es2020 answer_shapes.ts && node answer_shapes.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 answer_shapes.ts && node answer_shapes.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const handlers = [
     "account",
