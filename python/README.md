@@ -60,7 +60,7 @@ Subdirectories group experiments by library or theme:
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`, `langchain`
 - Plotting and imaging: `matplotlib`, `pylab`, `pil`
 - Data formats and messaging: `csv`, `json`, `config`, `email`, `sendgrid`
-- Databases and interop: `sqlalchemy`, `libvirt`, `r`
+- Databases and interop: `sqlalchemy`, `libvirt`, `r`, `temporal_memory`
 - Standard library and tooling: `doctest`, `nose`, `distutils`, `optparse`,
   `subprocess`, `loadpath`
 - GUI and browser automation: `tkinter`, `webdriver`
