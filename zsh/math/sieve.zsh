@@ -5,14 +5,15 @@
 limit=100
 
 is_prime=()
+# An assignment subscript takes no spaces: zsh would end the word at the first one.
 for ((n = 0; n < limit; n++)); do
-    is_prime[n + 1]=$((n >= 2))
+    is_prime[n+1]=$((n >= 2))
 done
 
 for ((n = 2; n * n < limit; n++)); do
     ((is_prime[n + 1])) || continue
     for ((multiple = n * n; multiple < limit; multiple += n)); do
-        is_prime[multiple + 1]=0
+        is_prime[multiple+1]=0
     done
 done
 
