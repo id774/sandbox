@@ -59,5 +59,8 @@ xcode-select --install
 - `ipc_socket`: a matching echo client and server pair that exchange lines
   over a socket.
 - `is_prime`: a standalone primality check.
+- `veracrypt_header`: a standalone probe that decrypts a VeraCrypt normal
+  primary header with PBKDF2-HMAC-SHA-512 and AES-256-XTS, then validates its
+  magic and CRC-32 fields.
 - `ruby`: a native Ruby C extension (`mytest`), with its `extconf.rb` and a
   script that loads and calls it.
