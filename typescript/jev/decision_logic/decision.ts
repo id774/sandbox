@@ -1,8 +1,23 @@
+// decision.ts: Jev-shaped typed output and decision logic with fixed data
+//
+// Description:
 // Reproduces Jev's API-shaped typed output with fixed data instead of a
 // live call. Noul, Choice, and Score answers, probability vs. confidence,
 // calibration, expected-loss review thresholds, audit records, distribution
 // comparison, and an operational log record can all be traced in this file.
-// Run: tsc --target es2020 decision.ts && node decision.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 decision.ts && node decision.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 interface NoulAnswer {
     type: "noul";
