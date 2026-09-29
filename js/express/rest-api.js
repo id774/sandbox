@@ -1,8 +1,28 @@
-// A CRUD resource on a Router. Run with: node rest-api.js
+// rest-api.js: Express CRUD resource on a Router
 //
-//   curl localhost:3000/notes
-//   curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
-//   curl -X PATCH localhost:3000/notes/1 -H 'content-type: application/json' -d '{"done":true}'
+// Description:
+// A CRUD resource on an Express Router, backed by an in-memory store.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node rest-api.js
+//
+//     curl localhost:3000/notes
+//     curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
+//     curl -X PATCH localhost:3000/notes/1 -H 'content-type: application/json' -d '{"done":true}'
+//
+// Requirements:
+// - Node.js 18 or later
+// - Express 5.2.1 or later within the 5.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
 
 import express from 'express';
 

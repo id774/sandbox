@@ -1,4 +1,28 @@
-// Middleware, error handling, and the onion model. Run with: node middleware.js
+// middleware.js: Hono middleware, error handling, and the onion model
+//
+// Description:
+// Middleware, error handling, and the onion model in Hono: middleware that
+// runs before and after the handler, a scoped auth check, and error and
+// not-found handlers.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node middleware.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - Hono 4.13.2 or later within the 4.x line
+// - @hono/node-server 2.1.0 or later within the 2.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
+// - The Bearer token "secret" is fixed demonstration data, not a real credential.
 
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';

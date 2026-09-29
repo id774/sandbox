@@ -1,4 +1,25 @@
-// Routing basics. Run with: bun run server.ts
+// server.ts: Elysia routing basics
+//
+// Description:
+// Routing basics in Elysia: path and query parameters, typed validation,
+// and JSON or text responses, built as one chained app.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     bun install
+//     bun run server.ts
+//
+// Requirements:
+// - Bun 1.2 or later
+// - Elysia 1.4.29 or later within the 1.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
 
 import { Elysia, t } from 'elysia';
 

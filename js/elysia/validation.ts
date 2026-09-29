@@ -1,7 +1,29 @@
-// Schemas as types and as runtime checks. Run with: bun run validation.ts
+// validation.ts: Elysia request and response schema validation
 //
-//   curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
-//   curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{}'
+// Description:
+// Schemas as types and as runtime checks: request and response schema
+// validation on an in-memory notes resource, with an error hook. The order
+// in which hooks are registered is part of the behavior.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     bun install
+//     bun run validation.ts
+//
+//     curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
+//     curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{}'
+//
+// Requirements:
+// - Bun 1.2 or later
+// - Elysia 1.4.29 or later within the 1.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
 
 import { Elysia, t } from 'elysia';
 

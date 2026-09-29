@@ -1,4 +1,25 @@
-// Routing basics. Run with: node server.js
+// server.js: Express routing basics
+//
+// Description:
+// Routing basics in Express 5: built-in body parsers, route and query
+// parameters, and JSON and text responses.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node server.js
+//
+// Requirements:
+// - Node.js 18 or later
+// - Express 5.2.1 or later within the 5.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
 
 import express from 'express';
 
