@@ -1,4 +1,25 @@
-// Routing basics. Run with: node server.js
+// server.js: Fastify routing basics
+//
+// Description:
+// Routing basics in Fastify 5: async handlers, lifecycle hooks, the
+// built-in logger, and graceful shutdown on a signal.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node server.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - Fastify 5.12.0 or later within the 5.x line
+//
+// Notes:
+// - Serves HTTP on 127.0.0.1:3000.
+// - No external service, database, or credential is needed.
 
 import Fastify from 'fastify';
 

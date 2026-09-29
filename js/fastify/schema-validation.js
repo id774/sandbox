@@ -1,7 +1,29 @@
-// Schemas as the contract of a route. Run with: node schema-validation.js
+// schema-validation.js: Fastify schema validation and serialization
 //
-//   curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
-//   curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{}'
+// Description:
+// Schemas as the contract of a route: JSON Schema request validation,
+// response serialization, and error handling on an in-memory notes
+// resource.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node schema-validation.js
+//
+//     curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
+//     curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{}'
+//
+// Requirements:
+// - Node.js 20 or later
+// - Fastify 5.12.0 or later within the 5.x line
+//
+// Notes:
+// - Serves HTTP on 127.0.0.1:3000.
+// - No external service, database, or credential is needed.
 
 import Fastify from 'fastify';
 

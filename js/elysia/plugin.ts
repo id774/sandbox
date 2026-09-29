@@ -1,5 +1,26 @@
-// Composition: a plugin is just another Elysia instance.
-// Run with: bun run plugin.ts
+// plugin.ts: Elysia plugin composition
+//
+// Description:
+// Composition: a plugin is just another Elysia instance. Shows plugin
+// deduplication, decorate, derive, guard, and plugin scope.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     bun install
+//     bun run plugin.ts
+//
+// Requirements:
+// - Bun 1.2 or later
+// - Elysia 1.4.29 or later within the 1.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
+// - The Bearer token "secret" is fixed demonstration data, not a real credential.
 
 import { Elysia, t } from 'elysia';
 

@@ -1,8 +1,29 @@
-// A CRUD resource over an in-memory store. Run with: node rest-api.js
+// rest-api.js: Hono CRUD resource over an in-memory store
 //
-//   curl localhost:3000/notes
-//   curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
-//   curl -X DELETE localhost:3000/notes/1
+// Description:
+// A CRUD resource in Hono over an in-memory store.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node rest-api.js
+//
+//     curl localhost:3000/notes
+//     curl -X POST localhost:3000/notes -H 'content-type: application/json' -d '{"text":"hi"}'
+//     curl -X DELETE localhost:3000/notes/1
+//
+// Requirements:
+// - Node.js 20 or later
+// - Hono 4.13.2 or later within the 4.x line
+// - @hono/node-server 2.1.0 or later within the 2.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
 
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';

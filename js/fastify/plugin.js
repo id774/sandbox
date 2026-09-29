@@ -1,5 +1,26 @@
-// Encapsulation, the idea the rest of Fastify is built on.
-// Run with: node plugin.js
+// plugin.js: Fastify plugin encapsulation
+//
+// Description:
+// Encapsulation, the idea the rest of Fastify is built on: plugin
+// encapsulation, fastify-plugin, decorators, and teardown.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node plugin.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - Fastify 5.12.0 or later within the 5.x line
+// - fastify-plugin 5.1.0 or later within the 5.x line
+//
+// Notes:
+// - Serves HTTP on 127.0.0.1:3000.
+// - No external service, database, or credential is needed.
 
 import Fastify from 'fastify';
 import fp from 'fastify-plugin';

@@ -1,7 +1,28 @@
-// The middleware pipeline. Run with: node middleware.js
+// middleware.js: Express middleware pipeline
 //
-// Every app.use() is a link in a chain walked in registration order; a handler
-// either ends the request or calls next().
+// Description:
+// The middleware pipeline: every app.use() is a link in a chain walked in
+// registration order; a handler either ends the request or calls next().
+// Shows global and scoped middleware, a router, and an error handler. The
+// registration order is part of the behavior.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node middleware.js
+//
+// Requirements:
+// - Node.js 18 or later
+// - Express 5.2.1 or later within the 5.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
+// - The Bearer token "secret" is fixed demonstration data, not a real credential.
 
 import express from 'express';
 

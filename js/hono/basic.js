@@ -1,4 +1,26 @@
-// Routing basics. Run with: node basic.js
+// basic.js: Hono routing basics
+//
+// Description:
+// Routing basics in Hono, served on Node.js through the @hono/node-server
+// adapter.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm install
+//     node basic.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - Hono 4.13.2 or later within the 4.x line
+// - @hono/node-server 2.1.0 or later within the 2.x line
+//
+// Notes:
+// - Serves HTTP on port 3000.
+// - No external service, database, or credential is needed.
 
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
