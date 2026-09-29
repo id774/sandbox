@@ -1,7 +1,32 @@
 #!/usr/bin/env python3
 
-# Detect a Hugging Face text watermark in generated token sequences.
+# watermark_detection.py: Text watermark detection with Transformers
+#
+# Description:
+# Detects a Hugging Face text watermark in generated token sequences by
+# running WatermarkDetector against plain and watermarked GPT-2
+# completions, and prints the prediction for each.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 # Source: https://qiita.com/ynakayama/items/1bbe6e443152f6236311
+#
+# Usage:
+#     ./watermark_detection.py
+#
+# Requirements:
+# - Python 3.10 or later
+# - transformers 4.41 or later
+# - PyTorch 1.11 or later
+#
+# Notes:
+# - The first run downloads the public model from the Hugging Face Hub, so
+#   it needs network access, and stores it in the local Hugging Face cache.
+#   Later runs read the cache.
+# - No Hugging Face token is needed, and a CPU is enough.
 
 from transformers import (
     AutoModelForCausalLM,

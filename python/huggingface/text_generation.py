@@ -1,6 +1,29 @@
 #!/usr/bin/env python3
 
-# Generate a short continuation with a small text-generation pipeline.
+# text_generation.py: Short text continuation with a text-generation pipeline
+#
+# Description:
+# Generates a short continuation of a prompt with a GPT-2 text-generation
+# pipeline, passing the generation parameters as a GenerationConfig.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ./text_generation.py
+#
+# Requirements:
+# - Python 3.10 or later
+# - transformers 4.29 or later
+# - PyTorch 1.11 or later
+#
+# Notes:
+# - The first run downloads the public model from the Hugging Face Hub, so
+#   it needs network access, and stores it in the local Hugging Face cache.
+#   Later runs read the cache.
+# - No Hugging Face token is needed, and a CPU is enough.
 
 from transformers import GenerationConfig, pipeline
 

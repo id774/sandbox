@@ -1,7 +1,32 @@
 #!/usr/bin/env python3
 
-# Compare plain and watermarked text generation with Hugging Face Transformers.
+# watermark_generation.py: Plain and watermarked text generation with Transformers
+#
+# Description:
+# Compares plain and watermarked text generation with Hugging Face
+# Transformers, using WatermarkingConfig with a public GPT-2 model, and
+# prints both outputs.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 # Source: https://qiita.com/ynakayama/items/1bbe6e443152f6236311
+#
+# Usage:
+#     ./watermark_generation.py
+#
+# Requirements:
+# - Python 3.10 or later
+# - transformers 4.41 or later
+# - PyTorch 1.11 or later
+#
+# Notes:
+# - The first run downloads the public model from the Hugging Face Hub, so
+#   it needs network access, and stores it in the local Hugging Face cache.
+#   Later runs read the cache.
+# - No Hugging Face token is needed, and a CPU is enough.
 
 from transformers import (
     AutoModelForCausalLM,

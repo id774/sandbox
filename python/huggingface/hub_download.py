@@ -1,6 +1,28 @@
 #!/usr/bin/env python3
 
-# Download one small file from the Hub without Transformers or Datasets.
+# hub_download.py: Single-file download from the Hugging Face Hub
+#
+# Description:
+# Downloads one small file, a model's config.json, from the Hub with
+# hf_hub_download(), without Transformers or Datasets, and prints its
+# cached path and a few of its values.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ./hub_download.py
+#
+# Requirements:
+# - Python 3.10 or later
+# - huggingface_hub 0.11 or later
+#
+# Notes:
+# - The sample downloads from a public Hub repository, so it needs network
+#   access. The file is stored in the local Hugging Face cache.
+# - No Hugging Face token is needed.
 
 import json
 
