@@ -1,9 +1,24 @@
+// lint.ts: Jev-shaped semantic lint with a deterministic CI decision
+//
+// Description:
 // Demonstrates semantic linting of a TypeScript function by splitting the
 // check into narrow Jev-shaped Noul judgments and a Score severity, then
 // letting a deterministic CI policy decide failure. The Jev response is fixed
 // locally, so no network access or credentials are needed. The fixed fixture
 // contains defects, so the expected exit status is 1.
-// Run: tsc --target es2020 lint.ts && node lint.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 lint.ts && node lint.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 declare const process: { exitCode?: number };
 

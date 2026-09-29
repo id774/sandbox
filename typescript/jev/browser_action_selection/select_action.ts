@@ -1,8 +1,23 @@
+// select_action.ts: Jev-shaped browser action selection
+//
+// Description:
 // Demonstrates browser action selection in which ordinary code prepares the
 // observed targets, a Jev-shaped Choice selects a target ID, and ordinary code
 // performs the side effect. The browser and the Jev response are simulated
 // locally, so no browser, network access, or credentials are needed.
-// Run: tsc --target es2020 select_action.ts && node select_action.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 select_action.ts && node select_action.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const targets = ["save", "cancel", "done"] as const;
 

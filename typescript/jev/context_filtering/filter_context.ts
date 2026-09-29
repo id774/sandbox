@@ -1,8 +1,23 @@
+// filter_context.ts: Jev-shaped relevance filtering of candidate context
+//
+// Description:
 // Demonstrates filtering already retrieved candidate context by Jev-shaped
 // Noul relevance so that deterministic code chooses what is passed to a later
 // processing stage. The Jev response is fixed locally, so no network access or
 // credentials are needed.
-// Run: tsc --target es2020 filter_context.ts && node filter_context.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 filter_context.ts && node filter_context.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 interface NoulAnswer {
     noul: number;

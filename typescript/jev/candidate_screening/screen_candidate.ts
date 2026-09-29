@@ -1,9 +1,24 @@
+// screen_candidate.ts: Jev-shaped candidate screening against required criteria
+//
+// Description:
 // Demonstrates screening a fixed candidate profile fixture against required
 // criteria. Jev-shaped Choice answers select each criterion status and one
 // evidence excerpt ID from a finite set, and deterministic code builds the
 // potential_match state. The Jev response is fixed locally, so no network
 // access or credentials are needed.
-// Run: tsc --target es2020 screen_candidate.ts && node screen_candidate.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 screen_candidate.ts && node screen_candidate.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const statuses = ["met", "not_met", "unknown"] as const;
 const evidenceIds = ["e0", "e1", "e2", "none"] as const;

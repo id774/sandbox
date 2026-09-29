@@ -1,8 +1,23 @@
+// route.ts: Jev as an MCP-style routing decision tool
+//
+// Description:
 // Demonstrates consuming Jev as an MCP-style external decision tool and
 // validating its finite route result at the application boundary. A local
 // mock returns the MCP tool response, so no MCP server, external process,
 // network access, or credentials are needed.
-// Run: tsc --target es2020 route.ts && node route.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 route.ts && node route.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const routes = ["fast", "deep"] as const;
 

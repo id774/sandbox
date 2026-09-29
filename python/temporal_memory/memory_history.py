@@ -1,3 +1,25 @@
+# memory_history.py: SQLite-backed temporal state history
+#
+# Description:
+# Keeps the history of state values in SQLite and reconstructs the value
+# valid at a given time from each row's validity interval. The module
+# docstring below states the storage model.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     from memory_history import as_of, connect, current, remember, revoke
+#
+#     Run the tests from the python/temporal_memory directory:
+#     python -m pytest -q
+#
+# Requirements:
+# - Python 3.12 or later
+# - Only the Python standard library is required at runtime
+
 """SQLite-backed temporal state history.
 
 Each (subject, attribute) keeps its history as rows valid over the half-open

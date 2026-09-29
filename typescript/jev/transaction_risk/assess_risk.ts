@@ -1,8 +1,23 @@
+// assess_risk.ts: Hard rules and Jev-shaped transaction risk assessment
+//
+// Description:
 // Demonstrates evaluating deterministic hard rules before a Jev-shaped
 // judgment, sending only ambiguous transactions to Jev, and deciding the final
 // action in code. The transactions and the Jev response are fixed locally, so
 // no network access or credentials are needed.
-// Run: tsc --target es2020 assess_risk.ts && node assess_risk.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 assess_risk.ts && node assess_risk.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 type Action = "FREEZE" | "MANUAL_REVIEW" | "PASS";
 type Source = "hard_rule" | "jev";

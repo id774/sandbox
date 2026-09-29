@@ -1,8 +1,23 @@
+// triage.ts: Jev-shaped email triage
+//
+// Description:
 // Demonstrates triaging a fixed email into a Jev-shaped Choice category, Score
 // urgency, and Noul human-written probability, with deterministic code
 // producing the displayed values. The Jev response is fixed locally, so no
 // mailbox, network access, or credentials are needed.
-// Run: tsc --target es2020 triage.ts && node triage.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 triage.ts && node triage.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const trays = ["needs_reply", "fyi", "newsletter", "spam"] as const;
 

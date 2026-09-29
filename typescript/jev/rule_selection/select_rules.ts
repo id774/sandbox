@@ -1,8 +1,23 @@
+// select_rules.ts: Jev-shaped selection of relevant standing rules
+//
+// Description:
 // Demonstrates selecting only the standing rules relevant to the current
 // request by applying a deterministic threshold to Jev-shaped Noul relevance
 // judgments. The Jev response is fixed locally, so no network access or
 // credentials are needed.
-// Run: tsc --target es2020 select_rules.ts && node select_rules.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 select_rules.ts && node select_rules.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 interface NoulAnswer {
     noul: number;
