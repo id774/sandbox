@@ -1,6 +1,29 @@
 #!/usr/bin/env python3
 
-# Inspect a small public dataset, then read a large one in streaming mode.
+# datasets_load.py: Regular and streaming dataset loading with Datasets
+#
+# Description:
+# Loads a small public dataset and prints its size, columns, features, and
+# first rows, then reads a larger public dataset in streaming mode so that
+# it is not downloaded up front.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ./datasets_load.py
+#
+# Requirements:
+# - Python 3.10 or later
+# - datasets 2.0 or later
+#
+# Notes:
+# - The sample reads public datasets from the Hugging Face Hub, so it needs
+#   network access. The small dataset is stored in the local Hugging Face
+#   cache; the larger one is streamed.
+# - No Hugging Face token is needed.
 
 from datasets import load_dataset
 
