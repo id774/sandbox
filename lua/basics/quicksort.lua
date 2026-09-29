@@ -1,5 +1,24 @@
+-- quicksort.lua: Quicksort of a fixed integer sequence
+--
+-- Description:
 -- Sort a fixed table with a quicksort that builds a new table at each step.
--- Run: lua quicksort.lua
+--
+-- Part of the basics cross-language exercise set: the input is fixed in the
+-- source, and the output is the same as that of the same exercise in every
+-- other language. The exercises are specified in README.md at the
+-- repository root.
+--
+-- Author: id774 (More info: https://id774.net)
+-- Source Code: https://github.com/id774/sandbox
+-- License: The GPL version 3, or LGPL version 3 (Dual License).
+-- Contact: idnanashi@gmail.com
+--
+-- Usage:
+--     lua quicksort.lua
+--
+-- Requirements:
+-- - Lua 5.3 or later
+-- - No third-party package is required
 
 local function quicksort(items)
   if #items <= 1 then
