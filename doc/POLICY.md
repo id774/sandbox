@@ -551,6 +551,44 @@ Where privilege itself is the subject of an experiment, make that requirement
 and its affected scope explicit rather than leaving it for a reader to discover
 by running the example.
 
+#### 2.4.7 Header Documentation
+
+Repository-authored source files added by a change, and existing
+repository-authored source files explicitly included in a header-documentation
+maintenance change, carry a header appropriate to the language, platform, or
+tool. This requirement does not by itself make unrelated historical source
+files part of a change.
+
+The header identifies the file and its purpose without requiring the reader to
+infer them from the implementation. It includes the following repository
+metadata:
+
+- `Author: id774 (More info: https://id774.net)`
+- `Source Code: https://github.com/id774/sandbox`
+- `License: The GPL version 3, or LGPL version 3 (Dual License).`
+- `Contact: idnanashi@gmail.com`
+
+A standalone program, directly runnable test or evaluation, or project entry
+point also records how it is run, built, or tested and the requirements needed
+to do so. Requirements state practical minimum versions for the runtime,
+compiler, tool, and directly required library where a meaningful minimum
+applies. A practical minimum is a version reasonably expected to support the
+current sample from its source, configuration, manifest, and documented APIs;
+it does not need to be the earliest version that could theoretically run it.
+
+In a multi-file project, the entry point carries the full project-level usage
+and requirements. Supporting source files keep a concise header with the
+repository metadata and enough description to identify their role, and may
+refer to the entry point or local README instead of duplicating project-wide
+setup and dependency details. Generated files and third-party source are not
+given repository-authored headers; Sections 1.16 and 2.3.3 continue to govern
+attribution, licensing, and generated project trees.
+
+Header syntax follows the language or platform convention under Section 2.4.3.
+Do not add a uniform comment form across languages merely to make headers look
+alike. Do not duplicate detailed behavioral specifications, file inventories,
+or other material whose authoritative home is a README under Section 2.3.7.
+
 ### 2.5 Cross-Language Experiments
 
 The repository may place comparable exercises across multiple language or
