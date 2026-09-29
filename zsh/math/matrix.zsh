@@ -16,7 +16,8 @@ for ((i = 1; i <= size; i++)); do
         for ((k = 1; k <= size; k++)); do
             ((sum += left[size * (i - 1) + k] * right[size * (k - 1) + j]))
         done
-        product[size * (i - 1) + j]=$sum
+        # An assignment subscript takes no spaces: zsh would end the word at the first one.
+        product[size*(i-1)+j]=$sum
         row+=($sum)
     done
     print -- $row
