@@ -1,5 +1,28 @@
-/* Sort a fixed array in place with a quicksort over a Lomuto partition. */
-/* Build: cc -o quicksort quicksort.c */
+/*
+ * quicksort.c: Quicksort of a fixed integer sequence
+ *
+ * Description:
+ * Sort a fixed array in place with a quicksort over a Lomuto partition.
+ *
+ * Part of the basics cross-language exercise set: the input is fixed in the
+ * source, and the output is the same as that of the same exercise in every
+ * other language. The exercises are specified in README.md at the
+ * repository root.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Build / Run:
+ *     cc -o quicksort quicksort.c
+ *     ./quicksort
+ *
+ * Requirements:
+ * - A C99 compiler run as cc, such as GCC 5 or later or Clang 3.6
+ *   or later
+ * - No third-party package is required
+ */
 
 #include <stddef.h>
 #include <stdio.h>

@@ -1,6 +1,29 @@
-/* Count the words of a fixed text, most frequent first and alphabetically within a tie. */
-/* The C standard library has no map, so the counts live in a linear array. */
-/* Build: cc -o word_frequency word_frequency.c */
+/*
+ * word_frequency.c: Word frequencies of a fixed sentence
+ *
+ * Description:
+ * Count the words of a fixed text, most frequent first and alphabetically within a tie.
+ * The C standard library has no map, so the counts live in a linear array.
+ *
+ * Part of the basics cross-language exercise set: the input is fixed in the
+ * source, and the output is the same as that of the same exercise in every
+ * other language. The exercises are specified in README.md at the
+ * repository root.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Build / Run:
+ *     cc -o word_frequency word_frequency.c
+ *     ./word_frequency
+ *
+ * Requirements:
+ * - A C99 compiler run as cc, such as GCC 5 or later or Clang 3.6
+ *   or later
+ * - No third-party package is required
+ */
 
 #include <stddef.h>
 #include <stdio.h>

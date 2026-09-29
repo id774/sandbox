@@ -1,5 +1,26 @@
+// sieve.rs: Primes below 100 by the sieve of Eratosthenes
+//
+// Description:
 // Print the primes below 100, sieved over a vector of flags and collected from an iterator.
-// Build: rustc -o sieve sieve.rs
+//
+// Part of the math cross-language exercise set: it reads no arguments or
+// standard input, keeps its data fixed in the source, uses integer
+// arithmetic only, and its output is the same as that of the same exercise
+// in every other language. The exercises are specified in README.md at the
+// repository root.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     rustc -o sieve sieve.rs
+//     ./sieve
+//
+// Requirements:
+// - Rust 1.53 or later (rustc)
+// - No third-party package is required
 
 const LIMIT: usize = 100;
 

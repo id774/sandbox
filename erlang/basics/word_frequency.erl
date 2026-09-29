@@ -1,5 +1,24 @@
+%% word_frequency.erl: Word frequencies of a fixed sentence
+%%
+%% Description:
 %% Count the words of a fixed text, most frequent first and alphabetically within a tie.
-%% Run: escript word_frequency.erl
+%%
+%% Part of the basics cross-language exercise set: the input is fixed in the
+%% source, and the output is the same as that of the same exercise in every
+%% other language. The exercises are specified in README.md at the
+%% repository root.
+%%
+%% Author: id774 (More info: https://id774.net)
+%% Source Code: https://github.com/id774/sandbox
+%% License: The GPL version 3, or LGPL version 3 (Dual License).
+%% Contact: idnanashi@gmail.com
+%%
+%% Usage:
+%%     escript word_frequency.erl
+%%
+%% Requirements:
+%% - Erlang/OTP 20 or later (escript)
+%% - No third-party package is required
 
 -module(word_frequency).
 -export([main/1]).

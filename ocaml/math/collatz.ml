@@ -1,5 +1,27 @@
-(* Print the start below 1000 with the longest Collatz sequence, tracked in a fold over the range. *)
-(* Run: ocaml collatz.ml *)
+(*
+ * collatz.ml: Longest Collatz sequence for a start below 1000
+ *
+ * Description:
+ * Print the start below 1000 with the longest Collatz sequence, tracked in a fold over the range.
+ *
+ * Part of the math cross-language exercise set: it reads no arguments or
+ * standard input, keeps its data fixed in the source, uses integer
+ * arithmetic only, and its output is the same as that of the same exercise
+ * in every other language. The exercises are specified in README.md at the
+ * repository root.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Usage:
+ *     ocaml collatz.ml
+ *
+ * Requirements:
+ * - OCaml 4.08 or later (the ocaml toplevel)
+ * - No third-party package is required
+ *)
 
 let limit = 1000
 
