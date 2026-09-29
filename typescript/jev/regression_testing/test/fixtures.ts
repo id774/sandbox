@@ -1,3 +1,15 @@
+// fixtures.ts: Fixed cases for the live Jev regression evaluation
+//
+// Description:
+// Supporting fixture of the Jev regression testing sample, used by
+// jev-regression.spec.ts. See src/index.ts for the sample context and
+// requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import type { Decision } from "../src/decision";
 
 export type EvalCase = {

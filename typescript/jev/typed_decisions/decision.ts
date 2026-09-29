@@ -1,7 +1,22 @@
+// decision.ts: Jev typed decisions at an application boundary
+//
+// Description:
 // Demonstrates how to place Jev's typed decisions at the boundary between
 // unstructured input and ordinary TypeScript business logic. The Jev response
 // is fixed locally so the sample requires no network access or credentials.
-// Run: tsc --target es2020 decision.ts && node decision.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     tsc --target es2020 decision.ts && node decision.js
+//
+// Requirements:
+// - Node.js 20 or later
+// - TypeScript 5.0 or later
+// - No third-party package is required
 
 const departments = [
     "account",

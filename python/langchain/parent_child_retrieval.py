@@ -1,3 +1,33 @@
+# parent_child_retrieval.py: Flat vs. parent-child retrieval in LangChain
+#
+# Description:
+# Compares flat retrieval of small child chunks with parent-child retrieval
+# that searches child chunks but returns the larger parent chunk containing
+# the match, and prints the retrieved chunks and their token counts. See
+# README.md in this directory for details and attribution.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python -m pip install -r requirements.txt
+#     export OPENAI_API_KEY='YOUR_API_KEY'
+#     python3 parent_child_retrieval.py
+#
+# Requirements:
+# - Python 3.12 or later
+# - Packages pinned in requirements.txt: langchain-classic 1.0.8,
+#   langchain-core 1.6.3, langchain-openai 1.6.2,
+#   langchain-text-splitters 1.1.2
+# - tiktoken, as listed in requirements.txt
+# - An OpenAI API key in the OPENAI_API_KEY environment variable
+#
+# Notes:
+# - Running the sample calls the OpenAI embeddings API, so it needs network
+#   access and may incur API usage.
+
 import tiktoken
 from langchain_classic.retrievers import ParentDocumentRetriever
 from langchain_core.documents import Document
