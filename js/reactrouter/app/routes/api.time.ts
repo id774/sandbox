@@ -1,3 +1,16 @@
+// api.time.ts: Resource route for /api/time
+//
+// Description:
+// Resource route with a loader and no component, answering /api/time with
+// JSON.
+// Part of the React Router sample project; see app/routes.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import type { Route } from './+types/api.time';
 
 // A resource route: no default export, so nothing is rendered and the loader's

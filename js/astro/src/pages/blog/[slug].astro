@@ -1,4 +1,17 @@
 ---
+// [slug].astro: Dynamic blog route built with getStaticPaths
+//
+// Description:
+// Dynamic route whose getStaticPaths() fetches the public user list and
+// emits one page per user, passing each user to the template as props.
+// Part of the Astro sample project; see src/pages/index.astro and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import Card from '../../components/Card.astro';
 
 // getStaticPaths enumerates the pages to build. Each entry becomes one HTML

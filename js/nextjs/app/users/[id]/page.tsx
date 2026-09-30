@@ -1,3 +1,15 @@
+// page.tsx: Dynamic user page
+//
+// Description:
+// Dynamic route page that awaits its params Promise and fetches one user.
+// Part of the Next.js sample project; see app/layout.tsx and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { notFound } from 'next/navigation';
 
 // Dynamic route params arrive as a Promise (async request APIs, Next 15+),

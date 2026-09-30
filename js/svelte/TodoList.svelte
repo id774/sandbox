@@ -1,4 +1,26 @@
 <script>
+  // TodoList.svelte: Svelte 5 todo list with a deeply reactive $state array
+  //
+  // Description:
+  // Todo list component whose $state array is deeply reactive, rendered with a
+  // keyed each block.
+  //
+  // Author: id774 (More info: https://id774.net)
+  // Source Code: https://github.com/id774/sandbox
+  // License: The GPL version 3, or LGPL version 3 (Dual License).
+  // Contact: idnanashi@gmail.com
+  //
+  // Build / Run:
+  //     npm create vite@latest svelte-demo -- --template svelte
+  //     cd svelte-demo && npm install
+  //     cp ../Counter.svelte ../TodoList.svelte ../counter.svelte.js src/lib/
+  //     npm run dev
+  //
+  // Requirements:
+  // - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+  // - npm
+  // - Svelte 5 or later within the 5.x line, with the Vite Svelte template
+
   let nextId = 1;
 
   // $state on an array or object is deep: push() and property assignment are

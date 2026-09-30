@@ -1,4 +1,17 @@
 ---
+// Card.astro: Card component with props and a slot
+//
+// Description:
+// Card component that takes its props from Astro.props, renders the caller's
+// content through <slot />, and scopes its styles to the component.
+// Part of the Astro sample project; see src/pages/index.astro and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 interface Props {
   title: string;
   href?: string;

@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<!--
+  index.html: Entry page loading the Lit sample elements
+
+  Description:
+  Page that maps the bare lit specifier to Lit 3 modules on a CDN with an
+  import map, loads counter-element.js, todo-list.js, and clock-element.js,
+  and uses the three custom elements. The elements are plain JavaScript with
+  static class fields, so no compiler is needed.
+
+  Author: id774 (More info: https://id774.net)
+  Source Code: https://github.com/id774/sandbox
+  License: The GPL version 3, or LGPL version 3 (Dual License).
+  Contact: idnanashi@gmail.com
+
+  Usage:
+      Serve this directory over HTTP and open index.html, for example:
+      python3 -m http.server 8000
+      Then open http://localhost:8000/index.html.
+
+  Requirements:
+  - A current web browser with import map support
+  - Lit 3, loaded from esm.sh (lit@3)
+  - Any static HTTP server; the python3 command above is only one example
+
+  Notes:
+  - Loading Lit needs network access to esm.sh.
+  - The page needs a static server because module imports with an import map
+    do not work over file: URLs in every browser.
+-->
 <html lang="en">
   <head>
     <meta charset="utf-8">

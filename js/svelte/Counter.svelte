@@ -1,4 +1,25 @@
 <script>
+  // Counter.svelte: Svelte 5 counter with runes
+  //
+  // Description:
+  // Counter component using $props, $state, $derived, and $effect.
+  //
+  // Author: id774 (More info: https://id774.net)
+  // Source Code: https://github.com/id774/sandbox
+  // License: The GPL version 3, or LGPL version 3 (Dual License).
+  // Contact: idnanashi@gmail.com
+  //
+  // Build / Run:
+  //     npm create vite@latest svelte-demo -- --template svelte
+  //     cd svelte-demo && npm install
+  //     cp ../Counter.svelte ../TodoList.svelte ../counter.svelte.js src/lib/
+  //     npm run dev
+  //
+  // Requirements:
+  // - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+  // - npm
+  // - Svelte 5 or later within the 5.x line, with the Vite Svelte template
+
   // Svelte 5 runes. `$props()` destructures what the parent passed, with
   // defaults; `$state` marks a variable the compiler should track.
   let { step = 1, label = "count" } = $props();

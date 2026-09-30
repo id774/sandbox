@@ -1,3 +1,16 @@
+// cats.module.ts: Cats feature module
+//
+// Description:
+// Feature module that provides CatsService, registers CatsController, and
+// exports the service.
+// Part of the NestJS sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Module } from '@nestjs/common';
 
 import { CatsController } from './cats.controller';

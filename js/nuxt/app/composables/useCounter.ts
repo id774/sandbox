@@ -1,3 +1,16 @@
+// useCounter.ts: Auto-imported counter composable
+//
+// Description:
+// Counter composable built on useState, auto-imported by name across the
+// app.
+// Part of the Nuxt sample project; see app/app.vue and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 // Files in app/composables/ are auto-imported by name across the app.
 //
 // useState is Nuxt's SSR-safe ref: the value is serialised into the payload,

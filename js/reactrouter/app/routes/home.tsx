@@ -1,3 +1,16 @@
+// home.tsx: Home route with a loader
+//
+// Description:
+// Home route with meta and a server loader whose typed data the component
+// renders.
+// Part of the React Router sample project; see app/routes.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Link } from 'react-router';
 
 // Generated per route by `react-router typegen` (and by the dev server), so

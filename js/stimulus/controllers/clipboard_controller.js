@@ -1,3 +1,16 @@
+// clipboard_controller.js: Clipboard controller with values and feature detection
+//
+// Description:
+// Controller that copies text to the clipboard, with typed values and
+// feature detection in connect().
+// Part of the Stimulus sample project; see index.html and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {

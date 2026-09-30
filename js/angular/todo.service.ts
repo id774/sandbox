@@ -1,3 +1,16 @@
+// todo.service.ts: Root-provided todo service
+//
+// Description:
+// Service provided in root that keeps the todo list in a private writable
+// signal and exposes readonly signals.
+// Part of the Angular sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { computed, Injectable, signal } from '@angular/core';
 
 export interface Todo {

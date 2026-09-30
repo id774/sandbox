@@ -1,3 +1,26 @@
+// todo.tsx: Qwik todo list with useStore
+//
+// Description:
+// Todo list component that keeps its object state in useStore and handles
+// events with $() closures.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm create qwik@latest
+//     cd <project>
+//     cp -r ../counter.tsx ../todo.tsx ../routes src/
+//     npm start
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of Vite 7, which the Qwik 1.20
+//   starter installs)
+// - npm
+// - Qwik 1.20 or later within the 1.x line (@builder.io/qwik)
+
 import { $, component$, useStore } from '@builder.io/qwik';
 
 interface Todo {

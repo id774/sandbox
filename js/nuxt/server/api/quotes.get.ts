@@ -1,3 +1,15 @@
+// quotes.get.ts: Nitro API route for GET /api/quotes
+//
+// Description:
+// Server API route that returns the quotes, optionally filtered by author.
+// Part of the Nuxt sample project; see app/app.vue and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 // server/api/quotes.get.ts serves GET /api/quotes. The method comes from the
 // file suffix; drop it to handle every method in one handler.
 //

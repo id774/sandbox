@@ -1,3 +1,29 @@
+// useMouse.js: Vue composables for mouse position and localStorage
+//
+// Description:
+// Composables that package reactive state with the lifecycle hooks that keep
+// it current: the mouse position, and a value mirrored into localStorage.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest vue-demo -- --template vue
+//     cd vue-demo && npm install
+//     cp ../TodoList.vue ../useMouse.js src/
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - Vue 3.5 or later within the 3.x line, with the Vite Vue template
+//
+// Notes:
+// - useLocalStorage reads and writes the browser's localStorage under the key
+//   it is given.
+
 // A composable: state plus the lifecycle needed to keep it fresh, wrapped in a
 // function. Each caller gets its own refs, unlike a module-level singleton.
 //

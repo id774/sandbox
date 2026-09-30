@@ -1,3 +1,33 @@
+// index.tsx: Qwik City route with a loader and an action
+//
+// Description:
+// Qwik City route whose routeLoader$ runs on the server before rendering, and
+// whose routeAction$ with Form handles a validated POST without client
+// code.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm create qwik@latest
+//     cd <project>
+//     cp -r ../counter.tsx ../todo.tsx ../routes src/
+//     npm start
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of Vite 7, which the Qwik 1.20
+//   starter installs)
+// - npm
+// - Qwik 1.20 or later within the 1.x line (@builder.io/qwik)
+// - Qwik City 1.20 (@builder.io/qwik-city), which provides routeLoader$,
+//   routeAction$, Form, and the zod$ validation helpers
+//
+// Notes:
+// - The route loader fetches https://api.quotable.io/random, a public API,
+//   on the server, so network access is needed.
+
 import { component$ } from '@builder.io/qwik';
 import { Form, routeAction$, routeLoader$, zod$, z } from '@builder.io/qwik-city';
 

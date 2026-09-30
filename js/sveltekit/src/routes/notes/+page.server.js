@@ -1,3 +1,16 @@
+// +page.server.js: Server-only load and form actions for the notes page
+//
+// Description:
+// Server-only module with the load function and the form actions of the
+// notes page; it never reaches the browser.
+// Part of the SvelteKit sample project; see src/routes/+layout.svelte and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { fail } from '@sveltejs/kit';
 
 // Stand-in for a database; module state resets when the server restarts.

@@ -1,3 +1,16 @@
+// counter.component.ts: Signal-based counter component
+//
+// Description:
+// Counter component using signal, computed, effect, and the signal-based
+// input() and output().
+// Part of the Angular sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Component, computed, effect, input, output, signal } from '@angular/core';
 
 @Component({

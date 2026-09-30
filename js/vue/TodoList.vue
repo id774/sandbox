@@ -1,4 +1,26 @@
 <script setup>
+// TodoList.vue: Vue single-file todo list component
+//
+// Description:
+// Single-file component with script setup, computed state, and scoped
+// styles.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest vue-demo -- --template vue
+//     cd vue-demo && npm install
+//     cp ../TodoList.vue ../useMouse.js src/
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - Vue 3.5 or later within the 3.x line, with the Vite Vue template
+
 // Everything declared here is available to the template; no return statement,
 // no `export default`. defineProps is a compiler macro, not an import.
 import { computed, ref } from "vue";

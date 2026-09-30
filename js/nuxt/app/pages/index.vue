@@ -1,4 +1,17 @@
 <script setup lang="ts">
+// index.vue: Home page using useFetch
+//
+// Description:
+// Home page that loads the quotes from the server API route with useFetch
+// and uses the counter composable.
+// Part of the Nuxt sample project; see app/app.vue and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 // useFetch runs during SSR and serialises the result into the payload, so the
 // browser reuses it instead of issuing the same request again on hydration.
 const { data: quotes, status, error, refresh } = await useFetch('/api/quotes', {

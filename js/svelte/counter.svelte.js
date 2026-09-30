@@ -1,3 +1,28 @@
+// counter.svelte.js: Shared state module using runes
+//
+// Description:
+// Module holding state shared by several components, written with runes.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest svelte-demo -- --template svelte
+//     cd svelte-demo && npm install
+//     cp ../Counter.svelte ../TodoList.svelte ../counter.svelte.js src/lib/
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - Svelte 5 or later within the 5.x line, with the Vite Svelte template
+//
+// Notes:
+// - The .svelte.js suffix is required: Svelte allows runes in a module only
+//   when its name ends that way.
+
 // State shared by several components. Runes work in a plain module as long as
 // the file is named *.svelte.js, but an exported `let` cannot stay reactive
 // across the import boundary — so the state hangs off an object instead.
