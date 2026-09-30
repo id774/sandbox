@@ -1,3 +1,16 @@
+// notes.tsx: Notes route with a loader, an action, and a form
+//
+// Description:
+// Notes route whose loader and action back a Form, with useNavigation for
+// the pending state.
+// Part of the React Router sample project; see app/routes.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Form, useNavigation } from 'react-router';
 
 import type { Route } from './+types/notes';

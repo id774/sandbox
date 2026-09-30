@@ -1,3 +1,26 @@
+// todo.jsx: Solid todo list with createStore
+//
+// Description:
+// Todo list that keeps nested state in createStore and renders with For and
+// Show.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest solid-demo -- --template solid
+//     cd solid-demo && npm install
+//     cp ../todo.jsx src/
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - Solid 1.9 or later within the 1.x line (solid-js), with the Vite Solid
+//   template
+
 // createStore keeps nested state fine-grained: setTodos below touches one
 // item's `done` property, and only that checkbox and label update.
 

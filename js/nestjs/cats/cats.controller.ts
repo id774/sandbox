@@ -1,3 +1,16 @@
+// cats.controller.ts: Controller for the /cats routes
+//
+// Description:
+// Controller that maps the /cats routes to CatsService with routing
+// decorators.
+// Part of the NestJS sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import {
   Body,
   Controller,

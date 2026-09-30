@@ -1,4 +1,32 @@
 <!DOCTYPE html>
+<!--
+  index.html: Entry page of the Stimulus sample
+
+  Description:
+  Page with the data-controller markup for the hello, clipboard, and list
+  controllers, and the bootstrap script that registers them with a Stimulus
+  application loaded through an import map.
+
+  Author: id774 (More info: https://id774.net)
+  Source Code: https://github.com/id774/sandbox
+  License: The GPL version 3, or LGPL version 3 (Dual License).
+  Contact: idnanashi@gmail.com
+
+  Usage:
+      Serve this directory over HTTP and open index.html, for example:
+      python3 -m http.server 8000
+      Then open http://localhost:8000/index.html.
+
+  Requirements:
+  - A current web browser with import map support
+  - Stimulus 3, loaded from esm.sh (@hotwired/stimulus@3)
+  - Any static HTTP server; the python3 command above is only one example
+
+  Notes:
+  - Loading Stimulus needs network access to esm.sh.
+  - The page needs a static server because it uses an import map and ES
+    modules.
+-->
 <html lang="en">
   <head>
     <meta charset="utf-8">

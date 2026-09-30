@@ -1,3 +1,15 @@
+// app.module.ts: Root module of the NestJS sample app
+//
+// Description:
+// Root module that composes the cats feature module.
+// Part of the NestJS sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Logger, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 
 import { CatsModule } from './cats/cats.module';

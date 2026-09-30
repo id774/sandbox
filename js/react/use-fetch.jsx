@@ -1,3 +1,30 @@
+// use-fetch.jsx: React custom hook wrapping fetch
+//
+// Description:
+// Custom hook that wraps fetch with an AbortController and exposes data,
+// error, and loading states, plus a component that uses it.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest react-demo -- --template react
+//     cd react-demo && npm install
+//     cp ../use-fetch.jsx src/
+//     Render its component from src/main.jsx, then:
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - React 19 or later within the 19.x line, with the Vite React template
+//
+// Notes:
+// - The example component fetches https://jsonplaceholder.typicode.com/users, a public
+//   API, from the browser, so network access is needed.
+
 // A custom hook is just a function calling other hooks. This one owns the
 // request lifecycle so components only see { data, error, loading }.
 

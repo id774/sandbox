@@ -1,4 +1,17 @@
 <script setup lang="ts">
+// [id].vue: Dynamic user page using useAsyncData
+//
+// Description:
+// Dynamic route page that fetches one user with useAsyncData keyed on the
+// route parameter.
+// Part of the Nuxt sample project; see app/app.vue and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 const route = useRoute();
 
 // useAsyncData wraps any async function (useFetch is the $fetch shorthand).

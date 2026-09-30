@@ -1,3 +1,16 @@
+// cats.service.ts: Injectable service holding the cats
+//
+// Description:
+// Injectable service that holds the cats in memory and implements the logic
+// behind the controller.
+// Part of the NestJS sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { CreateCatDto } from './dto/create-cat.dto';

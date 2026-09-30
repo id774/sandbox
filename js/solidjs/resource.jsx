@@ -1,3 +1,30 @@
+// resource.jsx: Solid async data with createResource
+//
+// Description:
+// User card that loads data with createResource, shown through Suspense and
+// ErrorBoundary.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest solid-demo -- --template solid
+//     cd solid-demo && npm install
+//     cp ../resource.jsx src/
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - Solid 1.9 or later within the 1.x line (solid-js), with the Vite Solid
+//   template
+//
+// Notes:
+// - The component fetches users from https://jsonplaceholder.typicode.com/users, a
+//   public API, from the browser, so network access is needed.
+
 // createResource ties a fetch to a signal: change the signal and the fetcher
 // re-runs, with the in-flight state exposed to <Suspense>.
 

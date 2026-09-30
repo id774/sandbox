@@ -1,4 +1,17 @@
 <script>
+  // +page.svelte: Notes page with a progressively enhanced form
+  //
+  // Description:
+  // Notes page whose form works as a plain post and is upgraded to fetch with
+  // use:enhance.
+  // Part of the SvelteKit sample project; see src/routes/+layout.svelte and
+  // README.md in this directory for setup and requirements.
+  //
+  // Author: id774 (More info: https://id774.net)
+  // Source Code: https://github.com/id774/sandbox
+  // License: The GPL version 3, or LGPL version 3 (Dual License).
+  // Contact: idnanashi@gmail.com
+
   import { enhance } from '$app/forms';
 
   let { data, form } = $props();

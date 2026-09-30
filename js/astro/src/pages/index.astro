@@ -1,4 +1,38 @@
 ---
+// index.astro: Home page of the Astro sample project
+//
+// Description:
+// Home page of a small Astro project. The frontmatter fetches a user list on
+// the server, the template renders it with the Card component, and the Preact
+// Counter island is hydrated with client directives. The components, the
+// dynamic blog route, and the API endpoint under src/ are the supporting
+// sources; see README.md in this directory.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     npm create astro@latest astro-demo
+//     cd astro-demo
+//     npx astro add preact
+//     cp -r ../src/* src/
+//     npm run dev
+//
+// Requirements:
+// - Node.js 22.12 or later (the engines of Astro 7)
+// - npm
+// - Astro 7 or later within the 7.x line
+// - The Astro Preact integration (npx astro add preact), for the Counter
+//   island
+//
+// Notes:
+// - This page and the blog route fetch https://jsonplaceholder.typicode.com/users, a
+//   public API, when they render, so network access is needed.
+// - src/pages/api/ping.ts opts out of prerendering. The dev server runs it,
+//   but a production build needs a server adapter, as README.md explains.
+
 // Frontmatter: runs on the server (at build time for a static page), never in
 // the browser. Top-level await is fine here.
 import Card from '../components/Card.astro';

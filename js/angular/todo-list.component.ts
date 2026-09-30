@@ -1,3 +1,16 @@
+// todo-list.component.ts: Todo list component
+//
+// Description:
+// Todo list component that obtains TodoService with inject() and renders with
+// the built-in @for, @if, and @empty control flow blocks.
+// Part of the Angular sample project; see main.ts and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { Component, inject, input } from '@angular/core';
 
 import { TodoService } from './todo.service';

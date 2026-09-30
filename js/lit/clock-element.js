@@ -1,3 +1,16 @@
+// clock-element.js: Clock element with a reactive controller
+//
+// Description:
+// Clock element whose ticking behaviour lives in a reactive controller with
+// its own hooks into the host element's lifecycle.
+// Part of the Lit sample project; see index.html and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { html, LitElement } from "lit";
 
 // A reactive controller: behaviour plus its own lifecycle, attachable to any

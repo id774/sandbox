@@ -1,3 +1,29 @@
+// server.js: Fragment server for the htmx sample page
+//
+// Description:
+// Dependency-free Node.js HTTP server that serves index.html and the HTML
+// fragments its hx-* attributes request.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     node server.js
+//     Then open http://localhost:8080/ in a web browser.
+//
+// Requirements:
+// - Node.js 20 or later
+// - No third-party Node.js package is required; only built-in modules are
+//   used
+// - A current web browser for the page
+//
+// Notes:
+// - The server listens on port 8080.
+// - The page loads htmx 2 from the jsDelivr CDN (htmx.org@2), so the browser
+//   needs network access to cdn.jsdelivr.net.
+
 // Fragment server for index.html. No dependencies: node server.js
 //
 // Every route answers with HTML, never JSON — that is the whole point of the

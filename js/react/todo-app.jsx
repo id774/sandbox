@@ -1,3 +1,26 @@
+// todo-app.jsx: React todo list with useReducer
+//
+// Description:
+// Todo list component that keeps the list in a useReducer store, with a
+// controlled input and keyed rendering.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     npm create vite@latest react-demo -- --template react
+//     cd react-demo && npm install
+//     cp ../todo-app.jsx src/
+//     Render it from src/main.jsx as shown below, then:
+//     npm run dev
+//
+// Requirements:
+// - Node.js 20.19 or later (the engines of the Vite release the scaffold installs)
+// - npm
+// - React 19 or later within the 19.x line, with the Vite React template
+
 // Todo list held in a useReducer store.
 //
 //   import { createRoot } from "react-dom/client";

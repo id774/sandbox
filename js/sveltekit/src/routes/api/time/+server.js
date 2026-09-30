@@ -1,3 +1,15 @@
+// +server.js: JSON endpoint for /api/time
+//
+// Description:
+// Server endpoint that answers GET /api/time with JSON.
+// Part of the SvelteKit sample project; see src/routes/+layout.svelte and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { error, json } from '@sveltejs/kit';
 
 // +server.js exports one function per HTTP method, working with the standard

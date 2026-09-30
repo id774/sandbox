@@ -1,3 +1,16 @@
+// page.tsx: Notes page posting to server actions
+//
+// Description:
+// Server component page whose forms post directly to the server actions in
+// actions.ts.
+// Part of the Next.js sample project; see app/layout.tsx and
+// README.md in this directory for setup and requirements.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+
 import { addNote, deleteNote, listNotes } from './actions';
 
 // A server component with no client JavaScript at all: the forms below post
