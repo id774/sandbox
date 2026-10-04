@@ -51,3 +51,7 @@ npm install --global typescript
   [README](../README.md#the-math-directory).
 - `jev`: the Jev-related TypeScript samples, grouped by topic. See
   [`jev/README.md`](jev/README.md).
+- `adapter_boundary`: a standalone sample in which a single composition root
+  selects the local or cloud adapter implementations, while the application
+  logic depends only on the adapter interfaces. See
+  [`adapter_boundary/README.md`](adapter_boundary/README.md).
