@@ -55,6 +55,9 @@ Subdirectories group experiments by library or theme:
   `simplemeserv`, `apache2`, `xml-rpc`
 - Numeric and scientific: `numpy`, `scipy`, `pandas`, `statsmodels`, `talib`,
   `simpy`, `mpi4py`
+- Numerical verification: `model_equivalence`, which compares two deterministic
+  model implementations with exact equality, numerical tolerances, fixed
+  scenarios, and independent invariants.
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
   `decision_tree`, `naivebayes`, `cluster`, `networkx`, `huggingface`
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`, `langchain`
