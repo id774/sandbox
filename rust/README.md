@@ -42,3 +42,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - `rust_1_99`: standalone samples of APIs that became stable in Rust 1.99.0,
   covering C variadics, `NonNull` ownership transfer for `Box` and `Vec`, and
   owned lossy UTF-8 conversion.
+
+The `rust_1_99` samples were inspired by the Qiita article
+[Rust 1.99が来たので、実務で使えそうな変更と気をつけたいところを拾ってみる](https://qiita.com/DwarfM42/items/b4a78fdbf38129ee2fcd).

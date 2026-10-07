@@ -20,7 +20,6 @@
 // References:
 // - Rust 1.99.0 release: https://blog.rust-lang.org/2026/10/01/Rust-1.99.0/
 // - API documentation: https://doc.rust-lang.org/stable/core/ffi/struct.VaList.html
-// - Inspiration: https://qiita.com/DwarfM42/items/b4a78fdbf38129ee2fcd
 
 /// Sums `count` variadic `i32` arguments.
 ///
