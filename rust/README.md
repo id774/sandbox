@@ -39,3 +39,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   [README](../README.md#the-basics-directory).
 - `math`: the second exercise set, described in the repository
   [README](../README.md#the-math-directory).
+- `rust_1_99`: standalone samples of APIs that became stable in Rust 1.99.0,
+  covering C variadics, `NonNull` ownership transfer for `Box` and `Vec`, and
+  owned lossy UTF-8 conversion.
