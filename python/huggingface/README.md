@@ -35,6 +35,12 @@ machine cannot use, take the CPU wheel instead:
   prints the cached path and a few of its values.
 - `kv_cache_size.py` estimates the KV cache size of a model from a Hugging Face
   `config.json`.
+- `embeddinggemma2_retrieval.py` embeds one text query and text, code, and
+  image candidates with EmbeddingGemma 2 in its shared 768-dimensional space,
+  prints one ranking across all three modalities, and checks that the relevant
+  candidate outscores the distractor in each. It uses `sentence-transformers`
+  6.1.0 or later, loads the text and vision parts only with the audio encoder
+  switched off, and draws its images in memory.
 
 Run any of them directly:
 
@@ -45,6 +51,7 @@ Run any of them directly:
     ./watermark_detection.py
     ./datasets_load.py
     ./hub_download.py
+    ./embeddinggemma2_retrieval.py
 
 `kv_cache_size.py` reads a local `config.json` instead, and takes the context
 length, with the number of sequences given when more than one is served:
@@ -71,6 +78,8 @@ length, with the number of sequences given when more than one is served:
   ([dataset card](https://huggingface.co/datasets/cornell-movie-review-data/rotten_tomatoes))
 - `stanfordnlp/imdb`
   ([dataset card](https://huggingface.co/datasets/stanfordnlp/imdb))
+- `google/embeddinggemma-2`
+  ([model page](https://huggingface.co/google/embeddinggemma-2))
 
 All of them are public and not gated, they need no authentication, and they run
 on CPU alone.
@@ -92,3 +101,5 @@ shell instead.
 Official documentation: [Transformers](https://huggingface.co/docs/transformers),
 [Datasets](https://huggingface.co/docs/datasets), and
 [Hub Python library](https://huggingface.co/docs/huggingface_hub).
+For EmbeddingGemma 2, see the
+[Google developer guide](https://developers.googleblog.com/embeddinggemma-2-the-developer-guide/).
