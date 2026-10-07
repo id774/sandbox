@@ -17,6 +17,10 @@ machine cannot use, take the CPU wheel instead:
 
     pip install torch --index-url https://download.pytorch.org/whl/cpu
 
+`embeddinggemma2_retrieval.py` additionally uses sentence-transformers 6.1.0 or
+later with image support. It loads the text and vision encoders and disables the
+unused audio encoder.
+
 ## Samples
 
 - `pipeline_classification.py` builds a `pipeline()` for sentiment analysis and
@@ -35,6 +39,9 @@ machine cannot use, take the CPU wheel instead:
   prints the cached path and a few of its values.
 - `kv_cache_size.py` estimates the KV cache size of a model from a Hugging Face
   `config.json`.
+- `embeddinggemma2_retrieval.py` ranks text, code, and synthetic image
+  candidates against one text query in EmbeddingGemma 2's shared
+  768-dimensional space.
 
 Run any of them directly:
 
@@ -45,6 +52,7 @@ Run any of them directly:
     ./watermark_detection.py
     ./datasets_load.py
     ./hub_download.py
+    ./embeddinggemma2_retrieval.py
 
 `kv_cache_size.py` reads a local `config.json` instead, and takes the context
 length, with the number of sequences given when more than one is served:
@@ -67,6 +75,8 @@ length, with the number of sequences given when more than one is served:
   ([model card](https://huggingface.co/distilbert/distilbert-base-uncased))
 - `openai-community/gpt2`
   ([model card](https://huggingface.co/openai-community/gpt2))
+- `google/embeddinggemma-2`
+  ([model card](https://huggingface.co/google/embeddinggemma-2))
 - `cornell-movie-review-data/rotten_tomatoes`
   ([dataset card](https://huggingface.co/datasets/cornell-movie-review-data/rotten_tomatoes))
 - `stanfordnlp/imdb`
@@ -88,6 +98,10 @@ config file, so the first run of each sample takes a different amount of time.
 No token is needed here, and no token belongs in the source. For a private or
 gated repository, log in with `hf auth login` or export `HF_TOKEN` in the
 shell instead.
+
+The EmbeddingGemma 2 sample generates its image candidates in memory and uses
+the text-and-vision configuration described in the
+[EmbeddingGemma 2 developer guide](https://developers.googleblog.com/embeddinggemma-2-the-developer-guide/).
 
 Official documentation: [Transformers](https://huggingface.co/docs/transformers),
 [Datasets](https://huggingface.co/docs/datasets), and
