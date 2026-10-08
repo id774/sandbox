@@ -103,6 +103,3 @@ Official documentation: [Transformers](https://huggingface.co/docs/transformers)
 [Hub Python library](https://huggingface.co/docs/huggingface_hub).
 For EmbeddingGemma 2, see the
 [Google developer guide](https://developers.googleblog.com/embeddinggemma-2-the-developer-guide/).
-
-The EmbeddingGemma 2 sample was inspired by a
-[Qiita article](https://qiita.com/Takuya__/items/d15f26d5630631dfb8db).

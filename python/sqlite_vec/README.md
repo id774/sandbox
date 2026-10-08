@@ -45,6 +45,3 @@ The script exits with a non-zero status when a check fails.
 - [sqlite-vec v0.1.9 release](https://github.com/asg017/sqlite-vec/releases/tag/v0.1.9)
 - [Binary quantization guide](https://github.com/asg017/sqlite-vec/blob/v0.1.9/site/guides/binary-quant.md)
 - [API reference](https://github.com/asg017/sqlite-vec/blob/v0.1.9/site/api-reference.md)
-
-The sample was inspired by a
-[Qiita article](https://qiita.com/0h-n0/items/2b270174796b2fd22042).
