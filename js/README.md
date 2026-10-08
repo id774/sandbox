@@ -61,6 +61,7 @@ Subdirectories group experiments by library or theme:
 - Server-side and realtime: [`nodejs`](nodejs/), [`socketio`](socketio/)
 - Browser snippets and pages: [`bookmarklet`](bookmarklet/), [`ksk`](ksk/)
 - Data formats: [`json`](json/)
+- Spaced repetition: [`leitner`](leitner/), the Leitner system's box transitions
 - Client-side frameworks, older generation: [`backbonejs`](backbonejs/),
   [`knockoutjs`](knockoutjs/)
 - Frameworks in current use: see the table below
