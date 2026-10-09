@@ -51,6 +51,9 @@ Subdirectories group experiments by library or theme:
 - Cross-language exercise sets: `basics` and `math`, described in the
   repository [README](../README.md#the-basics-directory). The six files of the
   `math` set sit among the older snippets already in `math`.
+- Finite-field arithmetic: `math/elliptic_curve_points.py` counts points on
+  `y^2 = x^3 - x` over four small prime fields, computes Frobenius traces
+  and local-factor denominators, and checks expected values and the Hasse bound.
 - Web frameworks and servers: `bottle`, `cherrypy`, `flask`, `web.py`,
   `simplemeserv`, `apache2`, `xml-rpc`
 - Numeric and scientific: `numpy`, `scipy`, `pandas`, `statsmodels`, `talib`,
