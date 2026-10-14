@@ -1,0 +1,5 @@
+system,operator,dataset,subjects,data_type
+store,retailer,shipping_01,customers,shipping_address
+ship,carrier,shipping_01,customers,shipping_address
+subship,subcontractor,shipping_01,customers,shipping_address
+store,retailer,login_01,customers,password_hash
