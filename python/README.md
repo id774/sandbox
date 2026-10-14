@@ -61,6 +61,8 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Personal data tracing: `personal_data_impact_trace`, which identifies
+  datasets recorded on a selected system and traces upstream transfers.
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
   `decision_tree`, `naivebayes`, `cluster`, `networkx`, `huggingface`
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`, `langchain`
