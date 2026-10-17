@@ -65,6 +65,8 @@ Subdirectories group experiments by library or theme:
   published family and manuscript counts with Lean formalization metadata.
 - Finite-resource computation: `finite_resource_reachability`, which checks
   key-search estimates, integer representation bounds, and toy proof verification.
+- Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
+  subset checks to remove unsupported piece-kind candidates.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
   datasets recorded on a selected system and traces upstream transfers.
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
