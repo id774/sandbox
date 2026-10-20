@@ -1,0 +1,9 @@
+{
+  "claims": [
+    {
+      "id": "C1",
+      "text": "検証環境の API は HTTP 200 を返しました。",
+      "citation_id": "S1"
+    }
+  ]
+}
