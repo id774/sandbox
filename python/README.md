@@ -67,6 +67,7 @@ Subdirectories group experiments by library or theme:
   key-search estimates, integer representation bounds, and toy proof verification.
 - Agent context retention: `context_retention`, which compares newest-first
   and required-first history selection under a fixed character budget.
+- Citation verification: `citation_contract`, which checks citation IDs, SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
 - Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
   subset checks to remove unsupported piece-kind candidates.
 - Personal data tracing: `personal_data_impact_trace`, which identifies

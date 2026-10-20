@@ -1,0 +1,9 @@
+{
+  "reviews": [
+    {
+      "claim_id": "C1",
+      "fingerprint": "6709ca2e356511f1a0e55ccef6996d8f15a71a74411df7698a0b3823784d19e2",
+      "verdict": "supported"
+    }
+  ]
+}
