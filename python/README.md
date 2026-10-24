@@ -61,6 +61,9 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Recurrent-state quantization: `recurrent_quantization_error`, which compares
+  local MSE, error persistence, and final output error under fixed error
+  directions and quantization intervals.
 - Mathematics catalogue checking: `math_catalogue_check`, which compares
   published family and manuscript counts with Lean formalization metadata.
 - Finite-resource computation: `finite_resource_reachability`, which checks
