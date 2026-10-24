@@ -64,13 +64,17 @@ Subdirectories group experiments by library or theme:
 - Recurrent-state quantization: `recurrent_quantization_error`, which compares
   local MSE, error persistence, and final output error under fixed error
   directions and quantization intervals.
+- Two-region stochastic time series: `two_region_stochastic_process`, which
+  compares simulated integrated autocorrelation times and inter-region
+  correlations against continuous- and discrete-time reference values.
 - Mathematics catalogue checking: `math_catalogue_check`, which compares
   published family and manuscript counts with Lean formalization metadata.
 - Finite-resource computation: `finite_resource_reachability`, which checks
   key-search estimates, integer representation bounds, and toy proof verification.
 - Agent context retention: `context_retention`, which compares newest-first
   and required-first history selection under a fixed character budget.
-- Citation verification: `citation_contract`, which checks citation IDs, SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
+- Citation verification: `citation_contract`, which checks citation IDs, 
+  SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
 - Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
   subset checks to remove unsupported piece-kind candidates.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
