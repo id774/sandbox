@@ -61,6 +61,9 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Recurrent-state quantization: `recurrent_quantization_error`, which compares
+  local MSE, error persistence, and final output error under fixed error
+  directions and quantization intervals.
 - Two-region stochastic time series: `two_region_stochastic_process`, which
   compares simulated integrated autocorrelation times and inter-region
   correlations against continuous- and discrete-time reference values.
@@ -70,7 +73,8 @@ Subdirectories group experiments by library or theme:
   key-search estimates, integer representation bounds, and toy proof verification.
 - Agent context retention: `context_retention`, which compares newest-first
   and required-first history selection under a fixed character budget.
-- Citation verification: `citation_contract`, which checks citation IDs, SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
+- Citation verification: `citation_contract`, which checks citation IDs, 
+  SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
 - Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
   subset checks to remove unsupported piece-kind candidates.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
