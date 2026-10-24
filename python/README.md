@@ -79,6 +79,9 @@ Subdirectories group experiments by library or theme:
   subset checks to remove unsupported piece-kind candidates.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
   datasets recorded on a selected system and traces upstream transfers.
+- Permission and dependency impact: `permission_dependency_impact`, which
+  compares writable resource scope and mandatory dependency outage scope
+  before and after fixed boundary changes.
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
   `decision_tree`, `naivebayes`, `cluster`, `networkx`, `huggingface`
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`, `langchain`
