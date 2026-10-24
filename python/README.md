@@ -61,6 +61,9 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Two-region stochastic time series: `two_region_stochastic_process`, which
+  compares simulated integrated autocorrelation times and inter-region
+  correlations against continuous- and discrete-time reference values.
 - Mathematics catalogue checking: `math_catalogue_check`, which compares
   published family and manuscript counts with Lean formalization metadata.
 - Finite-resource computation: `finite_resource_reachability`, which checks
