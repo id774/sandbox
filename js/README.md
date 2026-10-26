@@ -59,6 +59,8 @@ Subdirectories group experiments by library or theme:
   [README](../README.md#the-basics-directory)
 - Visualization: [`d3js`](d3js/)
 - Server-side and realtime: [`nodejs`](nodejs/), [`socketio`](socketio/)
+- Authorization acceptance gate: [`authorization_acceptance_gate`](authorization_acceptance_gate/),
+  an Express request experiment checking ownership and mandatory rejection cases
 - Browser snippets and pages: [`bookmarklet`](bookmarklet/), [`ksk`](ksk/)
 - Data formats: [`json`](json/)
 - Spaced repetition: [`leitner`](leitner/), the Leitner system's box transitions

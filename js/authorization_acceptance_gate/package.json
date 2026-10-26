@@ -1,0 +1,19 @@
+{
+  "name": "authorization-acceptance-gate-sample",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "test": "node verify.js fixed",
+    "test:reject": "node verify.js vulnerable"
+  },
+  "dependencies": {
+    "express": "5.2.1"
+  },
+  "devDependencies": {
+    "supertest": "7.1.4"
+  }
+}
