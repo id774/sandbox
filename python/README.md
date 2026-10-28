@@ -75,6 +75,8 @@ Subdirectories group experiments by library or theme:
   key-search estimates, integer representation bounds, and toy proof verification.
 - Agent context retention: `context_retention`, which compares newest-first
   and required-first history selection under a fixed character budget.
+- Agent handoff validation: `agent_handoff_validation`, which checks required
+  JSON delivery fields before evaluating a fixed 30-day return window.
 - Citation verification: `citation_contract`, which checks citation IDs, 
   SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
 - Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
