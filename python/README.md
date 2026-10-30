@@ -86,6 +86,9 @@ Subdirectories group experiments by library or theme:
 - Permission and dependency impact: `permission_dependency_impact`, which
   compares writable resource scope and mandatory dependency outage scope
   before and after fixed boundary changes.
+- Model release-delay cash flow: `model_release_cash_flow`, which verifies
+  three fictional monthly cash balances, the minimum liquidity condition,
+  and the effect of reducing the final month's compute payment.
 - Machine learning: `chainer`, `tensorflow`, `sklearn`, `machine-learning`,
   `decision_tree`, `naivebayes`, `cluster`, `networkx`, `huggingface`
 - Text processing and NLP: `MeCab`, `CaboCha`, `nlp`, `text-mining`, `BeautifulSoup`, `langchain`
