@@ -313,6 +313,13 @@ repository-specific specifications whose source of truth belongs elsewhere.
 A pull request presents the change it proposes, not the sequence of corrections
 that produced it. It carries one coherent higher-level purpose.
 
+An automated agent must not commit or push directly to `master`.
+It must commit authorized changes to a work branch and submit them through
+a pull request targeting the approved base branch. Creating or updating a
+pull request does not authorize the agent to merge it or enable auto-merge.
+Either action requires an explicit instruction from the maintainer. This
+paragraph does not change a human maintainer's authority.
+
 #### 1.14.1 One Purpose to a Pull Request
 
 - "Purpose" means the higher-level reason the pull request exists, not an
