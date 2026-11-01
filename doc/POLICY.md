@@ -263,6 +263,16 @@ A comment preserves a reason, constraint, non-obvious intent, or decision that
 a later change could otherwise undo. Do not use comments merely to restate code
 whose operation is already evident.
 
+Write English explanatory prose in clear, natural sentences. Do not replace a
+sentence with a label and a colon, a status prefix such as `Implement:` or
+`Incompatible:`, a symbol, or an unexplained abbreviation. Apply this to
+English prose in comments, docstrings, documentation, version histories,
+release notes, commit messages, and pull request descriptions. This rule does
+not alter the established forms of headings, list labels, tables, code,
+configuration syntax, machine-readable fields, literal interface strings, or
+non-English content required by the repository's purpose. Do not rewrite
+historical entries or unrelated text merely to align their style.
+
 ### 1.13 Documentation
 
 #### 1.13.1 Repository README
