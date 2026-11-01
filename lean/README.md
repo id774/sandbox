@@ -86,6 +86,7 @@ Each source file records the Lean version used for that sample's validation.
   `n + 1 = n` with `rfl`; Lean is expected to reject it.
 - `sorry_example.lean`: intentionally uses `sorry` to admit the same false
   statement and prints the resulting `sorryAx` dependency.
+- [`lemma_dependency/`](lemma_dependency/README.md): compares equality-based proof reuse, the intentional failure after weakening a lemma to an inequality, a counterexample, and a repaired proof.
 
 Run the positive examples from this directory with:
 
