@@ -66,6 +66,9 @@ Subdirectories group experiments by library or theme:
 - Recurrent-state quantization: `recurrent_quantization_error`, which compares
   local MSE, error persistence, and final output error under fixed error
   directions and quantization intervals.
+- Fixed Engram lookup: `engram_fixed_lookup`, which checks reference-table
+  byte equality and the effects of Backbone weight changes on scores and
+  `argmax` token selection.
 - Two-region stochastic time series: `two_region_stochastic_process`, which
   compares simulated integrated autocorrelation times and inter-region
   correlations against continuous- and discrete-time reference values.
