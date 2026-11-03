@@ -660,6 +660,5 @@ maintenance boundary in this section defines that limit.
 
 ### 2.8 License
 
-This repository is dual licensed under the GPL version 3 or the LGPL version
-3, at the user's option. See [LICENSE](LICENSE.md), [COPYING](COPYING), and
-[COPYING.LESSER](COPYING.LESSER). This document does not change those terms.
+Follow the applicable terms in [LICENSE](LICENSE.md), [COPYING](COPYING), and
+[COPYING.LESSER](COPYING.LESSER); this policy does not redefine them.
