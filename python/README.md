@@ -89,6 +89,9 @@ Subdirectories group experiments by library or theme:
 - Permission and dependency impact: `permission_dependency_impact`, which
   compares writable resource scope and mandatory dependency outage scope
   before and after fixed boundary changes.
+- Dependency graph counts: `dependency_graph_comparison`, which calculates
+  labeled simple undirected graph candidates and verifies edge counts for
+  complete and path graphs at fixed vertex counts.
 - Model release-delay cash flow: `model_release_cash_flow`, which verifies
   three fictional monthly cash balances, the minimum liquidity condition,
   and the effect of reducing the final month's compute payment.
