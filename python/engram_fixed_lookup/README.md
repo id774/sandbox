@@ -57,9 +57,6 @@ quantizer. This sample does not implement Engram's n-gram hashing, gating,
 convolution, or MXFP8 storage, and it does not measure language-model answer
 quality. The observed outputs are evidence only for the fixed numeric cases.
 
-The corresponding discussion is in
-[Engram のバイト一致だけでは回答品質を証明できない](https://blog.id774.net/entry/2026/11/02/5828/).
-
 ## Files
 
 - `engram_fixed_lookup.py`: the deterministic byte, score, and token comparison.

@@ -64,7 +64,3 @@ The sample is a reproducible numerical verification of a hypothetical two-region
 model. It does not estimate anesthetic effects, analyze medical datasets, or
 infer subjective experience. No separate test framework, saved output, data
 fixture, or generated artifact is part of this experiment.
-
-## Source
-
-- [麻酔で共通する神経活動だけでは感じ方を特定できない](https://blog.id774.net/entry/2026/10/15/5764/)
