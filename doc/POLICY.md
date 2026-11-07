@@ -662,3 +662,11 @@ maintenance boundary in this section defines that limit.
 
 Follow the applicable terms in [LICENSE](LICENSE.md), [COPYING](COPYING), and
 [COPYING.LESSER](COPYING.LESSER); this policy does not redefine them.
+
+### 2.9 Links to Self-Published Articles
+
+Do not add links to the repository author's own blog posts, Qiita or Zenn articles, or other self-published articles as background information, further reading, source references, or promotion for repository-owned experiments. This applies to source code, comments, headers, README files, and other repository documentation.
+
+Each experiment must describe its purpose, implementation, execution requirements, expected results, and limitations within the repository, without relying on a separately published article for that information.
+
+This restriction does not affect required third-party attribution and licensing under Section 1.16, repository metadata required by Section 2.4.7, or URLs used as actual inputs, test data, or functional examples. External references serving a necessary technical or legal purpose remain permitted.
