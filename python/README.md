@@ -69,6 +69,8 @@ Subdirectories group experiments by library or theme:
 - Fixed Engram lookup: `engram_fixed_lookup`, which checks reference-table
   byte equality and the effects of Backbone weight changes on scores and
   `argmax` token selection.
+- Linear GradDiff unlearning: `grad_diff_linear`, which compares
+  forgetting loss and output RMS against a retrained linear regression model.
 - Two-region stochastic time series: `two_region_stochastic_process`, which
   compares simulated integrated autocorrelation times and inter-region
   correlations against continuous- and discrete-time reference values.
