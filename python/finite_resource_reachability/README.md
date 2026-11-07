@@ -3,7 +3,7 @@
 ## Purpose
 
 This standalone Python example checks numerical and illustrative proof-system
-examples from the Zenn article [Computable Algorithms and Finite Resources](https://zenn.dev/id774/articles/c09d4a19a8de92).
+examples.
 It distinguishes an algorithm's mathematical description from the resources
 needed to carry out a particular finite computation.
 

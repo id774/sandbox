@@ -75,9 +75,6 @@ privacy guarantees, generalization to nonlinear models, or optimizer settings.
 The two RMS values measure predictions relative to the retrained model, not
 prediction error against labels.
 
-The corresponding analysis appears in
-[忘却は、再学習との差と保持データへの影響で測る](https://blog.id774.net/entry/2026/11/05/5838/).
-
 ## Files
 
 - `grad_diff_linear.py`: the deterministic GradDiff calculation, assertions,

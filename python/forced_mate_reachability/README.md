@@ -4,8 +4,8 @@
 
 This standalone Python experiment compares the existence of a path to a mate
 terminal with the ability of an attacker to force mate against every legal
-defender response. It models a fixed finite-state game derived from the
-distinction in [Three-Dimensional Shogi and Forced Mate](https://blog.id774.net/entry/2026/10/27/5822/).
+defender response. It models a fixed finite-state game derived from this
+distinction.
 No three-dimensional board or move generator is implemented.
 
 ## Requirements
