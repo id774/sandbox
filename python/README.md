@@ -61,6 +61,9 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Boolean function influence: `boolean_function_influence`, which checks
+  variance, squared bit-flip influence, and degree conditions for the bit mean,
+  normalized sum, and odd-sized majority over all Boolean inputs.
 - Forced-mate reachability: `forced_mate_reachability`, which compares
   path reachability with forced mate using finite-state retrograde analysis.
 - Recurrent-state quantization: `recurrent_quantization_error`, which compares
