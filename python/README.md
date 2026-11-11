@@ -97,6 +97,9 @@ Subdirectories group experiments by library or theme:
 - Dependency graph counts: `dependency_graph_comparison`, which calculates
   labeled simple undirected graph candidates and verifies edge counts for
   complete and path graphs at fixed vertex counts.
+- Directed graph change measurement: `directed_graph_change_measurement`, which
+  compares Euclidean amplitude, signed edge-count changes, and exact added or
+  removed edges over four updates of a fixed directed binary graph.
 - Model release-delay cash flow: `model_release_cash_flow`, which verifies
   three fictional monthly cash balances, the minimum liquidity condition,
   and the effect of reducing the final month's compute payment.
