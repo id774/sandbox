@@ -10,7 +10,7 @@ directions or identify the same changed edges.
 
 ## Requirements
 
-- Python 3.8 or later; the reported sample run used Python 3.13.5.
+- Python 3.8 or later. The reported sample run used Python 3.13.5.
 - Python standard library only (`math` and `unittest`).
 - No installation, network access, input files, or command-line arguments.
 
@@ -35,8 +35,8 @@ t  vector               edges  amplitude  delta
 ```
 
 The unit test command runs 10 tests and returns status 0 when all pass.
-The `unittest` runner prints test details and `OK` on standard error;
-its elapsed-time display depends on the runtime.
+The `unittest` runner prints test details and `OK` on standard error.
+Its elapsed-time display depends on the runtime.
 
 ## Graph and Measurements
 
@@ -68,12 +68,12 @@ identity, and return to the initial state.
 `encode` raises `ValueError` for a candidate edge not present in the fixed
 ordered set. The demonstration has no file writes, network operations,
 random input, or external side effects. A failed unit test produces a
-nonzero exit status; importing `structure.py` does not print the sample output.
+nonzero exit status. Importing `structure.py` does not print the sample output.
 
 ## Limitations
 
-The graph is directed, unweighted, and restricted to six candidate edges;
-other edges, internal component changes, call frequencies, and latencies
+The graph is directed, unweighted, and restricted to six candidate edges.
+Other edges, internal component changes, call frequencies, and latencies
 are outside its representation. Amplitude and edge-count differences do
 not measure maintenance effort, correctness, safety, or operational impact.
 The sample data does not establish that bypassing the input-validation

@@ -31,7 +31,7 @@ directories group experiments by language, platform, or technology:
   `perl`, `php`, `pig`, `play`, `python`, `r`, `rails`, `ruby`, `rust`,
   `scala`, `sh`, `sql`, `swift`, `tex`, `typescript`, `zig`, `zsh`
 
-There is no shared structure for the snippets across directories; each one
+There is no shared structure for the snippets across directories. Each one
 reflects whatever was being explored at the time. The shared README overview
 requirement and the cross-language exercise sets, `basics` and `math`, are the
 deliberate exceptions.
@@ -44,7 +44,7 @@ every one of them also uses that README to describe what the directory itself
 holds, under a `## Layout` section. A larger or more heterogeneous directory,
 such as [`python`](python/README.md), [`ruby`](ruby/README.md),
 [`js`](js/README.md), or [`r`](r/README.md), carries a correspondingly more
-detailed index there; a directory with a constraint local to it, such as
+detailed index there. A directory with a constraint local to it, such as
 [`sh`](sh/README.md) and its POSIX `sh` rule, states that constraint in the
 same README.
 
@@ -94,7 +94,7 @@ float formatting can move the output, and no value it carries leaves the range
 of a 64 bit integer.
 
 `python`, `ruby`, and `r` had a `math` directory of unrelated snippets before
-the set arrived. The six files named above are the set; the rest of what those
+the set arrived. The six files named above are the set. The rest of what those
 directories hold is what it always was.
 
 ## 3. Design Philosophy
@@ -107,13 +107,16 @@ directories hold is what it always was.
   and how a change is scoped. It is a floor, not a gate, and it is unrelated to
   the policy of any other repository.
 - No `doc/VERSIONS` changelog is kept, since nothing here is packaged or
-  released as a versioned deliverable; history lives in commit messages.
+  released as a versioned deliverable. History lives in commit messages.
 
 ## 4. Primary Branch
 
 This repository uses `master` as its primary branch name.
 
-The name is used solely as a technical identifier, following the long-standing convention historically used by Git. It does not express or imply any association with racism, slavery, discrimination, or any political or social ideology.
+The name is used solely as a technical identifier, following the long-standing
+convention historically used by Git. It does not express or imply any
+association with racism, slavery, discrimination, or any political or social
+ideology.
 
 ## 5. License
 
