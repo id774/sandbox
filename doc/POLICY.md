@@ -15,7 +15,7 @@ principles for this repository and is not part of that reference set.
 
 This policy is self-contained. It does not defer to, inherit from, or require
 reading the policy of any other repository to be understood. Rules that are
-common across repositories are stated here in full; repository-specific rules
+common across repositories are stated here in full. Repository-specific rules
 are stated in Section 2 rather than being replaced by cross-repository
 references.
 
@@ -24,7 +24,7 @@ references.
 **Simplicity is robustness.**
 
 This is the governing principle for every rule below. It does not authorize
-dropping required behavior, compatibility, or safety; it requires meeting them
+dropping required behavior, compatibility, or safety. It requires meeting them
 with the least complexity justified by the actual requirement.
 
 Complexity is itself a source of failure, compatibility risk, operational
@@ -114,7 +114,7 @@ When an authorized implementation change alters behavior or an interface that
 the repository documents, update the directly affected documentation in the
 same change. This requirement does not authorize unrelated documentation
 cleanup. Likewise, changing documentation does not silently change executable
-behavior; if the document and implementation disagree, determine which is
+behavior. If the document and implementation disagree, determine which is
 wrong from the repository's stated purpose and local source of truth, and
 change only the side the task requires.
 
@@ -336,7 +336,7 @@ paragraph does not change a human maintainer's authority.
   was being made.
 - An unrelated change noticed in passing is proposed separately. A finding
   discovered while carrying out the approved purpose is not "in passing"
-  merely because it was unknown before the investigation; it may remain in the
+  merely because it was unknown before the investigation. It may remain in the
   same pull request when it serves that purpose.
 - Tidying, renaming, reformatting, modernization, or cleanup that the change
   does not require is a different purpose and does not ride along.
@@ -382,7 +382,7 @@ preserve or establish.
 - Do not add a test framework, harness, mock infrastructure, dependency, or
   validation mechanism merely to make a small unrelated change look more
   formal.
-- Passing an automated checker is evidence about the implementation; it is not
+- Passing an automated checker is evidence about the implementation. It is not
   permission to violate the policy, the local contract, or the stated purpose.
 - Review the final diff against the base branch and confirm that every changed
   file and every changed line belongs to the approved purpose.
@@ -415,7 +415,7 @@ authoritative license documents rather than in this reusable General Policy.
 This is a sandbox: a personal workspace for prototypes, language studies, and
 one-off experiments, not a maintained, production toolset. The rules below are
 a floor for what is added to it, not a gate that existing content is expected
-to pass. They apply to a repository change made from now on; they are not a
+to pass. They apply to a repository change made from now on. They are not a
 reason, by themselves, to go back and revise something already committed.
 
 The repository exists for trying an idea out. Production readiness,
@@ -434,7 +434,7 @@ exception, for security and privacy.
 
 ### 2.3 Repository Structure
 
-This policy does not describe what the repository currently contains; that is
+This policy does not describe what the repository currently contains. That is
 the responsibility of the repository README and the README of each top-level
 directory. Adding, removing, or changing a language, a platform, or an exercise
 does not by itself require this document to change.
@@ -450,7 +450,7 @@ not require a policy change.
 
 There is no requirement that every top-level directory share the same internal
 layout. A directory may hold small, standalone files directly, group related
-work into subdirectories by library or theme, or do both; the choice is
+work into subdirectories by library or theme, or do both. The choice is
 whatever fits what that directory holds. Section 2.5 states the deliberate
 exception for comparable cross-language experiments.
 
@@ -481,15 +481,15 @@ itself contains, and any constraint local to that directory.
 A constraint that applies only within one directory, such as a language subset
 a directory's contents are held to, is stated in that directory's own README,
 where a reader working in that directory will see it. Such a local constraint
-may narrow what is written in that directory beyond what this document asks;
-it may not relax a repository-wide rule this document states.
+may narrow what is written in that directory beyond what this document asks.
+It may not relax a repository-wide rule this document states.
 
 #### 2.3.7 Concrete Specifications
 
 A concrete specification, such as what a given exercise computes, what input
 it uses, or what output it produces, has exactly one authoritative statement,
 in the README responsible for it under Sections 2.3.4 and 2.3.5. This document
-does not restate or duplicate that detail; it states only the rule that such
+does not restate or duplicate that detail. It states only the rule that such
 detail belongs to a README and not to this document.
 
 ### 2.4 Source Code
@@ -517,7 +517,7 @@ or in documentation near it, so that a reader does not have to guess it.
 Source code follows the established convention of the language, platform, or
 tool it is written for. This document does not require a uniform style across
 languages, and it does not catalogue per-language formatters, comment syntax,
-or style rules; where such detail is useful to a reader, it belongs in that
+or style rules. Where such detail is useful to a reader, it belongs in that
 directory's own README under Section 2.3.5.
 
 Comments and identifiers are written in English, except where non-English text
@@ -530,7 +530,7 @@ Section 1.6 governs whether a dependency is justified and how an optional
 capability is handled.
 
 A third-party library or dependency a snippet needs is not vendored into the
-repository without a specific reason tied to that snippet's purpose; ordinary
+repository without a specific reason tied to that snippet's purpose. Ordinary
 use obtains it through the normal mechanism of that language or platform, or
 records how to obtain it.
 
@@ -590,15 +590,15 @@ point also records how it is run, built, or tested and the requirements needed
 to do so. Requirements state practical minimum versions for the runtime,
 compiler, tool, and directly required library where a meaningful minimum
 applies. A practical minimum is a version reasonably expected to support the
-current sample from its source, configuration, manifest, and documented APIs;
-it does not need to be the earliest version that could theoretically run it.
+current sample from its source, configuration, manifest, and documented APIs.
+It does not need to be the earliest version that could theoretically run it.
 
 In a multi-file project, the entry point carries the full project-level usage
 and requirements. Supporting source files keep a concise header with the
 repository metadata and enough description to identify their role, and may
 refer to the entry point or local README instead of duplicating project-wide
 setup and dependency details. Generated files and third-party source are not
-given repository-authored headers; Sections 1.16 and 2.3.3 continue to govern
+given repository-authored headers. Sections 1.16 and 2.3.3 continue to govern
 attribution, licensing, and generated project trees.
 
 Header syntax follows the language or platform convention under Section 2.4.3.
@@ -617,7 +617,7 @@ language's idioms. Where it does, the following applies:
 - The same exercise means the same thing, and produces a deterministic result,
   in every language that carries it.
 - Each language implements it in that language's own idiom rather than as a
-  transcription of another language's solution; matching results are what is
+  transcription of another language's solution. Matching results are what is
   held in common, not matching code.
 - A language or platform whose nature does not fit a given exercise is not
   required to carry it.
@@ -631,12 +631,12 @@ expected output of each are stated in the repository README under Section
 A small sample of data may be committed where it was written specifically for
 the snippet that reads it. An external dataset or other third-party material is
 not copied into the repository without a specific reason, given the
-redistribution rights, size, and origin such material carries; a snippet that
+redistribution rights, size, and origin such material carries. A snippet that
 needs one instead records where to obtain it.
 
 Build output, caches, temporary files, and other generated artifacts are not
 committed, except where the generated artifact is itself the subject of the
-experiment. This document does not enumerate what is excluded; the
+experiment. This document does not enumerate what is excluded. The
 repository's ignore configuration does that.
 
 ### 2.7 Release and Maintenance
@@ -655,18 +655,27 @@ to alter what existing executable code actually does.
 
 The experimental nature of this repository does not turn an unrelated behavior
 change into part of a task. At the same time, this repository does not promise
-general backward compatibility for every historical experiment; the
+general backward compatibility for every historical experiment. The
 maintenance boundary in this section defines that limit.
 
 ### 2.8 License
 
 Follow the applicable terms in [LICENSE](LICENSE.md), [COPYING](COPYING), and
-[COPYING.LESSER](COPYING.LESSER); this policy does not redefine them.
+[COPYING.LESSER](COPYING.LESSER). This policy does not redefine them.
 
 ### 2.9 Links to Self-Published Articles
 
-Do not add links to the repository author's own blog posts, Qiita or Zenn articles, or other self-published articles as background information, further reading, source references, or promotion for repository-owned experiments. This applies to source code, comments, headers, README files, and other repository documentation.
+Do not add links to the repository author's own blog posts, Qiita or Zenn
+articles, or other self-published articles as background information, further
+reading, source references, or promotion for repository-owned experiments. This
+applies to source code, comments, headers, README files, and other repository
+documentation.
 
-Each experiment must describe its purpose, implementation, execution requirements, expected results, and limitations within the repository, without relying on a separately published article for that information.
+Each experiment must describe its purpose, implementation, execution
+requirements, expected results, and limitations within the repository, without
+relying on a separately published article for that information.
 
-This restriction does not affect required third-party attribution and licensing under Section 1.16, repository metadata required by Section 2.4.7, or URLs used as actual inputs, test data, or functional examples. External references serving a necessary technical or legal purpose remain permitted.
+This restriction does not affect required third-party attribution and licensing
+under Section 1.16, repository metadata required by Section 2.4.7, or URLs used
+as actual inputs, test data, or functional examples. External references
+serving a necessary technical or legal purpose remain permitted.
