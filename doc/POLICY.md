@@ -13,32 +13,34 @@ repository-specific needs. Then adopt, adapt, or omit the principles in
 Sections 0 and 1 according to whether they apply. Section 2 specializes those
 principles for this repository and is not part of that reference set.
 
-This policy is self-contained. It does not defer to, inherit from, or require
-reading the policy of any other repository to be understood. Rules that are
-common across repositories are stated here in full. Repository-specific rules
-are stated in Section 2 rather than being replaced by cross-repository
-references.
+This document stands on its own. It is the whole implementation policy of this
+repository, and no rule here is completed by a document kept somewhere else. A
+subject it does not cover is a gap in this document, to be filled here rather
+than looked up elsewhere.
 
 ## 0. Governing Principle
 
 **Simplicity is robustness.**
 
 This is the governing principle for every rule below. It does not authorize
-dropping required behavior, compatibility, or safety. It requires meeting them
-with the least complexity justified by the actual requirement.
+dropping required behavior, compatibility, security, safety, documentation, or
+validation. It requires satisfying those requirements with no more complexity
+than the actual problem justifies.
 
-Complexity is itself a source of failure, compatibility risk, operational
-risk, and maintenance cost. Do not add a branch, state variable, helper,
-abstraction, dependency, retry, fallback, validation, or defensive check
-unless it is required by the specification or addresses a realistic failure
-mode with meaningful operational consequence. Do not re-check a condition
-already guaranteed by a preceding successful operation or an established
-invariant.
+Complexity is itself a source of failure, compatibility risk, operational risk,
+security risk, and maintenance cost. Do not add a branch, state variable,
+helper, abstraction, dependency, network boundary, retry, fallback, validation,
+configuration state, or framework unless the specification requires it or it
+addresses a realistic failure mode with meaningful consequence.
+
+Do not re-check a condition already guaranteed by a preceding successful
+operation or an established invariant. Do not create a layer merely to resemble
+a possible future architecture.
 
 When two designs satisfy the same requirements, choose the one with less
-control flow, less state, fewer dependencies, and fewer moving parts.
-Simplicity is judged by necessary concepts and behavior, not by line count
-alone.
+control flow, less state, fewer dependencies, fewer side effects, fewer moving
+parts, and fewer operational assumptions. Simplicity is judged by the number of
+necessary concepts and behaviors, not by line count alone.
 
 ## 1. General Policy
 
@@ -75,16 +77,17 @@ not override that decision.
 
 ### 1.3 Wording Strength
 
-Reserve absolute wording such as `must`, `always`, and `never` for an invariant
-that admits no reasonable exception.
+Use `must`, `always`, and `never` only for invariants that admit no reasonable
+exception. Express preferences and situational decisions with `prefer`,
+`should`, or other qualified wording.
 
-Use wording such as `prefer`, `should`, or `when appropriate` for a design
-preference, recommendation, or situational rule.
+Do not apply a rule literally where doing so would defeat the repository's
+stated purpose, intended behavior, compatibility, safety, or approved change
+scope.
 
-Do not write a rule so that applying its literal wording would defeat the
-rule's purpose, the governing principle, the stated scope, safety, or intended
-behavior. Where wording and purpose conflict, follow the higher-level policy
-purpose and intended behavior rather than the literal wording alone.
+Where the applicable specifications and policy leave a legitimate choice
+open, an explicit maintainer decision governs that choice. General
+conventions do not override it.
 
 This is not a formal MUST/SHOULD/MAY taxonomy.
 
@@ -95,9 +98,28 @@ reformatting, modernization, cleanup, renaming, feature work, or documentation
 rewriting does not ride along with it, even when it would be a plausible change
 on its own.
 
-Documentation work, policy work, review, diagnostics, cleanup, or another task
-whose stated scope does not include an implementation change does not expand
-into one merely because an implementation improvement is noticed.
+Documentation work, policy work, review, diagnostics, cleanup, or another
+task whose stated scope does not include an implementation change must not
+expand into one merely because an improvement opportunity is discovered.
+
+Before changing established behavior, weigh the probability and impact of the
+failure being prevented against the added complexity, new failure modes,
+compatibility risk, operational cost, maintenance cost, and rollback cost.
+
+A safety-motivated change is not automatically justified by Safety having
+priority over Efficiency. Added complexity can itself create new failure
+modes, compatibility risk, operational risk, and maintenance cost. Evaluate
+the proposed change as a whole.
+
+Behavior that has operated reliably over time is evidence and has value of
+its own. Do not refactor established infrastructure merely because another
+design appears cleaner, more modern, or more defensive.
+
+An implementation change is made only when that change has been explicitly
+chosen as part of the work being performed. Before deployment, validate it in
+the supported and representative environments affected by the change. A
+successful check in one convenient environment is not sufficient evidence for
+a change whose compatibility risk extends to other supported environments.
 
 When the task does not require a behavior change, preserve the intended and
 valid existing observable behavior of the affected content. That includes, as
@@ -109,6 +131,15 @@ A clear defect is not protected merely because the current code exhibits it.
 Correct it when correcting that defect is part of the stated purpose. Finding a
 defect while doing unrelated work does not by itself add its correction to the
 current scope.
+
+The implementation is the primary evidence of what currently happens. It is
+not, by itself, proof that the current behavior is the intended specification.
+
+When implementation and documentation disagree, compare the implementation,
+documented interface, component header, history, existing design, and
+maintenance intent. If the implementation contains a regression, do not adopt
+that regression as the specification merely because it is present in the
+current code.
 
 When an authorized implementation change alters behavior or an interface that
 the repository documents, update the directly affected documentation in the
@@ -265,13 +296,28 @@ whose operation is already evident.
 
 Write English explanatory prose in clear, natural sentences. Do not replace a
 sentence with a label and a colon, a status prefix such as `Implement:` or
-`Incompatible:`, a symbol, or an unexplained abbreviation. Apply this to
-English prose in comments, docstrings, documentation, version histories,
-release notes, commit messages, and pull request descriptions. This rule does
-not alter the established forms of headings, list labels, tables, code,
-configuration syntax, machine-readable fields, literal interface strings, or
-non-English content required by the repository's purpose. Do not rewrite
-historical entries or unrelated text merely to align their style.
+`Incompatible:`, a symbol, or an unexplained abbreviation.
+
+Apply this to English prose in comments, docstrings, documentation, version
+histories, release notes, commit messages, and pull request descriptions.
+
+This rule does not alter the established forms of headings, list labels,
+tables, code, configuration syntax, machine-readable fields, literal
+interface strings, or non-English content required by the repository's
+purpose.
+
+Wrap ordinary prose at approximately 80 columns where practical. Preserve
+the logical structure of paragraphs, lists, and other document elements.
+Do not break URLs, code, tables, identifiers, or other elements whose
+structure requires a longer line.
+
+Shared boilerplate must retain its common wording, line breaks, blank lines,
+and formatting. Do not reformat it independently in individual repositories.
+Its established common form takes precedence over the ordinary line-wrapping
+guideline.
+
+Do not rewrite historical entries or unrelated text merely to align their
+style.
 
 ### 1.13 Documentation
 
@@ -310,15 +356,36 @@ repository-specific specifications whose source of truth belongs elsewhere.
 
 ### 1.14 Pull Request Scope and History
 
-A pull request presents the change it proposes, not the sequence of corrections
-that produced it. It carries one coherent higher-level purpose.
+A pull request carries one coherent higher-level purpose, which may require
+coordinated changes across several files or responsibilities.
 
-An automated agent must not commit or push directly to `master`.
-It must commit authorized changes to a work branch and submit them through
-a pull request targeting the approved base branch. Creating or updating a
-pull request does not authorize the agent to merge it or enable auto-merge.
-Either action requires an explicit instruction from the maintainer. This
-paragraph does not change a human maintainer's authority.
+Do not split one approved purpose mechanically by individual finding, file,
+or review comment, and do not include unrelated cleanup, formatting, or
+feature work.
+
+Represent one coherent change as one commit and amend review corrections
+instead of accumulating follow-up commits.
+
+Rewriting the history of a branch under review requires an explicit
+instruction from the maintainer. When such a rewrite is authorized, use
+`--force-with-lease` and limit the operation to the branch under review.
+
+Check the final branch against its base to remove abandoned intermediate
+wording and work. Merge only with explicit maintainer approval.
+
+Unless explicitly instructed otherwise by the maintainer, an automated agent
+must commit authorized changes to a work branch and submit them through a
+pull request targeting the approved base branch.
+
+An automated agent must not commit or push directly to `master` without
+explicit instructions from the maintainer authorizing that operation.
+
+Creating or updating a pull request does not authorize the agent to merge it
+or enable auto-merge. Either action requires an explicit instruction from
+the maintainer.
+
+Authorization for one operation does not imply authorization for another.
+These rules do not change a human maintainer's authority.
 
 #### 1.14.1 One Purpose to a Pull Request
 
@@ -327,10 +394,10 @@ paragraph does not change a human maintainer's authority.
   findings may belong to one purpose when they are part of the same
   cross-cutting investigation, maintenance task, defect class, migration,
   repository reorganization, or quality correction.
-- Do not split a pull request mechanically by finding or file. Before splitting
-  one approved work group, consider semantic coherence, shared files, merge
-  conflicts, duplicated validation, branch and pull-request management cost,
-  and whether the parts truly need independent review, rollback, or acceptance.
+- Before splitting one approved work group, consider semantic coherence,
+  shared files, merge conflicts, duplicated validation, branch and pull-request
+  management cost, and whether the parts truly need independent review,
+  rollback, or acceptance.
 - Changes that serve different purposes are proposed separately, as a rule,
   even when they touch one file and even when one was noticed while the other
   was being made.
@@ -349,10 +416,6 @@ paragraph does not change a human maintainer's authority.
 
 #### 1.14.2 Keeping a Branch to Its Change
 
-- A branch that carries one coherent change carries it as one commit.
-- Revise that commit by amending and force pushing with `--force-with-lease`
-  rather than adding commits such as "fix review comment", "address feedback",
-  or "resolve conflict".
 - Split a branch into several commits only when it genuinely carries several
   independent changes. Coherence, not chronology, decides.
 
@@ -365,9 +428,8 @@ paragraph does not change a human maintainer's authority.
   standing.
 - Resolve conflicts with the base branch by rebasing so that a merge commit
   does not enter the branch.
-- Force pushing is confined to the branch under review. When the branch is
-  shared, make the rewrite explicit because it invalidates previously fetched
-  copies.
+- When the branch under review is shared, make the rewrite explicit because it
+  invalidates previously fetched copies.
 
 ### 1.15 Validation and Judging a Change
 
@@ -605,6 +667,23 @@ Header syntax follows the language or platform convention under Section 2.4.3.
 Do not add a uniform comment form across languages merely to make headers look
 alike. Do not duplicate detailed behavioral specifications, file inventories,
 or other material whose authoritative home is a README under Section 2.3.7.
+
+These rules apply to individual source files that carry their own version
+history. Repository release versions are governed separately.
+
+- Source file versions use a two-level `major.minor` scheme.
+- When incrementing `minor` would reach `10`, roll over instead: increment
+  `major` by 1 and reset `minor` to `0` (for example `v0.9` -> `v1.0`,
+  `v1.9` -> `v2.0`, `v2.9` -> `v3.0`).
+- Do not continue `minor` past `9` as in standard semantic versioning
+  (do not use `v1.10`, `v1.11`, ...).
+- Raising `major` for a reason other than the rollover is a decision the
+  maintainer makes, not one this document derives from the change.
+- Removing or renaming an option, changing what an existing argument means,
+  changing a default so that an unchanged invocation does something else, and
+  changing how a path or a configuration value is resolved are all incompatible
+  changes. Say so in the `Version History` entry, so that the number the change
+  is released under can be chosen knowing that.
 
 ### 2.5 Cross-Language Experiments
 
