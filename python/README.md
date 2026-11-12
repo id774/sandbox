@@ -149,6 +149,9 @@ Subdirectories group experiments by library or theme:
 - Directed graph change measurement: `directed_graph_change_measurement`, which
   compares Euclidean amplitude, signed edge-count changes, and exact added or
   removed edges over four updates of a fixed directed binary graph.
+- Particle structure measurement: `particle_structure`, which compares
+  centroid velocity and proximity-graph amplitude for fixed particle
+  transitions and one-step reciprocal and nonreciprocal interactions.
 - Model release-delay cash flow: `model_release_cash_flow`, which verifies
   three fictional monthly cash balances, the minimum liquidity condition,
   and the effect of reducing the final month's compute payment.
