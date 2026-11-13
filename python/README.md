@@ -152,6 +152,9 @@ Subdirectories group experiments by library or theme:
 - Particle structure measurement: `particle_structure`, which compares
   centroid velocity and proximity-graph amplitude for fixed particle
   transitions and one-step reciprocal and nonreciprocal interactions.
+- Capacity maintainability: `capacity_maintainability`, which calculates the
+  required initial capacity margin and maximum maintainable horizon under
+  bounded demand increases and capacity additions.
 - Model release-delay cash flow: `model_release_cash_flow`, which verifies
   three fictional monthly cash balances, the minimum liquidity condition,
   and the effect of reducing the final month's compute payment.
