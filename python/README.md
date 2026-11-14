@@ -155,6 +155,9 @@ Subdirectories group experiments by library or theme:
 - Capacity maintainability: `capacity_maintainability`, which calculates the
   required initial capacity margin and maximum maintainable horizon under
   bounded demand increases and capacity additions.
+- State burden: `state_burden`, which compares state convergence and burden
+  under decay, initial-state preservation, a forced fixed point, and
+  saturation.
 - Model release-delay cash flow: `model_release_cash_flow`, which verifies
   three fictional monthly cash balances, the minimum liquidity condition,
   and the effect of reducing the final month's compute payment.
