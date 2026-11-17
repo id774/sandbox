@@ -3,6 +3,7 @@
 # Description:
 #   Construct pure multi-qubit Bell-pair states, interleave their qubit order,
 #   and check prefix entropy, SWAP counts, depth, and state norms.
+#
 # Author: id774 (More info: https://id774.net)
 # Source Code: https://github.com/id774/sandbox
 # License: The GPL version 3, or LGPL version 3 (Dual License).
@@ -11,6 +12,7 @@
 # Usage:
 #   From the repository root:
 #     PYTHONOPTIMIZE=0 python -B python/bell_swap_entropy/bell_swap.py
+#
 # Requirements:
 #   - Python 3.13 (reference execution: 3.13.5)
 #   - NumPy 2.3.5

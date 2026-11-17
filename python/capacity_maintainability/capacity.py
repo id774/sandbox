@@ -11,6 +11,7 @@
 # Usage:
 #   From this directory:
 #     python3 -B capacity.py
+#
 # Requirements:
 #   - Python 3.12 or later
 #   - Python standard library only

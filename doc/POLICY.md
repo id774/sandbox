@@ -663,6 +663,17 @@ setup and dependency details. Generated files and third-party source are not
 given repository-authored headers. Sections 1.16 and 2.3.3 continue to govern
 attribution, licensing, and generated project trees.
 
+Distinct header sections must have a visible boundary. Where a header uses
+line comments, separate adjacent sections with a comment-only blank line in
+that language's syntax; where it uses a block comment, use an equivalent
+visible blank line within the comment. A `Description` section ends before the
+`Author`, `Source Code`, `License`, and `Contact` metadata block begins. A
+`Usage` section ends before a following `Requirements` section begins. These
+four metadata fields form one contiguous block without internal separators.
+When a header is added or modified, check section boundaries as well as the
+presence of required information. This rule does not require otherwise
+unnecessary sections or impose the same comment syntax across languages.
+
 Header syntax follows the language or platform convention under Section 2.4.3.
 Do not add a uniform comment form across languages merely to make headers look
 alike. Do not duplicate detailed behavioral specifications, file inventories,
