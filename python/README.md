@@ -138,6 +138,8 @@ Subdirectories group experiments by library or theme:
   SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
 - Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
   subset checks to remove unsupported piece-kind candidates.
+- Bell-pair SWAP entropy: `bell_swap_entropy`, which interleaves distant
+  Bell pairs using adjacent SWAP operations and checks prefix entropy and depth.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
   datasets recorded on a selected system and traces upstream transfers.
 - Permission and dependency impact: `permission_dependency_impact`, which
