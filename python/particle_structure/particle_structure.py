@@ -3,6 +3,7 @@
 # Description:
 #   Compare centroid velocity and structural amplitude for fixed particle
 #   positions and one-step reciprocal and nonreciprocal interactions.
+#
 # Author: id774 (More info: https://id774.net)
 # Source Code: https://github.com/id774/sandbox
 # License: The GPL version 3, or LGPL version 3 (Dual License).

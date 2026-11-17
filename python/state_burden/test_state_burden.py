@@ -3,6 +3,7 @@
 # Description:
 #   Check analytical solutions, saturation, and independent acceptance
 #   conditions for the four state-update scenarios.
+#
 # Author: id774 (More info: https://id774.net)
 # Source Code: https://github.com/id774/sandbox
 # License: The GPL version 3, or LGPL version 3 (Dual License).
@@ -11,6 +12,7 @@
 # Usage:
 #   From this directory:
 #     python3 -B -m unittest -v test_state_burden
+#
 # Requirements:
 #   - Python 3.12 or later
 #   - Python standard library only (math, unittest)

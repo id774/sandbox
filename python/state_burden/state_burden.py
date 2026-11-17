@@ -2,6 +2,7 @@
 #
 # Description:
 #   Compare state changes and burden in four discrete-time scenarios.
+#
 # Author: id774 (More info: https://id774.net)
 # Source Code: https://github.com/id774/sandbox
 # License: The GPL version 3, or LGPL version 3 (Dual License).
@@ -10,6 +11,7 @@
 # Usage:
 #   From this directory:
 #     python3 -B state_burden.py
+#
 # Requirements:
 #   - Python 3.12 or later
 #   - Python standard library only (dataclasses)
