@@ -140,6 +140,8 @@ Subdirectories group experiments by library or theme:
   subset checks to remove unsupported piece-kind candidates.
 - Bell-pair SWAP entropy: `bell_swap_entropy`, which interleaves distant
   Bell pairs using adjacent SWAP operations and checks prefix entropy and depth.
+- Commutator uncertainty residual: `commutator_uncertainty`, which checks
+  Robertson-Schrodinger residuals and state-dependent commutator bounds.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
   datasets recorded on a selected system and traces upstream transfers.
 - Permission and dependency impact: `permission_dependency_impact`, which
