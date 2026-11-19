@@ -1,4 +1,18 @@
-%% Print a Fibonacci sequence recursively; the module name does not match the file name.
+%% fibonacci.erl: Recursive Fibonacci sequence in a mismatched module
+%%
+%% Description:
+%% Print a Fibonacci sequence recursively; the module name does not match the
+%% file name.
+%%
+%% Author: id774 (More info: https://id774.net)
+%% Source Code: https://github.com/id774/sandbox
+%% License: The GPL version 3, or LGPL version 3 (Dual License).
+%% Contact: idnanashi@gmail.com
+%%
+%% Requirements:
+%% - Erlang/OTP, although erlc rejects the file because its module is named
+%%   fib
+%%
 
 -module(fib).
 -export([f/3]).

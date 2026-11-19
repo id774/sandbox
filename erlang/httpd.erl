@@ -1,4 +1,21 @@
-%% Serve a fixed HTML response over TCP, listening on port 8080 by default.
+%% httpd.erl: Fixed HTML response over TCP
+%%
+%% Description:
+%% Serve a fixed HTML response over TCP, listening on port 8080 by default or
+%% on the port given to start/1.
+%%
+%% Author: id774 (More info: https://id774.net)
+%% Source Code: https://github.com/id774/sandbox
+%% License: The GPL version 3, or LGPL version 3 (Dual License).
+%% Contact: idnanashi@gmail.com
+%%
+%% Usage:
+%%     erlc httpd.erl
+%%     erl -noshell -s httpd start
+%%
+%% Requirements:
+%% - Erlang/OTP (erlc and erl)
+%%
 
 -module(httpd).
 -export([start/0,start/1,handle_connection/1,recv_loop/1]).

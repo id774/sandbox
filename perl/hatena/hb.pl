@@ -1,5 +1,25 @@
 #!/usr/bin/perl
-# Post the URL given as an argument to Hatena Bookmark with an empty summary.
+# hb.pl: Post a URL to Hatena Bookmark
+#
+# Description:
+# Post the URL given as an argument to Hatena Bookmark with an empty summary
+# through the AtomPub API. The user name and password in the source are empty
+# placeholders.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     perl hb.pl <URL>
+#
+# Requirements:
+# - Perl with XML::Atom
+# - A Hatena account filled in for the placeholders and network access to
+#   b.hatena.ne.jp
+#
+
 use warnings;
 use strict;
 

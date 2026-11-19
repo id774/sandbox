@@ -1,4 +1,16 @@
+%% sample.erl: Draft recursive Fibonacci function
+%%
+%% Description:
 %% Sketch a recursive Fibonacci function; this draft does not compile.
+%%
+%% Author: id774 (More info: https://id774.net)
+%% Source Code: https://github.com/id774/sandbox
+%% License: The GPL version 3, or LGPL version 3 (Dual License).
+%% Contact: idnanashi@gmail.com
+%%
+%% Requirements:
+%% - Erlang/OTP, although the current source does not compile
+%%
 
 -module(fibonacci).
 -export([f/1]).

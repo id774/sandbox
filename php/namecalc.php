@@ -1,8 +1,25 @@
 <?php
 /*
-    namecalc.php v1.0 at 2011.03.13 by id774 <idnanashi@gmail.com>.
+    namecalc.php: Two-digit score from two posted names
 
+    Description:
     Reduce two posted names to a two digit score by repeatedly summing adjacent digits.
+    The page shows a form with the fields M and F and posts it back to itself.
+
+    Author: id774 (More info: https://id774.net)
+    Source Code: https://github.com/id774/sandbox
+    License: The GPL version 3, or LGPL version 3 (Dual License).
+    Contact: idnanashi@gmail.com
+
+    Usage:
+        php -S localhost:8000
+        Then open namecalc.php through the server.
+
+    Requirements:
+    - PHP with a web server or the built-in server (php -S)
+
+    Version History:
+    namecalc.php v1.0 at 2011.03.13 by id774 <idnanashi@gmail.com>.
 */
 
 function num($i, $j) {

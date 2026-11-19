@@ -1,3 +1,22 @@
+# favicon.coffee: Change and animate the page favicon
+#
+# Description:
+# Define a favicon object that changes the page icon and title and animates a
+# sequence of icons. favicon.js is its compiled output.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     coffee -c favicon.coffee
+#
+# Requirements:
+# - CoffeeScript, to compile it
+# - A web browser page that loads the compiled script
+#
+
 favicon =
   defaultPause: 2000
   change: (iconURL, optionalDocTitle) ->

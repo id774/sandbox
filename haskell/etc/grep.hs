@@ -1,4 +1,20 @@
+-- grep.hs: Print input lines matching a regular expression
+--
+-- Description:
 -- Print the standard input lines that match a regular expression argument.
+--
+-- Author: id774 (More info: https://id774.net)
+-- Source Code: https://github.com/id774/sandbox
+-- License: The GPL version 3, or LGPL version 3 (Dual License).
+-- Contact: idnanashi@gmail.com
+--
+-- Usage:
+--     runghc grep.hs <regexp> < input
+--
+-- Requirements:
+-- - GHC with the haskell98 package, which provides the System and IO modules
+-- - The regex-compat package, which provides Text.Regex
+--
 
 module Main (main) where
 
