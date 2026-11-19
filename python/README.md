@@ -110,6 +110,9 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Time-dependent low-rank approximation: `time_dependent_low_rank`, which
+  checks SVD truncation errors, a sufficient rank from uniform spectral decay,
+  and the minimum rank for fixed time-dependent diagonal matrices.
 - Boolean function influence: `boolean_function_influence`, which checks
   variance, squared bit-flip influence, and degree conditions for the bit mean,
   normalized sum, and odd-sized majority over all Boolean inputs.
