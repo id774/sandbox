@@ -1,4 +1,20 @@
--- Walk through Lua basics: strings, variables, control flow, functions, and tables.
+-- hello.lua: Lua basics walk-through
+--
+-- Description:
+-- Walk through Lua basics: strings, variables, control flow, functions, and
+-- tables.
+--
+-- Author: id774 (More info: https://id774.net)
+-- Source Code: https://github.com/id774/sandbox
+-- License: The GPL version 3, or LGPL version 3 (Dual License).
+-- Contact: idnanashi@gmail.com
+--
+-- Usage:
+--     lua hello.lua
+--
+-- Requirements:
+-- - Lua 5
+--
 
 print "hello, lua"
 --> hello,lua

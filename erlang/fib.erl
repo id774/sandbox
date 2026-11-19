@@ -1,4 +1,20 @@
+%% fib.erl: Fibonacci sequences with three recursive variants
+%%
+%% Description:
 %% Print Fibonacci sequences with three recursive variants.
+%%
+%% Author: id774 (More info: https://id774.net)
+%% Source Code: https://github.com/id774/sandbox
+%% License: The GPL version 3, or LGPL version 3 (Dual License).
+%% Contact: idnanashi@gmail.com
+%%
+%% Usage:
+%%     erlc fib.erl
+%%     erl -noshell -s fib f 10 -s init stop
+%%
+%% Requirements:
+%% - Erlang/OTP (erlc and erl)
+%%
 
 -module(fib).
 -export([f/1,f/4,f2/1,f2/4,f3/1,f3/4]).

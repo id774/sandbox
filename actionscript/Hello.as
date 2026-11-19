@@ -1,3 +1,20 @@
+// Hello.as: Draw text on a Flash stage
+//
+// Description:
+// Show a greeting text field on a 240 by 240 white SWF stage.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     mxmlc Hello.as
+//
+// Requirements:
+// - The Flex SDK compiler (mxmlc) and Flash Player to run the SWF
+//
+
 package {
   import flash.display.*;
   import flash.text.*;

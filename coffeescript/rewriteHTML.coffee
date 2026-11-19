@@ -1,3 +1,22 @@
+# rewriteHTML.coffee: Rewrite daily links in a page
+#
+# Description:
+# Compute dates and rewrite the daily links of a page when it loads.
+# rewriteHTML.js is its compiled output.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     coffee -c rewriteHTML.coffee
+#
+# Requirements:
+# - CoffeeScript, to compile it
+# - A web browser page that loads the compiled script
+#
+
 window.onload = ->
   computeDate = (year, month, day, addDays) ->
     dt = new Date(year, month - 1, day)

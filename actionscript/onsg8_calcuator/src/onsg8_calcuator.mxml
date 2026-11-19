@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  onsg8_calcuator.mxml: Flex calculator window
+
+  Description:
+  Define an AIR window with input fields and buttons that calculate results
+  with an embedded ActionScript function.
+
+  Author: id774 (More info: https://id774.net)
+  Source Code: https://github.com/id774/sandbox
+  License: The GPL version 3, or LGPL version 3 (Dual License).
+  Contact: idnanashi@gmail.com
+
+  Requirements:
+  - Adobe Flex Builder or the Flex SDK with AIR, which build this project
+-->
 <mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
 
 	<mx:Script>

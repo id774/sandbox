@@ -1,3 +1,15 @@
+# users.js.coffee: Backbone model, collection, and view for users
+#
+# Description:
+# Define the User model, the UserStore collection bound to /users, and the
+# view that creates and removes users through REST calls to UsersController.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+
 class User extends Backbone.Model
     id: null
     name: null

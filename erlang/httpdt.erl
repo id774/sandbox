@@ -1,4 +1,21 @@
-%% Serve the current local time as HTML over TCP, listening on port 8080 by default.
+%% httpdt.erl: Current local time served as HTML over TCP
+%%
+%% Description:
+%% Serve the current local time as HTML over TCP, listening on port 8080 by
+%% default or on the port given to start/1.
+%%
+%% Author: id774 (More info: https://id774.net)
+%% Source Code: https://github.com/id774/sandbox
+%% License: The GPL version 3, or LGPL version 3 (Dual License).
+%% Contact: idnanashi@gmail.com
+%%
+%% Usage:
+%%     erlc httpdt.erl
+%%     erl -noshell -s httpdt start
+%%
+%% Requirements:
+%% - Erlang/OTP (erlc and erl)
+%%
 
 
 -module(httpdt).

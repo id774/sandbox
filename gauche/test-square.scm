@@ -1,4 +1,20 @@
+;; test-square.scm: Test the square procedure with gauche.test
+;;
+;; Description:
 ;; Test the square procedure with gauche.test.
+;;
+;; Author: id774 (More info: https://id774.net)
+;; Source Code: https://github.com/id774/sandbox
+;; License: The GPL version 3, or LGPL version 3 (Dual License).
+;; Contact: idnanashi@gmail.com
+;;
+;; Usage:
+;;     gosh test-square.scm
+;;
+;; Requirements:
+;; - Gauche (gosh) with gauche.test
+;; - Run from this directory, which holds square.scm
+;;
 
 (use gauche.test)
 

@@ -1,4 +1,20 @@
--- Branch with if in both an IO action and a pure function.
+-- if.hs: if in an IO action and a pure function
+--
+-- Description:
+-- Branch with if on a greeting read from standard input, in both an IO action
+-- and a pure function.
+--
+-- Author: id774 (More info: https://id774.net)
+-- Source Code: https://github.com/id774/sandbox
+-- License: The GPL version 3, or LGPL version 3 (Dual License).
+-- Contact: idnanashi@gmail.com
+--
+-- Usage:
+--     runghc if.hs
+--
+-- Requirements:
+-- - GHC (runghc)
+--
 
 main = do
   putStrLn "挨拶といえば？: "

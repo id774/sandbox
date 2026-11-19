@@ -1,3 +1,21 @@
+# d3js.my.coffee: Bar chart from data.json
+#
+# Description:
+# Load data.json with d3.json and draw bars with scales and labels into
+# #canvas1. d3js.my.js is its compiled output.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     coffee -c d3js.my.coffee
+#
+# Requirements:
+# - CoffeeScript, only to recompile it
+#
+
 window.addEventListener("load", ->
   d3.json("data.json", (data)->
     canvas   = d3.select "#canvas1"

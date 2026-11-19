@@ -1,4 +1,20 @@
-;; Specialize a generic method and delegate to the previous one with next-method.
+;; next-method.scm: Delegate to a less specific method with next-method
+;;
+;; Description:
+;; Specialize a generic method and delegate to the previous one with
+;; next-method.
+;;
+;; Author: id774 (More info: https://id774.net)
+;; Source Code: https://github.com/id774/sandbox
+;; License: The GPL version 3, or LGPL version 3 (Dual License).
+;; Contact: idnanashi@gmail.com
+;;
+;; Usage:
+;;     gosh next-method.scm
+;;
+;; Requirements:
+;; - Gauche (gosh)
+;;
 
 (define-method add (x y)
           (format #t "~s and ~s was passed.\n" x y))
