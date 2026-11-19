@@ -1,4 +1,22 @@
-# Plot power demand read from a Shift_JIS CSV file.
+# power_plot.py: Power demand from a Shift_JIS CSV file
+#
+# Description:
+# Plot power demand read from the Shift_JIS CSV file juyo-2014.csv and save
+# image6.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 power_plot.py
+#
+# Requirements:
+# - Python 3
+# - pandas and Matplotlib
+# - juyo-2014.csv in the current directory
+#
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

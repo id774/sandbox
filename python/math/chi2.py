@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Compute a chi-squared statistic from a contingency table; written for Python 2.
+# chi2.py: Chi-squared statistic from a contingency table
+#
+# Description:
+# Compute a chi-squared statistic from a contingency table; written for Python
+# 2.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 chi2.py
+#
+# Requirements:
+# - Python 3, although the source was originally written for Python 2
+#
 
 import sys
 

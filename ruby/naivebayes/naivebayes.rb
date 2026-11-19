@@ -1,6 +1,16 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# naivebayes.rb: Naive Bayes over word frequency tables
+#
+# Description:
 # Implement a naive Bayes classifier over word frequency tables.
+# naivebayes_spec.rb tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 
 class NaiveBayes
   def initialize(params)

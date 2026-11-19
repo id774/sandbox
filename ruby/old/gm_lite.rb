@@ -1,4 +1,20 @@
-# Parse NMEA sentences into latitude and longitude.
+# gm_lite.rb: Track NMEA positions in a JavaScript file
+#
+# Description:
+# Parse NMEA sentences from standard input into latitude and longitude, print
+# each position, and periodically write the latest one to /tmp/ll.js.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     <NMEA source> | ruby gm_lite.rb
+#
+# Requirements:
+# - Ruby
+#
 
 def get_lat_and_lon(nmea)
     return nil unless /GGA,/ =~ nmea

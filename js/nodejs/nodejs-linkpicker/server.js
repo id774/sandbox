@@ -1,4 +1,25 @@
-// server.js
+// server.js: Web entry point of the link picker
+//
+// Description:
+// Serve the link picker on localhost:8124 with Express, rendering the links of
+// the page named by the url query parameter through the EJS views.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     node server.js
+//
+// Requirements:
+// - An early Node.js release that still provides http.createClient and
+//   process.binding('evals')
+// - Express 2, which provides express.createServer and app.register, and the
+//   ejs package
+// - The jsdom and iconv packages and jquery.min.js beside embedJQuery.js, as
+//   js/nodejs/README.md describes
+//
 
 var hostname = 'localhost';
 var port = 8124;

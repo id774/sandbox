@@ -1,5 +1,23 @@
 #!/opt/ruby/1.9.3/bin/ruby
-# Import files into HDFS, unpacking zip archives on the way.
+# import2hdfs.rb: Import files into HDFS, unpacking zip archives
+#
+# Description:
+# Import the files under the first argument into HDFS below the second
+# argument, unpacking zip archives on the way.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby import2hdfs.rb <source directory> <HDFS directory>
+#
+# Requirements:
+# - Ruby 1.9.3 or later, as the shebang suggests
+# - The zipruby and sysadmin gems
+# - A Hadoop client whose hadoop fs command can reach HDFS
+#
 
 require 'zipruby'
 require 'tempfile'

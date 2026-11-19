@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# json_simple_analyzer_spec.rb: RSpec test of the word count analyzer output
+#
+# Description:
 # Test the word count analyzer output with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec json_simple_analyzer_spec.rb
+#
+# Requirements:
+# - Ruby
+# - RSpec, the awesome_print gem, and the stdout library the spec requires
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Export tweets from SQLite as tagged JSON records.
+# sqlite3_json.rb: Export tweets from SQLite as tagged JSON
+#
+# Description:
+# Export tweets from a SQLite database as tagged JSON records. The database,
+# output file, and tag default to sqlite3.db, out.txt, and twitter.statuses.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby sqlite3_json.rb [database file] [output file] [tag]
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems
+#
 
 require 'active_record'
 require 'json'

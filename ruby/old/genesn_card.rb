@@ -1,4 +1,20 @@
-# Draw a card, or deal a shuffled program, from a fixed card set.
+# genesn_card.rb: Draw a card or deal a shuffled program
+#
+# Description:
+# Draw one card from a fixed card set when no argument is given, or deal a
+# shuffled program of 16 cards when any argument is given.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby genesn_card.rb [any argument]
+#
+# Requirements:
+# - Ruby
+#
 
 cards = ["ACQUIRE","BUG","SURGE","POISON","SELF_DESTRUCT","BIT_SWAPPER","BIT_FACTORY","BIT_REMOVER","BIT_WORM","BIT_OVERWRITE","RUN_PAST","RUN_FUTURE","REVERSE_ORDER","DECREMENT","INCREMENT","MOVE_CARD","REMOVE_CARD"]
 (puts "drawn card is:"+cards[rand(cards.length)];exit) if !ARGV[0]

@@ -1,4 +1,14 @@
-# Hold one node of a hierarchical clustering tree.
+# bicluster.rb: Node of a hierarchical clustering tree
+#
+# Description:
+# Hold one node of a hierarchical clustering tree. clusters.rb uses this
+# class.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 
 class Bicluster
 

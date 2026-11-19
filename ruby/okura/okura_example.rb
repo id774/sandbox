@@ -1,6 +1,23 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# okura_example.rb: Segment Japanese text with okura
+#
+# Description:
 # Segment Japanese text with the okura tagger.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby okura_example.rb
+#
+# Requirements:
+# - Ruby
+# - The okura gem
+# - An okura dictionary at /home/debian/tmp/okura-dic
+#
 
 require 'okura/serializer'
 

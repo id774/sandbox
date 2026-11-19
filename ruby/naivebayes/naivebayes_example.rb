@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# naivebayes_example.rb: Train and classify with the naivebayes gem
+#
+# Description:
 # Train and classify with the naivebayes gem.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby naivebayes_example.rb
+#
+# Requirements:
+# - Ruby
+# - The naivebayes gem
+#
 
 class NaiveBayesExample
   require 'rubygems'

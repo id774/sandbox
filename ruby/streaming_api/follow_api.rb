@@ -1,5 +1,23 @@
 #-*- coding: utf-8 -*-
-# Follow the Twitter filter stream for a set of accounts; the modifier rescue does not parse.
+# follow_api.rb: Follow the Twitter filter stream for followed accounts
+#
+# Description:
+# Follow the Twitter filter stream for a set of accounts; the modifier rescue
+# does not parse. The accounts are those the user given as the first argument
+# follows.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Ruby, although the current source does not parse
+# - The rubytter gem
+# - The Twitter streaming and REST APIs with basic authentication as they
+#   existed at the time
+#
+
 require 'net/http'
 require 'json'
 require 'uri'

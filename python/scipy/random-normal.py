@@ -1,5 +1,21 @@
 #!/usr/bin/env python
+# random-normal.py: Gaussian fit of a sampled histogram with leastsq
+#
+# Description:
 # Fit a Gaussian to a sampled histogram with leastsq.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 random-normal.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib
+#
 
 import matplotlib.pyplot as plt
 import numpy as np

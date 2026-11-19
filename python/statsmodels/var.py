@@ -1,4 +1,21 @@
-# Fit a vector autoregression to macroeconomic data and plot the impulse response.
+# var.py: Vector autoregression of macroeconomic data
+#
+# Description:
+# Fit a vector autoregression to the statsmodels macroeconomic data set and
+# plot the impulse response.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 var.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, statsmodels, and Matplotlib
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

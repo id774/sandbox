@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Train a naive Bayes classifier on tagged JSON and measure its accuracy on a second file.
+# accuracy_rate.rb: Naive Bayes accuracy on tagged JSON
+#
+# Description:
+# Train a naive Bayes classifier on tagged JSON and measure its accuracy on a
+# second file. The files default to sfa_train3.txt and new_train.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby accuracy_rate.rb [training file] [evaluation file]
+#
+# Requirements:
+# - Ruby
+# - The naivebayes gem and MeCab with its Ruby binding
+#
 
 require 'json'
 require 'MeCab'

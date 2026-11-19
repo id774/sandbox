@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Extract nouns using a user dictionary and a stopword list.
+# extract_nouns_custom.rb: Extract nouns with a user dictionary and stopwords
+#
+# Description:
+# Extract nouns using a user dictionary and a stopword list. The input and
+# output directories default to the current one, the user dictionary path to
+# the current directory, and the stopword list to stopword.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby extract_nouns_custom.rb [input directory] [output directory] [user dictionary] [stopword file]
+#
+# Requirements:
+# - Ruby
+# - MeCab with its Ruby binding
+#
 
 require 'MeCab'
 

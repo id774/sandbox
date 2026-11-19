@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Feed JSON records into R and save the resulting image.
+# json2R.rb: JSON records plotted in R
+#
+# Description:
+# Feed JSON records into R and save histogram and plot images named after the
+# output prefix. The input defaults to json.txt and the prefix to out.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json2R.rb [JSON file] [output prefix]
+#
+# Requirements:
+# - Ruby with the rsruby gem
+# - R
+#
 
 require 'json'
 require 'rsruby'

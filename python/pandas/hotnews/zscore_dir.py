@@ -1,4 +1,22 @@
-# Add a z score column to every log file under a directory.
+# zscore_dir.py: Add z score columns to every log file in a directory
+#
+# Description:
+# Add a z score column to every log file under the directory given as an
+# argument, rewriting each file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 zscore_dir.py <directory>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - SciPy
+# - pandas before 1.0, which still provides DataFrame.ix
+#
 
 import sys
 import os

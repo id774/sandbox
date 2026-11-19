@@ -1,3 +1,20 @@
+# ukgas.R: Decomposition and forecasting of UKgas
+#
+# Description:
+# Plot the UKgas series, decompose it with stl, and analyze it with tseries
+# and TTR, writing image.png and further PNG files.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript ukgas.R
+#
+# Requirements:
+# - R with the tseries and TTR packages
+#
 
 UKgas
 str(UKgas)

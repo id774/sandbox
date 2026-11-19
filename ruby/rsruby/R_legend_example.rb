@@ -1,4 +1,21 @@
-# Plot CSV columns in R with a legend through RSRuby.
+# R_legend_example.rb: Plot CSV columns with a legend in R
+#
+# Description:
+# Plot the columns of Book1.csv in R with a legend through RSRuby.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby R_legend_example.rb
+#
+# Requirements:
+# - Ruby with the rsruby gem
+# - R
+# - Book1.csv in the current directory
+#
 
 require 'rubygems'
 require "csv"

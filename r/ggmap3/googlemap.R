@@ -1,3 +1,21 @@
+# googlemap.R: Plot four Tokyo addresses with ggmap3
+#
+# Description:
+# Geocode four Tokyo addresses with ggmap3 and write the map to image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript googlemap.R
+#
+# Requirements:
+# - R with the XML, RCurl, and RgoogleMaps packages
+# - Run from this directory, which holds ggmap3.R
+# - Network access to the Google Maps services that ggmap3 uses
+#
 
 library(XML)
 library(RCurl)

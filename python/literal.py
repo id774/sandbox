@@ -1,4 +1,19 @@
+# literal.py: Print a regular expression tree with precedence brackets
+#
+# Description:
 # Print a regular expression tree, bracketing subpatterns by precedence.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 literal.py
+#
+# Requirements:
+# - Python 3
+#
 
 class Pattern:
 

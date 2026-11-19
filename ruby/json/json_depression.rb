@@ -1,5 +1,24 @@
 # -*- coding: utf-8 -*-
-# Score the sentiment of JSON text against a polarity dictionary.
+# json_depression.rb: Sentiment scores against a polarity dictionary
+#
+# Description:
+# Score the sentiment of JSON text against a polarity dictionary. The log
+# defaults to json.txt and the dictionary to depression/pn_ja.dic three
+# directories above this file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_depression.rb [log file] [dictionary]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem and MeCab with its Ruby binding
+# - A polarity dictionary in pn_ja.dic format
+#
 
 require 'MeCab'
 require 'json'

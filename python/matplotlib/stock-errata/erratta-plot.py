@@ -1,4 +1,23 @@
-# Plot Nikkei 225 closes against prediction accuracy in stacked panels.
+# erratta-plot.py: Nikkei 225 closes against prediction accuracy
+#
+# Description:
+# Plot Nikkei 225 closes against prediction accuracy in stacked panels,
+# reading the tab separated stock_N225.csv from the current directory and
+# saving image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 erratta-plot.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib
+# - stock_N225.csv in the current directory
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

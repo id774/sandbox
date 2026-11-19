@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Map categories to their terms from a JSON log, skipping an exclude list.
+# extract_category_map.py: Map categories to terms from a JSON log
+#
+# Description:
+# Map categories to their terms from a JSON log, skipping the terms in an
+# exclude list file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 extract_category_map.py <JSON log> <exclude list>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import os

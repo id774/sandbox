@@ -1,4 +1,23 @@
-# Dump one tenant's users from PostgreSQL to CSV with a blank password column.
+# extract_users.py: Dump tenant users from PostgreSQL to CSV
+#
+# Description:
+# Dump one tenant's users from PostgreSQL to users.csv with a blank password
+# column, connecting to the database s<sid> on 127.0.0.1:5432 as the user of
+# the same name.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 extract_users.py <sid>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - pandas and psycopg2
+# - A local PostgreSQL server with the tenant database
+#
 
 import os
 import sys

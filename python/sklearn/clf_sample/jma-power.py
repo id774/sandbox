@@ -1,4 +1,22 @@
-# Scatter monthly power demand against temperature.
+# jma-power.py: Monthly power demand against temperature
+#
+# Description:
+# Scatter monthly power demand from juyo-2014.csv against temperature from
+# JMA_3city.csv, saving jma-power.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 jma-power.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib
+# - juyo-2014.csv and JMA_3city.csv in the current directory
+#
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

@@ -1,6 +1,23 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-# Score document terms by TF-IDF and write the scores as JSON.
+# tfidf_json.py: TF-IDF term scores written as JSON
+#
+# Description:
+# Score document terms by TF-IDF and write the scores as JSON. The input and
+# output directories default to ~/tmp/1 and ~/tmp/2.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 tfidf_json.py [input directory] [output directory]
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - scikit-learn
+#
 
 import sys
 import os

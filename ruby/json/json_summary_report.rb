@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Summarize sales activity outcomes by project and by action.
+# json_summary_report.rb: Sales activity outcomes by project and action
+#
+# Description:
+# Summarize sales activity outcomes by project and by action from a JSON log,
+# json.txt by default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_summary_report.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem
+#
 
 require 'json'
 require 'awesome_print'

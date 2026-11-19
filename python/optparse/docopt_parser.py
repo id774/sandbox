@@ -1,4 +1,20 @@
+# docopt_parser.py: Command line options from a docopt docstring
+#
+# Description:
 # Parse command line options from the module docstring with docopt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 docopt_parser.py <fname> [-v | --verbose] [-c | --cat <another_file>]
+#
+# Requirements:
+# - Python 3
+# - docopt
+#
 
 __doc__ = """{f}
 

@@ -1,6 +1,20 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# request_and_response.rb: Rack application branching on the request method
+#
+# Description:
 # Build a Rack application that branches on the request method.
+# request_and_response_test.rb tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Ruby
+# - The rack gem
+#
 
 require 'rack/request'
 require 'rack/response'

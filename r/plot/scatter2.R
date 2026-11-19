@@ -1,3 +1,22 @@
+# scatter2.R: Wine prices against rainfall with a correlation test
+#
+# Description:
+# Read wine.csv, plot wine prices against rainfall to image.png, and test
+# their correlation for all rows and for a subset.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript scatter2.R
+#
+# Requirements:
+# - R
+# - wine.csv in the current directory
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 
 data = read.csv("wine.csv")

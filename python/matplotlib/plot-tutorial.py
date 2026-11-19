@@ -1,6 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Combine line, histogram, and scatter panels in one figure.
+# plot-tutorial.py: Line, histogram, and scatter panels in one figure
+#
+# Description:
+# Combine line, histogram, and scatter panels in one figure, labelled with a
+# Japanese font, and save the plots as image.png through image4.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 plot-tutorial.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib with pylab
+# - A Japanese font at /Library/Fonts/Osaka.ttf on macOS or at
+#   /usr/share/fonts/truetype/fonts-japanese-gothic.ttf elsewhere
+#
 
 import sys
 import numpy as np

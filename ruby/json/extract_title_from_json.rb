@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Collect the title field from every JSON record.
+# extract_title_from_json.rb: Title field of every JSON record
+#
+# Description:
+# Collect the title field from every JSON record in a log, json.txt by
+# default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby extract_title_from_json.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem
+#
 
 require 'json'
 require 'awesome_print'

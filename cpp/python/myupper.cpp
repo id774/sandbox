@@ -1,3 +1,18 @@
+// myupper.cpp: Python extension module that prints a string in upper case
+//
+// Description:
+// Define the myupper Python extension module, whose myupper function prints
+// its string argument converted to upper case. setup.py builds it.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Requirements:
+// - Python 3 development headers (Python.h)
+//
+
 #include <Python.h>
 #include <iostream>
 #include <string>

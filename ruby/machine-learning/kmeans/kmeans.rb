@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# kmeans.rb: Cluster fixed test data and print JSON
+#
+# Description:
 # Cluster fixed test data and print the result as JSON.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby kmeans.rb
+#
+# Requirements:
+# - Ruby
+# - The kmeans gem
+#
 
 require 'kmeans/pair'
 require 'kmeans/pearson'

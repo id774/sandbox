@@ -1,5 +1,21 @@
 #-*- coding: UTF-8 -*-
+# markov.rb: Hand written Japanese tokenizer
+#
+# Description:
 # Split Japanese text into tokens with a hand written morphological analyzer.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby markov.rb
+#
+# Requirements:
+# - Ruby
+#
+
 def morphAnalyzer(str)
   s = str.gsub(/([一-龠々〆ヵヶ]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+|[,.、。！!？?()（）「」『』]+|[ 　]+)/,"\\1|")
   ary = s.split("|")

@@ -1,5 +1,21 @@
 # -*- coding:utf-8 -*-
+# montecarlo.py: Monte Carlo comparison of two teams
+#
+# Description:
 # Compare two teams by Monte Carlo simulation of their performance.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 montecarlo.py
+#
+# Requirements:
+# - Python 3
+# - SciPy and Matplotlib with pylab
+#
 
 from pylab import *
 from scipy.stats import *

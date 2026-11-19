@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# jaccard_weight.py: Weighted Jaccard coefficient of term frequency maps
+#
+# Description:
 # Compute a weighted Jaccard coefficient between two term frequency maps.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 jaccard_weight.py
+#
+# Requirements:
+# - Python 3
+#
 
 def jaccard_weight(v1, v2):
     numerator = 0

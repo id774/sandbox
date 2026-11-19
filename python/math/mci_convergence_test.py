@@ -1,4 +1,20 @@
+# mci_convergence_test.py: Monte Carlo integration convergence against a known integral
+#
+# Description:
 # Test the convergence of Monte Carlo integration against a known integral.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 mci_convergence_test.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

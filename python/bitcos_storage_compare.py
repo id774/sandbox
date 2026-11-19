@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# bitcos_storage_compare.py
+# bitcos_storage_compare.py: Compare ternary weight storage of BITCOS and five-trit packing
 #
 # Description:
 #   A standalone sample that compares how much storage ternary weights

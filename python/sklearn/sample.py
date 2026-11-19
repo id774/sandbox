@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# sample.py: Ensemble classifiers compared on iris
+#
+# Description:
 # Compare ensemble classifiers on the iris data set by cross validation score.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 sample.py
+#
+# Requirements:
+# - Python 3
+# - scikit-learn before 0.20, which still provides sklearn.cross_validation
+#
 
 from sklearn.svm import LinearSVC
 from sklearn.ensemble import AdaBoostClassifier

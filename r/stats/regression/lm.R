@@ -1,3 +1,21 @@
+# lm.R: Multiple regression on simulated heights
+#
+# Description:
+# Simulate a response from two normal predictors with fixed coefficients and
+# fit it with lm.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript lm.R
+#
+# Requirements:
+# - R
+#
+
 set.seed(1234)
 intercept <- 102.385888
 a <- 0.316514

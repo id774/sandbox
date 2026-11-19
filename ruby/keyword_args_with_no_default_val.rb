@@ -1,4 +1,19 @@
+# keyword_args_with_no_default_val.rb: Required keyword arguments
+#
+# Description:
 # Declare required keyword arguments alongside every other parameter kind.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby keyword_args_with_no_default_val.rb
+#
+# Requirements:
+# - Ruby 2.1 or later, which supports required keyword arguments
+#
 
 def hello(a:, b:1, c:, d:2)
   p a

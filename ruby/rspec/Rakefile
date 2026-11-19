@@ -1,4 +1,26 @@
 # -*- encoding: utf-8 -*-
+# Rakefile: Rake tasks for RSpec and coverage
+#
+# Description:
+# Add lib to the load path and define the default spec task and a coverage
+# task, both running spec/**/*_spec.rb with RSpec. The coverage task uses
+# rcov.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rake
+#     rake coverage
+#
+# Requirements:
+# - Ruby with Rake
+# - RSpec 2, whose RakeTask still accepts the rcov options, and rcov for the
+#   coverage task
+#
+
 $:.unshift  File.join(File.dirname(__FILE__), "lib")
 require 'rspec/core'
 require 'rspec/core/rake_task'

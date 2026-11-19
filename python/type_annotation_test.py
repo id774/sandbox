@@ -1,4 +1,19 @@
+# type_annotation_test.py: unittest tests for the annotated average function
+#
+# Description:
 # Test the annotated average function with unittest, including error cases.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 type_annotation_test.py
+#
+# Requirements:
+# - Python 3.5 or later, which provides the typing module
+#
 
 import unittest
 from type_annotation import average

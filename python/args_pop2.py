@@ -1,4 +1,22 @@
-# Shift command line arguments using the List subclass imported from list_shift.
+# args_pop2.py: Shift command line arguments with an imported List class
+#
+# Description:
+# Shift command line arguments using the List subclass imported from
+# list_shift, and print up to four arguments after the command name.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 args_pop2.py [arg2] [arg3] [arg4] [arg5]
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - A list_shift module that provides the List class; it is not included in
+#   this repository
+#
 
 import sys
 from list_shift import List

@@ -1,4 +1,23 @@
-# Collect monthly suicide counts for three cities into one frame.
+# suicide.py: Monthly suicide counts for three cities
+#
+# Description:
+# Collect monthly suicide counts for three cities from the per-month CSV files
+# into one frame and write suicide_2014.csv.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 suicide.py
+#
+# Requirements:
+# - Python 3
+# - Matplotlib
+# - pandas before 1.0, which still provides DataFrame.ix
+# - The per-month YYYYMM.csv files in the current directory
+#
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

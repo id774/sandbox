@@ -1,4 +1,20 @@
+# heatmap_from_scatter.py: Heatmap from scattered points on a date axis
+#
+# Description:
 # Turn scattered points over a date axis into a heatmap.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 heatmap_from_scatter.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib with pylab
+#
 
 import numpy as np
 import datetime as dt

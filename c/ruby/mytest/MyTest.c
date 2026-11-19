@@ -1,3 +1,17 @@
+/*
+ * MyTest.c: Ruby C extension module defining MyTest#test1
+ *
+ * Description:
+ * Ruby C extension that defines the MyTest module and its test1 method, which
+ * returns 10. extconf.rb generates the Makefile that builds it, and test.rb
+ * loads it.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ */
+
 // Include the Ruby headers and goodies
 #include "ruby.h"
 

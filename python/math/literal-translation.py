@@ -1,5 +1,21 @@
 # -*- coding:utf-8 -*_
+# literal-translation.py: Element-wise and matrix products of NumPy arrays
+#
+# Description:
 # Contrast element wise products with matrix products on numpy arrays.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 literal-translation.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+#
 
 import numpy as np
 

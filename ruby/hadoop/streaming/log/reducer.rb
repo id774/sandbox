@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
-# Total the hits per address and resolve each one to a host name.
+# reducer.rb: Total hits per address and resolve host names
+#
+# Description:
+# Total the hits per address from sorted standard input and resolve each one
+# to a host name.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     cat data.txt | ruby mapper.rb | sort | ruby reducer.rb
+#
+# Requirements:
+# - Ruby
+# - Name resolution for the addresses in the input
+#
 
 require 'resolv'
 require 'tempfile'

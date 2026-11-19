@@ -1,3 +1,22 @@
+# 7.GenerativeModelOfLinearDiscriminant.R: Generative model of a linear discriminant
+#
+# Description:
+# Model two classes with Gaussian class-conditional densities sharing a
+# covariance, and plot the densities and the resulting logistic posterior. The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 7.GenerativeModelOfLinearDiscriminant.R
+#
+# Requirements:
+# - R with the mvtnorm package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(mvtnorm)
 frame()

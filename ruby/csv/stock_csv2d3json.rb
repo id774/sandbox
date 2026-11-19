@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Convert stock price CSV files into the JSON d3 expects.
+# stock_csv2d3json.rb: Stock price CSV files to d3 JSON
+#
+# Description:
+# Convert stock price CSV files into the JSON d3 expects. The input and output
+# directories default to the current one.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby stock_csv2d3json.rb [input directory] [output directory]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'csv'
 require 'json'

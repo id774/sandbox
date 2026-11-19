@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Total the counts of each word across JSON records and rank them.
+# json_simple_analyzer.rb: Rank word counts across JSON records
+#
+# Description:
+# Total the counts of each word across JSON records and rank them. The input
+# defaults to json.txt. json_simple_analyzer_spec.rb tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_simple_analyzer.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem
+#
 
 require 'json'
 require 'awesome_print'

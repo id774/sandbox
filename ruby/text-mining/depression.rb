@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Score text sentiment against a polarity dictionary with MeCab.
+# depression.rb: Text sentiment against a polarity dictionary
+#
+# Description:
+# Score the sentiment of the text given as an argument against the polarity
+# dictionary pn_ja.dic with MeCab.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby depression.rb <text>
+#
+# Requirements:
+# - Ruby
+# - MeCab with its Ruby binding
+# - pn_ja.dic in the current directory
+#
 
 require 'json'
 require 'MeCab'

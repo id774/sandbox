@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Classify handwritten digits with a linear SVM and report the confusion matrix.
+# linear_svc.py: Linear SVM on handwritten digits with a confusion matrix
+#
+# Description:
+# Classify handwritten digits with a linear SVM and report the confusion
+# matrix.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 linear_svc.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib with pylab
+# - scikit-learn before 0.20, which still provides sklearn.cross_validation
+#
 
 import pylab as pl
 import numpy as np

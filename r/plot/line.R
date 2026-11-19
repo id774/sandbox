@@ -1,3 +1,21 @@
+# line.R: Line chart read from a CSV file
+#
+# Description:
+# Read line.csv and draw a line chart of temperature by year to image.png,
+# with helpers that read and save CSV files by name.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript line.R
+#
+# Requirements:
+# - R
+# - line.csv in the current directory
+#
 
 readdata <- function(name) {
   read.csv(paste(name, "csv", sep="."),

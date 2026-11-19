@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# request_and_response_test.rb: Test the Rack application with Rack::MockRequest
+#
+# Description:
 # Test the Rack application with Rack::MockRequest.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby request_and_response_test.rb
+#
+# Requirements:
+# - Ruby with test/unit
+# - The rack gem
+#
 
 require './request_and_response'
 require 'test/unit'

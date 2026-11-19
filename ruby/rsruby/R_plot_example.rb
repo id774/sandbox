@@ -1,4 +1,21 @@
-# Run an R script that plots a CSV to a PNG.
+# R_plot_example.rb: R script plotting a CSV to PNG
+#
+# Description:
+# Run an R script through RSRuby that plots Book1.csv to out.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby R_plot_example.rb
+#
+# Requirements:
+# - Ruby with the rsruby gem
+# - R
+# - Book1.csv in the current directory
+#
 
 require 'rubygems'
 require 'rsruby'

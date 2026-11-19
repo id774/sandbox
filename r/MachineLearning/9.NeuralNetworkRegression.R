@@ -1,3 +1,22 @@
+# 9.NeuralNetworkRegression.R: Two-layer neural network regression
+#
+# Description:
+# Train a two-layer neural network by backpropagation for 1500 iterations to
+# fit sample data, and plot the fits and the error over the iterations. The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 9.NeuralNetworkRegression.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 set.seed(0)

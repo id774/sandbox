@@ -1,3 +1,19 @@
+# ggmap3.R: Geocode addresses and plot them on a Google static map
+#
+# Description:
+# Define ggmap3, which geocodes the addresses in a data frame column through
+# the Google Maps services and plots them on a static map. googlemap.R loads
+# this file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - R with the XML, RCurl, and RgoogleMaps packages, which googlemap.R loads
+#
+
 ggmap3 <- function(locationdata, mapname, num){
 	data <-  NULL
 	for(count in 1:nrow(locationdata)){

@@ -1,6 +1,23 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# json_context_analyzer_spec.rb: RSpec test of the context analyzer output
+#
+# Description:
 # Test the context analyzer output with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec json_context_analyzer_spec.rb
+#
+# Requirements:
+# - Ruby
+# - RSpec and the stdout library the spec requires
+# - The requirements of json_context_analyzer.rb
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

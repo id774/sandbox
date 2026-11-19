@@ -1,3 +1,22 @@
+# logistec3.R: Linear and logistic models of R
+#
+# Description:
+# Sort sample_data.csv by A and fit linear and logistic models of R on L, A,
+# FR, and TIME.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript logistec3.R
+#
+# Requirements:
+# - R
+# - sample_data.csv in the current directory
+#
+
 data1 <- read.csv("sample_data.csv", header=TRUE)
 data1
 sortlist <- order(data1$A)

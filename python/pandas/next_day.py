@@ -1,4 +1,21 @@
+# next_day.py: Next business day after a CSV time series
+#
+# Description:
 # Find the next business day after the last row of a CSV time series.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 next_day.py
+#
+# Requirements:
+# - Python 3
+# - pandas
+# - sampledata.csv in the current directory
+#
 
 import pandas as pd
 import datetime

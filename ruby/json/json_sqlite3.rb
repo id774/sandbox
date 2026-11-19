@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Load tab separated JSON records into a SQLite database.
+# json_sqlite3.rb: Load tab-separated JSON records into SQLite
+#
+# Description:
+# Load tab separated JSON records into a SQLite database through ActiveRecord.
+# The files default to json.txt and sqlite3.db.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_sqlite3.rb [log file] [database file]
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems
+#
 
 require 'active_record'
 require 'json'

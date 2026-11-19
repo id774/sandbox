@@ -1,6 +1,24 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Parse Rails log parameters and forward them to fluentd.
+# railslog2fluentd.rb: Forward Rails log parameters to fluentd
+#
+# Description:
+# Parse Rails log parameters and forward them to fluentd. The arguments
+# default to param.txt, localhost, 9999, debug, and test.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby railslog2fluentd.rb [file] [host] [port] [tag prefix] [tag suffix]
+#
+# Requirements:
+# - Ruby
+# - The fluent-logger gem
+# - A fluentd listener on the given host and port
+#
 
 require 'json'
 require 'time'

@@ -1,6 +1,21 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# punctuation.rb: Random string of commas and periods
+#
+# Description:
 # Build a string of randomly chosen commas and periods.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby punctuation.rb
+#
+# Requirements:
+# - Ruby
+#
 
 def yuyu_punctuation(length)
   comma = "、"

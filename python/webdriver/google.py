@@ -1,3 +1,23 @@
+# google.py: Drive Internet Explorer with Selenium WebDriver
+#
+# Description:
+# Open Google in Internet Explorer through Selenium WebDriver and
+# IEDriverServer.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python google.py
+#
+# Requirements:
+# - Python 3
+# - Selenium
+# - Windows with Internet Explorer and C:\shared\IEDriverServer.exe
+#
+
 # WebDriver
 from selenium import webdriver
 # Read the information of an HTML tab

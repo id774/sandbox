@@ -1,4 +1,21 @@
-# Simulate the Monty Hall problem to compare switching against staying.
+# montyhall.py: Monty Hall simulation of switching and staying
+#
+# Description:
+# Simulate the Monty Hall problem to compare switching against staying, for
+# the number of trials and doors given as arguments.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 montyhall.py <trials> <doors>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy and Matplotlib
+#
 
 import sys
 import numpy as np

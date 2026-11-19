@@ -1,3 +1,19 @@
+# mreg.R: Multiple regression function
+#
+# Description:
+# Define mreg, which performs a multiple regression on a data matrix whose
+# last column is the dependent variable, inverting matrices with solve or
+# MASS::ginv.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - R, with the MASS package when ginv is selected
+#
+
 # 重回帰分析
 mreg <- function(	dat,					# データ行列
 			func.name=c("solve", "ginv"))		# 逆行列を計算する関数の選択

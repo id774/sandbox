@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Read nested settings out of a YAML file.
+# read_yaml.rb: Read nested settings from a YAML file
+#
+# Description:
+# Read nested settings out of config.yml.sample.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby read_yaml.rb
+#
+# Requirements:
+# - Ruby
+# - config.yml.sample in the current directory
+#
 
 require 'yaml'
 

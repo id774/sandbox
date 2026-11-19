@@ -1,3 +1,22 @@
+// class1.cpp: Class with a constructor, destructor, and accessors
+//
+// Description:
+// Construct two Foo objects, read and write a private member through
+// accessors, and print messages from the constructor and destructor.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Build / Run:
+//     c++ -o class1 class1.cpp
+//     ./class1
+//
+// Requirements:
+// - A C++ compiler such as GCC or Clang
+//
+
 #include <iostream>
 using namespace std;
 

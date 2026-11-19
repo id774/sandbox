@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# auto_link_url.rb: Turn bare URLs into anchor tags
+#
+# Description:
 # Turn bare http and https URLs into anchor tags, with minitest cases.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby auto_link_url.rb
+#
+# Requirements:
+# - Ruby with minitest
+#
+
 require 'minitest/unit'
 require 'uri'
 require 'cgi'

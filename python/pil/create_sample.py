@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
+# create_sample.py: Draw text onto an image with a Japanese font
+#
+# Description:
 # Draw text onto a generated image with a Japanese font.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 create_sample.py
+#
+# Requirements:
+# - Python 3
+# - Pillow
+# - A Japanese font at /Library/Fonts/Osaka.ttf on macOS or at
+#   /usr/share/fonts/truetype/fonts-japanese-gothic.ttf elsewhere
+#
 
 import sys
 from PIL import Image, ImageDraw, ImageFont

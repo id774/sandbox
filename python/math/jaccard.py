@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# jaccard.py: Jaccard coefficient of two term sets
+#
+# Description:
 # Compute the Jaccard coefficient between two term sets.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 jaccard.py
+#
+# Requirements:
+# - Python 3
+#
 
 def jaccard(v1, v2):
     numerator = sum([c in v2 for c in v1])

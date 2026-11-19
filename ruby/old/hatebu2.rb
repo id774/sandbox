@@ -1,4 +1,22 @@
-# Scrape the Hatena Bookmark count for a URL with mechanize.
+# hatebu2.rb: Hatena Bookmark count scraped with mechanize
+#
+# Description:
+# Scrape the Hatena Bookmark count for the URL given as an argument with
+# mechanize.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby hatebu2.rb <URL>
+#
+# Requirements:
+# - Ruby
+# - The mechanize gem
+# - Network access to b.hatena.ne.jp
+#
 
 require 'open-uri'
 require 'rubygems'

@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# cos.py: Cosine similarity of weighted term vectors
+#
+# Description:
 # Compute cosine similarity between two weighted term vectors.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 cos.py
+#
+# Requirements:
+# - Python 3
+#
 
 import math
 

@@ -1,4 +1,22 @@
-# Plot temperatures for three cities from a JMA CSV file.
+# JMA_plot_example.py: Temperatures for three cities from a JMA CSV file
+#
+# Description:
+# Plot temperatures for three cities from JMA_3city.csv in the current
+# directory, saving image.png through image7.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 JMA_plot_example.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib
+# - JMA_3city.csv in the current directory
+#
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

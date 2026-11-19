@@ -1,4 +1,22 @@
-# Add a z score column to a log file.
+# zscore.py: Add a z score column to a log file
+#
+# Description:
+# Add a z score column to the tab separated log file given as an argument,
+# rewriting the file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 zscore.py <log file>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - SciPy
+# - pandas before 1.0, which still provides DataFrame.ix
+#
 
 import sys
 import pandas as pd

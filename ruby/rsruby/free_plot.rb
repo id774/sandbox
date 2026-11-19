@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# free_plot.rb: Plot two arrays in R
+#
+# Description:
 # Plot two arrays in R through RSRuby.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby free_plot.rb
+#
+# Requirements:
+# - Ruby with the rsruby and awesome_print gems
+# - R
+#
 
 require 'rsruby'
 require 'awesome_print'

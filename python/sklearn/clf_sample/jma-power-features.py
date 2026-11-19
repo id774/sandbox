@@ -1,4 +1,24 @@
-# Compare classifiers predicting power demand from weather features.
+# jma-power-features.py: Classifiers predicting power demand from weather
+#
+# Description:
+# Compare classifiers predicting power demand from weather features, reading
+# juyo-2013.csv, juyo-2014.csv, JMA_3city_2013.csv, and JMA_3city_2014.csv and
+# saving image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 jma-power-features.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib
+# - scikit-learn before 0.19, which still provides sklearn.lda
+# - The power demand and JMA CSV files in the current directory
+#
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

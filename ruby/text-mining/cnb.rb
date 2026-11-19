@@ -1,4 +1,19 @@
+# cnb.rb: Complement naive Bayes text classifier
+#
+# Description:
 # Classify text with complement naive Bayes.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby cnb.rb
+#
+# Requirements:
+# - Ruby
+#
 
 class CNB
   def initialize(smoothing_parameter = 1)

@@ -1,4 +1,20 @@
+# app.py: Two Bottle routes, one with a regex path filter
+#
+# Description:
 # Serve two Bottle routes, one matching its path parameter by regex.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 app.py
+#
+# Requirements:
+# - Python 3
+# - Bottle
+#
 
 from bottle import (
     run,

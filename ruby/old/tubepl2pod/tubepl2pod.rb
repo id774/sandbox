@@ -1,4 +1,21 @@
-# Turn a YouTube playlist into a podcast RSS feed.
+# tubepl2pod.rb: YouTube playlist as a podcast RSS feed
+#
+# Description:
+# Turn the YouTube playlist whose ID is given as an argument into a podcast
+# RSS feed, reading the gdata.youtube.com playlist feed.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby tubepl2pod.rb <playlist ID>
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The YouTube GData playlist feed that the script reads
+#
 
 require "open-uri"
 require "rexml/document"

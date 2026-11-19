@@ -1,4 +1,26 @@
 #!/bin/sh
+# upload.sh: Convert monthly tweet databases and upload them to HDFS
+#
+# Description:
+# For each month from 201102 through 201308, unzip twitter-db-<month>.zip,
+# convert the database to JSON with sqlite3_json.rb, put the result in HDFS
+# under /user/fluent/twitter, and remove the intermediate files.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     sh upload.sh
+#
+# Requirements:
+# - A POSIX shell with unzip
+# - Ruby at /opt/ruby/current/bin/ruby with the requirements of
+#   sqlite3_json.rb
+# - Hadoop at /usr/bin/hadoop and the monthly twitter-db zip files in the
+#   current directory
+#
 
 upload() {
   unzip twitter-db-$1.zip 1.db

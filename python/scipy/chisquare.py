@@ -1,5 +1,20 @@
 # -*- coding: utf-8 -*-
+# chisquare.py: Chi-squared test of independence helper
+#
+# Description:
 # Run a chi-squared test of independence on a contingency matrix.
+# chisquare_test returns the statistic and its p-value. try_chisquare.py and
+# test_chisquare.py use this module.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.shape
+#
 
 import scipy as sp
 from scipy import stats

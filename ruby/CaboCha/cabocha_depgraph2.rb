@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# cabocha_depgraph2.rb: Dependency graphs over longer Japanese prose
+#
+# Description:
 # Build dependency graphs over a longer piece of Japanese prose.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby cabocha_depgraph2.rb
+#
+# Requirements:
+# - Ruby
+# - CaboCha with its Ruby binding and the awesome_print gem
+#
 
 require 'CaboCha'
 require 'awesome_print'

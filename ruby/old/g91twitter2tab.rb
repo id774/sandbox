@@ -1,4 +1,21 @@
-# Scrape a Hatena group member list and print it as CSV or as Tween tabs.
+# g91twitter2tab.rb: Hatena group members as CSV or Tween tabs
+#
+# Description:
+# Scrape a Hatena group member list and print it as CSV when the argument
+# contains csv, or as Tween tabs otherwise.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby g91twitter2tab.rb <csv|tab>
+#
+# Requirements:
+# - Ruby
+# - The mechanize gem with the WWW::Mechanize namespace
+#
 
 require 'rubygems';require 'mechanize'
 (puts "usage: g91twitter2tab.rb (csv|tween)";exit) if !ARGV[0]

@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
-# Rewrite a file in upper case through a temporary file.
+# upper.rb: Rewrite a file in upper case through a temporary file
+#
+# Description:
+# Rewrite foo.txt in the current directory in upper case through a temporary
+# file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby upper.rb
+#
+# Requirements:
+# - Ruby
+# - foo.txt in the current directory
+#
 
 require 'tempfile'
 

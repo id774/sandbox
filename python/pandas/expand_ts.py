@@ -1,4 +1,20 @@
+# expand_ts.py: Extend a time series index by 180 business days
+#
+# Description:
 # Extend a time series index by 180 further business days.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 expand_ts.py
+#
+# Requirements:
+# - Python 3
+# - pandas
+#
 
 import pandas as pd
 import datetime

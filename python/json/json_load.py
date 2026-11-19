@@ -1,5 +1,21 @@
 # -*- coding:utf-8 -*-
-# Load JSON into an ordered dict, edit it, and write it back indented.
+# json_load.py: Edit a JSON file as an ordered dict
+#
+# Description:
+# Load JSON into an ordered dict, replace its first element, and write it back
+# to the same file with four-space indentation.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 json_load.py <JSON file>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import json

@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Split the composite key back into file and timestamp columns.
+# reducer.rb: Split the job2 composite key
+#
+# Description:
+# Split the composite key back into file and timestamp columns, reading sorted
+# records from standard input.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     cat <input> | ruby lib/mapper.rb | sort | ruby lib/reducer.rb
+#
+# Requirements:
+# - Ruby
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

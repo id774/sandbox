@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# ai4r_tree.rb: ID3 decision tree from labelled wine data with ai4r
+#
+# Description:
 # Build an ID3 decision tree from labelled wine data with ai4r.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby ai4r_tree.rb
+#
+# Requirements:
+# - Ruby
+# - The ai4r gem
+#
 
 require 'rubygems'
 require 'ai4r'

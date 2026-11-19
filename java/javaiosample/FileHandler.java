@@ -1,3 +1,17 @@
+// FileHandler.java: File and directory operations for the I/O sample
+//
+// Description:
+// Provide file and directory helpers for the Java I/O sample, which print the
+// current directory, create files and directories, check existence, write and
+// read a text file, and list a directory. JavaIOSampleMain.java uses this
+// class. The source is encoded in Shift_JIS.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+
 package javaiosample;
 
 import java.io.*;

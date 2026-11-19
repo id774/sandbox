@@ -1,6 +1,21 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
-# Cluster blog word vectors by k-means and by hierarchy, and draw the dendrogram.
+# clusters.rb: K-means and hierarchical clustering of blog word vectors
+#
+# Description:
+# Cluster blog word vectors by k-means and by hierarchy, read vector files,
+# and draw the dendrogram as an image with RMagick. run.rb uses this file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Ruby
+# - The rmagick gem, loaded as RMagick
+#
+
 $:.unshift File.join(File.dirname(__FILE__))
 
 require 'bicluster.rb'

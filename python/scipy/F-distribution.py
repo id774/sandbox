@@ -1,5 +1,21 @@
 # -*- coding:utf-8 -*-
+# F-distribution.py: F distribution densities
+#
+# Description:
 # Plot F distribution densities for several pairs of degrees of freedom.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 F-distribution.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib
+#
 
 import numpy as np
 from scipy.stats import f

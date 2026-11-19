@@ -1,4 +1,22 @@
-# Shift command line arguments off a list subclass, defaulting a date to yesterday.
+# args_pop.py: Shift command line arguments off a list subclass
+#
+# Description:
+# Shift command line arguments off a list subclass, defaulting a date to
+# yesterday. The program prints the command name, the date argument in
+# YYYYMMDD form (yesterday when omitted), and up to three further arguments,
+# printing None for each missing one.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 args_pop.py [YYYYMMDD] [arg3] [arg4] [arg5]
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import datetime

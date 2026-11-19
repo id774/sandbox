@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Build training data by extracting words and dependencies with MeCab and CaboCha.
+# create_train2.rb: Training data from MeCab words and CaboCha dependencies
+#
+# Description:
+# Build training data by extracting words and dependencies with MeCab and
+# CaboCha from a JSON log, json.txt by default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby create_train2.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - MeCab and CaboCha with their Ruby bindings
+#
 
 require 'json'
 require 'MeCab'

@@ -1,4 +1,20 @@
+# zscore_check.py: Check log files for a parsable z score column
+#
+# Description:
 # Check every log file under a directory for a parsable z score column.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 zscore_check.py <directory>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - pandas
+#
 
 import sys
 import os

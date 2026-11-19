@@ -1,4 +1,20 @@
-// Replace the kana in a text field with their leading consonant.
+// ksk.js: Replace kana with their leading consonants
+//
+// Description:
+// Replace the kana in a text field with their leading consonant. index.html in
+// this directory runs it once a second.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     Open index.html in a browser.
+//
+// Requirements:
+// - A web browser
+//
 
 l = [
      ['きゃ','k'],['きゅ','k'],['きょ','k'],['ぎゃ','g'],['ぎゅ','g'],

@@ -1,4 +1,24 @@
 #!/bin/bash
+# batch.sh: Load and analyze Backblaze hard drive data in SQLite
+#
+# Description:
+# Download the 2014 Backblaze hard drive test data, unpack it, and run
+# create_table.sql, import.sql, stats.sql, and show.sql against
+# drive_stats.db. The comment below names the data source.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     bash batch.sh
+#
+# Requirements:
+# - Bash, curl, and unzip
+# - SQLite 3 with the sqlite3 command
+# - Network access to docs.backblaze.com
+#
 
 # https://www.backblaze.com/hard-drive-test-data.html
 

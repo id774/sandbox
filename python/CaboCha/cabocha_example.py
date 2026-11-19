@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# cabocha_example.py: Print a CaboCha dependency parse in several forms
+#
+# Description:
 # Print the CaboCha dependency parse of a sentence in several forms.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 cabocha_example.py
+#
+# Requirements:
+# - Python 3
+# - CaboCha with its Python binding
+#
 
 import CaboCha
 cabocha = CaboCha.Parser('--charset=UTF8')

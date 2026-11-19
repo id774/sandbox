@@ -1,9 +1,22 @@
 # test_context_retention.py: Unit tests for history retention under capacity limits
 #
+# Description:
+# Exercise six unittest cases for full-budget equivalence, capacity compliance,
+# required-record retention, insufficient capacity, preserved order and text,
+# and improved required retention of protected selection.
+#
 # Author: id774 (More info: https://id774.net)
 # Source Code: https://github.com/id774/sandbox
 # License: The GPL version 3, or LGPL version 3 (Dual License).
 # Contact: idnanashi@gmail.com
+#
+# Usage:
+#     From the repository root:
+#     python3 -B -m unittest discover -s python/context_retention -p 'test_*.py' -v
+#
+# Requirements:
+# - Python 3.11 or later, as context_retention.py requires
+# - Python standard library only
 #
 import unittest
 

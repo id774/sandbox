@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Upload the collected news of a given day to S3.
+# upload_news_amazons3.rb: Upload a day's collected news to S3
+#
+# Description:
+# Upload the collected news of a given day to S3. The pickup date defaults to
+# yesterday and the run date to today, both in YYYYMMDD form.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby upload_news_amazons3.rb [pickup date] [run date]
+#
+# Requirements:
+# - Ruby
+# - The aws-sdk gem version 1, which provides AWS::S3
+# - AWS credentials and a real bucket name in place of the placeholder
+#
 
 require 'json'
 require 'date'

@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Update a YAML file and write it back out.
+# write_yaml.rb: Update a YAML file and write it back
+#
+# Description:
+# Update the settings read from config.yml.sample and write them to
+# config.yml.new.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby write_yaml.rb
+#
+# Requirements:
+# - Ruby
+# - config.yml.sample in the current directory
+#
 
 require 'yaml'
 

@@ -1,5 +1,22 @@
 #!/usr/bin/env python
+# get_resources.py: List libvirt domains with CPU and memory limits
+#
+# Description:
 # List running and defined libvirt domains with their CPU and memory limits.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 get_resources.py
+#
+# Requirements:
+# - Python 3
+# - libvirt with its Python binding and access to qemu:///system
+#
+
 import libvirt
 
 c = libvirt.open('qemu:///system')

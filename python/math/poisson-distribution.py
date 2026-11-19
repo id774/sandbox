@@ -1,4 +1,21 @@
-# Show sample means of Poisson draws approaching normality as the sample grows.
+# poisson-distribution.py: Sample means of Poisson draws approaching normality
+#
+# Description:
+# Show sample means of Poisson draws approaching normality as the sample
+# grows.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 poisson-distribution.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+#
 
 import numpy as np
 from collections import Counter

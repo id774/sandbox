@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Collect the title field from JSON records in a tab separated file.
+# extract_title_from_json.py: Collect title fields from JSON records in a TSV file
+#
+# Description:
+# Collect the title field from JSON records in a tab separated file given as
+# an argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 extract_title_from_json.py <input file>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import json

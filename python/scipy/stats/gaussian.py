@@ -1,4 +1,20 @@
+# gaussian.py: Normal distribution fit of a sample
+#
+# Description:
 # Fit a normal distribution to a sample and inspect the estimated parameters.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 gaussian.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib with pylab
+#
 
 from scipy.stats import norm
 import numpy as np

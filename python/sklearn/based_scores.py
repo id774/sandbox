@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# based_scores.py: Score iris clusterings with scikit-learn metrics
+#
+# Description:
 # Score clusterings of the iris data set with sklearn metrics.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 based_scores.py
+#
+# Requirements:
+# - Python 3
+# - scikit-learn
+#
 
 from sklearn import metrics
 from sklearn.metrics import pairwise_distances

@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Count the words of every file in a directory.
+# simple_wordcount.rb: Word counts of every file in a directory
+#
+# Description:
+# Count the words of every file in a directory. The input and output
+# directories default to the current one.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby simple_wordcount.rb [input directory] [output directory]
+#
+# Requirements:
+# - Ruby
+#
 
 class WordCount
   def initialize(args)

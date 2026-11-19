@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# cabocha_example.rb: CaboCha dependency parse in several forms
+#
+# Description:
 # Print the CaboCha dependency parse of a sentence in several forms.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby cabocha_example.rb
+#
+# Requirements:
+# - Ruby
+# - CaboCha with its Ruby binding
+#
 
 require 'CaboCha'
 cabocha = CaboCha::Parser.new('--charset=UTF8')

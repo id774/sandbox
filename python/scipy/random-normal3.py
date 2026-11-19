@@ -1,4 +1,20 @@
+# random-normal3.py: Gaussian fit of a small data set with curve_fit
+#
+# Description:
 # Fit a Gaussian to a small hand written data set with curve_fit.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 random-normal3.py
+#
+# Requirements:
+# - Python 3
+# - SciPy and Matplotlib with pylab
+#
 
 import pylab as plb
 import matplotlib.pyplot as plt

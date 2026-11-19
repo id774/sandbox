@@ -1,4 +1,20 @@
+# run_cramer.py: Solve a three-variable system with the cramer module
+#
+# Description:
 # Solve a three variable system with the cramer module.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 run_cramer.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+#
 
 import numpy as np
 import cramer

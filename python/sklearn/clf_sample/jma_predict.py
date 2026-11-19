@@ -1,4 +1,24 @@
-# Compare several classifiers on weather sliding window features.
+# jma_predict.py: Classifier comparison on weather sliding windows
+#
+# Description:
+# Compare several classifiers on weather sliding window features built from
+# jma_sample.csv, writing the features and targets to x.csv and y.csv.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 jma_predict.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - pandas before 1.0, which still provides DataFrame.ix
+# - scikit-learn before 0.19, which still provides sklearn.lda
+# - jma_sample.csv in the current directory
+#
 
 import pandas as pd
 import numpy as np

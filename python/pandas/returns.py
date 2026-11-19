@@ -1,5 +1,22 @@
 # -*- coding:utf-8 -*-
+# returns.py: Cumulative return index resampled monthly
+#
+# Description:
 # Build a cumulative return index for a stock and resample it monthly.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 returns.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, pandas-datareader, and Matplotlib
+# - Network access for the price download
+#
 
 import sys
 import numpy as np

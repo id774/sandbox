@@ -1,3 +1,14 @@
+// sort.h: Sort class declaration
+//
+// Description:
+// Declare the Sort class used by the sort Ruby extension.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+
 #ifndef _INCLUDE_SORT_H_
 #define _INCLUDE_SORT_H_
 

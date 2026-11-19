@@ -1,5 +1,23 @@
 #!/usr/bin/env ruby
-# Count the lines and sizes of the files inside a zip archive.
+# wc4zip.rb: Line counts and sizes of files inside zip archives
+#
+# Description:
+# Count the lines and sizes of the files under a directory, including the
+# files inside zip archives, and print a total. A second argument limits the
+# search to the top directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby wc4zip.rb <directory> [top-only flag]
+#
+# Requirements:
+# - Ruby
+# - The zipruby and sysadmin gems
+#
 
 require 'zipruby'
 require 'tempfile'

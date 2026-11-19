@@ -1,3 +1,22 @@
+# extract_fixtures.rake: Rake task that dumps database tables to fixtures
+#
+# Description:
+# Define the extract_fixtures task, which writes every table except
+# schema_info to test/fixtures/<table>.yml under RAILS_ROOT.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rake extract_fixtures
+#
+# Requirements:
+# - A Rails application whose version still defines the RAILS_ROOT constant,
+#   with this file in lib/tasks
+#
+
 task :extract_fixtures => :environment do
   sql = "select * from %s"
   skip_tables = ["schema_info"]

@@ -1,4 +1,25 @@
-/* Echo received data back to the client on port 3000. */
+/*
+ * echo_s.c: TCP echo server on port 3000
+ *
+ * Description:
+ * Echo received data back to the client on port 3000. The server listens on
+ * all interfaces, accepts one connection at a time, and returns each received
+ * message until the client disconnects. It exits with status 1 on a socket
+ * error.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Build / Run:
+ *     cc -o echo_s echo_s.c
+ *     ./echo_s
+ *
+ * Requirements:
+ * - A C compiler such as GCC or Clang
+ * - A POSIX sockets environment
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

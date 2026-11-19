@@ -1,4 +1,14 @@
+# cramer.py: Cramer's rule with hand written determinants
+#
+# Description:
 # Solve a linear system by Cramer's rule with hand written determinants.
+# run_cramer.py uses this module.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 
 import numpy as np
 

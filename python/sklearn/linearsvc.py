@@ -1,4 +1,20 @@
+# linearsvc.py: Linear SVM classification of iris
+#
+# Description:
 # Classify the iris data set with a linear SVM.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 linearsvc.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, scikit-learn, and Matplotlib
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,3 +1,21 @@
+# OPT3.NewtonRaphson1D.R: Newton-Raphson method in one dimension
+#
+# Description:
+# Find a stationary point of cos(x) with the Newton-Raphson method and plot
+# the steps. The plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript OPT3.NewtonRaphson1D.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 par(mfcol=c(1, 1))

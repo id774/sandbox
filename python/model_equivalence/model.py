@@ -1,4 +1,4 @@
-# model.py
+# model.py: Old and new account value and fee model implementations
 #
 # Description:
 #   Two deterministic implementations of the same account value and fee

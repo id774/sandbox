@@ -1,4 +1,23 @@
-# Scrape a Hatena group member list and add each account to a Twitter list.
+# g91twitter2list.rb: Add Hatena group members to a Twitter list
+#
+# Description:
+# Scrape a Hatena group member list and add each account to a Twitter list,
+# g91 unless a third argument names another list, authenticating with the user
+# name and password given as arguments.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby g91twitter2list.rb <Twitter user> <password> [list name]
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The hpricot and rubytter gems
+# - The Twitter basic authentication API that Rubytter used at the time
+#
 
 require 'rubygems'
 require 'hpricot'

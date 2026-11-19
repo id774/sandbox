@@ -1,4 +1,21 @@
+# ewma.py: Exponentially weighted moving average of a triangular series
+#
+# Description:
 # Plot an exponentially weighted moving average over a triangular series.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 ewma.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+# - pandas before 0.23, which still provides pd.stats.moments.ewma
+#
 
 import numpy as np
 import pandas as pd

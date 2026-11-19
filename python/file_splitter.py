@@ -1,6 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Split a tab separated file into one output file per value of the first field.
+# file_splitter.py: Split a tab-separated file by its first field
+#
+# Description:
+# Split a tab separated file into one output file per value of the first
+# field. Each run of consecutive lines with the same first field is written in
+# UTF-8 to <input base name>_<field>.txt beside the input file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 file_splitter.py <input file>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import os

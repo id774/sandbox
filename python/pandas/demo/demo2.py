@@ -1,4 +1,21 @@
-# Hold two score sets in a DataFrame, scatter them, and test their relationship.
+# demo2.py: Scatter and test two score sets in a DataFrame
+#
+# Description:
+# Hold two score sets in a DataFrame, scatter them, and test their
+# relationship.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 demo2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, SciPy, and Matplotlib
+#
 
 import numpy as np
 import scipy as sp

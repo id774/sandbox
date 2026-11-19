@@ -1,4 +1,20 @@
+# next_day2.py: Next business day from a two-period date range
+#
+# Description:
 # Find the next business day with a two period date range.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 next_day2.py
+#
+# Requirements:
+# - Python 3
+# - pandas
+#
 
 import pandas as pd
 

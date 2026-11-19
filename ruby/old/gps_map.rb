@@ -1,4 +1,20 @@
-# Parse NMEA sentences and plot the resulting position on a map.
+# gps_map.rb: Map URLs for NMEA positions
+#
+# Description:
+# Parse NMEA sentences from standard input and print a Google Maps URL for
+# each resulting position.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     <NMEA source> | ruby gps_map.rb
+#
+# Requirements:
+# - Ruby
+#
 
 def get_lat_and_lon(nmea)
     return nil unless /GGA,/ =~ nmea

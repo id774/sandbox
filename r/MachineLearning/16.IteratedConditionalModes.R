@@ -1,3 +1,22 @@
+# 16.IteratedConditionalModes.R: Image denoising by iterated conditional modes
+#
+# Description:
+# Add noise to the biOps logo image and restore it with iterated conditional
+# modes for several parameter settings, reporting the restored percentage. The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 16.IteratedConditionalModes.R
+#
+# Requirements:
+# - R with the biOps package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(biOps)
 frame()

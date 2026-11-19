@@ -1,4 +1,23 @@
-# Scrape a Hatena group member list and follow each account.
+# followa91twitter.rb: Follow every member of a Hatena group on Twitter
+#
+# Description:
+# Scrape a Hatena group member list and follow each account through Rubytter,
+# authenticating with the user name and password given as arguments.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby followa91twitter.rb <Twitter user> <password>
+#
+# Requirements:
+# - Ruby
+# - The mechanize gem with the WWW::Mechanize namespace, and the rubytter
+#   gem
+# - The Twitter basic authentication API that Rubytter used at the time
+#
 
 require 'rubygems';require 'mechanize';require 'rubytter'
 agent = WWW::Mechanize.new;agent.get('http://generation1991.g.hatena.ne.jp/keyword/%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E4%B8%80%E8%A6%A7')

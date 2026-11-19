@@ -1,4 +1,24 @@
-/* Overrun a fixed size array on purpose to trigger a segmentation fault. */
+/*
+ * segfault.c: Trigger a segmentation fault with an array overrun
+ *
+ * Description:
+ * Overrun a fixed size array on purpose to trigger a segmentation fault.
+ * GetMngFile writes up to 999 entries into a two-element global array and
+ * prints each index and value until the process crashes.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Build / Run:
+ *     cc -o segfault segfault.c
+ *     ./segfault
+ *
+ * Requirements:
+ * - A C compiler that accepts the pre-C99 implicit declaration of GetMngFile
+ *   and its K&R-style definition
+ */
 
 #include<stdio.h>
 #include<string.h>

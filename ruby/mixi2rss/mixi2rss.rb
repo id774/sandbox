@@ -1,4 +1,21 @@
+# mixi2rss.rb: Republish the mixi diary list as RSS
+#
+# Description:
 # Log in to mixi and republish the diary list as RSS.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby mixi2rss.rb
+#
+# Requirements:
+# - Ruby
+# - The mechanize gem
+# - A mixi account and network access to mixi
+#
 
 require 'rubygems'
 require 'mechanize'

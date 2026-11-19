@@ -1,4 +1,16 @@
+# ruby_growl_multibyte_for_ruby192.rb: Multibyte Growl notifications on Ruby 1.9.2
+#
+# Description:
 # Patch Growl notification packets to carry multibyte text on Ruby 1.9.2.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Ruby 1.9.2 with a Growl class to patch
+#
 
 class Growl
   private

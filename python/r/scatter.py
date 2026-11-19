@@ -1,4 +1,22 @@
-# Drive R from Python with pyper and read the results back as a Series.
+# scatter.py: Drive R from Python with pyper
+#
+# Description:
+# Drive R from Python with pyper and read the results back as a Series. The R
+# side runs scatter.R.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 scatter.py
+#
+# Requirements:
+# - Python 3
+# - PypeR and pandas
+# - R
+#
 
 import pyper
 import pandas as pd

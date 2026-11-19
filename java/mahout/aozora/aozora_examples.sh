@@ -1,4 +1,26 @@
 #!/bin/sh
+# aozora_examples.sh: Cluster Aozora texts with Mahout canopy and k-means
+#
+# Description:
+# Upload aozora_examples to HDFS, convert it to sequence files and TF-IDF
+# vectors, list the most frequent words, run canopy and k-means clustering,
+# and dump the clusters to dump. The script first removes its HDFS output
+# directories.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     sh aozora_examples.sh
+#
+# Requirements:
+# - A POSIX shell
+# - Hadoop with the hadoop command and Mahout with the mahout command
+# - The aozora_examples directory of segmented texts in the current
+#   directory
+#
 
 hadoop fs -rmr aozora_examples
 hadoop fs -rmr aozora_seq

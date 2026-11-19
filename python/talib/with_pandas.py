@@ -1,4 +1,21 @@
+# with_pandas.py: RSI and MACD for downloaded S&P 500 prices
+#
+# Description:
 # Compute RSI and MACD for S&P 500 prices downloaded through pandas.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 with_pandas.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, pandas-datareader, and the TA-Lib Python wrapper
+# - Network access for the price download
+#
 
 import numpy as np
 from pandas_datareader import data

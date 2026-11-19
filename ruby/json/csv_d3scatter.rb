@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Join word and score files into the JSON a d3 scatter chart expects.
+# csv_d3scatter.rb: Word and score files to d3 scatter JSON
+#
+# Description:
+# Join word and score files into the JSON a d3 scatter chart expects. The
+# files default to all_words.txt, all_score.txt, and data.json.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby csv_d3scatter.rb [words file] [scores file] [output JSON]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 

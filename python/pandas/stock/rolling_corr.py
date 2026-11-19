@@ -1,4 +1,21 @@
-# Plot the rolling correlation between a stock and the Nikkei 225.
+# rolling_corr.py: Rolling correlation of a stock with the Nikkei 225
+#
+# Description:
+# Plot the rolling correlation between a stock and the Nikkei 225, reading
+# stock_<code>.csv and stock_N225.csv and saving corr_<code>.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 rolling_corr.py <code>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - pandas and Matplotlib
+#
 
 import sys
 import pandas as pd

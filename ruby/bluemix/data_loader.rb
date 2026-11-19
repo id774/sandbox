@@ -1,4 +1,23 @@
-# Load CSV data into DashDB using the credentials in a VCAP file.
+# data_loader.rb: Load CSV data into dashDB with VCAP credentials
+#
+# Description:
+# Load public/data/information.csv into the dashDB table information, using
+# the credentials in sample_vcap.json.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby data_loader.rb
+#
+# Requirements:
+# - Ruby
+# - The ibm_db gem
+# - sample_vcap.json with dashDB credentials and public/data/information.csv
+#   under the current directory
+#
 
 require 'json'
 require 'csv'

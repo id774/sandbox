@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Summarize sales records by extracting their words and dependencies.
+# json_context_analyzer.rb: Summarize sales records by words and dependencies
+#
+# Description:
+# Summarize sales records by extracting their words and dependencies with
+# MeCab and CaboCha. The input defaults to json.txt.
+# json_context_analyzer_spec.rb tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_context_analyzer.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - MeCab and CaboCha with their Ruby bindings
+#
 
 require 'json'
 require 'MeCab'

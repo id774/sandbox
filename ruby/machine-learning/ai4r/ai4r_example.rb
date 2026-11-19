@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# ai4r_example.rb: Backpropagation network on shape patterns with ai4r
+#
+# Description:
 # Train a backpropagation network on shape patterns with ai4r.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby ai4r_example.rb
+#
+# Requirements:
+# - Ruby
+# - The ai4r gem
+#
 
 require 'rubygems'
 require 'ai4r'

@@ -1,4 +1,26 @@
 #!/bin/bash
+# make_dict.sh: Build a MeCab user dictionary from Hatena and Wikipedia titles
+#
+# Description:
+# Download the Hatena keyword list and the Japanese Wikipedia title list,
+# extract nouns into custom.csv with make_mecab_dict.rb, and compile
+# custom.dic with mecab-dict-index.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     bash make_dict.sh
+#
+# Requirements:
+# - Bash, curl, iconv, and gunzip
+# - Ruby at /opt/ruby/current/bin/ruby
+# - MeCab with the IPA dictionary under /usr/local/lib/mecab/dic/ipadic and
+#   mecab-dict-index under /usr/local/libexec/mecab
+# - Network access to d.hatena.ne.jp and dumps.wikimedia.org
+#
 
 # はてなキーワード
 curl -L http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv | iconv -f euc-jp -t utf-8 > keywordlist_furigana.csv

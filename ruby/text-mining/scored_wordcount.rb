@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Count words per file and weight them with an external score table.
+# scored_wordcount.rb: Word counts weighted by a score table
+#
+# Description:
+# Count words per file and weight them with an external score table. The input
+# and output directories default to the current one and the score table to
+# score.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby scored_wordcount.rb [input directory] [output directory] [score file]
+#
+# Requirements:
+# - Ruby
+#
 
 class WordCount
   def initialize(args)

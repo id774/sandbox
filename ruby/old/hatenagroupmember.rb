@@ -1,4 +1,21 @@
-# Fetch the member list of a Hatena group.
+# hatenagroupmember.rb: Member list of a Hatena group
+#
+# Description:
+# Fetch the member lists of fixed Hatena groups by following the diary list
+# pages, and show the error raised for a group that does not exist.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby hatenagroupmember.rb
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - Network access to g.hatena.ne.jp
+#
 
 require "open-uri"
 def get_hatena_group_members(group_id)

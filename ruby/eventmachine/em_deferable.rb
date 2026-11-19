@@ -1,4 +1,19 @@
+# em_deferable.rb: Callback on an EM::Deferrable object
+#
+# Description:
 # Fire a callback on an object that includes EM::Deferrable.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby em_deferable.rb
+#
+# Requirements:
+# - Ruby with the eventmachine gem
+#
 
 require 'eventmachine'
 

@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Count how often each referrer appears in an Apache access log.
+# analyze_apache2_referrer.py: Count referrers in an Apache access log
+#
+# Description:
+# Count how often each referrer appears in an Apache access log given as an
+# argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 analyze_apache2_referrer.py <access log>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import os

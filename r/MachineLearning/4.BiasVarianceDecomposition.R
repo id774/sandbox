@@ -1,3 +1,23 @@
+# 4.BiasVarianceDecomposition.R: Bias and variance of regularized regression
+#
+# Description:
+# Fit regularized models with 25 basis functions to many noisy data sets drawn
+# from sin(2 pi x), and plot the individual fits and their average to show the
+# bias-variance decomposition. The plots are written to image.png in the
+# current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 4.BiasVarianceDecomposition.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 set.seed(0)

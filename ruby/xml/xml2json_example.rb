@@ -1,6 +1,24 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Convert an XML API response into JSON with ActiveSupport.
+# xml2json_example.rb: Convert an XML API response into JSON
+#
+# Description:
+# Convert an XML API response into JSON with ActiveSupport. The application ID
+# in the URL is a placeholder.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby xml2json_example.rb
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The activesupport gem
+# - A real statistics API application ID in place of the placeholder
+#
 
 require 'active_support/core_ext'
 require 'open-uri'

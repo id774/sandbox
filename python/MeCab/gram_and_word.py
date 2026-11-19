@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+# gram_and_word.py: Inspect the features of each MeCab morpheme
+#
+# Description:
 # Walk the MeCab node list and inspect the features of each morpheme.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 gram_and_word.py
+#
+# Requirements:
+# - Python 3
+# - MeCab with its Python binding
+#
 
 import MeCab
 mecab = MeCab.Tagger("-Ochasen")

@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Count the words of chat messages held in SQLite.
+# chatter_wordcount.rb: Word counts of SQLite chat messages
+#
+# Description:
+# Count the words of chat messages held in chatter.db beside this file with
+# MeCab.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby chatter_wordcount.rb
+#
+# Requirements:
+# - Ruby
+# - The sqlite3 gem and MeCab with its Ruby binding
+# - chatter.db beside this file
+#
 
 require 'MeCab'
 require 'sqlite3'

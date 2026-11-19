@@ -1,4 +1,19 @@
+# fixnum_hack.rb: Spell out numbers through Fixnum method_missing
+#
+# Description:
 # Spell out numbers as Fixnum class methods through method_missing.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby fixnum_hack.rb
+#
+# Requirements:
+# - Ruby before 3.2, which still defines the Fixnum constant
+#
 
 def t(n,e)
   puts n + ' -- ' + e.inspect

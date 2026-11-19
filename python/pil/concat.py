@@ -1,4 +1,21 @@
-# Paste two images onto one canvas and save the result.
+# concat.py: Paste two images onto one canvas
+#
+# Description:
+# Paste a.jpg and b.jpg from the current directory onto one canvas and save
+# the result.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 concat.py
+#
+# Requirements:
+# - Python 3
+# - Pillow
+#
 
 from PIL import Image
 

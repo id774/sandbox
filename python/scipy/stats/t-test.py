@@ -1,4 +1,20 @@
+# t-test.py: Paired t test on random integer samples
+#
+# Description:
 # Run a paired t test on two random integer samples.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 t-test.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and SciPy
+#
 
 import numpy as np
 import scipy as sp

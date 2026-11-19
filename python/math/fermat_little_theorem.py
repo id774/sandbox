@@ -1,4 +1,20 @@
-# Test primality across a range with Fermat's little theorem.
+# fermat_little_theorem.py: Fermat primality test over a range
+#
+# Description:
+# Test primality across a range with Fermat's little theorem, from the first
+# argument up to but not including the second.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 fermat_little_theorem.py <start> <end>
+#
+# Requirements:
+# - Python 3
+#
 
 import sys
 

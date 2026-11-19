@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Count the words of stored tweets with MeCab.
+# twitter_wordcount.rb: Word counts of stored tweets
+#
+# Description:
+# Count the words of tweets stored in sqlite3.db beside this file with MeCab.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby twitter_wordcount.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems and MeCab with its Ruby binding
+# - sqlite3.db beside this file
+#
 
 require 'MeCab'
 require 'active_record'

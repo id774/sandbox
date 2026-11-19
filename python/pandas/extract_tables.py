@@ -1,4 +1,24 @@
-# Dump one tenant's table from PostgreSQL to CSV, optionally dropping system columns.
+# extract_tables.py: Dump a tenant table from PostgreSQL to CSV
+#
+# Description:
+# Dump one tenant's table from PostgreSQL to CSV, optionally dropping system
+# columns. The program connects to the database s<sid> on 127.0.0.1:5432 as
+# the user of the same name and writes <table>.csv. Unless the third argument
+# is full, it drops the id, created_at, and updated_at columns.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 extract_tables.py <sid> <table> <full|other>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - pandas and psycopg2
+# - A local PostgreSQL server with the tenant database
+#
 
 import os
 import sys

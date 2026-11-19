@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Print the owning user of every activity record in a JSON log.
+# all_user.rb: Owning user of every activity record
+#
+# Description:
+# Print the owning user of every activity record in a JSON log, all.txt by
+# default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby all_user.rb [log file]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 

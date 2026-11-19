@@ -1,4 +1,22 @@
-# Log in to Twitter with mechanize and scrape the timeline.
+# scraping_twitter.rb: Scrape the Twitter timeline with mechanize
+#
+# Description:
+# Log in to Twitter with mechanize, using credentials loaded from ~/.twitter,
+# and scrape the timeline.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby scraping_twitter.rb
+#
+# Requirements:
+# - Ruby
+# - The mechanize gem
+# - A YAML file ~/.twitter with the login credentials
+#
 
 require "rubygems"
 require "mechanize"

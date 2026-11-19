@@ -1,4 +1,20 @@
-# Solve a grid puzzle by walking a map loaded from a file.
+# jks.rb: Grid puzzle solver
+#
+# Description:
+# Solve a grid puzzle by walking a map loaded from the file given as an
+# argument, such as q.txt. spec_jks.rb tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby jks.rb q.txt
+#
+# Requirements:
+# - Ruby
+#
 
 class Map
   def initialize(ary)

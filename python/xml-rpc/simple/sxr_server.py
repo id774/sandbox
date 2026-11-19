@@ -1,5 +1,20 @@
 #!/usr/bin/env python
+# sxr_server.py: String helpers exposed over XML-RPC
+#
+# Description:
 # Expose string helpers over XML-RPC, keeping underscore methods private.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python sxr_server.py
+#
+# Requirements:
+# - Python 2, which provides SimpleXMLRPCServer
+#
 
 import SimpleXMLRPCServer
 

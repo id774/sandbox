@@ -1,5 +1,24 @@
 # -*- coding: utf-8 -*-
-# Count words across stored tweets with a map reduce pass.
+# twitter_mapreduce.rb: Map reduce word count over stored tweets
+#
+# Description:
+# Count words across tweets stored in sqlite3.db beside this file with a map
+# reduce pass over MeCab words.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby twitter_mapreduce.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems and MeCab with its Ruby binding
+# - sqlite3.db beside this file
+#
+
 require 'active_record'
 require 'MeCab'
 

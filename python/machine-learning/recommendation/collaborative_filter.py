@@ -1,4 +1,20 @@
-# Recommend films by similarity between user rating vectors.
+# collaborative_filter.py: Film recommendations from user rating similarity
+#
+# Description:
+# Recommend films by similarity between user rating vectors from
+# recommendation_data.py.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 collaborative_filter.py
+#
+# Requirements:
+# - Python 3
+#
 
 from recommendation_data import dataset
 from math import sqrt

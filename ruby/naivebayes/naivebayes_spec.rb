@@ -1,6 +1,23 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# naivebayes_spec.rb: RSpec tests of the naive Bayes classifier
+#
+# Description:
 # Test the naive Bayes classifier with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec naivebayes_spec.rb
+#
+# Requirements:
+# - Ruby with RSpec
+# - A naivebayes library on the load path, such as naivebayes.rb in this
+#   directory
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

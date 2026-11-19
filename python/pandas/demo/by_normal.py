@@ -1,4 +1,20 @@
+# by_normal.py: Total sales per product with plain Python
+#
+# Description:
 # Total sales per product by parsing a CSV with plain Python.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 by_normal.py
+#
+# Requirements:
+# - Python 3
+# - product.csv in the current directory
+#
 
 from collections import defaultdict
 

@@ -1,4 +1,19 @@
+# argparser_parse.py: Command line options with argparse
+#
+# Description:
 # Parse command line options with argparse.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 argparser_parse.py FILE [--verbose] [--cat <file>]
+#
+# Requirements:
+# - Python 3
+#
 
 from argparse import ArgumentParser
 

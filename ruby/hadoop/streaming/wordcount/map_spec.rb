@@ -1,6 +1,21 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# map_spec.rb: RSpec test of the word count mapper
+#
+# Description:
 # Test the wordcount mapper against fixture data with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec map_spec.rb
+#
+# Requirements:
+# - Ruby with RSpec
+#
 
 require 'rubygems'
 require 'rspec'

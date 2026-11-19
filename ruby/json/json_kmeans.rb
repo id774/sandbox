@@ -1,6 +1,23 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Cluster JSON records with k-means over Pearson distance.
+# json_kmeans.rb: k-means clustering of JSON records by Pearson distance
+#
+# Description:
+# Cluster JSON records with k-means over Pearson distance, using the given
+# centroid count and iteration limit. The log defaults to json.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_kmeans.rb <log file> <centroids> <iterations>
+#
+# Requirements:
+# - Ruby
+# - The awesome_print and kmeans gems
+#
 
 require 'json'
 require 'kmeans/pair'

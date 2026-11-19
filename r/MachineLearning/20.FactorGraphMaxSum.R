@@ -1,3 +1,22 @@
+# 20.FactorGraphMaxSum.R: Max-sum algorithm on a factor graph
+#
+# Description:
+# Find the most probable configuration of a small factor graph from the joint
+# distribution and by the max-sum algorithm, and plot the results. The plots
+# are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 20.FactorGraphMaxSum.R
+#
+# Requirements:
+# - R with the igraph and plotrix packages
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(igraph)
 library(plotrix)

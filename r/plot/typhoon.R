@@ -1,3 +1,21 @@
+# typhoon.R: Typhoon tracks from JMA best track data
+#
+# Description:
+# Parse the JMA best track file bst2013.txt and plot the typhoon tracks over a
+# map with ggplot2, saving image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript typhoon.R
+#
+# Requirements:
+# - R with the ggplot2 and maps packages
+# - bst2013.txt in the current directory
+#
 
 library(ggplot2)
 library(maps)

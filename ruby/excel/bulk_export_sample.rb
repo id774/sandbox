@@ -1,4 +1,22 @@
+# bulk_export_sample.rb: Bulk export of report records
+#
+# Description:
 # Export report records from the database in bulk.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby bulk_export_sample.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord gem
+# - A development database configured in config/database.yml beside this
+#   file
+#
 
 require 'active_record'
 

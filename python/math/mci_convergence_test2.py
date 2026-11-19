@@ -1,4 +1,20 @@
+# mci_convergence_test2.py: Monte Carlo integration convergence on a heavy-tailed distribution
+#
+# Description:
 # Test Monte Carlo integration convergence on a heavy tailed distribution.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 mci_convergence_test2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

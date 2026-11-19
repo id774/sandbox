@@ -1,4 +1,21 @@
+# read_from_twitter_zip.rb: Read stored tweets from a zipped SQLite database
+#
+# Description:
 # Read stored tweets from a SQLite database packed inside a zip archive.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby read_from_twitter_zip.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems
+# - The rubyzip gem before 1.0, which provides zip/zip
+#
 
 require 'active_record'
 require 'zip/zip'

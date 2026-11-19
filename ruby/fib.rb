@@ -1,4 +1,20 @@
-# Memoize Fibonacci numbers in a class variable and delegate the rest by method_missing.
+# fib.rb: Memoized Fibonacci numbers with method_missing
+#
+# Description:
+# Memoize Fibonacci numbers in a class variable and delegate the rest by
+# method_missing.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby fib.rb
+#
+# Requirements:
+# - Ruby
+#
 
 class Fib
   @@ary = []

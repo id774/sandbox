@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
+# t-test_4.py: Scatter plot and paired t test of two samples
+#
+# Description:
 # Scatter plot two samples and run a paired t test on them.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 t-test_4.py
+#
+# Requirements:
+# - Python 3
+# - Matplotlib
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.array
+#
 
 import scipy as sp
 from scipy import stats

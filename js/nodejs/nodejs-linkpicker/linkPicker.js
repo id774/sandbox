@@ -1,5 +1,14 @@
-// linkPicker.js
-// Pick the links, that is the a tags, out of HTML content
+// linkPicker.js: Pick and group the links of HTML content
+//
+// Description:
+// Pick the links, that is the a tags, out of HTML content and group them by
+// host.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
 
 var url = require('url'),
     embedJQuery = require('./embedJQuery');

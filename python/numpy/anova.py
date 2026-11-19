@@ -1,6 +1,22 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
+# anova.py: Factor effects and residuals for an ANOVA
+#
+# Description:
 # Decompose a data matrix into factor effects and residuals for an ANOVA.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 anova.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+#
 
 import numpy as np
 

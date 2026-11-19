@@ -1,4 +1,22 @@
-# Add a z score column over the last 300 rows of a stock log.
+# zscore.py: Z score column over the last 300 rows of stock logs
+#
+# Description:
+# Add a z score column over the last 300 rows of each stock log under the
+# directory given as an argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 zscore.py <directory>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - SciPy
+# - pandas before 1.0, which still provides DataFrame.ix
+#
 
 import sys
 import os

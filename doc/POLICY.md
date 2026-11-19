@@ -632,52 +632,84 @@ by running the example.
 
 #### 2.4.7 Header Documentation
 
-Repository-authored source files added by a change, and existing
-repository-authored source files explicitly included in a header-documentation
-maintenance change, carry a header appropriate to the language, platform, or
-tool. This requirement does not by itself make unrelated historical source
-files part of a change.
+Every repository-authored source file in scope for this repository, including
+existing source files, carries a header in a form supported by its language,
+platform, or tool. This covers standalone examples, project entry points,
+repository-authored tests, libraries, and supporting source modules. The
+requirement does not extend to third-party source, externally derived material
+whose rights or attribution would be misrepresented, or generated files and
+tool-generated portions of project trees. Where a source format cannot contain
+a comment header without changing its meaning or validity, preserve the source
+format instead of introducing an invalid header.
 
-The header identifies the file and its purpose without requiring the reader to
-infer them from the implementation. It includes the following repository
-metadata:
+The header identifies the actual file and its purpose without requiring the
+reader to infer either from the implementation. Its sections appear in this
+order when applicable:
+
+1. A file name followed by a concise summary of the file's purpose.
+2. `Description`, explaining what the file does or what responsibility it has.
+3. The four contiguous repository metadata fields shown below.
+4. `Usage`, `Build / Run`, or `Test`, for a directly runnable program, test,
+   evaluation, or project entry point, using instructions that really apply.
+5. `Requirements`, stating actual prerequisites for that direct use.
+6. Additional interface-specific sections, only when they describe existing
+   features, arguments, configuration, cases, or observable exit statuses.
+7. `Version History`, only in a file that already maintains its own history.
+
+The repository metadata fields are:
 
 - `Author: id774 (More info: https://id774.net)`
 - `Source Code: https://github.com/id774/sandbox`
 - `License: The GPL version 3, or LGPL version 3 (Dual License).`
 - `Contact: idnanashi@gmail.com`
 
+These fields form one contiguous block in that order, without empty lines or
+other sections between them. Apply them only to source for which the indicated
+authorship and license terms are accurate. Preserve original attribution,
+collective authorship, copyright notices, and third-party license conditions;
+do not replace them with repository metadata or claim rights not held.
+
 A standalone program, directly runnable test or evaluation, or project entry
-point also records how it is run, built, or tested and the requirements needed
-to do so. Requirements state practical minimum versions for the runtime,
-compiler, tool, and directly required library where a meaningful minimum
-applies. A practical minimum is a version reasonably expected to support the
-current sample from its source, configuration, manifest, and documented APIs.
-It does not need to be the earliest version that could theoretically run it.
+point records how it is run, built, or tested and the requirements needed to do
+so. Requirements identify the runtime, compiler, tool, and directly required
+library, including a practical minimum version where a meaningful minimum can
+be established from the source, configuration, manifest, documented API, or
+established supported environment. Do not invent a minimum version, option,
+exit status, execution command, or dependency. The section for process exit
+codes is named `Exit Status`, and appears only when distinct process exit
+statuses are part of the actual user-facing or caller-facing interface.
 
-In a multi-file project, the entry point carries the full project-level usage
-and requirements. Supporting source files keep a concise header with the
-repository metadata and enough description to identify their role, and may
-refer to the entry point or local README instead of duplicating project-wide
-setup and dependency details. Generated files and third-party source are not
-given repository-authored headers. Sections 1.16 and 2.3.3 continue to govern
-attribution, licensing, and generated project trees.
+In a multi-file project, the entry point carries the project-level usage and
+requirements. Supporting source files keep a concise header with the four
+metadata fields and a description of their own role; they do not duplicate
+project-wide setup and dependency details. Do not duplicate detailed
+behavioral specifications, file inventories, or other material whose
+authoritative home is a README under Section 2.3.7.
 
-Distinct header sections must have a visible boundary. Where a header uses
-line comments, separate adjacent sections with a comment-only blank line in
-that language's syntax; where it uses a block comment, use an equivalent
-visible blank line within the comment. A `Description` section ends before the
-`Author`, `Source Code`, `License`, and `Contact` metadata block begins. A
-`Usage` section ends before a following `Requirements` section begins. These
-four metadata fields form one contiguous block without internal separators.
-When a header is added or modified, check section boundaries as well as the
-presence of required information. This rule does not require otherwise
-unnecessary sections or impose the same comment syntax across languages.
+Distinct header sections have a visible boundary. With line comments, use a
+comment-only blank line in the language's syntax between adjacent sections.
+With a block comment, use an equivalent visible blank line inside that block.
+The `Description` section ends before the metadata block. A `Usage`,
+`Build / Run`, or `Test` section ends before `Requirements`. The four metadata
+fields remain contiguous. Check both required content and section boundaries
+when adding or correcting a header.
 
-Header syntax follows the language or platform convention under Section 2.4.3.
-Do not add a uniform comment form across languages merely to make headers look
-alike. Do not duplicate detailed behavioral specifications, file inventories,
-or other material whose authoritative home is a README under Section 2.3.7.
+Header placement and syntax follow the language or platform convention under
+Section 2.4.3. Preserve a shebang, encoding declaration, compiler directive,
+package annotation, document-type declaration, or other required leading
+syntax in its valid position. Existing one-space line-comment headers and
+language-native block-comment headers remain valid; no universal banner or
+comment syntax is required. A format or generated source that cannot accept a
+safe repository-authored header is not modified to satisfy appearance alone.
+
+Header compliance is checked against every applicable repository-authored
+source file, not only files modified for another purpose. The check covers
+source-file coverage, exclusion grounds, the purpose description, the four
+metadata fields, the necessary run/build/test and requirements information,
+section order and separation, language validity, and consistency with the
+actual source and its existing documentation. A file with no required header,
+a missing required field, an invalid comment form, or materially incorrect
+header information is not compliant. Already compliant headers are preserved.
 
 These rules apply to individual source files that carry their own version
 history. Repository release versions are governed separately.

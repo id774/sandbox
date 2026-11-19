@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Convert a CSV file into one tab separated JSON record per row.
+# csv_json.rb: CSV rows to tab-separated JSON records
+#
+# Description:
+# Convert a CSV file into one tab separated JSON record per row. The files
+# default to data.csv and out.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby csv_json.rb [CSV file] [output file]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'csv'
 require 'json'

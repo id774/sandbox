@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
+# latex3.py: Gaussian fit labelled with TeX
+#
+# Description:
 # Fit a Gaussian to generated data and label the plot with TeX.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 latex3.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib
+# - A TeX installation for usetex rendering
+#
 
 import numpy as np
 from scipy.optimize import curve_fit

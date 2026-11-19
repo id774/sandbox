@@ -1,4 +1,21 @@
+# kfold.py: k-fold cross validation of an SVM on iris
+#
+# Description:
 # Cross validate an SVM on the iris data set with k-fold splits.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 kfold.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - scikit-learn before 0.20, which still provides sklearn.cross_validation
+#
 
 import numpy as np
 from sklearn import datasets

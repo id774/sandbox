@@ -1,4 +1,19 @@
+# fileread.py: Pick a file with Tkinter and print its contents
+#
+# Description:
 # Pick a file with a Tkinter dialog and print its contents.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 fileread.py
+#
+# Requirements:
+# - Python 3 with Tkinter
+#
 
 import tkinter as tk
 from tkinter import filedialog

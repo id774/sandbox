@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# normal_enumrator.rb: External enumerators and a custom Enumerable
+#
+# Description:
+# Step through an array with an external enumerator until StopIteration is
+# raised, and build a custom Enumerable class.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby normal_enumrator.rb
+#
+# Requirements:
+# - Ruby
+#
 
 # enumerable as enumerator
 enum = [1, 2].each

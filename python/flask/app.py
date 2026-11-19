@@ -1,4 +1,20 @@
+# app.py: Flask routes with string and integer path converters
+#
+# Description:
 # Serve Flask routes using string and integer path converters.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 app.py
+#
+# Requirements:
+# - Python 3
+# - Flask
+#
 
 from flask import Flask
 app = Flask(__name__)

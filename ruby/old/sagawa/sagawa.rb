@@ -1,5 +1,24 @@
 #-*- coding: utf-8 -*-
-# Scrape a Sagawa parcel tracking page.
+# sagawa.rb: Scrape a Sagawa parcel tracking page
+#
+# Description:
+# Scrape the Sagawa parcel tracking page for the tracking number given as an
+# argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby sagawa.rb <tracking number>
+#
+# Requirements:
+# - Ruby
+# - The hpricot gem
+# - Network access to the Sagawa tracking site
+#
+
 require 'rubygems'
 require 'net/http'
 require 'hpricot'

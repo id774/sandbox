@@ -1,3 +1,22 @@
+# 15.SoftMarginSupportVectorMachine.R: Soft margin support vector machine
+#
+# Description:
+# Train soft margin support vector machines with several values of C on
+# generated two-class data with kernlab and plot each decision function. The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 15.SoftMarginSupportVectorMachine.R
+#
+# Requirements:
+# - R with the MASS and kernlab packages
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(MASS)
 library(kernlab)
