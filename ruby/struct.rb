@@ -1,6 +1,21 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
+# struct.rb: Plain class with attr_accessor
+#
+# Description:
 # Define a plain class with attr_accessor and inspect its instances.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby struct.rb
+#
+# Requirements:
+# - Ruby
+#
 
 class Person
   def initialize(name, age)

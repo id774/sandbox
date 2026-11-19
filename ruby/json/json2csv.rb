@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Convert JSON lines into CSV, taking the header from the first record.
+# json2csv.rb: JSON lines to CSV
+#
+# Description:
+# Convert JSON lines into CSV, taking the header from the first record. The
+# input defaults to json.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json2csv.rb [JSON lines file]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'csv'
 require 'json'

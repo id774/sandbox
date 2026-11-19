@@ -1,4 +1,23 @@
-# Compare one reward row across several monthly CSV files.
+# plot_monthly.py: Compare a reward row across monthly CSV files
+#
+# Description:
+# Compare one reward row across the monthly CSV files 201411.csv through
+# 201502.csv in the current directory, saving image.png and image2.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 plot_monthly.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+# - pandas before 1.0, which still provides DataFrame.ix
+# - The monthly CSV files in the current directory
+#
 
 import numpy as np
 import pandas as pd

@@ -1,6 +1,21 @@
 #!/usr/local/bin/ruby
 # -*- coding: utf-8 -*-
-# Build word count vectors from English RSS feeds.
+# generatefeedvector.rb: Word count vectors from English RSS feeds
+#
+# Description:
+# Build word count vectors from the English RSS feeds listed in feedlist.txt,
+# and write them to blogdata.txt by default. run.rb can call it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Ruby
+# - The hpricot and simple-rss gems
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+#
 
 require 'rubygems'
 require 'simple-rss'

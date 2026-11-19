@@ -1,6 +1,23 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-# Score the terms of documents in a directory by TF-IDF.
+# tfidf.py: TF-IDF term scores for documents in a directory
+#
+# Description:
+# Score the terms of documents in a directory by TF-IDF. The directory
+# defaults to ~/tmp/doc when no argument is given.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 tfidf.py [directory]
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - scikit-learn
+#
 
 import sys
 import os

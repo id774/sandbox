@@ -1,4 +1,19 @@
+# itself.rb: Group and count elements by itself
+#
+# Description:
 # Group and count elements using itself as the grouping key.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby itself.rb
+#
+# Requirements:
+# - Ruby 2.2 or later, which provides Object#itself
+#
 
 array = %i(a f b f c c b d b)
 p array.group_by(&:itself).map { |k,v| [k, v.count] }

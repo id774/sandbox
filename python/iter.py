@@ -1,4 +1,19 @@
+# iter.py: Implement the iterator protocol
+#
+# Description:
 # Implement the iterator protocol with __iter__ and __next__.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 iter.py
+#
+# Requirements:
+# - Python 3
+#
 
 class MyIterator(object):
     def __init__(self, *numbers):

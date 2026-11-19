@@ -1,4 +1,23 @@
+// add-items.js: Add items to a Backbone collection and render them
+//
+// Description:
 // Add items to a Backbone collection and render each one as it arrives.
+// index.html in this directory loads it.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     python3 -m http.server 8000
+//     Then open add-items/index.html through the server.
+//
+// Requirements:
+// - A web browser
+// - Underscore, jQuery, and Backbone under /lib/js/ on the serving host, as
+//   js/backbonejs/README.md describes
+//
 
 var Item = Backbone.Model.extend({
     initialize: function() {

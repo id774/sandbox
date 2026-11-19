@@ -1,4 +1,21 @@
+# pandas_example.py: DataFrames from random values and mixed columns
+#
+# Description:
 # Build DataFrames from random values and from mixed column types.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 pandas_example.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - pandas before 0.20, which still provides DataFrame.sort
+#
 
 import pandas as pd
 import numpy as np

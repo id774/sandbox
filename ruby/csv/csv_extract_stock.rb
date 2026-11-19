@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Load a stock price CSV into hashes keyed by its header row.
+# csv_extract_stock.rb: Stock price CSV rows as header-keyed hashes
+#
+# Description:
+# Load the stock price CSV ti_N225.csv into hashes keyed by its header row.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby csv_extract_stock.rb
+#
+# Requirements:
+# - Ruby with the sysadmin gem
+# - ti_N225.csv in the current directory
+#
 
 require 'csv'
 require 'sysadmin'

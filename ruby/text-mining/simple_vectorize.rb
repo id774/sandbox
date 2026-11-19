@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Turn per file word counts into vectors over a shared vocabulary.
+# simple_vectorize.rb: Word count vectors over a shared vocabulary
+#
+# Description:
+# Turn per file word counts into vectors over a shared vocabulary. The input
+# and output directories default to the current one.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby simple_vectorize.rb [input directory] [output directory]
+#
+# Requirements:
+# - Ruby
+#
 
 class WordCount
   def initialize(args)

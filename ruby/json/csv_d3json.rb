@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Convert label and value CSV files into the JSON d3 expects.
+# csv_d3json.rb: Label and value CSV files to d3 JSON
+#
+# Description:
+# Convert label and value CSV files in an input directory into the JSON d3
+# expects in an output directory. Both directories default to the current one.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby csv_d3json.rb [input directory] [output directory]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 

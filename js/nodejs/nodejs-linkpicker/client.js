@@ -1,6 +1,23 @@
 #!/usr/bin/env node
+// client.js: Command line entry point of the link picker
+//
+// Description:
 // Print the links of each page given on the command line, grouped by host.
-// client.js
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     node client.js <URL>...
+//
+// Requirements:
+// - An early Node.js release that still provides sys.puts,
+//   http.createClient, and process.binding('evals')
+// - The jsdom and iconv packages and jquery.min.js beside embedJQuery.js, as
+//   js/nodejs/README.md describes
+//
 
 var sys = require('sys'),
     linkPicker = require('./linkPicker');

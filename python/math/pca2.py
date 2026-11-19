@@ -1,4 +1,25 @@
-# Implement principal component analysis by solving the covariance eigenvalue problem.
+# pca2.py: Principal component analysis by covariance eigenvalues
+#
+# Description:
+# Implement principal component analysis by solving the covariance eigenvalue
+# problem, reducing iris.csv from the current directory to the number of
+# components given as the argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 pca2.py <components>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy before 1.24, which still provides np.float
+# - pandas before 1.0, which still provides DataFrame.as_matrix
+# - Matplotlib
+# - iris.csv in the current directory
+#
 
 import sys
 import numpy as np

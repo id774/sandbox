@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Classify JSON text with naive Bayes over MeCab words.
+# naivebayes.rb: Naive Bayes classification of JSON text
+#
+# Description:
+# Classify JSON text with naive Bayes over MeCab words. The input defaults to
+# json.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby naivebayes.rb [JSON file]
+#
+# Requirements:
+# - Ruby
+# - The naivebayes and awesome_print gems and MeCab with its Ruby binding
+#
 
 require 'json'
 require 'awesome_print'

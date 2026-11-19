@@ -1,4 +1,21 @@
-// Restart clustered workers once they hit a request count or a timeout.
+// nodejs_spawn.js: Restart clustered workers by request count or timeout
+//
+// Description:
+// Restart clustered workers once they hit a request count or a timeout. The
+// workers serve HTTP on port 3000.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     node nodejs_spawn.js
+//
+// Requirements:
+// - Node.js before 0.8, whose cluster master still emits the death event the
+//   restart logic waits for
+//
 
 var cluster = require('cluster');
 var http = require('http');

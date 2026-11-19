@@ -1,4 +1,20 @@
+# resize_dir.py: Resize every image in a directory
+#
+# Description:
 # Resize every image file in a directory to a requested size.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 resize_dir.py <size> <source directory> <output directory>
+#
+# Requirements:
+# - Python 3.12 or earlier, which still provides imghdr
+# - Pillow
+#
 
 import os
 import imghdr

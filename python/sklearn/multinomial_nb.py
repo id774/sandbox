@@ -1,4 +1,20 @@
+# multinomial_nb.py: Multinomial naive Bayes on random counts
+#
+# Description:
 # Fit a multinomial naive Bayes classifier to random count data.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 multinomial_nb.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and scikit-learn
+#
 
 import numpy as np
 X = np.random.randint(5, size=(6, 100))

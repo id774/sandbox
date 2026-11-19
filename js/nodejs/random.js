@@ -1,3 +1,22 @@
+// random.js: Random number endpoint with a commented walk-through
+//
+// Description:
+// Serve a random integer from 0 up to the number query parameter over HTTP on
+// port 3000, with comments that walk through each line of a Node server.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     node random.js
+//     curl 'localhost:3000/?number=100'
+//
+// Requirements:
+// - Node.js
+//
+
 // these modules need to be imported in order to use them.
 // Node has several modules.  They are like any #include
 // or import statement in other languages

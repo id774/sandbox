@@ -1,3 +1,21 @@
+# mnist2jpg.py: Save MNIST images as JPEG files
+#
+# Description:
+# Convert MNIST images read from train.images.csv and train.labels.csv into
+# JPEG files with NumPy and Pillow.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 mnist2jpg.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Pillow
+#
 
 # mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 

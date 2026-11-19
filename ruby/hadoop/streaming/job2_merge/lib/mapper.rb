@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Drop the records whose time gap is under ten seconds and rekey the rest.
+# mapper.rb: Drop short gaps and rekey job2 records
+#
+# Description:
+# Drop the records whose time gap is under ten seconds and rekey the rest,
+# reading standard input.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     cat <input> | ruby lib/mapper.rb | sort | ruby lib/reducer.rb
+#
+# Requirements:
+# - Ruby
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

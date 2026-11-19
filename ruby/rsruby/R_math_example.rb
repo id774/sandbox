@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Run statistical functions in R over CSV columns.
+# R_math_example.rb: R statistical functions over CSV columns
+#
+# Description:
+# Run statistical functions in R over the columns of Book1.csv through RSRuby.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby R_math_example.rb
+#
+# Requirements:
+# - Ruby with the rsruby and awesome_print gems
+# - R
+# - Book1.csv in the current directory
+#
 
 require 'rubygems'
 require "csv"

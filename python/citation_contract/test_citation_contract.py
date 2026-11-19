@@ -1,5 +1,11 @@
 # test_citation_contract.py: Unit tests for citation verification decisions
 #
+# Description:
+# Exercise nine unittest cases for supported answers, missing reviews, missing
+# and empty citation IDs, unsupported reviews, partially reviewed answers,
+# rejection precedence, stale claim and source fingerprints, and invalid or
+# duplicate data.
+#
 # Author: id774 (More info: https://id774.net)
 # Source Code: https://github.com/id774/sandbox
 # License: The GPL version 3, or LGPL version 3 (Dual License).

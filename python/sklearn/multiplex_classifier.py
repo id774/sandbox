@@ -1,4 +1,22 @@
-# Select one of several classifiers by name behind a common interface.
+# multiplex_classifier.py: Select a classifier by name
+#
+# Description:
+# Select one of several classifiers by the name given as the first argument
+# behind a common interface, fit it to fixed points, and print a prediction.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 multiplex_classifier.py <classifier name>
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - scikit-learn before 0.19, which still provides sklearn.lda
+#
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier

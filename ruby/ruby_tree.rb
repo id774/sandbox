@@ -1,5 +1,20 @@
-# Draw Ruby universe with gviz(graphviz wrapper in Ruby)
-# try `gviz build [THIS_FILE]` at terminal
+# ruby_tree.rb: Draw the Ruby class universe with gviz
+#
+# Description:
+# Draw Ruby universe with gviz (graphviz wrapper in Ruby).
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     gviz build ruby_tree.rb
+#
+# Requirements:
+# - Ruby
+# - The gviz gem and Graphviz
+#
 
 classes = ObjectSpace.each_object(Class)
                      .reject { |k| "#{k}".match /Gem|Thor|Gviz/ }

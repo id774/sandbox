@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Cluster chat messages held in SQLite by their word vectors.
+# chatter_clustering.rb: Cluster SQLite chat messages by word vectors
+#
+# Description:
+# Cluster chat messages held in chatter.db beside this file by their MeCab
+# word vectors.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby chatter_clustering.rb
+#
+# Requirements:
+# - Ruby
+# - The sqlite3 and kmeans gems and MeCab with its Ruby binding
+# - chatter.db beside this file
+#
 
 require 'MeCab'
 require 'sqlite3'

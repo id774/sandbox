@@ -1,3 +1,22 @@
+# 12.LinearRegressionPredictiveDistribution.R: Predictive distribution of Bayesian linear regression
+#
+# Description:
+# Plot the predictive distribution of Bayesian linear regression with ten
+# basis functions as the number of samples of sin(2 pi x) grows. The plots are
+# written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 12.LinearRegressionPredictiveDistribution.R
+#
+# Requirements:
+# - R with the mvtnorm package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(mvtnorm)
 frame()

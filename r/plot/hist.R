@@ -1,3 +1,21 @@
+# hist.R: Bar chart of the areas of Japanese regions
+#
+# Description:
+# Draw a bar chart of the areas of five Japanese regions with Japanese labels
+# and write image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript hist.R
+#
+# Requirements:
+# - R
+#
+
 #region = c("Hokkaidou","Honshu","Shikoku","Kyushu","Okinawa")
 region = c("北海道","本州","四国","九州","沖縄")
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)

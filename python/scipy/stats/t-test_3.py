@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
+# t-test_3.py: Paired t test of a fixed sample against normal values
+#
+# Description:
 # Run a paired t test comparing a fixed sample with normal random values.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 t-test_3.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.array
+#
 
 import numpy as np
 import scipy as sp

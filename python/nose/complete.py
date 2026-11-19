@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # - * - coding: utf-8 - * -
+# complete.py: Perfect numbers from proper divisor sums
+#
+# Description:
 # Find perfect numbers by summing their proper divisors.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 complete.py
+#
+# Requirements:
+# - Python 3
+#
 
 try:
     xrange

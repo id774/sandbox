@@ -1,5 +1,23 @@
 #!/bin/bash
-# Flatten exported ChatGPT conversation folders into one directory, stripping name prefixes.
+# chatgpt_export.sh: Flatten exported ChatGPT conversation folders
+#
+# Description:
+# Flatten exported ChatGPT conversation folders into one directory, stripping
+# name prefixes. Markdown files from each *-conversations/<date> folder are
+# copied into output/ without their leading numeric prefix.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     bash chatgpt_export.sh
+#
+# Requirements:
+# - Bash and GNU sed
+# - The exported *-conversations folders in the current directory
+#
 
 # Create the output directory
 output_dir="output"

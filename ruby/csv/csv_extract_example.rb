@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Load a Shift_JIS CSV into hashes keyed by its header row.
+# csv_extract_example.rb: Shift_JIS CSV rows as header-keyed hashes
+#
+# Description:
+# Load the Shift_JIS data.csv into hashes keyed by its header row.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby csv_extract_example.rb
+#
+# Requirements:
+# - Ruby with the sysadmin gem
+# - data.csv in the current directory
+#
 
 require 'csv'
 require 'sysadmin'

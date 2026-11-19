@@ -1,4 +1,22 @@
+# mnist2.py: Save random MNIST digits as images
+#
+# Description:
 # Fetch MNIST and save a random sample of its digits as images.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 mnist2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, Pillow, and Matplotlib
+# - scikit-learn before 0.22, which still provides fetch_mldata, and access
+#   to its data source
+#
 
 import re
 import numpy as np

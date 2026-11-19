@@ -1,6 +1,21 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# json_example.rb: JSON parse, load, generate, and dump
+#
+# Description:
 # Exercise JSON parse, load, generate, and dump.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_example.rb
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 p JSON.parse('[1,2,3]')

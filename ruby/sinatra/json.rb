@@ -1,5 +1,21 @@
 # coding:utf-8
+# json.rb: JSON document served from Sinatra
+#
+# Description:
 # Serve a JSON document from Sinatra with an explicit charset.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json.rb
+#
+# Requirements:
+# - Ruby
+# - The sinatra gem
+#
 
 require 'sinatra'
 require 'json'

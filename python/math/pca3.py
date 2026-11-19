@@ -1,4 +1,25 @@
-# Implement principal component analysis over a pandas data set.
+# pca3.py: Principal component analysis over a pandas data set
+#
+# Description:
+# Implement principal component analysis over iris.csv from the current
+# directory, reducing it to the number of components given as the argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 pca3.py <components>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy before 1.24, which still provides np.float
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.dot
+# - pandas before 1.0, which still provides DataFrame.as_matrix
+# - iris.csv in the current directory
+#
 
 import sys
 import numpy as np

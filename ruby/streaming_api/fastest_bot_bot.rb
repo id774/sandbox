@@ -1,5 +1,26 @@
 #-*- coding: utf-8 -*-
-# Reply to matching stream messages as fast as possible.
+# fastest_bot_bot.rb: Reply to matching stream messages quickly
+#
+# Description:
+# Follow the Twitter filter stream for mentions of the user and reply as fast
+# as possible through Rubytter, authenticating with the user name and password
+# given as arguments.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby fastest_bot_bot.rb <user> <password>
+#
+# Requirements:
+# - Ruby
+# - The rubytter gem
+# - The Twitter streaming and REST APIs with basic authentication as they
+#   existed at the time
+#
+
 require 'net/http'
 require 'json'
 require 'uri'

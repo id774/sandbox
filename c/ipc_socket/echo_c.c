@@ -1,4 +1,26 @@
-/* Send stdin lines to an echo server on port 3000 and print each reply. */
+/*
+ * echo_c.c: Echo client for the local TCP echo server
+ *
+ * Description:
+ * Send stdin lines to an echo server on port 3000 and print each reply. The
+ * client connects to 127.0.0.1:3000, prompts with "> ", and prints each reply
+ * prefixed with "echo> ". It exits with status 1 on a socket error or when the
+ * server closes the connection.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Build / Run:
+ *     cc -o echo_c echo_c.c
+ *     ./echo_c
+ *
+ * Requirements:
+ * - A C compiler such as GCC or Clang
+ * - A POSIX sockets environment
+ * - echo_s.c running on the same host
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

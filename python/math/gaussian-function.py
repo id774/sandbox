@@ -1,5 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# gaussian-function.py: Gaussian function
+#
+# Description:
+# Define gaussian(dist, sigma), the probability density of the normal
+# distribution with mean 0 and standard deviation sigma, which defaults to
+# 10.0. The file defines the function only; its example calls are commented
+# out.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 
 # Gaussian function
 # http://en.wikipedia.org/wiki/Gaussian_function

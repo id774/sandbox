@@ -1,4 +1,23 @@
-# Extend a stock series and predict the added days with ridge regression.
+# stock_predict.py: Ridge regression prediction of added stock days
+#
+# Description:
+# Extend the stock series in sampledata.csv and predict the added days with
+# ridge regression, writing expand_ts.csv.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 stock_predict.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and scikit-learn
+# - pandas before 1.0, which still provides DataFrame.ix
+# - sampledata.csv in the current directory
+#
 
 import datetime
 import numpy as np

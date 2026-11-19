@@ -1,4 +1,21 @@
+# db2_example.rb: DB2 on Bluemix through ActiveRecord
+#
+# Description:
 # Connect to DB2 on Bluemix through ActiveRecord.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby db2_example.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord, activesupport, bcrypt, and ibm_db gems
+# - DB2 credentials for the Bluemix service
+#
 
 require 'bcrypt'
 require 'ibm_db'

@@ -1,5 +1,22 @@
 #!/usr/bin/env python
+# boxplot4.py: Box plots of three Poisson samples in pandas Series
+#
+# Description:
 # Draw box plots of three Poisson samples held in pandas Series.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 boxplot4.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib
+#
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

@@ -1,4 +1,4 @@
-# test_model.py
+# test_model.py: Equivalence tests for the old and new models
 #
 # Description:
 #   Entry point of the model equivalence sample. It compares the old and new

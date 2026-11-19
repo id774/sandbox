@@ -1,4 +1,24 @@
-# Compare several classifiers on sliding window features.
+# classifier_test.py: Classifier comparison on sliding window features
+#
+# Description:
+# Compare several classifiers on sliding window features built from
+# sampledata.csv in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 classifier_test.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - pandas before 1.0, which still provides DataFrame.ix
+# - scikit-learn before 0.19, which still provides sklearn.lda
+# - sampledata.csv in the current directory
+#
 
 import pandas as pd
 import numpy as np

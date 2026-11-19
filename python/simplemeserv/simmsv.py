@@ -1,4 +1,17 @@
-# Store and serve comments as JSON on Google App Engine.
+# simmsv.py: Comment store served as JSON on Google App Engine
+#
+# Description:
+# Store and serve comments as JSON on Google App Engine with the webapp
+# framework and the db datastore API.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - The Google App Engine Python runtime with webapp, db, and Django
+#
 
 import wsgiref.handlers
 from google.appengine.ext import webapp

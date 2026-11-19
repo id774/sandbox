@@ -1,4 +1,22 @@
-# daemon.rb
+# daemon.rb: Minimal daemon with a PID file and logger
+#
+# Description:
+# Fork into the background, write ./daemon.pid, log start and stop messages to
+# standard output, run a loop that sleeps one second per iteration, and remove
+# the PID file on shutdown.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby daemon.rb
+#
+# Requirements:
+# - Ruby on a platform that supports fork
+#
+
 require 'fileutils'
 require 'logger'
 

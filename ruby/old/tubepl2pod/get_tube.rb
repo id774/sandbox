@@ -1,5 +1,20 @@
 #!/usr/bin/env ruby
-# Resolve the MP4 URL of a YouTube video and download it.
+# get_tube.rb: Download a YouTube video as MP4
+#
+# Description:
+# CGI script that resolves the MP4 URL of the YouTube video named by the v
+# parameter and redirects the client to it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - A web server that runs the script as CGI
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+#
+
 require "net/http"
 require "cgi"
 require "open-uri"

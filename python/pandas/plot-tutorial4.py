@@ -1,6 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# plot-tutorial4.py: Cross tabulate restaurant tips by day and party size
+#
+# Description:
 # Cross tabulate restaurant tips by day against party size.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 plot-tutorial4.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+# - pandas before 1.0, which still provides DataFrame.ix
+# - tips.csv in the current directory
+#
 
 import numpy as np
 from pandas import *

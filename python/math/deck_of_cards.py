@@ -1,4 +1,20 @@
-# Shuffle a deck of cards and draw a requested number of them.
+# deck_of_cards.py: Shuffle a deck of cards and draw from it
+#
+# Description:
+# Shuffle a deck of cards and draw the number of cards given as the first
+# argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 deck_of_cards.py <count>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 

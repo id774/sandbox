@@ -1,5 +1,20 @@
 #!/usr/bin/env python
+# option.py: Command line options with optparse
+#
+# Description:
 # Parse command line options with optparse.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 option.py [-f FILE] [-v | -q] arg
+#
+# Requirements:
+# - Python 3
+#
 
 import sys
 import os

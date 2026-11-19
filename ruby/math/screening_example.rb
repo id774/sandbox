@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
+# screening_example.rb: Collect elements with the screening gem
+#
+# Description:
 # Collect elements through the screening gem.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby screening_example.rb
+#
+# Requirements:
+# - Ruby
+# - The awesome_print and screening gems
+#
 
 require 'screening'
 require 'awesome_print'

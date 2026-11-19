@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# naivebayes.py: Naive Bayes parameters for the Bernoulli model
+#
+# Description:
 # Estimate naive Bayes parameters for the multivariate Bernoulli model.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 naivebayes.py
+#
+# Requirements:
+# - Python 3
+#
+
 from math import log
 
 #

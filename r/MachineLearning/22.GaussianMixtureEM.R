@@ -1,3 +1,22 @@
+# 22.GaussianMixtureEM.R: Gaussian mixture fitted by EM
+#
+# Description:
+# Fit a Gaussian mixture to the faithful data set with the EM algorithm, and
+# plot each step and the log likelihood. The plots are written to image.png in
+# the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 22.GaussianMixtureEM.R
+#
+# Requirements:
+# - R with the mvtnorm and plotrix packages
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(mvtnorm)
 library(plotrix)

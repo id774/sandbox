@@ -1,3 +1,23 @@
+# 8.LogisticRegressionByIRLS.R: Logistic regression by IRLS and gradient descent
+#
+# Description:
+# Fit logistic regression to generated two-class data by iterative reweighted
+# least squares and by gradient descent, and plot the weights, gradients, and
+# decision boundaries. The plots are written to image.png in the current
+# directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 8.LogisticRegressionByIRLS.R
+#
+# Requirements:
+# - R with the MASS package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(MASS)
 frame()

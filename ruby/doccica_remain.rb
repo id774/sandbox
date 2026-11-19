@@ -1,5 +1,24 @@
 #-*- coding: utf-8 -*-
-# Scrape the remaining time and expiry date from a b-mobile account page.
+# doccica_remain.rb: Scrape the remaining b-mobile time and expiry
+#
+# Description:
+# Scrape the remaining time and expiry date from a b-mobile account page at
+# ec.bmobile.ne.jp over HTTPS without certificate verification.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby doccica_remain.rb
+#
+# Requirements:
+# - Ruby with net/https and kconv
+# - Network access to ec.bmobile.ne.jp and the account details the page
+#   requires
+#
+
 require "net/https"
 require "kconv"
 http = Net::HTTP.new('ec.bmobile.ne.jp',443)

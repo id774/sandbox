@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
+# json_naivebayes.rb: Naive Bayes classification of JSON records
+#
+# Description:
 # Train a naive Bayes classifier on JSON records and classify a second file.
+# The files default to train.txt and classify.txt. json_naivebayes_spec.rb
+# tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_naivebayes.rb [training file] [classification file]
+#
+# Requirements:
+# - Ruby
+# - The naivebayes gem
+#
 
 require 'json'
 require 'naivebayes'

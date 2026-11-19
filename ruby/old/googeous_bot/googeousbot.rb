@@ -1,4 +1,23 @@
-# Post RSS entries to Twitter, keeping a cache of what was already sent.
+# googeousbot.rb: Post RSS entries to Twitter with a sent-item cache
+#
+# Description:
+# Post RSS entries to Twitter, keeping a cache of what was already sent in
+# googeous_cache.dat.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby googeousbot.rb
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The rubytter gem
+# - The Twitter API that Rubytter used at the time and access to the feed in
+#   the source
+#
 
 require 'rubygems'
 require 'rubytter'

@@ -1,3 +1,22 @@
+# 10.CentralDifferenceOfErrorFunction.R: Neural network gradients by central differences
+#
+# Description:
+# Train the two-layer neural network regression with error gradients from
+# central differences for five iterations, and plot the fits and the error.
+# The plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 10.CentralDifferenceOfErrorFunction.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 set.seed(0)

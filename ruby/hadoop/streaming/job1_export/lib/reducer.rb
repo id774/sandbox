@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Add a human readable time and the gap since the previous record.
+# reducer.rb: Add readable times and gaps to job1 records
+#
+# Description:
+# Add a human readable time and the gap since the previous record to each
+# sorted record from standard input.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     cat test_data.txt | ruby lib/mapper.rb | sort | ruby lib/reducer.rb
+#
+# Requirements:
+# - Ruby
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

@@ -1,4 +1,23 @@
 # -*- coding:utf-8 -*-
+# chi-squared.py: Chi-squared test of deaths during Kristen Gilbert's shifts
+#
+# Description:
+# Run a chi-squared test on the contingency table, given in the comment below,
+# of deaths that occurred during Kristen Gilbert's shifts.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 chi-squared.py
+#
+# Requirements:
+# - Python 3
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.array
+#
 
 # Chi-squared test on the deaths that occurred during Kristen Gilbert's shifts
 #

@@ -1,3 +1,23 @@
+# 11.LinearRegressionSequentialBayesLearning.R: Sequential Bayesian learning of a linear model
+#
+# Description:
+# Update the prior and posterior over the two weights of a linear model as
+# observations arrive one at a time, and plot the prior, likelihood,
+# posterior, and sampled lines. The plots are written to image.png in the
+# current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 11.LinearRegressionSequentialBayesLearning.R
+#
+# Requirements:
+# - R with the mvtnorm package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(mvtnorm)
 frame()

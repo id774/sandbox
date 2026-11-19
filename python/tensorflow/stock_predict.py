@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
+# stock_predict.py: Predict stock prices with a Keras LSTM
+#
+# Description:
 # Predict stock prices with an LSTM built in Keras.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 stock_predict.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, scikit-learn, Keras, and Matplotlib
+# - pandas before 1.0, which still provides DataFrame.as_matrix
+#
+
 import numpy as np
 import pandas as pd
 

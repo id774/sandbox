@@ -1,4 +1,22 @@
-# Read an Excel workbook with the spreadsheet gem.
+# spreadsheet.rb: Read and write an Excel workbook with the spreadsheet gem
+#
+# Description:
+# Read an Excel workbook with the spreadsheet gem, then add a worksheet with
+# sample rows and write a new workbook. The workbook paths are placeholders.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby spreadsheet.rb
+#
+# Requirements:
+# - Ruby
+# - The spreadsheet gem
+# - Real workbook paths in place of the placeholders
+#
 
 require 'spreadsheet'
 

@@ -1,5 +1,24 @@
 #!/usr/bin/env python
 # - * - coding: utf-8 - * -
+# cross_summary.py: Cross summaries and statistical tests of tabular data
+#
+# Description:
+# Read the tab separated data.txt from the current directory and print cross
+# summaries and statistical tests with pandas and SciPy.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 cross_summary.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and SciPy
+# - data.txt in the current directory
+#
 
 # Load the libraries this uses
 import numpy as np

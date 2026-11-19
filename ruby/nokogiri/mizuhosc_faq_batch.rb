@@ -1,4 +1,21 @@
+# mizuhosc_faq_batch.rb: Text of a range of FAQ pages
+#
+# Description:
 # Scrape a range of FAQ pages in one run.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby mizuhosc_faq_batch.rb
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The nokogiri gem
+# - Network access to the FAQ site in the source
+#
 
 require 'rubygems'
 require 'nokogiri'

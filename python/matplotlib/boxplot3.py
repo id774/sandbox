@@ -1,4 +1,23 @@
-# Draw box plots from comma separated rows read out of a file.
+# boxplot3.py: Box plots of comma-separated rows from a file
+#
+# Description:
+# Draw box plots from comma separated rows read out of data.csv in the current
+# directory, show them, and save image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 boxplot3.py
+#
+# Requirements:
+# - Python 3
+# - NumPy before 1.24, which still provides np.float
+# - Matplotlib
+# - data.csv in the current directory
+#
 
 import matplotlib.pyplot as plt
 import numpy as np

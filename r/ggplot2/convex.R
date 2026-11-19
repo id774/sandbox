@@ -1,3 +1,20 @@
+# convex.R: Convex hulls of iris petals with ggplot2
+#
+# Description:
+# Plot iris petal width against length with ggplot2, then add the convex hull
+# of all points and of each species, writing image.png through image3.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript convex.R
+#
+# Requirements:
+# - R with the dplyr and ggplot2 packages
+#
 
 library(dplyr)
 library(ggplot2)

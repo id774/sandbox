@@ -1,3 +1,21 @@
+# suicide.R: Annual suicide counts in Japan
+#
+# Description:
+# Plot the annual number of suicides in Japan from 1978 to 2009 from fixed
+# data and write image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript suicide.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 
 year=1978:2009

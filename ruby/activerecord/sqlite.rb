@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
+# sqlite.rb: Small ActiveRecord storage class over SQLite
+#
+# Description:
 # Wrap a SQLite table behind a small ActiveRecord storage class.
+# sqlite_spec.rb tests it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby sqlite.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems
+#
 
 require 'active_record'
 

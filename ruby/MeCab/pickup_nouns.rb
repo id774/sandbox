@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Pick the nouns out of JSON text with MeCab.
+# pickup_nouns.rb: Pick nouns out of JSON text with MeCab
+#
+# Description:
+# Pick the nouns out of JSON text with MeCab. The input defaults to json.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby pickup_nouns.rb [JSON file]
+#
+# Requirements:
+# - Ruby
+# - MeCab with its Ruby binding
+#
 
 require 'json'
 require 'MeCab'

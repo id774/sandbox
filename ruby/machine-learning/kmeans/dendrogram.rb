@@ -1,6 +1,24 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Draw a dendrogram from hierarchically clustered file data.
+# dendrogram.rb: Dendrogram of hierarchically clustered blog data
+#
+# Description:
+# Draw a dendrogram from hierarchically clustered file data, reading
+# ../kcluster/blogdata.txt relative to this file and writing clusters.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby dendrogram.rb
+#
+# Requirements:
+# - Ruby
+# - The kmeans gem with its dendrogram support
+# - ../kcluster/blogdata.txt, which generatefeedvector.rb produces
+#
 
 require 'kmeans/pearson'
 require 'kmeans/hcluster'

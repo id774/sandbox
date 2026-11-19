@@ -1,3 +1,21 @@
+# 21.KMeansClustering.R: K-means clustering of the Old Faithful data
+#
+# Description:
+# Cluster the faithful data set with k-means and plot each E step and M step.
+# The plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 21.KMeansClustering.R
+#
+# Requirements:
+# - R with the MASS package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(MASS)
 frame()

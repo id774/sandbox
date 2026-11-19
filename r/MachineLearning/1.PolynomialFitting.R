@@ -1,3 +1,22 @@
+# 1.PolynomialFitting.R: Polynomial curve fitting by least squares
+#
+# Description:
+# Fit polynomials of several orders to ten noisy samples of sin(2 pi x) by
+# solving the least squares equations, and plot each fit. The plots are
+# written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 1.PolynomialFitting.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 set.seed(0)
 x<-seq(0.05,1,0.1)

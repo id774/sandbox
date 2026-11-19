@@ -1,4 +1,21 @@
-# Poll the Hatena Bookmark count for a URL and report when it changes.
+# hatebu.rb: Report changes in a Hatena Bookmark count
+#
+# Description:
+# Poll the Hatena Bookmark count for the URL given as an argument and report
+# when it changes.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby hatebu.rb <URL>
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - Network access to b.hatena.ne.jp
+#
 
 require 'open-uri'
 # Reject on error

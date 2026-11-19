@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# bench_kmeans.rb: Benchmark the k_means and ai4r k-means implementations
+#
+# Description:
 # Benchmark the k-means implementations in k_means and ai4r.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby bench_kmeans.rb
+#
+# Requirements:
+# - Ruby
+# - The k_means and ai4r gems
+#
 
 require 'rubygems'
 require 'benchmark'

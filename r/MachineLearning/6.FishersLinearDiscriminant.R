@@ -1,3 +1,22 @@
+# 6.FishersLinearDiscriminant.R: Fisher's linear discriminant
+#
+# Description:
+# Compare Fisher's linear discriminant with the direction that maximizes the
+# difference of class means on generated data, and plot the projections and
+# boundaries. The plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 6.FishersLinearDiscriminant.R
+#
+# Requirements:
+# - R with the MASS package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(MASS)
 frame()

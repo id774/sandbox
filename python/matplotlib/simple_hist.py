@@ -1,5 +1,22 @@
 # -*- coding:utf-8 -*-
+# simple_hist.py: Histogram with a title, grid, and axis labels
+#
+# Description:
 # Draw a histogram with a title, grid, and axis labels.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 simple_hist.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - Matplotlib before 3.1, which still provides matplotlib.mlab.normpdf
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

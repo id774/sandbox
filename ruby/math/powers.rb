@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Find the least product covering the prime powers up to a limit.
+# powers.rb: Least product covering prime powers up to a limit
+#
+# Description:
+# Find the least product covering the prime powers up to the limit given as an
+# argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby powers.rb <limit>
+#
+# Requirements:
+# - Ruby before 2.5, which still provides the mathn library
+#
 
 require 'mathn'
 def least_product(num)

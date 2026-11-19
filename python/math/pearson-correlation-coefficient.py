@@ -1,5 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# pearson-correlation-coefficient.py: Pearson correlation coefficient computed by hand
+#
+# Description:
+# Define pearson(x, y), which returns the Pearson correlation coefficient of
+# two sequences, or 0 when the denominator is 0. The file defines the function
+# only; its example call is commented out.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
 
 # Pearson correlation
 # http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient

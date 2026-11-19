@@ -1,4 +1,21 @@
-# Draw a scatter plot in R from CSV columns.
+# R_scatterplot_example.rb: R scatter plot from CSV columns
+#
+# Description:
+# Draw a scatter plot in R from the columns of Book1.csv through RSRuby.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby R_scatterplot_example.rb
+#
+# Requirements:
+# - Ruby with the rsruby gem
+# - R
+# - Book1.csv in the current directory
+#
 
 require 'rubygems'
 require "csv"

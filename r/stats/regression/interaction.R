@@ -1,3 +1,22 @@
+# interaction.R: Moderated regression with pequod
+#
+# Description:
+# Fit a moderated regression of sat on talk and per from sample_data2.csv with
+# pequod, test simple slopes, and plot them to image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript interaction.R
+#
+# Requirements:
+# - R with the pequod package
+# - sample_data2.csv in the current directory
+#
+
 library("pequod")
 
 data <- read.csv("sample_data2.csv")

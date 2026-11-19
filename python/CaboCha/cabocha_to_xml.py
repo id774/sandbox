@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# cabocha_to_xml.py: Walk the elements of CaboCha XML output
+#
+# Description:
 # Parse CaboCha XML output and walk its element map.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 cabocha_to_xml.py
+#
+# Requirements:
+# - Python 3
+# - CaboCha with its Python binding
+#
 
 import CaboCha
 

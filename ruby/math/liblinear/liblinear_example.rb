@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
+# liblinear_example.rb: Train and apply a liblinear model
+#
+# Description:
 # Train a liblinear model and classify with it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby liblinear_example.rb
+#
+# Requirements:
+# - Ruby
+# - The liblinear-ruby binding, loaded as linear
+#
+
 require "linear"
 
 # types = [ 'L2R_LR', 'L2R_L2LOSS_SVC_DUAL', 'L2R_L2LOSS_SVC', 'L2R_L1LOSS_SVC_DUAL', 'MCSVM_CS', 'L1R_L2LOSS_SVC', 'L1R_LR' ] the kinds of SVM

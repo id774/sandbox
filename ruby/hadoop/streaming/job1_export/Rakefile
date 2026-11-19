@@ -1,4 +1,20 @@
 # encoding: utf-8
+# Rakefile: Rake task running the job1 RSpec suite
+#
+# Description:
+# Define the spec task, which runs spec/*_spec.rb with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rake spec
+#
+# Requirements:
+# - Ruby with Rake and RSpec
+#
 
 require 'rubygems'
 

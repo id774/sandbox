@@ -1,4 +1,22 @@
-# Correlate and regress company returns by year with Japanese axis labels.
+# stock_regress.py: Yearly correlation and regression of company returns
+#
+# Description:
+# Correlate and regress company returns by year with Japanese axis labels,
+# reading stocks.csv from the current directory and saving image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 stock_regress.py
+#
+# Requirements:
+# - Python 3
+# - pandas, statsmodels, and Matplotlib
+# - stocks.csv in the current directory
+#
 
 import sys
 import pandas as pd

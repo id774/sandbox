@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# mapper_spec.rb: RSpec test of the job2 mapper
+#
+# Description:
 # Test the job2 mapper against fixture data with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec spec/mapper_spec.rb
+#
+# Requirements:
+# - Ruby with RSpec
+# - Run from the job2_merge directory
+#
 
 require 'rubygems'
 require 'rspec'

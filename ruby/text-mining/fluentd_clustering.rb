@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
-# Cluster fluentd log messages by their word vectors.
+# fluentd_clustering.rb: Cluster fluentd log messages by word vectors
+#
+# Description:
+# Cluster the messages in fluent_out.log in the current directory by their
+# MeCab word vectors.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby fluentd_clustering.rb
+#
+# Requirements:
+# - Ruby
+# - The kmeans gem and MeCab with its Ruby binding
+# - fluent_out.log in the current directory
+#
 
 require 'MeCab'
 require 'json'

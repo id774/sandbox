@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Zip each CSV row against fixed keys to build a hash.
+# csv_hash_example.rb: Hashes from CSV rows and fixed keys
+#
+# Description:
+# Zip each row of sample.csv against fixed keys to build a hash.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby csv_hash_example.rb
+#
+# Requirements:
+# - Ruby
+# - sample.csv in the current directory
+#
 
 require 'csv'
 

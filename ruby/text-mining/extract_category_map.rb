@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
-# Map categories to their words, skipping an exclude list.
+# extract_category_map.rb: Map categories to words with an exclude list
+#
+# Description:
+# Map categories to their words, skipping an exclude list. The files default
+# to category_map.txt and wordcount_exclude.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby extract_category_map.rb [category map file] [exclude file]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 

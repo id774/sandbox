@@ -1,4 +1,22 @@
-# Draw a candlestick chart from historical quotes.
+# finance_demo.py: Candlestick chart from historical quotes
+#
+# Description:
+# Draw a candlestick chart from historical Intel quotes fetched from Yahoo,
+# and save it as image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 finance_demo.py
+#
+# Requirements:
+# - Python 3
+# - Matplotlib before 2.2, which still provides matplotlib.finance
+# - Network access to the Yahoo quote service used by matplotlib.finance
+#
 
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter, WeekdayLocator,\

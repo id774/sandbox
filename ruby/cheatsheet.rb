@@ -1,4 +1,22 @@
 # -*- coding: utf-8 -*-
+# cheatsheet.rb: Ruby syntax cheat sheet
+#
+# Description:
+# Collect short Ruby examples of modules, classes, blocks, and other language
+# features, each introduced by a comment.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby cheatsheet.rb
+#
+# Requirements:
+# - Ruby
+#
+
 # A module is a piece of behaviour that many classes can share
 # Bring it into a class with 'include'
 # The module must be written before the include

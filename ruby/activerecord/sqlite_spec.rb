@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# sqlite_spec.rb: RSpec tests of the SQLite storage wrapper
+#
+# Description:
 # Test the SQLite storage wrapper with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec sqlite_spec.rb
+#
+# Requirements:
+# - Ruby with RSpec
+# - The activerecord and sqlite3 gems
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 

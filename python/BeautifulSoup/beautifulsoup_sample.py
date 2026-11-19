@@ -1,6 +1,24 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Extract links and elements from a web page with BeautifulSoup; written for Python 2.
+# beautifulsoup_sample.py: Extract links and elements from a web page with BeautifulSoup
+#
+# Description:
+# Extract links and elements from a web page with BeautifulSoup; written for
+# Python 2. The page is fetched with urllib2 from a fixed URL.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python beautifulsoup_sample.py
+#
+# Requirements:
+# - Python 2, which provides urllib2 and the print statement used here
+# - BeautifulSoup 3, imported as the BeautifulSoup module
+# - Network access to the fixed sample page
+#
 
 import re
 import urllib2

@@ -1,3 +1,20 @@
+# probability_distribution.R: Histograms of samples from several distributions
+#
+# Description:
+# Draw samples of 1000 values from several probability distributions and write
+# a histogram of each to a PNG file named after its generator.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript probability_distribution.R
+#
+# Requirements:
+# - R
+#
 
 n = 1000
 df = 1

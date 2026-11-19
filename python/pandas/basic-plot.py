@@ -1,6 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Plot cumulative series and frames with a Japanese font and a secondary axis.
+# basic-plot.py: Cumulative series and frame plots with a Japanese font
+#
+# Description:
+# Plot cumulative series and frames with a Japanese font and a secondary axis,
+# saving the plots as numbered image files in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 basic-plot.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib with pylab
+# - pandas before 1.0, which still provides DataFrame.ix and pandas.tools
+# - A Japanese font at /Library/Fonts/Osaka.ttf on macOS or at
+#   /usr/share/fonts/truetype/fonts-japanese-gothic.ttf elsewhere
+#
 
 import sys
 from pylab import *

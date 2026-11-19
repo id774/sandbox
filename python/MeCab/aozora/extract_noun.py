@@ -1,4 +1,22 @@
-# Extract nouns from a text file with MeCab.
+# extract_noun.py: Extract nouns from a text file with MeCab
+#
+# Description:
+# Extract nouns from a text file with MeCab, using the IPA dictionary under
+# /usr/local/lib/mecab/dic/ipadic.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 extract_noun.py <text file>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - MeCab with its Python binding and the IPA dictionary at
+#   /usr/local/lib/mecab/dic/ipadic
+#
 
 import sys
 import MeCab

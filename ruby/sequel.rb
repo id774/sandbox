@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# sequel.rb: In-memory SQLite table queried through Sequel
+#
+# Description:
 # Create an in memory SQLite table and query it through Sequel models.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby sequel.rb
+#
+# Requirements:
+# - Ruby
+# - The sequel and sqlite3 gems
+#
 
 require 'rubygems'
 require 'sequel'

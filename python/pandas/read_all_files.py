@@ -1,4 +1,20 @@
+# read_all_files.py: First rows of every text file in a directory
+#
+# Description:
 # Read the first row of every text file under a directory into a dict.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 read_all_files.py <directory>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - pandas before 1.0, which still provides DataFrame.ix
+#
 
 import sys
 import os

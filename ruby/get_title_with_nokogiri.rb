@@ -1,4 +1,21 @@
+# get_title_with_nokogiri.rb: Extract a page title with Nokogiri
+#
+# Description:
 # Fetch a page and extract its title with Nokogiri.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby get_title_with_nokogiri.rb
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The nokogiri gem
+# - Network access to the page in the source
+#
 
 require 'rubygems'
 require 'nokogiri'

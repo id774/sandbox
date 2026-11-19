@@ -1,4 +1,23 @@
-# Compare predicted against closing prices and score the trend direction.
+# diff.py: Score predicted against closing prices
+#
+# Description:
+# Compare predicted against closing prices and score the trend direction,
+# reading summary.csv.<first>.csv and summary.csv.<second>.csv and writing
+# diff_<first>-<second>.csv.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 diff.py <first> <second>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy
+# - pandas before 0.20, which still provides DataFrame.ix and DataFrame.sort
+#
 
 import sys
 import numpy as np

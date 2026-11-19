@@ -1,6 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# file_cutter.py: Extract tab-separated lines that start with a date
+#
+# Description:
 # Extract the tab separated lines whose first field starts with a given date.
+# The matching lines are written in UTF-8 to <input base name>_<date>.txt
+# beside the input file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 file_cutter.py <input file> <date prefix>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+#
 
 import sys
 import os

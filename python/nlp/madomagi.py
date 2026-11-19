@@ -1,4 +1,21 @@
-# Download wiki pages and save each one as a text file.
+# madomagi.py: Download wiki pages as text files
+#
+# Description:
+# Download fixed wiki pages and save each one as a text file in the current
+# directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 madomagi.py
+#
+# Requirements:
+# - Python 3
+# - Network access to the wiki pages listed in the source
+#
 
 import re
 import urllib.request

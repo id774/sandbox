@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Print the classification of each record in a tab separated JSON log.
+# aggregate_depression.rb: Classification of each record in a JSON log
+#
+# Description:
+# Print the classification of each record in a tab separated JSON log,
+# json.txt by default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby aggregate_depression.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem
+#
 
 require 'json'
 require 'awesome_print'

@@ -1,6 +1,21 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# wc_benchmark.rb: Benchmark three ways of counting lines
+#
+# Description:
 # Benchmark three ways of counting the lines in a file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby wc_benchmark.rb
+#
+# Requirements:
+# - Ruby
+#
 
 require "benchmark"
 

@@ -1,4 +1,22 @@
-# Scatter monthly suicide counts against temperature.
+# jma-suicide.py: Monthly suicide counts against temperature
+#
+# Description:
+# Scatter monthly suicide counts from suicide_2014.csv against temperature
+# from JMA_3city.csv, saving jma-suicide.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 jma-suicide.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and Matplotlib
+# - suicide_2014.csv and JMA_3city.csv in the current directory
+#
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

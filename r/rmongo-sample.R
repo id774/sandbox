@@ -1,3 +1,21 @@
+# rmongo-sample.R: Query a MongoDB collection with rmongodb
+#
+# Description:
+# Connect to the fluentd database on localhost:27017 with rmongodb and print
+# up to 100 records of the fluentd.news.feed collection.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript rmongo-sample.R
+#
+# Requirements:
+# - R with the rmongodb package
+# - A MongoDB server on localhost:27017
+#
 
 library(rmongodb)
 

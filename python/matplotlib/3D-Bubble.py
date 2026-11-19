@@ -1,4 +1,20 @@
+# 3D-Bubble.py: Three-dimensional scatter of random groups
+#
+# Description:
 # Scatter random points in three dimensions, one colour per group.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 3D-Bubble.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib with mpl_toolkits.mplot3d
+#
 
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np

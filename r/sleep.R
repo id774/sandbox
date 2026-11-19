@@ -1,3 +1,21 @@
+# sleep.R: t test of the sleep data set
+#
+# Description:
+# Summarize the two groups of the sleep data set, draw a box plot to
+# image.png, and compare them with t.test.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript sleep.R
+#
+# Requirements:
+# - R
+#
+
 x = with(sleep, extra[group==1])
 y = with(sleep, extra[group==2])
 

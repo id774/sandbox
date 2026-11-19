@@ -1,4 +1,21 @@
-# Fill in an Excel template and save it as a new workbook.
+# write_sample.rb: Fill an Excel template and save it
+#
+# Description:
+# Fill in template.xls and save it as out.xls.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby write_sample.rb
+#
+# Requirements:
+# - Ruby
+# - The spreadsheet gem
+# - template.xls in the current directory
+#
 
 require 'spreadsheet'
 

@@ -1,4 +1,20 @@
+# cluster_with_dataset.py: KMeans clustering of TF-IDF document vectors
+#
+# Description:
 # Cluster TF-IDF document vectors with KMeans after dimension reduction.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 cluster_with_dataset.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and scikit-learn
+#
 
 import numpy as np
 from sklearn.cluster import KMeans

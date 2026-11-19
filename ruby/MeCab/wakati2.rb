@@ -1,6 +1,23 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Segment every line of a file into words with MeCab.
+# wakati2.rb: Segment every line of a file with MeCab
+#
+# Description:
+# Segment every line of a file into words with MeCab. The input defaults to
+# input.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby wakati2.rb [input file]
+#
+# Requirements:
+# - Ruby
+# - MeCab with its Ruby binding
+#
 
 $KCODE = 'u'
 require 'MeCab'

@@ -1,4 +1,21 @@
+# amazons3_up_and_down.rb: Upload an S3 object and read it back
+#
+# Description:
 # Upload an object to S3 and read it back.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby amazons3_up_and_down.rb
+#
+# Requirements:
+# - Ruby
+# - The aws-sdk gem version 1, which provides AWS::S3
+# - AWS credentials and a real bucket name in place of the placeholders
+#
 
 require 'aws-sdk'
 

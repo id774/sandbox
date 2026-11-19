@@ -1,4 +1,19 @@
-// Draw a stacked area chart with NVD3.
+// d3js.my.js: Stacked area chart with NVD3
+//
+// Description:
+// Draw a stacked area chart from histcatexplong.json with NVD3. index.html in
+// this directory loads it.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Requirements:
+// - A web browser
+// - D3 3.x and a checkout of NVD3 whose lib/ and src/models/ sources
+//   index.html references by relative path, as js/d3js/README.md describes
+//
 
 d3.json('histcatexplong.json', function(data) {
   var colors = d3.scale.category20();

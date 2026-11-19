@@ -1,4 +1,21 @@
-# Pass a block to a method that yields each line of a file.
+# open_file.rb: Yield each line of a file to a block
+#
+# Description:
+# Pass a block to a method that yields each line of json.txt in the current
+# directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby open_file.rb
+#
+# Requirements:
+# - Ruby with the awesome_print gem
+# - json.txt in the current directory
+#
 
 require 'awesome_print'
 

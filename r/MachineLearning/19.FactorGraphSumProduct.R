@@ -1,3 +1,22 @@
+# 19.FactorGraphSumProduct.R: Sum-product algorithm on a factor graph
+#
+# Description:
+# Compute marginals on a small tree-structured factor graph by summing the
+# joint distribution and by the sum-product algorithm, and plot both. The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 19.FactorGraphSumProduct.R
+#
+# Requirements:
+# - R with the igraph package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(igraph)
 frame()

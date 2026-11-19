@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # - * - coding: utf-8 - * -
+# isinstance.py: Guard a function argument with isinstance
+#
+# Description:
 # Guard a function with isinstance and report the assertion failure.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 isinstance.py
+#
+# Requirements:
+# - Python 3
+#
 
 def tag(word):
     try:

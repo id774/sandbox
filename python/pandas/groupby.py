@@ -1,4 +1,21 @@
+# groupby.py: Group a DataFrame column and aggregate it
+#
+# Description:
 # Group a DataFrame column by a key and take the mean and sum.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 groupby.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - pandas before 1.0, which still provides DataFrame.ix
+#
 
 import numpy as np
 import pandas as pd

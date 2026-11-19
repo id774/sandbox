@@ -1,3 +1,20 @@
+# svm.R: Support vector machine on iris with e1071
+#
+# Description:
+# Train support vector machines on the iris data set with e1071 and print the
+# models and predictions.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript svm.R
+#
+# Requirements:
+# - R with the e1071 package
+#
 
 library("e1071")
 

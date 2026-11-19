@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Drop the records whose link has already been seen.
+# exclude_duplicated_entries.rb: Drop records with an already seen link
+#
+# Description:
+# Drop the records whose link has already been seen in a JSON log, json.txt by
+# default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby exclude_duplicated_entries.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem
+#
 
 require 'json'
 require 'awesome_print'

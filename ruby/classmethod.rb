@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# classmethod.rb: Ways to define class methods
+#
+# Description:
+# Define class methods in four ways, with the class name, outside the class
+# body, with self, and through the singleton class, and call each one.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby classmethod.rb
+#
+# Requirements:
+# - Ruby
+#
 
 # The singleton method form
 class Hoge1

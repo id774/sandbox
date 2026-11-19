@@ -1,4 +1,20 @@
-// Show how changing an instance property and a prototype property differ.
+// obj2.js: Instance and prototype property changes
+//
+// Description:
+// Show how changing an instance property and a prototype property differ,
+// serving the result over HTTP on port 3000.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+// Usage:
+//     node obj2.js
+//
+// Requirements:
+// - Node.js with the deprecated sys module
+//
 
 var sys  = require('sys');
 var http = require('http');

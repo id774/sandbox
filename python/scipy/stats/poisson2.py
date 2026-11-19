@@ -1,4 +1,20 @@
+# poisson2.py: Compare and time two Poisson random number methods
+#
+# Description:
 # Compare and time two ways of drawing Poisson random numbers.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 poisson2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib with pylab
+#
 
 from pylab import *
 import numpy.random

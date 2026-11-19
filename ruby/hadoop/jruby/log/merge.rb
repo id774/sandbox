@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
-# Merge the eleventh field of every log file into one temporary file.
+# merge.rb: Merge the eleventh log field into one file
+#
+# Description:
+# Merge the eleventh field of every log file under the directory given as an
+# argument into tempfile.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby merge.rb <log directory>
+#
+# Requirements:
+# - Ruby
+# - The sysadmin gem
+#
 
 require 'sysadmin'
 

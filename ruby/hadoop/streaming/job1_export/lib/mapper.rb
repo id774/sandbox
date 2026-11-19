@@ -1,6 +1,21 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Flatten RSSI event JSON into tab separated fields.
+# mapper.rb: Flatten RSSI event JSON into tab-separated fields
+#
+# Description:
+# Flatten RSSI event JSON from standard input into tab separated fields.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     cat test_data.txt | ruby lib/mapper.rb | sort | ruby lib/reducer.rb
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 

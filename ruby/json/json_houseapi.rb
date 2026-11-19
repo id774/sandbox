@@ -1,6 +1,23 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-# Fetch sensor readings from an API and print the parsed JSON.
+# json_houseapi.rb: Sensor readings fetched as JSON
+#
+# Description:
+# Fetch sensor readings from placeholder example.com API endpoints and print
+# the parsed JSON.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby json_houseapi.rb
+#
+# Requirements:
+# - Ruby
+# - Network access to a real API in place of the placeholder host
+#
 
 require 'net/http'
 require 'uri'

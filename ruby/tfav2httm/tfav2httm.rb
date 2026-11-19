@@ -1,4 +1,23 @@
-# Repost Twitter favourites to Tumblr and Hatena Bookmark.
+# tfav2httm.rb: Repost Twitter favorites to Tumblr and Hatena Bookmark
+#
+# Description:
+# Repost Twitter favourites to Tumblr and Hatena Bookmark, using the accounts
+# and state file named in the YAML configuration given as an argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby tfav2httm.rb <config file>
+#
+# Requirements:
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+# - The tumblr and hatenabm gems
+# - The Twitter favorites RSS feed, Tumblr, and Hatena Bookmark services as
+#   they existed at the time
+#
 
 require 'rubygems'
 require 'tumblr'

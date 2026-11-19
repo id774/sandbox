@@ -1,6 +1,21 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# shufflesequence.py: Shuffle a list by popping random indexes
+#
+# Description:
 # Shuffle a list by repeatedly popping a randomly chosen index.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 shufflesequence.py
+#
+# Requirements:
+# - Python 3
+#
 
 from pprint import pformat
 import random

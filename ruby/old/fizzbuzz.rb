@@ -1,4 +1,19 @@
+# fizzbuzz.rb: Digit-based FizzBuzz variant up to 1000
+#
+# Description:
 # Print a digit based FizzBuzz variant up to 1000.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby fizzbuzz.rb
+#
+# Requirements:
+# - Ruby
+#
 
 1.upto(1000) do |n|
     tmp = 0

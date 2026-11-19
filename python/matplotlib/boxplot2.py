@@ -1,5 +1,22 @@
 #!/usr/bin/env python
+# boxplot2.py: Box plots of three hard coded score columns
+#
+# Description:
 # Draw box plots from three hard coded score columns.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 boxplot2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+#
+
 import numpy as np
 import matplotlib.pyplot as plt
 

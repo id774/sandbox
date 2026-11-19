@@ -1,4 +1,25 @@
-# Reduce data with principal component analysis under a maximum variance criterion.
+# pca.py: Principal component analysis by maximum variance
+#
+# Description:
+# Reduce data with principal component analysis under a maximum variance
+# criterion. The program samples the number of points given as the first
+# argument from a bivariate normal distribution and keeps the number of
+# components given as the second.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 pca.py <samples> <components>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy and Matplotlib
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.dot
+#
 
 import sys
 import scipy as sp

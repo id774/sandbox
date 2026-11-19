@@ -1,5 +1,20 @@
 #!/usr/bin/env ruby
+# option.rb: Command line options with OptionParser
+#
+# Description:
 # Parse command line options with OptionParser.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby option.rb [-f FILE] [-d DATE] [-v | -q] [-h]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'optparse'
 

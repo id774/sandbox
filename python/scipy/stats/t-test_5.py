@@ -1,4 +1,20 @@
+# t-test_5.py: Paired t test on two small score sets
+#
+# Description:
 # Run a paired t test on two small hand written score sets.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 t-test_5.py
+#
+# Requirements:
+# - Python 3
+# - SciPy
+#
 
 from scipy import stats
 

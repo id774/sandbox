@@ -1,3 +1,22 @@
+# 18.MarkovChainExactInference.R: Exact inference on a Markov chain
+#
+# Description:
+# Compute the marginals of a seven-node Markov chain by summing the joint
+# distribution and by message passing, and plot both. The plots are written to
+# image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 18.MarkovChainExactInference.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 set.seed(0)

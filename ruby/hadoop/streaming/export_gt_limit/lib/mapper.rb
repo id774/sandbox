@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Emit RSSI events keyed by source file and MAC address.
+# mapper.rb: Hadoop Streaming mapper for RSSI events
+#
+# Description:
+# Emit RSSI events keyed by source file and MAC address, reading JSON records
+# from standard input.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     cat <input> | ruby lib/mapper.rb | sort | ruby lib/reducer.rb
+#
+# Requirements:
+# - Ruby
+#
 
 require 'json'
 

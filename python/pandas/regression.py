@@ -1,5 +1,24 @@
 # -*- coding:utf-8 -*-
-# Correlate stock returns with the index by year and regress them.
+# regression.py: Yearly correlation and regression of stock returns
+#
+# Description:
+# Correlate stock returns with the index by year and regress them, reading
+# stock_px.csv from the current directory and saving image.png through
+# image3.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 regression.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, statsmodels, and Matplotlib
+# - stock_px.csv in the current directory
+#
 
 import numpy as np
 import pandas as pd

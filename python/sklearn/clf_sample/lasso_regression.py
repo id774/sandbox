@@ -1,4 +1,23 @@
-# Predict a series from sliding window features with lasso regression.
+# lasso_regression.py: Lasso regression on sliding window features
+#
+# Description:
+# Predict a series from sliding window features with lasso regression, reading
+# sampledata.csv from the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 lasso_regression.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and scikit-learn
+# - pandas before 1.0, which still provides DataFrame.ix
+# - sampledata.csv in the current directory
+#
 
 import pandas as pd
 import numpy as np

@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Filter input lines by a regular expression given with -e.
+# grep.rb: Filter input lines by a regular expression
+#
+# Description:
+# Filter input lines by a regular expression given with -e, reading the files
+# given as arguments or standard input and prefixing each match with its file
+# name when several files are given.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby grep.rb -e <regexp> [file...]
+#
+# Requirements:
+# - Ruby with optparse and kconv
+#
 
 require 'optparse'
 require 'kconv'

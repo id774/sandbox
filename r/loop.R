@@ -1,3 +1,21 @@
+# loop.R: Two ways to loop over a vector
+#
+# Description:
+# Print the squares of a vector's elements by looping over seq_along indexes
+# and by looping over the elements directly.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript loop.R
+#
+# Requirements:
+# - R
+#
+
 # 引数の2乗を求める．
 
 x <- c(5, 12, 13)

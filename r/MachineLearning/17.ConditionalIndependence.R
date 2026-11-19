@@ -1,3 +1,22 @@
+# 17.ConditionalIndependence.R: Conditional independence in small graphical models
+#
+# Description:
+# Draw tail-to-tail and head-to-tail graphical models with igraph and compare
+# their factorizations. The plots are written to image.png in the current
+# directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 17.ConditionalIndependence.R
+#
+# Requirements:
+# - R with the igraph package
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(igraph)
 frame()

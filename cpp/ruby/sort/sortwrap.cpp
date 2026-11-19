@@ -1,3 +1,15 @@
+// sortwrap.cpp: Ruby wrapper for the Sort class
+//
+// Description:
+// Expose the Sort class to Ruby with an initializer taking a string, and the
+// inspect, to_s, greet, and values methods.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
+
 #include <new>
 #include "ruby.h"
 #include "sort.h"

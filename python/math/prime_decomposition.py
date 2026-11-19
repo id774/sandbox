@@ -1,4 +1,19 @@
+# prime_decomposition.py: Prime factorization with a sieve table
+#
+# Description:
 # Build a prime table with a sieve and factor numbers with it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 prime_decomposition.py
+#
+# Requirements:
+# - Python 3
+#
 
 def prime_table(n):
     list = [True for _ in range(n + 1)]

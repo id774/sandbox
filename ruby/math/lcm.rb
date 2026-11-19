@@ -1,6 +1,22 @@
 #!/opt/ruby/current/bin/ruby
 # -*- coding: utf-8 -*-
-# Compute the least common multiple by hand.
+# lcm.rb: Least common multiple computed by hand
+#
+# Description:
+# Compute the least common multiple by hand, and print the least common
+# multiple of the integers from 2 through the number given as an argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby lcm.rb <number>
+#
+# Requirements:
+# - Ruby before 2.5, which still provides the mathn library
+#
 
 require 'mathn'
 

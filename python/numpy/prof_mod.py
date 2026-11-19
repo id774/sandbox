@@ -1,4 +1,20 @@
+# prof_mod.py: Array addition workload for profiling
+#
+# Description:
 # Provide an array addition workload for profiling.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 -m cProfile prof_mod.py
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy
+#
 
 import sys
 from numpy.random import randn

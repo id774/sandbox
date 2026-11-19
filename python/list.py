@@ -1,4 +1,20 @@
-# Add head, tail, init, last, and shift methods to a list subclass.
+# list.py: List subclass with head, tail, init, last, and shift
+#
+# Description:
+# Add head, tail, init, last, and shift methods to a list subclass, and print
+# their results for fixed test data.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 list.py
+#
+# Requirements:
+# - Python 3
+#
 
 import sys
 

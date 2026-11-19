@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# log2panel.py: Load matching log files into a pandas Panel
+#
+# Description:
 # Load the matching log files under a directory into a pandas Panel.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 log2panel.py <directory>
+#
+# Requirements:
+# - Python 3
+# - pandas before 1.0, which still provides Panel
+#
 
 import sys
 import os

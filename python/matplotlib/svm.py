@@ -1,5 +1,23 @@
 # -*- coding:utf-8 -*-
+# svm.py: Support vector regression of a noisy sine
+#
+# Description:
 # Fit a noisy sine with support vector regression tuned by grid search.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 svm.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+# - scikit-learn before 0.20, which still provides sklearn.cross_validation
+#   and sklearn.grid_search
+#
 
 import numpy as np
 import matplotlib.pyplot as plt

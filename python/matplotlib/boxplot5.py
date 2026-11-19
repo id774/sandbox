@@ -1,5 +1,22 @@
 #!/usr/bin/env python
-# Draw box plots of Poisson samples for a sample size given as an argument.
+# boxplot5.py: Box plots of Poisson samples of a given size
+#
+# Description:
+# Draw box plots of Poisson samples for a sample size given as an argument,
+# and save them as image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 boxplot5.py <sample size>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - NumPy, pandas, and Matplotlib
+#
 
 import sys
 import numpy as np

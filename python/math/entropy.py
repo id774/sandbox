@@ -1,6 +1,24 @@
 #!/usr/bin/env python
 # - * - coding: utf-8 - * -
-# Compute the Shannon entropy of a label sequence with nltk; written for Python 2.
+# entropy.py: Shannon entropy of a label sequence
+#
+# Description:
+# Compute the Shannon entropy of a label sequence with nltk; written for
+# Python 2. Running the file executes its doctests and prints an example.
+# test_entropy.py imports it.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python entropy.py
+#
+# Requirements:
+# - Python 2, whose print statement the source uses
+# - NLTK
+#
 
 import nltk
 import math

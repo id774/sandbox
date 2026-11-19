@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Build naive Bayes training data from won and lost sales records.
+# create_train.rb: Naive Bayes training data from sales records
+#
+# Description:
+# Build naive Bayes training data from won and lost sales records in a JSON
+# log, json.txt by default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby create_train.rb [log file]
+#
+# Requirements:
+# - Ruby
+# - The awesome_print gem
+#
 
 require 'json'
 require 'awesome_print'

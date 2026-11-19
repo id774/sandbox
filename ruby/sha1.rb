@@ -1,5 +1,21 @@
 #!/usr/bin/env ruby
-# Print the SHA-1 digest of the argument.
+# sha1.rb: SHA-1 digest of an argument
+#
+# Description:
+# Print the SHA-1 digest of the argument, or of "test" when no argument is
+# given.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby sha1.rb [string]
+#
+# Requirements:
+# - Ruby
+#
 
 require 'digest/sha1'
 

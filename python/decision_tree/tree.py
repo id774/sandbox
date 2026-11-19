@@ -1,4 +1,22 @@
 # -*- coding: utf-8 -*-
+# tree.py: Build and draw a decision tree
+#
+# Description:
+# Build a decision tree from the data file given as the first argument and
+# draw it as an image with Pillow.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 tree.py <data file>
+#
+# Requirements:
+# - Python 3
+# - Pillow
+#
 
 # Using "pip install pillow"
 from PIL import Image, ImageDraw, ImageFont

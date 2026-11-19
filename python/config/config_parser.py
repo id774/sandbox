@@ -1,5 +1,23 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# config_parser.py: Increment a counter stored in an INI configuration file
+#
+# Description:
+# Read the count option from a section of an INI file, print it incremented by
+# one, and write the new value back, adding the section when it is missing.
+# Errors are printed to stderr and return status 1.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 config_parser.py <config file> <section>
+#
+# Requirements:
+# - Python 3.2 through 3.11, which provide configparser.SafeConfigParser
+#
 
 # Config File Example
 # [My Settings]

@@ -1,4 +1,21 @@
-# Read stored tweets out of a SQLite database with ActiveRecord.
+# read_from_twitter_db.rb: Read stored tweets from SQLite with ActiveRecord
+#
+# Description:
+# Read stored tweets out of 1.db in the current directory with ActiveRecord.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby read_from_twitter_db.rb
+#
+# Requirements:
+# - Ruby
+# - The activerecord and sqlite3 gems
+# - 1.db in the current directory
+#
 
 require 'active_record'
 

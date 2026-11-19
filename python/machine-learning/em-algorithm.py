@@ -1,4 +1,22 @@
 # -*- coding: utf-8 -*-
+# em-algorithm.py: EM algorithm for a two-component normal mixture
+#
+# Description:
+# Estimate the mixing weight of a two-component normal mixture with the EM
+# algorithm, following the exercise cited in the module docstring.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 em-algorithm.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, SciPy, and Matplotlib
+#
 
 """ 
 Introducing Monte Carlo Methods with R, C.P.Robert and G.Cassela

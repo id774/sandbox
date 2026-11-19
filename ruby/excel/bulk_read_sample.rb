@@ -1,4 +1,21 @@
-# Scan an Excel sheet for the rows that match a marker.
+# bulk_read_sample.rb: Rows matching a marker in an Excel sheet
+#
+# Description:
+# Scan ~/tmp/1.xls for the rows that match a marker.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby bulk_read_sample.rb
+#
+# Requirements:
+# - Ruby
+# - The spreadsheet gem
+# - ~/tmp/1.xls
+#
 
 require 'spreadsheet'
 

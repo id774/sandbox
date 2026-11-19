@@ -1,4 +1,21 @@
 #!/usr/bin/env python
+# code.py: web.py application served through mod_wsgi
+#
+# Description:
+# Expose a web.py application as a WSGI callable for Apache mod_wsgi,
+# rendering templates from /var/www/webpy/sample/templates/. The comment below
+# gives the WSGIScriptAlias setting.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Python 3
+# - web.py
+# - Apache with mod_wsgi
+#
 
 # Add following to /etc/apache2/conf.d/mod_wsgi.conf
 #WSGIScriptAlias /sample /var/www/webpy/sample/code.py

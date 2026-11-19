@@ -1,4 +1,24 @@
-# Draw a stock chart with moving averages and volume panels.
+# finance_demo2.py: Stock chart with moving averages and volume panels
+#
+# Description:
+# Draw a stock chart with relative strength, moving averages, volume, and MACD
+# panels from historical quotes fetched from Yahoo, and save it as image2.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 finance_demo2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - Matplotlib before 2.2, which still provides matplotlib.finance and
+#   mlab.csv2rec
+# - Network access to the Yahoo quote service used by matplotlib.finance
+#
 
 import datetime
 import numpy as np

@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# calc_example.rb: Basic statistics in Ruby against R
+#
+# Description:
 # Compare Ruby against R for basic statistics on the same data.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby calc_example.rb
+#
+# Requirements:
+# - Ruby with the rsruby, awesome_print, and sysadmin gems
+# - R
+#
 
 require 'rsruby'
 require 'awesome_print'

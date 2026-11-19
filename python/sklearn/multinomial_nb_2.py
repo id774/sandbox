@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# multinomial_nb_2.py: Multinomial naive Bayes on a small integer matrix
+#
+# Description:
 # Fit a multinomial naive Bayes classifier to a small integer matrix.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 multinomial_nb_2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and scikit-learn
+#
 
 import numpy as np
 from sklearn.naive_bayes import MultinomialNB

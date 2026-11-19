@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
+# cabocha_parse_example.rb: Walk the CaboCha parse tree
+#
+# Description:
 # Walk the CaboCha parse tree one line at a time.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby cabocha_parse_example.rb
+#
+# Requirements:
+# - Ruby
+# - CaboCha with its Ruby binding and the awesome_print gem
+#
 
 require 'CaboCha'
 require 'awesome_print'

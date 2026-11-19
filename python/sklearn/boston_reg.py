@@ -1,4 +1,22 @@
-# Plot Boston house prices against room count.
+# boston_reg.py: Boston house prices against room count
+#
+# Description:
+# Plot Boston house prices against room count and save the figure as
+# image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 boston_reg.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+# - scikit-learn before 1.2, which still provides load_boston
+#
 
 import numpy as np
 from sklearn import datasets

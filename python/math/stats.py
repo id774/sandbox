@@ -1,4 +1,19 @@
+# stats.py: Basic statistics helpers
+#
+# Description:
 # Collect basic statistics helpers such as mean, deviation, and distributions.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 stats.py
+#
+# Requirements:
+# - Python 3
+#
 
 from math import sqrt, exp, log, pi, ceil, floor
 from functools import reduce

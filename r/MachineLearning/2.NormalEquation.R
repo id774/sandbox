@@ -1,3 +1,22 @@
+# 2.NormalEquation.R: Polynomial fit through the normal equation
+#
+# Description:
+# Fit a polynomial with four basis functions to noisy samples of sin(2 pi x)
+# through the normal equation with a design matrix, and plot the fit. The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 2.NormalEquation.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 set.seed(0)
 x<-seq(0.05,1,0.1)

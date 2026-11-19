@@ -1,6 +1,21 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# reducer_spec.rb: RSpec test of the log pipeline
+#
+# Description:
 # Test the log reducer through the whole pipe with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec reducer_spec.rb
+#
+# Requirements:
+# - Ruby with RSpec
+#
 
 require 'rubygems'
 require 'rspec'

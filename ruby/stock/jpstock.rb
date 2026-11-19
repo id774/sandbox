@@ -1,4 +1,23 @@
-# Fetch quotes with jpstock and forward them to fluentd.
+# jpstock.rb: Fetch quotes with jpstock and forward them to fluentd
+#
+# Description:
+# Fetch the quotes of the stock codes listed in a file with jpstock. With -d,
+# records start from the given date. With -l, each quote is also sent to
+# fluentd.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby jpstock.rb -f <stock list> [-d YYYY-MM-DD] [-l]
+#
+# Requirements:
+# - Ruby
+# - The jpstock and fluent-logger gems
+# - A fluentd listener when -l is used
+#
 
 require 'optparse'
 require 'logger'

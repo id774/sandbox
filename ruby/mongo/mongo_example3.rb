@@ -1,5 +1,24 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# mongo_example3.rb: Store and read a file with MongoDB GridFS
+#
+# Description:
+# Read and write a file through MongoDB GridFS in the gridtest database. The
+# comment below shows how to prepare the 1MB.file test data.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby mongo_example3.rb
+#
+# Requirements:
+# - Ruby
+# - The mongo gem before 2.0, which provides Mongo::Connection
+# - A MongoDB server on localhost
+#
 
 # [setup]
 # dd if=/dev/zero of=1MB.file bs=1M count=1

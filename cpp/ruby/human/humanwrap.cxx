@@ -1,3 +1,14 @@
+// humanwrap.cxx: Ruby wrapper for the Human class
+//
+// Description:
+// Expose the Human class to Ruby with an initializer taking a name and an age,
+// and the inspect, to_s, greet, name, and age methods.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
 
 #include <new>
 #include "ruby.h"

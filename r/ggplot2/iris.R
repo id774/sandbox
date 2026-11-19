@@ -1,3 +1,20 @@
+# iris.R: qplot variations on the iris data set
+#
+# Description:
+# Draw iris petal scatter plots with qplot, varying color, shape, and size by
+# species and sepal length.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript iris.R
+#
+# Requirements:
+# - R with the ggplot2 package, in a release that still provides qplot
+#
 
 library(ggplot2)
 

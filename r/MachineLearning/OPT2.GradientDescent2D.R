@@ -1,3 +1,22 @@
+# OPT2.GradientDescent2D.R: Gradient method in two dimensions
+#
+# Description:
+# Maximize a two-dimensional quadratic function by gradient steps with a line
+# search and plot the path over the function. The plots are written to
+# image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript OPT2.GradientDescent2D.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 par(mfcol=c(1, 2))

@@ -1,3 +1,22 @@
+# 14.HardMarginSupportVectorMachine.R: Hard margin support vector machine
+#
+# Description:
+# Train a hard margin support vector machine on generated two-class data with
+# kernlab and plot the decision function. The plots are written to image.png
+# in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 14.HardMarginSupportVectorMachine.R
+#
+# Requirements:
+# - R with the MASS and kernlab packages
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 library(MASS)
 library(kernlab)

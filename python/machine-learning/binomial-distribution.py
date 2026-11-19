@@ -1,5 +1,21 @@
 # -*- coding:utf-8 -*-
+# binomial-distribution.py: Plot binomial probabilities
+#
+# Description:
 # Plot binomial probabilities for several trial counts.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 binomial-distribution.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and Matplotlib
+#
 
 import matplotlib.pyplot as plt
 import numpy as np

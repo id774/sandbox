@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# simpson.py: Simpson coefficient of two term sets
+#
+# Description:
 # Compute the Simpson coefficient between two term sets.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 simpson.py
+#
+# Requirements:
+# - Python 3
+#
 
 def simpson(v1, v2):
     numerator = sum([c in v2 for c in v1])

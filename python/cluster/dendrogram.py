@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
+# dendrogram.py: Draw a hierarchical clustering dendrogram image
+#
+# Description:
 # Draw a hierarchical clustering dendrogram as an image; written for Python 2.
+# The data file is given as the first argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python dendrogram.py <data file>
+#
+# Requirements:
+# - Python 2, whose print statement the source uses
+# - PIL or Pillow
+#
 
 import sys
 from PIL import Image, ImageDraw

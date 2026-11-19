@@ -1,4 +1,21 @@
-# Scatter the iris data set across each pair of its features.
+# iris.py: Pairwise scatter plots of the iris data set
+#
+# Description:
+# Scatter the iris data set across each pair of its features and save the
+# figure as image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 iris.py
+#
+# Requirements:
+# - Python 3
+# - scikit-learn and Matplotlib
+#
 
 import itertools
 

@@ -1,6 +1,21 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# yield.rb: Pass values to a block with yield
+#
+# Description:
 # Pass values from a method to its block with yield.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby yield.rb
+#
+# Requirements:
+# - Ruby
+#
 
 def test
   yield

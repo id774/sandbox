@@ -1,3 +1,22 @@
+# pca.R: Principal component analysis of test score data
+#
+# Description:
+# Read atest2014chu.csv and atest2014sho.csv in CP932, run principal component
+# analyses, and write biplots to image.png through image3.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript pca.R
+#
+# Requirements:
+# - R
+# - atest2014chu.csv and atest2014sho.csv in the current directory
+#
+
 chu = read.csv("atest2014chu.csv",
                fileEncoding="CP932")
 sho = read.csv("atest2014sho.csv",

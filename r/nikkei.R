@@ -1,3 +1,22 @@
+# nikkei.R: Nikkei 225 daily prices in four panels
+#
+# Description:
+# Read nikkei_stock_average_daily_jp.csv and plot the close, open, high, and
+# low series in four panels.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript nikkei.R
+#
+# Requirements:
+# - R
+# - nikkei_stock_average_daily_jp.csv in the current directory
+#
+
 nikkei225 <- read.csv('nikkei_stock_average_daily_jp.csv')
 colnames(nikkei225) <- c("date","close", "open", "high", "low")
 attach(nikkei225)

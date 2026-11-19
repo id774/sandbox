@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
-# Count the hits per address in an IIS access log.
+# calculate_iis_hits.rb: Hits per address in IIS access logs
+#
+# Description:
+# Count the hits per address in the IIS access logs under the directory given
+# as an argument.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby calculate_iis_hits.rb <directory>
+#
+# Requirements:
+# - Ruby
+# - The sysadmin gem
+#
 
 require 'sysadmin'
 

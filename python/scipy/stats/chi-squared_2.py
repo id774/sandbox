@@ -1,5 +1,23 @@
 # -*- coding:utf-8 -*-
+# chi-squared_2.py: Chi-squared test of a fixed sample against normal values
+#
+# Description:
 # Compare a fixed sample against normal random values with a chi-squared test.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 chi-squared_2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy
+# - SciPy from a release whose top-level namespace still provides NumPy
+#   aliases such as scipy.array
+#
 
 import numpy as np
 import scipy as sp

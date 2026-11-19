@@ -1,4 +1,21 @@
+# plot_rssi.py: Bar chart of log records per area for a time prefix
+#
+# Description:
 # Count log records per area for a time prefix and save them as a bar chart.
+# The counts are written to <prefix>.csv and the chart to <prefix>.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 plot_rssi.py <log file> <time prefix>
+#
+# Requirements:
+# - Python 3, which the program checks before running
+# - pandas and Matplotlib
+#
 
 import sys
 import pandas as pd

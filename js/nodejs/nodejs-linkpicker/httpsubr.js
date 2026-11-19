@@ -1,5 +1,14 @@
-// httpsubr.js
-// HTTP related subroutines
+// httpsubr.js: HTTP helpers for the link picker
+//
+// Description:
+// HTTP related subroutines for the link picker, which issue requests, follow
+// responses, and convert the response character set.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
 
 var http = require('http'),
     iconv = require('iconv'),

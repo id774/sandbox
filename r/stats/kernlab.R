@@ -1,3 +1,21 @@
+# kernlab.R: Support vector machine on two iris species with kernlab
+#
+# Description:
+# Train ksvm on the petal measurements of two iris species and plot the model
+# to image.png.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript kernlab.R
+#
+# Requirements:
+# - R with the kernlab package
+#
+
 library(kernlab)
 
 data(iris)

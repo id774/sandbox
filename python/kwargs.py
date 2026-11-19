@@ -1,4 +1,19 @@
+# kwargs.py: Pass arguments through *args and **kwargs
+#
+# Description:
 # Pass positional and keyword arguments through *args and **kwargs.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 kwargs.py
+#
+# Requirements:
+# - Python 3
+#
 
 def test1(id, **kwargs):
     print(id, kwargs)

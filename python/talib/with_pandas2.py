@@ -1,4 +1,21 @@
+# with_pandas2.py: RSI and MACD for Nikkei 225 prices from CSV
+#
+# Description:
 # Compute RSI and MACD for Nikkei 225 prices read from a CSV file.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 with_pandas2.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas, and the TA-Lib Python wrapper
+# - stock_N225.csv beside the script
+#
 
 import os
 import numpy as np

@@ -1,4 +1,19 @@
+# firstclass_function.rb: Numeric derivative of a lambda
+#
+# Description:
 # Pass a lambda to a function that returns its numeric derivative.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby firstclass_function.rb
+#
+# Requirements:
+# - Ruby
+#
 
 def deriv(f, dx)
   ->(x){ f[x + dx] - f[x] }

@@ -1,4 +1,20 @@
+# talib_example.py: Moving averages, Bollinger bands, and momentum with TA-Lib
+#
+# Description:
 # Compute moving averages, Bollinger bands, and momentum with TA-Lib.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 talib_example.py
+#
+# Requirements:
+# - Python 3
+# - NumPy and the TA-Lib Python wrapper
+#
 
 import numpy as np
 import talib

@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-# Pick the words that best separate classes with naive Bayes.
+# pickup_words_by_naivebayes.rb: Words that best separate classes with naive Bayes
+#
+# Description:
+# Pick the words that best separate classes with naive Bayes. The company list
+# defaults to company.csv and the input to json.txt.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     ruby pickup_words_by_naivebayes.rb [company file] [JSON file]
+#
+# Requirements:
+# - Ruby
+# - The naivebayes and awesome_print gems and MeCab with its Ruby binding
+#
 
 require 'json'
 require 'awesome_print'

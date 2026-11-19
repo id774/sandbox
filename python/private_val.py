@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# private_val.py: Name mangling of underscore attributes
+#
+# Description:
 # Show how leading underscores mangle attribute names on a class.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 private_val.py
+#
+# Requirements:
+# - Python 3
+#
 
 class Klass:
     __x = 10

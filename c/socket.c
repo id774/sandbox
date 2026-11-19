@@ -1,4 +1,24 @@
-// Accept connections on port 1100 and shut each one down immediately.
+/*
+ * socket.c: TCP server that closes each connection immediately
+ *
+ * Description:
+ * Accept connections on port 1100 and shut each one down immediately. The
+ * server listens on all interfaces and calls exit(-1) when socket setup or
+ * accept fails.
+ *
+ * Author: id774 (More info: https://id774.net)
+ * Source Code: https://github.com/id774/sandbox
+ * License: The GPL version 3, or LGPL version 3 (Dual License).
+ * Contact: idnanashi@gmail.com
+ *
+ * Build / Run:
+ *     cc -o socket socket.c
+ *     ./socket
+ *
+ * Requirements:
+ * - A C compiler that accepts implicit declarations of memset and close
+ * - A POSIX sockets environment
+ */
 
 #include <sys/types.h>
 #include <sys/socket.h>

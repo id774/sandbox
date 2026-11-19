@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# os_walk.py: Print every file path under a directory
+#
+# Description:
 # Print the full path of every file under a directory with os.walk.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 os_walk.py <directory>
+#
+# Requirements:
+# - Python 3
+#
 
 import sys
 import os

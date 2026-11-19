@@ -1,3 +1,21 @@
+# scatter-plot.R: Scatter plots between news category scores
+#
+# Description:
+# Read ~/etc/category_map.txt and write scatter plots between pairs of its
+# category columns as PNG files.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript scatter-plot.R
+#
+# Requirements:
+# - R
+# - ~/etc/category_map.txt
+#
 
 dataflame <- read.table("~/etc/category_map.txt", sep="\t")
 

@@ -1,4 +1,22 @@
-# Cluster vectors read from per document CSV files with KMeans.
+# clustering_with_vector_files.py: KMeans clustering of per-document vector files
+#
+# Description:
+# Cluster vectors read from per document CSV files under a directory with
+# KMeans, using the given cluster count and random state.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 clustering_with_vector_files.py <directory> <clusters> <random state>
+#
+# Requirements:
+# - Python 3
+# - scikit-learn
+# - pandas before 1.0, which still provides DataFrame.ix
+#
 
 import sys
 import os

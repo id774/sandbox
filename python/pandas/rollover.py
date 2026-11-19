@@ -1,5 +1,22 @@
 # -*- coding:utf-8 -*-
+# rollover.py: Futures rollover weighting on simulated prices
+#
+# Description:
 # Weight two futures contracts across a rollover window on simulated prices.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     python3 rollover.py
+#
+# Requirements:
+# - Python 3
+# - NumPy, pandas-datareader, and Matplotlib
+# - pandas before 0.20, which still provides DataFrame.ix and Series.order
+#
 
 import sys
 import numpy as np

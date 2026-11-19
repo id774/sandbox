@@ -1,6 +1,21 @@
 #!/usr/local/bin/ruby
 # -*- coding: utf-8 -*-
-# Build word count vectors from Japanese RSS feeds with MeCab.
+# generatefeedvector-jp.rb: Word count vectors from Japanese RSS feeds
+#
+# Description:
+# Build word count vectors from the Japanese RSS feeds listed in
+# feedlistjp.txt with MeCab, and write them to blogdatajp.txt by default.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Requirements:
+# - Ruby
+# - The hpricot and simple-rss gems and MeCab with its Ruby binding
+# - Ruby before 3.0, whose Kernel#open still opens URLs through open-uri
+#
 
 require 'rubygems'
 require 'simple-rss'

@@ -1,3 +1,22 @@
+# 13.EquivalentKernel.R: Equivalent kernel of Bayesian linear regression
+#
+# Description:
+# Plot the basis functions, the equivalent kernel, and the resulting
+# regression of Bayesian linear regression on samples of sin(2 pi x). The
+# plots are written to image.png in the current directory.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     Rscript 13.EquivalentKernel.R
+#
+# Requirements:
+# - R
+#
+
 png("image.png", width = 480, height = 480, pointsize = 12, bg = "white", res = NA)
 frame()
 set.seed(0)

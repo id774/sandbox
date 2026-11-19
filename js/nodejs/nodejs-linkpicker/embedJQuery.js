@@ -1,5 +1,14 @@
-// embedJQuery.js
-// A wrapper around jsdom and jQuery
+// embedJQuery.js: Run jQuery over fetched HTML inside jsdom
+//
+// Description:
+// A wrapper around jsdom and jQuery that builds a DOM from fetched HTML and
+// runs jQuery inside it for linkPicker.js.
+//
+// Author: id774 (More info: https://id774.net)
+// Source Code: https://github.com/id774/sandbox
+// License: The GPL version 3, or LGPL version 3 (Dual License).
+// Contact: idnanashi@gmail.com
+//
 
 var fs = require('fs'),
     Script = process.binding('evals').Script,

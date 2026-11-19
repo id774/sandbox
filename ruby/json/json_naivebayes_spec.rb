@@ -1,6 +1,22 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
+# json_naivebayes_spec.rb: RSpec test of the naive Bayes analyzer output
+#
+# Description:
 # Test the naive Bayes analyzer output with RSpec.
+#
+# Author: id774 (More info: https://id774.net)
+# Source Code: https://github.com/id774/sandbox
+# License: The GPL version 3, or LGPL version 3 (Dual License).
+# Contact: idnanashi@gmail.com
+#
+# Usage:
+#     rspec json_naivebayes_spec.rb
+#
+# Requirements:
+# - Ruby
+# - RSpec, the naivebayes gem, and the stdout library the spec requires
+#
 
 $:.unshift File.join(File.dirname(__FILE__))
 
