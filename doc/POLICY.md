@@ -694,13 +694,27 @@ The `Description` section ends before the metadata block. A `Usage`,
 fields remain contiguous. Check both required content and section boundaries
 when adding or correcting a header.
 
-Header placement and syntax follow the language or platform convention under
-Section 2.4.3. Preserve a shebang, encoding declaration, compiler directive,
-package annotation, document-type declaration, or other required leading
-syntax in its valid position. Existing one-space line-comment headers and
-language-native block-comment headers remain valid; no universal banner or
-comment syntax is required. A format or generated source that cannot accept a
-safe repository-authored header is not modified to satisfy appearance alone.
+Header placement and comment syntax follow the valid conventions of the
+language or platform. Preserve a shebang, encoding declaration, compiler
+directive, package annotation, document-type declaration, or other required
+leading syntax in its valid position.
+
+For line-comment headers, the established sandbox form uses one space after
+the language's comment marker on the title line, section labels, metadata
+fields, and unindented explanatory text. A form using one space on the title
+line and two spaces on section labels, metadata fields, and unindented
+explanatory text is also valid. Both forms are accepted for existing headers.
+New line-comment headers use the single-space form unless the language or
+platform requires another valid form.
+
+A comment-only separator line contains only the language's comment marker.
+Commands, lists, and version-history descriptions may use additional
+indentation to express their structure. Existing headers are not reformatted
+solely to change between the accepted indentation forms.
+
+Language-native block-comment headers remain valid; no universal banner or
+comment syntax is required. A format or generated source that cannot accept
+a safe repository-authored header is not modified to satisfy appearance alone.
 
 Header compliance is checked against every applicable repository-authored
 source file, not only files modified for another purpose. The check covers
