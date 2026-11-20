@@ -111,8 +111,9 @@ Subdirectories group experiments by library or theme:
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
 - Time-dependent low-rank approximation: `time_dependent_low_rank`, which
-  checks SVD truncation errors, a sufficient rank from uniform spectral decay,
-  and the minimum rank for fixed time-dependent diagonal matrices.
+  checks SVD truncation errors, sufficient ranks from uniform spectral decay
+  and nuclear-norm bounds, minimum ranks for fixed time-dependent matrices,
+  and fixed-basis versus optimal rank-one errors.
 - Boolean function influence: `boolean_function_influence`, which checks
   variance, squared bit-flip influence, and degree conditions for the bit mean,
   normalized sum, and odd-sized majority over all Boolean inputs.
