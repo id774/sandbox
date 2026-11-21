@@ -10,8 +10,12 @@ while dropping the remaining condition as `N` increases.
 
 ## Requirements
 
-- Python 3.12 or later; the article's reported measurements used Python 3.13.5.
+- Python 3 interpreter; the article's reported measurements used Python 3.13.5.
 - Python standard library only (`itertools`, `math`); no package installation.
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

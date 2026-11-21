@@ -14,9 +14,12 @@
 #     python3 -B python/permission_dependency_impact/verification.py
 #
 # Requirements:
-#   - Python 3.10 or later
+#   - Python 3 interpreter
 #   - Python standard library only
 #   - Assertions must be enabled (do not run with -O).
+#
+# Verified Environment:
+#   Tested with Python 3.13.5 and 3.13.18.
 
 # Permission grants: (principal, resource, operation)
 grants_before = {

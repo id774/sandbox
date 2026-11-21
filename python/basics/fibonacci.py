@@ -18,8 +18,11 @@
 #     python3 fibonacci.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 from itertools import islice
 

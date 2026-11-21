@@ -9,9 +9,13 @@ checks the positive-definiteness condition of the quadratic objective.
 
 ## Requirements
 
-- Python 3.12
+- Python 3 interpreter
 - NumPy 2.2.6
 - Python assertions enabled (do not use `-O` or `PYTHONOPTIMIZE`)
+
+## Verified Environment
+
+Tested with Python 3.12.3.
 
 ## Run
 

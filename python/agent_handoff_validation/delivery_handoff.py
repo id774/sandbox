@@ -14,9 +14,12 @@
 #     python3 -B -m unittest discover -s python/agent_handoff_validation -p 'test_*.py' -v
 #
 # Requirements:
-#   - Python 3.11 or later
+#   - Python 3 interpreter
 #   - Python standard library only (json, re, datetime, unittest)
 #   - No external APIs, credentials, or input files
+#
+# Verified Environment:
+#   Tested with Python 3.11.15, 3.12.13, and 3.13.18.
 #
 import json
 import re

@@ -13,9 +13,12 @@
 # python3 -B python/attribute_leakage/attribute_leakage.py
 #
 # Requirements:
-# - Python 3.12 or 3.13, with assertions enabled
+# - Python 3 interpreter, with assertions enabled
 # - Python standard library only
 # - No command-line arguments or external data files
+#
+# Verified Environment:
+# Tested with Python 3.12.16, 3.13.5, and 3.13.18.
 
 from collections import Counter
 from dataclasses import dataclass

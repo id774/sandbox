@@ -17,7 +17,7 @@
 #     python3 parent_child_retrieval.py
 #
 # Requirements:
-# - Python 3.12 or later
+# - Python 3 interpreter
 # - Packages pinned in requirements.txt: langchain-classic 1.0.8,
 #   langchain-core 1.6.3, langchain-openai 1.6.2,
 #   langchain-text-splitters 1.1.2

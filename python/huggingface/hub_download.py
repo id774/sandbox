@@ -16,7 +16,7 @@
 #     ./hub_download.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - huggingface_hub 0.11 or later
 #
 # Notes:

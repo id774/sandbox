@@ -15,8 +15,11 @@
 #     python3 -B -m unittest discover -s python/citation_contract -p 'test_*.py' -v
 #
 # Requirements:
-# - Python 3.13 or later
+# - Python 3 interpreter
 # - Python standard library only
+#
+# Verified Environment:
+# Tested with Python 3.13.5 and 3.13.18.
 #
 import copy
 import unittest

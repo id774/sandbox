@@ -14,9 +14,12 @@
 #     python3 -B python/dependency_graph_comparison/graph_comparison.py
 #
 # Requirements:
-#   - Python 3.12 or later
+#   - Python 3 interpreter
 #   - Python standard library only
 #   - Assertions enabled (do not use -O).
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 from itertools import combinations
 from math import comb

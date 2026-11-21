@@ -21,6 +21,10 @@ then install the single direct dependency:
 python -m pip install 'numpy==2.5.0'
 ```
 
+## Verified Environment
+
+Tested with Python 3.12.3.
+
 ## Run
 
 From the repository root in the activated environment:

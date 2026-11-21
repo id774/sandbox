@@ -14,8 +14,11 @@
 #     python3 -B -m unittest -v test_state_burden
 #
 # Requirements:
-#   - Python 3.12 or later
+#   - Python 3 interpreter
 #   - Python standard library only (math, unittest)
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 import math
 import unittest

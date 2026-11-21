@@ -10,13 +10,16 @@
 # Contact: idnanashi@gmail.com
 #
 # Usage:
-#   From the repository root with Python 3.12 and NumPy 2.2.6 installed:
+#   From the repository root with NumPy 2.2.6 installed:
 #     python -B python/engram_fixed_lookup/engram_fixed_lookup.py
 #
 # Requirements:
-#   - Python 3.12
+#   - Python 3 interpreter
 #   - NumPy 2.2.6
 #   - Do not run with -O; the sample uses assertions.
+#
+# Verified Environment:
+#   Tested with Python 3.12.3.
 
 import numpy as np
 

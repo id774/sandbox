@@ -8,8 +8,12 @@ while changing Backbone weights and comparing candidate scores and the
 
 ## Requirements
 
-- Python 3.12
+- Python 3 interpreter
 - NumPy 2.2.6
+
+## Verified Environment
+
+Tested with Python 3.12.3.
 
 ## Run
 

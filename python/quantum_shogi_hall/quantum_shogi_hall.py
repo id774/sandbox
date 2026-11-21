@@ -13,9 +13,12 @@
 #     python3 -B quantum_shogi_hall.py
 #
 # Requirements:
-# - Python 3.12 or later
+# - Python 3 interpreter
 # - Only the Python standard library is required
 # - Run without -O so assertions in the examples are evaluated
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 KINDS = ("王", "飛", "角", "金", "銀", "桂", "香", "歩")
 COUNTS = (1, 1, 1, 2, 2, 2, 2, 9)

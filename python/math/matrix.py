@@ -19,8 +19,11 @@
 #     python3 matrix.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 LEFT = [[2, -1, 0], [1, 3, 4], [0, 5, -2]]
 RIGHT = [[1, 0, 2], [-3, 1, 1], [4, 2, 0]]

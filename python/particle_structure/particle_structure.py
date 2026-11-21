@@ -14,9 +14,12 @@
 #     PYTHONOPTIMIZE=0 python -B python/particle_structure/particle_structure.py
 #
 # Requirements:
-#   - Python 3.13 (reference: 3.13.5)
+#   - Python 3 interpreter
 #   - NumPy 2.2.4
 #   - Assertions enabled; do not use -O or -OO.
+#
+# Verified Environment:
+#   Tested with Python 3.13.5 and 3.13.18.
 
 import numpy as np
 

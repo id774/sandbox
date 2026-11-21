@@ -10,9 +10,13 @@ failure.
 
 ## Requirements
 
-- Python 3.10 or later
+- Python 3 interpreter
 - Python standard library only
 - Assertions enabled (do not use `-O`)
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

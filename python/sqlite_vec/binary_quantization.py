@@ -22,12 +22,15 @@
 #     ./binary_quantization.py
 #
 # Requirements:
-# - Python 3.10 or later, built with SQLite extension loading enabled
+# - Python 3 interpreter, built with SQLite extension loading enabled
 # - sqlite-vec 0.1.9 or later
 #
 # Notes:
 # - The data is fixed in the source, so no network access or dataset is needed.
 # - The script exits with a non-zero status when a check fails.
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 import sqlite3
 import struct

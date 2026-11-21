@@ -29,10 +29,14 @@ speed or recall, so it makes no claim about the speedup of the technique.
 
 ## Requirements
 
-Python 3.10 or later, built with SQLite extension loading enabled, and the
+A Python 3 interpreter built with SQLite extension loading enabled, and the
 library in `requirements.txt`:
 
     pip install -r requirements.txt
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

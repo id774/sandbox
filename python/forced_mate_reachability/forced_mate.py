@@ -14,9 +14,12 @@
 #     python3 -B python/forced_mate_reachability/forced_mate.py
 #
 # Requirements:
-#   - Python 3.10 or later (verified with Python 3.13.5)
+#   - Python 3 interpreter
 #   - Python standard library only
 #   - Assertions must be enabled (do not use -O).
+#
+# Verified Environment:
+# Tested with Python 3.13.5 and 3.13.18.
 
 from collections import deque
 

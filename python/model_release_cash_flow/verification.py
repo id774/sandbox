@@ -14,9 +14,12 @@
 #     python3 -B python/model_release_cash_flow/verification.py
 #
 # Requirements:
-#   - Python 3.10 or later
+#   - Python 3 interpreter
 #   - Python standard library only
 #   - Assertions enabled (do not use -O).
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 balance = 100  # 100 million JPY
 minimum = 30  # 100 million JPY

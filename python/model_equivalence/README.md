@@ -13,12 +13,16 @@ answer.
 
 ## Requirements
 
-- Python 3.10 or later
+- Python 3 interpreter
 - pytest
 
 Install pytest with the normal Python package installation mechanism for the
 environment being used. No project-specific package manifest is required for
 this sample.
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

@@ -16,6 +16,9 @@
 # Requirements:
 #   - Python 3.12 or later
 #   - NumPy 2.5.0 for the documented reproduction environment
+#
+# Verified Environment:
+#   Tested with Python 3.12.3.
 
 import math
 

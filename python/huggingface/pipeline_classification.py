@@ -16,7 +16,7 @@
 #     ./pipeline_classification.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - transformers 4.27 or later
 # - PyTorch 1.11 or later
 #

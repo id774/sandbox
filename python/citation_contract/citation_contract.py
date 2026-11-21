@@ -13,9 +13,12 @@
 #     python3 -B python/citation_contract/citation_contract.py python/citation_contract/answer.json python/citation_contract/sources.json python/citation_contract/reviews.json
 #
 # Requirements:
-# - Python 3.13 or later
+# - Python 3 interpreter
 # - Python standard library only
 # - Three UTF-8 JSON input files
+#
+# Verified Environment:
+# Tested with Python 3.13.5 and 3.13.18.
 #
 import argparse
 import hashlib

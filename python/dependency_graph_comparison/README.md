@@ -9,9 +9,13 @@ the number of graph candidates; it constructs only the complete and path graphs.
 
 ## Requirements
 
-- Python 3.12 or later (the article's implementation was run with Python 3.13.5)
+- Python 3 interpreter (the article's implementation was run with Python 3.13.5)
 - Python standard library only (`itertools` and `math`)
 - Python assertions enabled (do not run with `-O` or `PYTHONOPTIMIZE`)
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

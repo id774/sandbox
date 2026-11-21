@@ -13,9 +13,12 @@
 #     python3 -B python/context_retention/context_retention.py
 #
 # Requirements:
-# - Python 3.11 or later
+# - Python 3 interpreter
 # - Python standard library only
 # - No command-line arguments or external data files
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 #
 from dataclasses import dataclass
 

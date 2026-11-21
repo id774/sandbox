@@ -10,9 +10,13 @@ whether a source actually supports a claim.
 
 ## Requirements
 
-- Python 3.13 or later (validated with Python 3.13.5)
+- Python 3 interpreter
 - Python standard library only (`argparse`, `hashlib`, `json`, `re`, `unittest`)
 - No network connection, external credentials, or package installation
+
+## Verified Environment
+
+Tested with Python 3.13.5 and 3.13.18.
 
 ## Inputs
 

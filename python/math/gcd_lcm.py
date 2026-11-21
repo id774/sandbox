@@ -19,8 +19,11 @@
 #     python3 gcd_lcm.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 PAIRS = [(1071, 462), (270, 192), (17, 5), (120, 36)]
 

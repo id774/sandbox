@@ -11,13 +11,16 @@
 # Contact: idnanashi@gmail.com
 #
 # Usage:
-#   From the repository root with Python 3.13 and NumPy 2.3.4 installed:
+#   From the repository root with NumPy 2.3.4 installed:
 #     python -B python/recurrent_quantization_error/quantization_error.py
 #
 # Requirements:
-#   - Python 3.13
+#   - Python 3 interpreter
 #   - NumPy 2.3.4
 #   - Do not run with -O; the experiment includes assertion checks.
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 import numpy as np
 

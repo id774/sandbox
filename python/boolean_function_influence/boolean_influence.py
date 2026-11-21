@@ -15,8 +15,11 @@
 #     python3 -B python/boolean_function_influence/boolean_influence.py
 #
 # Requirements:
-#   - Python 3.12 or later
+#   - Python 3 interpreter
 #   - Python standard library only (itertools and math)
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 from itertools import product
 from math import comb, isclose, sqrt
