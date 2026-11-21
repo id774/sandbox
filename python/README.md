@@ -148,6 +148,9 @@ Subdirectories group experiments by library or theme:
   Robertson-Schrodinger residuals and state-dependent commutator bounds.
 - Personal data tracing: `personal_data_impact_trace`, which identifies
   datasets recorded on a selected system and traces upstream transfers.
+- Generated-text attribute identification: `attribute_leakage`, which
+  compares total variation and binary-label identification accuracy under
+  fixed wording probabilities, label permutation, and phrase standardization.
 - Permission and dependency impact: `permission_dependency_impact`, which
   compares writable resource scope and mandatory dependency outage scope
   before and after fixed boundary changes.
