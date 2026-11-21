@@ -7,9 +7,13 @@ state that was valid at a given time from each row's validity interval.
 
 ## Requirements
 
-- Python 3.12 or later
+- Python 3 interpreter
 - pytest for running the tests
 - The runtime code uses only the Python standard library.
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Model
 

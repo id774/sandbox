@@ -13,8 +13,11 @@
 #     python3 finite_resource_reachability.py
 #
 # Requirements:
-# - Python 3.12 or later
+# - Python 3 interpreter
 # - Only the Python standard library is required
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 from fractions import Fraction
 from io import BytesIO

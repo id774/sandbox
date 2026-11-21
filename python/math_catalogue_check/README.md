@@ -14,7 +14,7 @@ formally verified manuscripts. The script does not run Lean or Comparator.
 
 ## Requirements
 
-- Python 3.12 or later
+- Python 3 interpreter
 - PyYAML 6.0.3
 - Git with partial clone and sparse checkout support
 - Network access to obtain the publicly available upstream repository

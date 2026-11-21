@@ -9,10 +9,14 @@ positions computed from reciprocal and nonreciprocal interactions.
 
 ## Requirements
 
-- Python 3.13 (the reference run used Python 3.13.5 on Debian GNU/Linux 13,
-  x86_64).
+- Python 3 interpreter (the reference run used Python 3.13.5 on Debian
+  GNU/Linux 13, x86_64).
 - NumPy 2.2.4.
 - Python assertions enabled. Set `PYTHONOPTIMIZE=0` and omit `-O` and `-OO`.
+
+## Verified Environment
+
+Tested with Python 3.13.5 and 3.13.18.
 
 ## Run
 

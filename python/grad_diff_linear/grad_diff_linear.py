@@ -11,13 +11,16 @@
 # Contact: idnanashi@gmail.com
 #
 # Usage:
-#   From the repository root with Python 3.12 and NumPy 2.2.6 installed:
+#   From the repository root with NumPy 2.2.6 installed:
 #     python -B python/grad_diff_linear/grad_diff_linear.py
 #
 # Requirements:
-#   - Python 3.12
+#   - Python 3 interpreter
 #   - NumPy 2.2.6
 #   - Assertions enabled; do not run with -O or PYTHONOPTIMIZE.
+#
+# Verified Environment:
+#   Tested with Python 3.12.3.
 
 import numpy as np
 

@@ -14,7 +14,7 @@
 #   python math_catalogue_check.py
 #
 # Requirements:
-# - Python 3.12 or later
+# - Python 3 interpreter
 # - PyYAML 6.0.3
 
 from pathlib import Path

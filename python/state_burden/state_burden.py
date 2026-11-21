@@ -13,8 +13,11 @@
 #     python3 -B state_burden.py
 #
 # Requirements:
-#   - Python 3.12 or later
+#   - Python 3 interpreter
 #   - Python standard library only (dataclasses)
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 from dataclasses import dataclass
 

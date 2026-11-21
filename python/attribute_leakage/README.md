@@ -10,10 +10,14 @@ not invoke a language model or external service.
 
 ## Requirements
 
-- Python 3.12 or 3.13, using the standard library only.
+- Python 3 interpreter, using the standard library only.
 - Assertions enabled. Do not run with `-O` or `PYTHONOPTIMIZE`.
 - No third-party packages, installation step, external data, or network access.
 - The expected output below was measured with Python 3.13.5.
+
+## Verified Environment
+
+Tested with Python 3.12.16, 3.13.5, and 3.13.18.
 
 ## Run
 

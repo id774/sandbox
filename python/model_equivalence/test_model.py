@@ -17,8 +17,11 @@
 #     python -m pytest -q
 #
 # Requirements:
-#   - Python 3.10 or later
+#   - Python 3 interpreter
 #   - pytest
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 import math
 from dataclasses import replace

@@ -20,12 +20,15 @@
 #     python3 kv_cache_size.py fixtures/kv_cache_config.json --context 32768
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - Only the Python standard library is required
 #
 # Notes:
 # - The input is a local config.json file. The sample needs no network
 #   access, no Hugging Face library, and no token.
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 import argparse
 import json

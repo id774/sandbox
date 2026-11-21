@@ -10,10 +10,14 @@ initial state, a forced fixed point, and saturation.
 
 ## Requirements
 
-- Python 3.12 or later. The original sample was run with Python 3.13.5.
+- Python 3 interpreter. The original sample was run with Python 3.13.5.
 - Python standard library only (`dataclasses`, `math`, and `unittest`).
 - No installation of external packages, external input files, network access,
   or elevated privileges.
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

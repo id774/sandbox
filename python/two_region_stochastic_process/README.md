@@ -18,6 +18,10 @@ NumPy is the only third-party runtime dependency. The article's published
 output was recorded under Python 3.13.5 and NumPy 2.3.5. It is not a measured
 result for Python 3.12 with NumPy 2.5.4.
 
+## Verified Environment
+
+Tested with Python 3.12.3.
+
 ## Run
 
 From the repository root:

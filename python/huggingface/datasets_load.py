@@ -16,7 +16,7 @@
 #     ./datasets_load.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - datasets 2.0 or later
 #
 # Notes:

@@ -15,8 +15,11 @@
 #     python3 analyze.py --system subship --data-dir .
 #
 # Requirements:
-# - Python 3.12 or later
+# - Python 3 interpreter
 # - Only the Python standard library is required
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 import argparse
 import csv

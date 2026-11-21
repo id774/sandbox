@@ -10,9 +10,13 @@ where `N = 2 * m` is the total number of qubits.
 
 ## Requirements
 
-- Python 3.13 (reference execution: Python 3.13.5).
+- Python 3 interpreter.
 - NumPy 2.3.5; this is the only third-party runtime dependency.
 - Assertions enabled (`PYTHONOPTIMIZE=0`, without `-O` or `-OO`).
+
+## Verified Environment
+
+Tested with Python 3.13.5 and 3.13.18.
 
 ## Run
 

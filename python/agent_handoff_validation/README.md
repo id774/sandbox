@@ -10,9 +10,13 @@ example, not a running AI agent or a live returns service.
 
 ## Requirements
 
-- Python 3.11 or later; the tests were observed passing on Python 3.12.13 and 3.11.15
+- Python 3 interpreter
 - Python standard library only (`json`, `re`, `datetime`, `unittest`)
 - No external packages, credentials, API calls, network access, or input files
+
+## Verified Environment
+
+Tested with Python 3.11.15, 3.12.13, and 3.13.18.
 
 ## Files
 

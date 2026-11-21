@@ -19,8 +19,11 @@
 #     python3 modpow.py
 #
 # Requirements:
-# - Python 3.10 or later
+# - Python 3 interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 CASES = [(2, 1000, 1000003), (3, 200, 50), (5, 117, 19), (10, 18, 9999991)]
 

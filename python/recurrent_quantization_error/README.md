@@ -10,8 +10,12 @@ and quantization every step versus every eight steps.
 
 ## Requirements
 
-- Python 3.13
+- Python 3 interpreter
 - NumPy 2.3.4
+
+## Verified Environment
+
+Tested with Python 3.13.18.
 
 ## Run
 

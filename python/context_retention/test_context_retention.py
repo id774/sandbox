@@ -15,8 +15,11 @@
 #     python3 -B -m unittest discover -s python/context_retention -p 'test_*.py' -v
 #
 # Requirements:
-# - Python 3.11 or later, as context_retention.py requires
+# - Python 3 interpreter
 # - Python standard library only
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 #
 import unittest
 

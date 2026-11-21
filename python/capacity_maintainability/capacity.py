@@ -13,8 +13,11 @@
 #     python3 -B capacity.py
 #
 # Requirements:
-#   - Python 3.12 or later
+#   - Python 3 interpreter
 #   - Python standard library only
+#
+# Verified Environment:
+#   Tested with Python 3.13.18.
 
 """Compute capacity margins in a discrete-time model."""
 

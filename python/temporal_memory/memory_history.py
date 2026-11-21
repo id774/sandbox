@@ -17,8 +17,11 @@
 #     python -m pytest -q
 #
 # Requirements:
-# - Python 3.12 or later
+# - Python 3 interpreter
 # - Only the Python standard library is required at runtime
+#
+# Verified Environment:
+# Tested with Python 3.13.18.
 
 """SQLite-backed temporal state history.
 
