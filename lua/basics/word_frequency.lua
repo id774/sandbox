@@ -17,8 +17,11 @@
 --     lua word_frequency.lua
 --
 -- Requirements:
--- - Lua 5.3 or later
+-- - Lua interpreter
 -- - No third-party package is required
+--
+-- Verified Environment:
+-- Tested with Lua 5.4.6.
 
 local text = "the quick brown fox jumps over the lazy dog the fox barks"
 

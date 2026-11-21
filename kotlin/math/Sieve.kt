@@ -18,7 +18,7 @@
 //     kotlinc Sieve.kt -include-runtime -d sieve.jar && java -jar sieve.jar
 //
 // Requirements:
-// - Kotlin 1.4 or later (kotlinc)
+// - Kotlin compiler (kotlinc)
 // - JDK 8 or later, for kotlinc and java -jar
 // - No third-party package is required
 

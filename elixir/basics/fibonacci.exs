@@ -17,7 +17,7 @@
 #     elixir fibonacci.exs
 #
 # Requirements:
-# - Elixir 1.12 or later, on Erlang/OTP 22 or later
+# - Elixir, on Erlang/OTP
 # - No third-party package is required
 
 Stream.unfold({0, 1}, fn {current, next} -> {current, {next, current + next}} end)

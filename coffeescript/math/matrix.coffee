@@ -18,9 +18,12 @@
 #     coffee matrix.coffee
 #
 # Requirements:
-# - CoffeeScript 2.0 or later (coffee)
-# - Node.js 20 or later
+# - CoffeeScript compiler (coffee)
+# - Node.js runtime
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with CoffeeScript 2.7.1 and Node.js 22.23.5.
 
 left = [[2, -1, 0], [1, 3, 4], [0, 5, -2]]
 right = [[1, 0, 2], [-3, 1, 1], [4, 2, 0]]

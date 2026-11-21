@@ -18,8 +18,11 @@
 //     node modpow.js
 //
 // Requirements:
-// - Node.js 20 or later
+// - Node.js runtime
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with Node.js 22.23.5.
 
 const cases = [
   [2, 1000, 1000003],

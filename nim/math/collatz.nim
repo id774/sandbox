@@ -18,7 +18,7 @@
 #     nim c -r collatz.nim
 #
 # Requirements:
-# - Nim 1.6 or later, with a C compiler for its default C backend
+# - Nim compiler, with a C compiler for its default C backend
 # - No third-party package is required
 
 const Limit = 1000

@@ -19,8 +19,11 @@
 #     zsh fibonacci.zsh
 #
 # Requirements:
-# - Zsh 5.0 or later
+# - Zsh
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Zsh 5.9.
 
 typeset -a values
 typeset -i current=0 next=1 following

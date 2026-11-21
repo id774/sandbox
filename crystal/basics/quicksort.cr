@@ -17,7 +17,7 @@
 #     crystal run quicksort.cr
 #
 # Requirements:
-# - Crystal 1.0 or later
+# - Crystal compiler
 # - No third-party package is required
 
 def quicksort(items : Array(T)) : Array(T) forall T

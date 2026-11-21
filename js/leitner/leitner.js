@@ -16,12 +16,15 @@
 //     node leitner.js
 //
 // Requirements:
-// - Node.js 20 or later
+// - Node.js runtime
 // - No third-party package is required
 //
 // Notes:
 // - The intervals below are values this sample picked so that the transitions
 //   are easy to follow. They are not a standard for the Leitner system.
+//
+// Verified Environment:
+// Tested with Node.js 22.23.5.
 
 const assert = require("node:assert/strict");
 

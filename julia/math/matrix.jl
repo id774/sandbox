@@ -18,7 +18,7 @@
 #     julia matrix.jl
 #
 # Requirements:
-# - Julia 1.4 or later
+# - Julia runtime
 # - No third-party package is required
 
 const LEFT = [2 -1 0; 1 3 4; 0 5 -2]

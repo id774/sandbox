@@ -18,8 +18,11 @@
 //     go run pascal.go
 //
 // Requirements:
-// - Go 1.21 or later
+// - Go toolchain
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with Go 1.24.7.
 
 package main
 

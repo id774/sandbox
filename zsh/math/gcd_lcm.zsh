@@ -19,8 +19,11 @@
 #     zsh gcd_lcm.zsh
 #
 # Requirements:
-# - Zsh 5.0 or later
+# - Zsh
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Zsh 5.9.
 
 pairs=("1071 462" "270 192" "17 5" "120 36")
 

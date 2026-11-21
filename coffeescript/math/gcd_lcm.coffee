@@ -18,9 +18,12 @@
 #     coffee gcd_lcm.coffee
 #
 # Requirements:
-# - CoffeeScript 2.0 or later (coffee)
-# - Node.js 20 or later
+# - CoffeeScript compiler (coffee)
+# - Node.js runtime
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with CoffeeScript 2.7.1 and Node.js 22.23.5.
 
 pairs = [[1071, 462], [270, 192], [17, 5], [120, 36]]
 

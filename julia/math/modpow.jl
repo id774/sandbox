@@ -18,7 +18,7 @@
 #     julia modpow.jl
 #
 # Requirements:
-# - Julia 1.4 or later
+# - Julia runtime
 # - No third-party package is required
 
 const CASES = [(2, 1000, 1000003), (3, 200, 50), (5, 117, 19), (10, 18, 9999991)]

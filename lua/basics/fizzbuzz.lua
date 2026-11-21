@@ -17,8 +17,11 @@
 --     lua fizzbuzz.lua
 --
 -- Requirements:
--- - Lua 5.3 or later
+-- - Lua interpreter
 -- - No third-party package is required
+--
+-- Verified Environment:
+-- Tested with Lua 5.4.6.
 
 local function label(n)
   if n % 15 == 0 then

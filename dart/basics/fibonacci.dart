@@ -17,7 +17,7 @@
 //     dart run fibonacci.dart
 //
 // Requirements:
-// - Dart 3.0 or later
+// - Dart SDK
 // - No third-party package is required
 
 Iterable<int> fibonacci() sync* {

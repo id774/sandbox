@@ -18,7 +18,7 @@
 #     crystal run sieve.cr
 #
 # Requirements:
-# - Crystal 1.0 or later
+# - Crystal compiler
 # - No third-party package is required
 
 LIMIT = 100

@@ -17,7 +17,7 @@
 #     crystal run fizzbuzz.cr
 #
 # Requirements:
-# - Crystal 1.0 or later
+# - Crystal compiler
 # - No third-party package is required
 
 def fizzbuzz_label(n : Int32) : String

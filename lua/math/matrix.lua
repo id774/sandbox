@@ -18,8 +18,11 @@
 --     lua matrix.lua
 --
 -- Requirements:
--- - Lua 5.3 or later
+-- - Lua interpreter
 -- - No third-party package is required
+--
+-- Verified Environment:
+-- Tested with Lua 5.4.6.
 
 local size = 3
 local left = { { 2, -1, 0 }, { 1, 3, 4 }, { 0, 5, -2 } }

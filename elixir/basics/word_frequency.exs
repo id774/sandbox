@@ -17,7 +17,7 @@
 #     elixir word_frequency.exs
 #
 # Requirements:
-# - Elixir 1.12 or later, on Erlang/OTP 22 or later
+# - Elixir, on Erlang/OTP
 # - No third-party package is required
 
 text = "the quick brown fox jumps over the lazy dog the fox barks"

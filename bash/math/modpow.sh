@@ -19,8 +19,11 @@
 #     bash modpow.sh
 #
 # Requirements:
-# - Bash 4.0 or later
+# - Bash
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Bash 5.2.21.
 
 cases=("2 1000 1000003" "3 200 50" "5 117 19" "10 18 9999991")
 

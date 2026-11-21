@@ -22,8 +22,7 @@
 //
 // Requirements:
 // - .NET 10 SDK or later to run the file directly with dotnet run
-// - .NET 8 SDK (C# 12) or later when the file is used as Program.cs in
-//   a console project
+// - .NET SDK when the file is used as Program.cs in a console project
 // - No third-party package is required
 
 var pairs = new (long First, long Second)[] { (1071, 462), (270, 192), (17, 5), (120, 36) };

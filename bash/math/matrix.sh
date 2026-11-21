@@ -21,8 +21,11 @@
 #     bash matrix.sh
 #
 # Requirements:
-# - Bash 4.0 or later
+# - Bash
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Bash 5.2.21.
 
 size=3
 left=(2 -1 0 1 3 4 0 5 -2)

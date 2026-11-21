@@ -14,7 +14,7 @@
 //     Then open http://localhost:8080/ in a web browser.
 //
 // Requirements:
-// - Node.js 20 or later
+// - Node.js runtime
 // - No third-party Node.js package is required; only built-in modules are
 //   used
 // - A current web browser for the page
@@ -23,6 +23,9 @@
 // - The server listens on port 8080.
 // - The page loads htmx 2 from the jsDelivr CDN (htmx.org@2), so the browser
 //   needs network access to cdn.jsdelivr.net.
+//
+// Verified Environment:
+// Tested with Node.js 22.23.5.
 
 // Fragment server for index.html. No dependencies: node server.js
 //

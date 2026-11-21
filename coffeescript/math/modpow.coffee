@@ -18,9 +18,12 @@
 #     coffee modpow.coffee
 #
 # Requirements:
-# - CoffeeScript 2.0 or later (coffee)
-# - Node.js 20 or later
+# - CoffeeScript compiler (coffee)
+# - Node.js runtime
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with CoffeeScript 2.7.1 and Node.js 22.23.5.
 
 cases = [[2, 1000, 1000003], [3, 200, 50], [5, 117, 19], [10, 18, 9999991]]
 

@@ -18,8 +18,11 @@
 #     bash fizzbuzz.sh
 #
 # Requirements:
-# - Bash 4.0 or later
+# - Bash
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Bash 5.2.21.
 
 for ((n = 1; n <= 100; n++)); do
     case "$((n % 3)),$((n % 5))" in

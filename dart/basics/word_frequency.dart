@@ -17,7 +17,7 @@
 //     dart run word_frequency.dart
 //
 // Requirements:
-// - Dart 3.0 or later
+// - Dart SDK
 // - No third-party package is required
 
 const text = 'the quick brown fox jumps over the lazy dog the fox barks';

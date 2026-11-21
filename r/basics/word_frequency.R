@@ -17,7 +17,7 @@
 #     Rscript word_frequency.R
 #
 # Requirements:
-# - R 4.0 or later (Rscript)
+# - R (Rscript)
 # - No third-party package is required
 
 text <- "the quick brown fox jumps over the lazy dog the fox barks"

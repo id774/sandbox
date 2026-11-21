@@ -19,8 +19,11 @@
 #     zsh collatz.zsh
 #
 # Requirements:
-# - Zsh 5.0 or later
+# - Zsh
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Zsh 5.9.
 
 limit=1000
 

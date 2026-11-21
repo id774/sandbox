@@ -17,7 +17,7 @@
 //     swift word_frequency.swift
 //
 // Requirements:
-// - Swift 5.1 or later
+// - Swift toolchain
 // - No third-party package is required
 
 let text = "the quick brown fox jumps over the lazy dog the fox barks"

@@ -18,7 +18,7 @@
 #     nim c -r modpow.nim
 #
 # Requirements:
-# - Nim 1.6 or later, with a C compiler for its default C backend
+# - Nim compiler, with a C compiler for its default C backend
 # - No third-party package is required
 
 const Cases = [(2, 1000, 1000003), (3, 200, 50), (5, 117, 19), (10, 18, 9999991)]

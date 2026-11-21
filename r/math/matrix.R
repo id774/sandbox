@@ -18,7 +18,7 @@
 #     Rscript matrix.R
 #
 # Requirements:
-# - R 4.0 or later (Rscript)
+# - R (Rscript)
 # - No third-party package is required
 
 left <- matrix(c(2, -1, 0, 1, 3, 4, 0, 5, -2), nrow = 3, byrow = TRUE)

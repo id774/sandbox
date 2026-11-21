@@ -17,7 +17,7 @@
 //     swift quicksort.swift
 //
 // Requirements:
-// - Swift 5.1 or later
+// - Swift toolchain
 // - No third-party package is required
 
 func quicksort<T: Comparable>(_ items: [T]) -> [T] {

@@ -18,7 +18,7 @@
 #     crystal run matrix.cr
 #
 # Requirements:
-# - Crystal 1.0 or later
+# - Crystal compiler
 # - No third-party package is required
 
 LEFT = [[2, -1, 0], [1, 3, 4], [0, 5, -2]]

@@ -17,7 +17,7 @@
 #     Rscript fizzbuzz.R
 #
 # Requirements:
-# - R 4.0 or later (Rscript)
+# - R (Rscript)
 # - No third-party package is required
 
 label <- function(n) {

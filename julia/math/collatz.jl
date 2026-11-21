@@ -18,7 +18,7 @@
 #     julia collatz.jl
 #
 # Requirements:
-# - Julia 1.4 or later
+# - Julia runtime
 # - No third-party package is required
 
 const LIMIT = 1000

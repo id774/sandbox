@@ -15,9 +15,12 @@
 //     tsc --target es2020 select_action.ts && node select_action.js
 //
 // Requirements:
-// - Node.js 20 or later
-// - TypeScript 5.0 or later
+// - Node.js runtime
+// - TypeScript compiler
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with TypeScript 6.0.2 and Node.js 22.23.5.
 
 const targets = ["save", "cancel", "done"] as const;
 

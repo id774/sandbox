@@ -22,8 +22,11 @@
 #     zsh matrix.zsh
 #
 # Requirements:
-# - Zsh 5.0 or later
+# - Zsh
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Zsh 5.9.
 
 size=3
 left=(2 -1 0 1 3 4 0 5 -2)

@@ -18,8 +18,7 @@
 --     runghc modpow.hs
 --
 -- Requirements:
--- - GHC 7.10 or later (runghc), with the containers package that ships
---   with GHC
+-- - GHC (runghc), with the containers package that ships with GHC
 -- - No third-party package is required
 
 cases :: [(Integer, Integer, Integer)]

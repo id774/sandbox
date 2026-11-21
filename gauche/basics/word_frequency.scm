@@ -17,7 +17,7 @@
 ;;     gosh word_frequency.scm
 ;;
 ;; Requirements:
-;; - Gauche 0.9 or later (gosh)
+;; - Gauche (gosh)
 ;; - No third-party package is required
 
 (define text "the quick brown fox jumps over the lazy dog the fox barks")

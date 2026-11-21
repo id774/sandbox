@@ -19,7 +19,7 @@
  *     ocaml collatz.ml
  *
  * Requirements:
- * - OCaml 4.08 or later (the ocaml toplevel)
+ * - OCaml (the ocaml toplevel)
  * - No third-party package is required
  *)
 

@@ -19,8 +19,11 @@
 #     bash gcd_lcm.sh
 #
 # Requirements:
-# - Bash 4.0 or later
+# - Bash
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Bash 5.2.21.
 
 pairs=("1071 462" "270 192" "17 5" "120 36")
 

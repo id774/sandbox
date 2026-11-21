@@ -18,7 +18,7 @@
 //     kotlinc Pascal.kt -include-runtime -d pascal.jar && java -jar pascal.jar
 //
 // Requirements:
-// - Kotlin 1.4 or later (kotlinc)
+// - Kotlin compiler (kotlinc)
 // - JDK 8 or later, for kotlinc and java -jar
 // - No third-party package is required
 

@@ -18,8 +18,11 @@
 //     ./quicksort
 //
 // Requirements:
-// - Rust 1.53 or later (rustc)
+// - Rust toolchain (rustc)
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with Rust 1.97.0.
 
 fn quicksort<T: Ord + Clone>(items: &[T]) -> Vec<T> {
     match items.split_first() {

@@ -17,9 +17,12 @@
 //     tsc --target es2020 quicksort.ts && node quicksort.js
 //
 // Requirements:
-// - TypeScript 5.0 or later (tsc)
-// - Node.js 20 or later
+// - TypeScript compiler (tsc)
+// - Node.js runtime
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with TypeScript 6.0.2 and Node.js 22.23.5.
 
 function quicksort<T>(items: readonly T[], compare: (a: T, b: T) => number): T[] {
     if (items.length <= 1) return [...items];

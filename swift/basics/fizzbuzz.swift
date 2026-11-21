@@ -17,7 +17,7 @@
 //     swift fizzbuzz.swift
 //
 // Requirements:
-// - Swift 5.1 or later
+// - Swift toolchain
 // - No third-party package is required
 
 func fizzBuzzLabel(_ n: Int) -> String {

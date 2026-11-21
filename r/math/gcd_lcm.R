@@ -18,7 +18,7 @@
 #     Rscript gcd_lcm.R
 #
 # Requirements:
-# - R 4.0 or later (Rscript)
+# - R (Rscript)
 # - No third-party package is required
 
 pairs <- list(c(1071, 462), c(270, 192), c(17, 5), c(120, 36))
