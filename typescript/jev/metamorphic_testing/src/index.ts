@@ -24,12 +24,15 @@
 //
 // Requirements:
 // - Node.js 22 or later and npm
-// - TypeScript 7.0.2 or later
-// - Wrangler 4.135.0 or later
-// - Vitest 4.1.11 or later
-// - @cloudflare/vitest-plugin 1.1.13 or later
+// - TypeScript, Wrangler, Vitest, and @cloudflare/vitest-plugin as declared
+//   in package.json
 // - For the live evaluation, a Cloudflare account with access to Workers AI,
 //   with Wrangler authenticated against it
+//
+// Verified Environment:
+// - Node.js 24.22.2, npm 10.8.3
+// - TypeScript 7.0.2, Wrangler 4.136.0
+// - Vitest 4.1.11, @cloudflare/vitest-plugin 1.2.0
 //
 // Notes:
 // - npm run test:unit does not call Jev and needs no credentials.

@@ -18,8 +18,12 @@
  *     printf 'test\n' | ./veracrypt_header testdata/test.sha512.header
  *
  * Requirements:
- * - A C11 compiler, such as GCC 5 or later or Clang 3.6 or later
- * - OpenSSL 1.1.1 or later development headers and libcrypto
+ * - A C compiler supporting C11
+ * - OpenSSL development headers and libcrypto supporting PBKDF2-HMAC-SHA-512
+ *   and AES-256-XTS
+ *
+ * Verified Environment:
+ * - GCC 13.3.0 and OpenSSL 3.0.13 (original probe validation)
  *
  * Validation:
  * - See README.md for the fixture provenance and required checks.
