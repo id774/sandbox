@@ -24,10 +24,13 @@
 //
 // Requirements:
 // - Node.js 22 or later and npm
-// - TypeScript 7.0.2 or later
-// - Wrangler 4.135.0 or later
+// - TypeScript and Wrangler as declared in package.json
 // - A Cloudflare account with access to Workers AI, Queues, and D1, with
 //   Wrangler authenticated against it
+//
+// Verified Environment:
+// - Node.js 24.22.2, npm 10.8.3
+// - TypeScript 7.0.2, Wrangler 4.137.0
 //
 // Notes:
 // - The AI binding is remote, so requests that reach Jev use the Cloudflare
