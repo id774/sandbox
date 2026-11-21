@@ -18,7 +18,7 @@
 //     kotlinc GcdLcm.kt -include-runtime -d gcd_lcm.jar && java -jar gcd_lcm.jar
 //
 // Requirements:
-// - Kotlin 1.4 or later (kotlinc)
+// - Kotlin compiler (kotlinc)
 // - JDK 8 or later, for kotlinc and java -jar
 // - No third-party package is required
 

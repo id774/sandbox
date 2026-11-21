@@ -18,8 +18,11 @@
 //     ./word_frequency
 //
 // Requirements:
-// - Rust 1.53 or later (rustc)
+// - Rust toolchain (rustc)
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with Rust 1.97.0.
 
 use std::collections::HashMap;
 

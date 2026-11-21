@@ -17,7 +17,7 @@
 #     julia word_frequency.jl
 #
 # Requirements:
-# - Julia 1.4 or later
+# - Julia runtime
 # - No third-party package is required
 
 const TEXT = "the quick brown fox jumps over the lazy dog the fox barks"

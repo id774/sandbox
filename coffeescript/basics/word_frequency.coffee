@@ -17,9 +17,12 @@
 #     coffee word_frequency.coffee
 #
 # Requirements:
-# - CoffeeScript 2.0 or later (coffee)
-# - Node.js 20 or later
+# - CoffeeScript compiler (coffee)
+# - Node.js runtime
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with CoffeeScript 2.7.1 and Node.js 22.23.5.
 
 text = 'the quick brown fox jumps over the lazy dog the fox barks'
 

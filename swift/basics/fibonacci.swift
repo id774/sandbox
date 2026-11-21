@@ -17,7 +17,7 @@
 //     swift fibonacci.swift
 //
 // Requirements:
-// - Swift 5.1 or later
+// - Swift toolchain
 // - No third-party package is required
 
 let fibonacci = sequence(state: (0, 1)) { (state: inout (Int, Int)) -> Int? in

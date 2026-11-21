@@ -18,7 +18,7 @@
 //     dart run modpow.dart
 //
 // Requirements:
-// - Dart 3.0 or later
+// - Dart SDK
 // - No third-party package is required
 
 const cases = [

@@ -18,8 +18,11 @@
 //     java GcdLcm.java
 //
 // Requirements:
-// - JDK 17 or later
+// - JDK
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with OpenJDK 21.0.13.0.3.
 
 public class GcdLcm {
     static final long[][] PAIRS = {{1071, 462}, {270, 192}, {17, 5}, {120, 36}};

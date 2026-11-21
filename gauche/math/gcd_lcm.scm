@@ -18,7 +18,7 @@
 ;;     gosh gcd_lcm.scm
 ;;
 ;; Requirements:
-;; - Gauche 0.9 or later (gosh)
+;; - Gauche (gosh)
 ;; - No third-party package is required
 
 (define pairs '((1071 462) (270 192) (17 5) (120 36)))

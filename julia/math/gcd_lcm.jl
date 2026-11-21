@@ -18,7 +18,7 @@
 #     julia gcd_lcm.jl
 #
 # Requirements:
-# - Julia 1.4 or later
+# - Julia runtime
 # - No third-party package is required
 
 const PAIRS = [(1071, 462), (270, 192), (17, 5), (120, 36)]

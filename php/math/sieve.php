@@ -19,8 +19,11 @@
 //     php sieve.php
 //
 // Requirements:
-// - PHP 8.0 or later (CLI)
+// - PHP (CLI)
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with PHP 8.3.6.
 
 declare(strict_types=1);
 

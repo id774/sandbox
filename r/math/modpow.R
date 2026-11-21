@@ -19,7 +19,7 @@
 #     Rscript modpow.R
 #
 # Requirements:
-# - R 4.0 or later (Rscript)
+# - R (Rscript)
 # - No third-party package is required
 
 cases <- list(c(2, 1000, 1000003), c(3, 200, 50), c(5, 117, 19), c(10, 18, 9999991))

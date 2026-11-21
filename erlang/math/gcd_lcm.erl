@@ -18,7 +18,7 @@
 %%     escript gcd_lcm.erl
 %%
 %% Requirements:
-%% - Erlang/OTP 20 or later (escript)
+%% - Erlang/OTP (escript)
 %% - No third-party package is required
 
 -module(gcd_lcm).

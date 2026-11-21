@@ -18,8 +18,11 @@
 //     java ModPow.java
 //
 // Requirements:
-// - JDK 17 or later
+// - JDK
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with OpenJDK 21.0.13.0.3.
 
 public class ModPow {
     static final long[][] CASES = {{2, 1000, 1000003}, {3, 200, 50}, {5, 117, 19}, {10, 18, 9999991}};

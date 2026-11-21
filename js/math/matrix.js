@@ -18,8 +18,11 @@
 //     node matrix.js
 //
 // Requirements:
-// - Node.js 20 or later
+// - Node.js runtime
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with Node.js 22.23.5.
 
 const left = [
   [2, -1, 0],

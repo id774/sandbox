@@ -18,7 +18,7 @@
 //     dart run sieve.dart
 //
 // Requirements:
-// - Dart 3.0 or later
+// - Dart SDK
 // - No third-party package is required
 
 const limit = 100;

@@ -47,7 +47,11 @@ A failed check ends the program with a non-zero exit status.
 
 ## Requirements
 
-Node.js 20 or later. There is no third-party dependency.
+A Node.js runtime. There is no third-party dependency.
+
+## Verified Environment
+
+Tested with Node.js 22.23.5.
 
 ## Run
 

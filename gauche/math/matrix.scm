@@ -18,7 +18,7 @@
 ;;     gosh matrix.scm
 ;;
 ;; Requirements:
-;; - Gauche 0.9 or later (gosh)
+;; - Gauche (gosh)
 ;; - No third-party package is required
 
 (define left '((2 -1 0) (1 3 4) (0 5 -2)))

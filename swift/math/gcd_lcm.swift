@@ -18,7 +18,7 @@
 //     swift gcd_lcm.swift
 //
 // Requirements:
-// - Swift 5.1 or later
+// - Swift toolchain
 // - No third-party package is required
 
 let pairs = [(1071, 462), (270, 192), (17, 5), (120, 36)]

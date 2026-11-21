@@ -18,7 +18,7 @@
 #     nim c -r gcd_lcm.nim
 #
 # Requirements:
-# - Nim 1.6 or later, with a C compiler for its default C backend
+# - Nim compiler, with a C compiler for its default C backend
 # - No third-party package is required
 
 const Pairs = [(1071, 462), (270, 192), (17, 5), (120, 36)]

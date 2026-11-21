@@ -17,7 +17,7 @@
 //     scala-cli run FizzBuzz.scala
 //
 // Requirements:
-// - Scala CLI 1.0 or later (scala-cli)
+// - Scala CLI (scala-cli)
 // - Scala 3.0 or later
 // - No third-party package is required
 

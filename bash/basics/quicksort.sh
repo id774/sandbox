@@ -19,8 +19,11 @@
 #     bash quicksort.sh
 #
 # Requirements:
-# - Bash 4.0 or later
+# - Bash
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Bash 5.2.21.
 
 quicksort() {
     if (($# <= 1)); then

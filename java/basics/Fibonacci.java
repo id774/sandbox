@@ -17,8 +17,11 @@
 //     java Fibonacci.java
 //
 // Requirements:
-// - JDK 17 or later
+// - JDK
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with OpenJDK 21.0.13.0.3.
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

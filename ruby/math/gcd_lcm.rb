@@ -19,8 +19,11 @@
 #     ruby gcd_lcm.rb
 #
 # Requirements:
-# - Ruby 3.0 or later
+# - Ruby interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Ruby 3.3.6.
 
 PAIRS = [[1071, 462], [270, 192], [17, 5], [120, 36]].freeze
 

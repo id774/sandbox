@@ -18,8 +18,11 @@
 #     ruby word_frequency.rb
 #
 # Requirements:
-# - Ruby 3.0 or later
+# - Ruby interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Ruby 3.3.6.
 
 TEXT = 'the quick brown fox jumps over the lazy dog the fox barks'
 

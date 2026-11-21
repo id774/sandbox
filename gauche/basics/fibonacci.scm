@@ -17,7 +17,7 @@
 ;;     gosh fibonacci.scm
 ;;
 ;; Requirements:
-;; - Gauche 0.9 or later (gosh)
+;; - Gauche (gosh)
 ;; - No third-party package is required
 
 (define (fibonacci count)

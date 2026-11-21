@@ -18,8 +18,11 @@
 #     perl quicksort.pl
 #
 # Requirements:
-# - Perl 5.10 or later
+# - Perl interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Perl 5.38.2.
 
 use strict;
 use warnings;

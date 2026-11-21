@@ -20,9 +20,12 @@
 #     zsh word_frequency.zsh
 #
 # Requirements:
-# - Zsh 5.0 or later
+# - Zsh
 # - The POSIX sort utility
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Zsh 5.9.
 
 typeset text="the quick brown fox jumps over the lazy dog the fox barks"
 typeset -A counts

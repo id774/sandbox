@@ -21,8 +21,7 @@
 //
 // Requirements:
 // - .NET 10 SDK or later to run the file directly with dotnet run
-// - .NET 8 SDK (C# 12) or later when the file is used as Program.cs in
-//   a console project
+// - .NET SDK when the file is used as Program.cs in a console project
 // - No third-party package is required
 
 const string text = "the quick brown fox jumps over the lazy dog the fox barks";

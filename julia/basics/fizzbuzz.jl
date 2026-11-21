@@ -17,7 +17,7 @@
 #     julia fizzbuzz.jl
 #
 # Requirements:
-# - Julia 1.4 or later
+# - Julia runtime
 # - No third-party package is required
 
 function fizzbuzz_label(n::Integer)

@@ -17,8 +17,11 @@
 //     node fizzbuzz.js
 //
 // Requirements:
-// - Node.js 20 or later
+// - Node.js runtime
 // - No third-party package is required
+//
+// Verified Environment:
+// Tested with Node.js 22.23.5.
 
 function fizzbuzzLabel(n) {
   if (n % 15 === 0) return "FizzBuzz";

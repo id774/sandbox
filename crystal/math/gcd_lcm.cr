@@ -18,7 +18,7 @@
 #     crystal run gcd_lcm.cr
 #
 # Requirements:
-# - Crystal 1.0 or later
+# - Crystal compiler
 # - No third-party package is required
 
 PAIRS = [{1071, 462}, {270, 192}, {17, 5}, {120, 36}]

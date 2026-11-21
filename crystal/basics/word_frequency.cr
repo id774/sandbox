@@ -17,7 +17,7 @@
 #     crystal run word_frequency.cr
 #
 # Requirements:
-# - Crystal 1.0 or later
+# - Crystal compiler
 # - No third-party package is required
 
 TEXT = "the quick brown fox jumps over the lazy dog the fox barks"

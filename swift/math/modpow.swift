@@ -18,7 +18,7 @@
 //     swift modpow.swift
 //
 // Requirements:
-// - Swift 5.1 or later
+// - Swift toolchain
 // - No third-party package is required
 
 let cases = [(2, 1000, 1000003), (3, 200, 50), (5, 117, 19), (10, 18, 9999991)]

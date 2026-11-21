@@ -18,7 +18,7 @@
 //     dart run quicksort.dart
 //
 // Requirements:
-// - Dart 3.0 or later
+// - Dart SDK
 // - No third-party package is required
 
 List<T> quicksort<T extends Comparable<dynamic>>(List<T> items) {

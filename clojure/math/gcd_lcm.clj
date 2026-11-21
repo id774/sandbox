@@ -18,7 +18,7 @@
 ;;     clojure -M gcd_lcm.clj
 ;;
 ;; Requirements:
-;; - Clojure 1.11 or later, run through the Clojure CLI (clojure -M)
+;; - Clojure, run through the Clojure CLI (clojure -M)
 ;; - Java 8 or later
 ;; - No third-party package is required
 

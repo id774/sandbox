@@ -18,7 +18,7 @@
 ;;     gosh modpow.scm
 ;;
 ;; Requirements:
-;; - Gauche 0.9 or later (gosh)
+;; - Gauche (gosh)
 ;; - No third-party package is required
 
 (define cases '((2 1000 1000003) (3 200 50) (5 117 19) (10 18 9999991)))

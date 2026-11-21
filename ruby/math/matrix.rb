@@ -19,8 +19,11 @@
 #     ruby matrix.rb
 #
 # Requirements:
-# - Ruby 3.0 or later
+# - Ruby interpreter
 # - No third-party package is required
+#
+# Verified Environment:
+# Tested with Ruby 3.3.6.
 
 LEFT = [[2, -1, 0], [1, 3, 4], [0, 5, -2]].freeze
 RIGHT = [[1, 0, 2], [-3, 1, 1], [4, 2, 0]].freeze

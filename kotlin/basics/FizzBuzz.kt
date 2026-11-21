@@ -17,7 +17,7 @@
 //     kotlinc FizzBuzz.kt -include-runtime -d fizzbuzz.jar && java -jar fizzbuzz.jar
 //
 // Requirements:
-// - Kotlin 1.4 or later (kotlinc)
+// - Kotlin compiler (kotlinc)
 // - JDK 8 or later, for kotlinc and java -jar
 // - No third-party package is required
 
