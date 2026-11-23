@@ -9,6 +9,11 @@
 # License: The GPL version 3, or LGPL version 3 (Dual License).
 # Contact: idnanashi@gmail.com
 #
+# Usage:
+# - Run as the script handler configured in app.yaml for the legacy
+#   Google App Engine Python runtime.
+# - app.yaml routes /.* to simmsv.py, which starts the WSGI handler.
+#
 # Requirements:
 # - The Google App Engine Python runtime with webapp, db, and Django
 #
