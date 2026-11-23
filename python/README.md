@@ -169,6 +169,8 @@ Subdirectories group experiments by library or theme:
 - State burden: `state_burden`, which compares state convergence and burden
   under decay, initial-state preservation, a forced fixed point, and
   saturation.
+- Synaptic compensation: `synaptic_compensation`, which compares proportional
+  weight-update convergence and bounded output compensation in fixed cases.
 - Model release-delay cash flow: `model_release_cash_flow`, which verifies
   three fictional monthly cash balances, the minimum liquidity condition,
   and the effect of reducing the final month's compute payment.
