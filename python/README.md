@@ -140,6 +140,9 @@ Subdirectories group experiments by library or theme:
   JSON delivery fields before evaluating a fixed 30-day return window.
 - Citation verification: `citation_contract`, which checks citation IDs, 
   SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
+- WebAuthn validation: `webauthn_validation`, which checks assertion
+  signatures, credential ownership, request and session binding, challenge
+  use, and single-process concurrency with 21 tests.
 - Quantum shogi capacity projection: `quantum_shogi_hall`, which uses Hall
   subset checks to remove unsupported piece-kind candidates.
 - Bell-pair SWAP entropy: `bell_swap_entropy`, which interleaves distant
