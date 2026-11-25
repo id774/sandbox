@@ -154,6 +154,9 @@ Subdirectories group experiments by library or theme:
 - Generated-text attribute identification: `attribute_leakage`, which
   compares total variation and binary-label identification accuracy under
   fixed wording probabilities, label permutation, and phrase standardization.
+- Joint-observation information leakage: `joint_observation_leakage`, which
+  compares individual, joint, and conditional mutual information for four
+  fixed binary probability distributions.
 - Permission and dependency impact: `permission_dependency_impact`, which
   compares writable resource scope and mandatory dependency outage scope
   before and after fixed boundary changes.
