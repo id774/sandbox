@@ -138,6 +138,9 @@ Subdirectories group experiments by library or theme:
   and required-first history selection under a fixed character budget.
 - Agent handoff validation: `agent_handoff_validation`, which checks required
   JSON delivery fields before evaluating a fixed 30-day return window.
+- Agent workflow reliability: `agent_workflow_reliability`, which compares
+  conditional stage success, failure detection, repair success, and simulated
+  workflow completion rates against analytical probabilities.
 - Citation verification: `citation_contract`, which checks citation IDs, 
   SHA-256-bound support reviews, and acceptance, review, or rejection outcomes.
 - WebAuthn validation: `webauthn_validation`, which checks assertion
