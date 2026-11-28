@@ -110,6 +110,9 @@ Subdirectories group experiments by library or theme:
 - Numerical verification: `model_equivalence`, which compares two deterministic
   model implementations with exact equality, numerical tolerances, fixed
   scenarios, and independent invariants.
+- Migration judge validation: `migration_judge_validation`, which compares
+  three judges against 21 fixed process-observation cases and measures
+  false acceptance and false rejection with 16 unit tests.
 - Time-dependent low-rank approximation: `time_dependent_low_rank`, which
   checks SVD truncation errors, sufficient ranks from uniform spectral decay
   and nuclear-norm bounds, minimum ranks for fixed time-dependent matrices,
